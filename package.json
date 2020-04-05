@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docs:generate": "npx typedoc --out docs src"
   },
   "dependencies": {
     "cldr-data": "^36.0.0",
@@ -63,6 +64,7 @@
     "stylelint": "^13.3.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-processor-html": "^1.0.0",
+    "typedoc": "^0.17.3",
     "typescript": "^3.8.3",
     "vue-template-compiler": "^2.6.10"
   },
