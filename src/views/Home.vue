@@ -126,6 +126,8 @@
         }
 
         svg {
+
+          transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
           @include mq(iphone) {
             height: auto;
             width: 40px;
@@ -138,8 +140,6 @@
             height: auto;
             width: 100px;
           }
-
-          transition: transform 0.4s cubic-bezier(.54, .59, .52, 1.1);
         }
       }
     }
@@ -180,16 +180,20 @@
     padding: 5px 10px;
   }
 
-  .shift-right-enter-active, .shift-right-leave-active,
-  .shift-left-enter-active, .shift-left-leave-active {
-    transition: transform .25s;
+  .shift-right-enter-active,
+  .shift-right-leave-active,
+  .shift-left-enter-active,
+  .shift-left-leave-active {
+    transition: transform 0.25s;
   }
 
-  .shift-right-enter-active, .shift-left-enter-active {
+  .shift-right-enter-active,
+  .shift-left-enter-active {
     transition-timing-function: ease-out;
   }
 
-  .shift-right-leave-active, .shift-left-leave-active {
+  .shift-right-leave-active,
+  .shift-left-leave-active {
     transition-timing-function: ease-in;
   }
 

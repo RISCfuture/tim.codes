@@ -49,8 +49,13 @@ const module = makeProjectsModule(projects)
 
 describe('Vuex: Projects', () => {
   context('[getters]', () => {
-    const featuredProjects = getter<ProjectsState, Project[]>(module, 'featuredProjects')
-    const minorProjects = getter<ProjectsState, Project[]>(module, 'minorProjects')
+    let featuredProjects: () => Project[]
+    let minorProjects: () => Project[]
+
+    beforeEach(() => {
+      featuredProjects = getter<ProjectsState, Project[]>(module, 'featuredProjects')
+      minorProjects = getter<ProjectsState, Project[]>(module, 'minorProjects')
+    })
 
     describe('featuredProjects', () => {
       it('returns featured projects', () => {

@@ -33,8 +33,8 @@
     }
 
     private get concentrations(): string {
-      const concentrations = this.education.concentrations
-          .map(c => <string> this.$t(`resume.education.concentration.${c}`))
+      const concentrations = this.education.concentrations.
+          map(c => <string> this.$t(`resume.education.concentration.${c}`))
       return list(concentrations)
     }
   }

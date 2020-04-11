@@ -96,8 +96,8 @@
 
     li {
       list-style-type: none;
-      padding: 0;
       margin: 0 0 0.5em;
+      padding: 0;
     }
   }
 
@@ -107,8 +107,8 @@
   }
 
   .references {
-    text-align: center;
     font-style: italic;
+    text-align: center;
   }
 
   @media only screen {
@@ -122,14 +122,14 @@
         padding: 0;
       }
       @include mq(ipad) {
-        transform: scale(3) translate(-5px, 10px);
         opacity: 0.2;
         padding: 15px 0;
+        transform: scale(3) translate(-5px, 10px);
       }
       @include mq(large) {
-        transform: scale(4) translate(-5px, 5px);
         opacity: 0.2;
         padding: 15px 0;
+        transform: scale(4) translate(-5px, 5px);
       }
     }
 
@@ -138,12 +138,15 @@
     #header-accomplishments { color: #00a1e4; }
     #header-jobs { color: #dc0073; }
     #header-supporting-experience { color: #7abb80; }
-    #header-education { color: black; }
+    #header-education { color: #fff; }
   }
 
   @media only print {
-    *, h1 { font-size: 16px; }
-    .address, .address span { font-size: 12px; }
+    *,
+    h1 { font-size: 16px; }
+
+    .address,
+    .address span { font-size: 12px; }
   }
 </style>
 
@@ -151,8 +154,8 @@
   ul.history li {
     h2 {
       font-size: 16px;
-      margin-bottom: 0;
       font-weight: 500;
+      margin-bottom: 0;
 
       .title {
         font-weight: bold;

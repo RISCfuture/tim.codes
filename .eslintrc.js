@@ -5,15 +5,16 @@ module.exports = {
     node: true
   },
 
-  plugins: ['jasmine', 'cypress', 'chai-friendly'],
+  plugins: ['chai-expect', 'chai-friendly', 'cypress', 'mocha'],
 
   extends: [
-    'plugin:vue/essential',
     '@vue/airbnb',
     '@vue/typescript/recommended',
-    'plugin:jasmine/recommended',
+    'plugin:chai-expect/recommended',
+    'plugin:chai-friendly/recommended',
     'plugin:cypress/recommended',
-    'plugin:chai-friendly/recommended'
+    'plugin:mocha/recommended',
+    'plugin:vue/essential'
   ],
 
   parserOptions: {
@@ -29,9 +30,15 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'comma-dangle': ['error', 'never'],
+    'dot-location': ['error', 'object'],
+    'implicit-arrow-linebreak': 'off',
     'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'] }],
     'import/no-named-default': 'off',
-    'jasmine/no-spec-dupes': 'off',
+    'mocha/no-mocha-arrows': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-plusplus': 'off',
+    'no-useless-constructor': 'off',
     semi: ['error', 'never'],
     'vue/script-indent': ['error', 2, { baseIndent: 1 }]
   },

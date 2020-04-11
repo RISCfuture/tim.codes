@@ -30,8 +30,8 @@ describe('Education.vue', () => {
 
   describe('content', () => {
     it('returns the textual content', () => {
-      expect(component.vm.content).to
-        .eql('<span class="degree">B.S., Computer Science, Physics</span> '
+      expect(component.vm.content).to.
+        eql('<span class="degree">B.S., Computer Science, Physics</span> '
           + 'Beloit College; Beloit, WI; 2001–2005')
     })
   })

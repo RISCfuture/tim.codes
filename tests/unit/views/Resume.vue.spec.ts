@@ -62,15 +62,15 @@ describe('Resume.vue', () => {
 
   describe('addressLine1', () => {
     it('returns the textual address line', () => {
-      expect(component.vm.addressLine1).to
-        .contain('94107 | USA')
+      expect(component.vm.addressLine1).to.
+        contain('94107 | USA')
     })
   })
 
   describe('addressLine2', () => {
     it('returns the textual address line', () => {
-      expect(component.vm.addressLine2).to
-        .contain(' | resume@timothymorgan.info')
+      expect(component.vm.addressLine2).to.
+        contain(' | resume@timothymorgan.info')
     })
   })
 

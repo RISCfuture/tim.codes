@@ -29,9 +29,9 @@ function listMiddle(items: string[], template: string): string {
 function listStartAndMiddle(items: string[],
   startTemplate: string,
   middleTemplate: string): string {
-  return startTemplate
-    .replace('{0}', items[0])
-    .replace('{1}', listMiddle(items.slice(1), middleTemplate))
+  return startTemplate.
+    replace('{0}', items[0]).
+    replace('{1}', listMiddle(items.slice(1), middleTemplate))
 }
 
 export function list(items: string[], type = 'standard-narrow'): string {

@@ -44,8 +44,13 @@ const resume = makeResumeModule(jobs, education)
 
 describe('Vuex: Resume', () => {
   context('[getters]', () => {
-    const getJobs = getter<ResumeState, Job[]>(resume, 'jobs')
-    const getEducation = getter<ResumeState, Education[]>(resume, 'education')
+    let getJobs: () => Job[]
+    let getEducation: () => Education[]
+
+    beforeEach(() => {
+      getJobs = getter<ResumeState, Job[]>(resume, 'jobs')
+      getEducation = getter<ResumeState, Education[]>(resume, 'education')
+    })
 
     describe('jobs', () => {
       it('returns jobs by end year', () => {

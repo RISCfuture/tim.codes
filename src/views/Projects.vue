@@ -80,15 +80,15 @@
 
       li {
         border-radius: ($height + $padding*2)/2 - $padding;
-        color: white;
+        color: #fff;
         display: inline-block;
+        font-family: Inter, sans-serif;
+        font-weight: 300;
+        letter-spacing: -0.5px;
         list-style: none;
         margin: 3px;
         padding: $padding;
         text-transform: lowercase;
-        font-family: Inter, sans-serif;
-        font-weight: 300;
-        letter-spacing: -0.5px;
       }
 
       li.type {
@@ -119,7 +119,8 @@
         padding: 0;
       }
 
-      li, li a {
+      li,
+      li a {
         font-family: Inter, sans-serif;
         font-weight: 300;
       }

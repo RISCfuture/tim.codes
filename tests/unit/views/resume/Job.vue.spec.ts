@@ -28,8 +28,8 @@ describe('Job.vue', () => {
 
   describe('header', () => {
     it('returns the textual header', () => {
-      expect(component.vm.header).to
-        .eql('<span class="time-range">2019–2020</span> <span class="title">'
+      expect(component.vm.header).to.
+        eql('<span class="time-range">2019–2020</span> <span class="title">'
           + 'Staff Software Engineer</span>, One Medical Group (San Francisco)')
     })
   })
