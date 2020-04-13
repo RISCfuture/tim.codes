@@ -19,7 +19,7 @@ then run `yarn install` in that directory
 To run a copy of my website, simply check.
 
 You will also need to copy the `src/i18n/strings/{base,en}/private.deploy.ts`
-files to `src/i18n/strings/{base,en}/private.ts.`. (These files contain my
+files to `src/i18n/strings/{base,en}/private.ts`. (These files contain my
 private information locally.)
 
 ## Running in development
