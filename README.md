@@ -14,9 +14,13 @@ powered by the `vue-cli-service` command, though the `package.json` file has
 `yarn` aliases for all common development and deployment tasks.
 
 ## Installation
+ out this project into a directory,
+then run `yarn install` in that directory
+To run a copy of my website, simply check.
 
-To run a copy of my website, simply check out this project into a directory,
-then run `yarn install` in that directory.
+You will also need to copy the `src/i18n/strings/{base,en}/private.deploy.ts`
+files to `src/i18n/strings/{base,en}/private.ts.`. (These files contain my
+private information locally.)
 
 ## Running in development
 
