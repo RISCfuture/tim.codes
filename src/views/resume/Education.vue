@@ -9,7 +9,7 @@
 
   import formatYear from './formatYear'
   import * as Resume from '@/store/types/resume'
-  import { list } from '@/i18n/globalizer'
+  import { list } from '@/i18n/functions'
 
   @Component
   export default class Education extends Vue {

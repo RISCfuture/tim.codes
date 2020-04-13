@@ -1,6 +1,7 @@
 import Cldr from 'cldrjs'
 import likelySubtags from 'cldr-data/supplemental/likelySubtags.json'
 import listsEn from 'cldr-data/main/en/listPatterns.json'
+import { initial, last } from 'lodash-es'
 import VueI18n from './index'
 
 interface CLDRStringPattern {
@@ -26,15 +27,17 @@ function listMiddle(items: string[], template: string): string {
   return template.replace('{0}', items[0]).replace('{1}', listMiddle(items.slice(1), template))
 }
 
-function listStartAndMiddle(items: string[],
+function listStartAndMiddle(
+  items: string[],
   startTemplate: string,
-  middleTemplate: string): string {
+  middleTemplate: string
+): string {
   return startTemplate.
     replace('{0}', items[0]).
     replace('{1}', listMiddle(items.slice(1), middleTemplate))
 }
 
-export function list(items: string[], type = 'standard-narrow'): string {
+export function list(items: string[], type = 'standard'): string {
   if (items.length === 1) return items[0]
 
   const pattern: CLDRStringPattern = CLDR.main(`listPatterns/listPattern-type-${type}`)
@@ -45,9 +48,9 @@ export function list(items: string[], type = 'standard-narrow'): string {
   }
 
   const firstAndMiddle = listStartAndMiddle(
-    items.slice(0, items.length - 2),
+    initial(items),
     pattern.start,
     pattern.middle
   )
-  return pattern.end.replace('{0}', firstAndMiddle).replace('{1}', items[items.length - 1])
+  return pattern.end.replace('{0}', firstAndMiddle).replace('{1}', last(items)!)
 }
