@@ -41,7 +41,6 @@
 <script lang="ts">
   import Vue from 'vue'
   import Component from 'vue-class-component'
-  import moment from 'moment'
 
   import { default as HomeImage } from './home/images/Home.vue'
   import { default as ProjectsImage } from './home/images/Projects.vue'
@@ -51,9 +50,9 @@
     components: { HomeImage, ProjectsImage, ResumeImage }
   })
   export default class Home extends Vue {
-    copyrightYear = moment().format('YYYY')
-
     transitionName = 'shift-right'
+
+    get copyrightYear(): string { return this.$d(new Date(), 'yearOnly') }
 
     navigate(destination: { name: string }): void {
       let shiftRight = false

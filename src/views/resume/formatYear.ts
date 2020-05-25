@@ -1,5 +1,5 @@
-import moment from 'moment'
+import i18n from '@/i18n'
 
 export default function formatYear(year: number): string {
-  return moment({ year }).format('YYYY')
+  return i18n.d(new Date(year, 1), 'yearOnly')
 }

@@ -22,7 +22,6 @@
     "core-js": "^3.6.5",
     "iana-tz-data": "^2019.1.0",
     "lodash-es": "^4.17.15",
-    "moment": "^2.26.0",
     "mq-sass": "^0.8.0",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
