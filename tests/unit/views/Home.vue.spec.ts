@@ -6,7 +6,7 @@ import Home from '@/views/Home.vue'
 describe('Home.vue', () => {
   let component: Wrapper<Home>
   let routerMock: RouterMock
-  let mocks: object
+  let mocks: Record<string, unknown>
 
   beforeEach(() => {
     routerMock = new RouterMock()

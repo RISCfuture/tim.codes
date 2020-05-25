@@ -1,5 +1,6 @@
 import { GetterTree, Module } from 'vuex'
 import { Education, Job, TimeRanged } from '@/store/types/resume'
+import RootState from '@/store/root'
 
 export interface ResumeState {
   jobs: Job[];
@@ -9,7 +10,7 @@ export interface ResumeState {
 export default function makeResumeModule(
   jobs: Job[],
   education: Education[]
-): Module<ResumeState, {}> {
+): Module<ResumeState, RootState> {
   const state: () => ResumeState = () => ({ jobs, education })
 
   function byEndYear(a: TimeRanged, b: TimeRanged) {
@@ -21,7 +22,7 @@ export default function makeResumeModule(
     return b.startYear - a.startYear // sort descending by start year
   }
 
-  const getters: GetterTree<ResumeState, {}> = {
+  const getters: GetterTree<ResumeState, RootState> = {
     jobs(s: ResumeState): Job[] {
       return s.jobs.sort(byEndYear)
     },

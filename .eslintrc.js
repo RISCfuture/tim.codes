@@ -5,15 +5,9 @@ module.exports = {
     node: true
   },
 
-  plugins: ['chai-expect', 'chai-friendly', 'cypress', 'mocha'],
-
   extends: [
     '@vue/airbnb',
     '@vue/typescript/recommended',
-    'plugin:chai-expect/recommended',
-    'plugin:chai-friendly/recommended',
-    'plugin:cypress/recommended',
-    'plugin:mocha/recommended',
     'plugin:vue/essential'
   ],
 
@@ -34,7 +28,6 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'] }],
     'import/no-named-default': 'off',
-    'mocha/no-mocha-arrows': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-plusplus': 'off',
@@ -44,15 +37,6 @@ module.exports = {
   },
 
   overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
-      env: {
-        mocha: true
-      }
-    },
     {
       files: ['src/i18n/strings/**/*.ts'],
       rules: {

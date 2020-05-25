@@ -11,7 +11,7 @@ import AbstractProject from '@/views/projects/AbstractProject'
 
 export default function itBehavesLikeAnAbstractProject<ComponentType extends AbstractProject>(
   componentType: VueClass<ComponentType>
-) {
+): void {
   describe('AbstractProject.vue', () => {
     let component: Wrapper<ComponentType>
     let project: Project

@@ -8,12 +8,13 @@ import makeResumeModule from '@/store/resume'
 import { education, jobs } from '@/store/data/resume'
 import makeSocialModule from '@/store/social'
 import { profiles } from '@/store/data/social'
+import RootState from '@/store/root'
 
 Vue.use(Vuex)
 
-const state: () => {} = () => ({})
+const state: () => RootState = () => ({})
 
-const options: StoreOptions<{}> = {
+const options: StoreOptions<RootState> = {
   state,
   modules: {
     bio: makeBioModule(careers),

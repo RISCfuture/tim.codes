@@ -55,7 +55,7 @@
 
     transitionName = 'shift-right'
 
-    navigate(destination: { name: string }) {
+    navigate(destination: { name: string }): void {
       let shiftRight = false
       if (this.$route.name === 'home') shiftRight = true
       else if (this.$route.name === 'projects') shiftRight = (destination.name === 'resume')
