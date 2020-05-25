@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import './config/bugsnag'
+
 import i18n from './i18n'
 import router from './router'
 import store from './store'
