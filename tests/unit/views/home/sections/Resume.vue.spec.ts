@@ -1,8 +1,8 @@
 import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils'
 import { expect } from 'chai'
-import useVuex from '../../support/useVuex'
-import useI18n from '../../support/useI18n'
-import Resume from '@/views/Resume.vue'
+import useVuex from '../../../../support/useVuex'
+import useI18n from '../../../../support/useI18n'
+import Resume from '@/views/home/sections/Resume.vue'
 import { Degree, JobLocation } from '@/store/types/resume'
 import makeResumeModule from '@/store/resume'
 
@@ -49,10 +49,10 @@ const store = useVuex(localVue, {
 const i18n = useI18n(localVue)
 
 describe('Resume.vue', () => {
-  let component: Wrapper<Resume>
+  let wrapper: Wrapper<Resume>
 
   beforeEach(() => {
-    component = shallowMount(Resume, {
+    wrapper = shallowMount(Resume, {
       propsData: { jobs, education },
       localVue,
       store,
@@ -62,27 +62,27 @@ describe('Resume.vue', () => {
 
   describe('addressLine1', () => {
     it('returns the textual address line', () => {
-      expect(component.vm.addressLine1).to.
+      expect(wrapper.vm.addressLine1).to.
         contain('94107 | USA')
     })
   })
 
   describe('addressLine2', () => {
     it('returns the textual address line', () => {
-      expect(component.vm.addressLine2).to.
+      expect(wrapper.vm.addressLine2).to.
         contain(' | resume@timothymorgan.info')
     })
   })
 
   describe('accomplishments', () => {
     it('returns the list of accomplishments', () => {
-      expect(component.vm.accomplishments).to.be.an('array').that.is.not.empty
+      expect(wrapper.vm.accomplishments).to.be.an('array').that.is.not.empty
     })
   })
 
   describe('supportingExperience', () => {
     it('returns the list', () => {
-      expect(component.vm.supportingExperience).to.be.an('array').that.is.not.empty
+      expect(wrapper.vm.supportingExperience).to.be.an('array').that.is.not.empty
     })
   })
 })

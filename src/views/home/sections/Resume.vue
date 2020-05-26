@@ -83,7 +83,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~mq-sass/stylesheets/mq-sass';
+  @import 'node_modules/mq-sass/stylesheets/mq-sass';
 
   h1 {
     font-size: 16px;

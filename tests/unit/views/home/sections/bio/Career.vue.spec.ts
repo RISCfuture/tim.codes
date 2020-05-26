@@ -1,9 +1,9 @@
 import { shallowMount, Wrapper } from '@vue/test-utils'
 import { expect } from 'chai'
-import Career from '@/views/home/Career.vue'
+import Career from '@/views/home/sections/bio/Career.vue'
 
 describe('Career.vue', () => {
-  let component: Wrapper<Career>
+  let wrapper: Wrapper<Career>
   let career
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Career.vue', () => {
       ],
       inline: true
     }
-    component = shallowMount(Career, {
+    wrapper = shallowMount(Career, {
       propsData: { career },
       mocks: {
         $t: (key: string) => `translated: ${key}`
@@ -25,13 +25,13 @@ describe('Career.vue', () => {
 
   describe('category', () => {
     it('returns the localized category', () => {
-      expect(component.vm.category).to.eql('translated: careerKey')
+      expect(wrapper.vm.category).to.eql('translated: careerKey')
     })
   })
 
   describe('accomplishments', () => {
     it('returns the localized accomplishments', () => {
-      expect(component.vm.accomplishments).to.eql([
+      expect(wrapper.vm.accomplishments).to.eql([
         'translated: accomplishment1',
         'translated: accomplishment2'
       ])

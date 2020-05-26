@@ -1,7 +1,7 @@
 import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils'
 import { expect } from 'chai'
-import useI18n from '../../../support/useI18n'
-import Job from '@/views/resume/Job.vue'
+import useI18n from '../../../../../support/useI18n'
+import Job from '@/views/home/sections/resume/Job.vue'
 import * as Resume from '@/store/types/resume'
 import { JobLocation } from '@/store/types/resume'
 
@@ -9,7 +9,7 @@ const localVue = createLocalVue()
 const i18n = useI18n(localVue)
 
 describe('Job.vue', () => {
-  let component: Wrapper<Job>
+  let wrapper: Wrapper<Job>
   let job: Resume.Job
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('Job.vue', () => {
       endYear: 2020,
       location: JobLocation.SF
     }
-    component = shallowMount(Job, {
+    wrapper = shallowMount(Job, {
       propsData: { job },
       localVue,
       i18n
@@ -28,7 +28,7 @@ describe('Job.vue', () => {
 
   describe('header', () => {
     it('returns the textual header', () => {
-      expect(component.vm.header).to.
+      expect(wrapper.vm.header).to.
         eql('<span class="time-range">2019–2020</span> <span class="title">'
           + 'Staff Software Engineer</span>, One Medical Group (San Francisco)')
     })

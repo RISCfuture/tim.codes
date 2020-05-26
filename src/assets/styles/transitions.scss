@@ -1,0 +1,32 @@
+.shift-right-enter-active,
+.shift-right-leave-active,
+.shift-left-enter-active,
+.shift-left-leave-active {
+  transition: transform 0.25s;
+}
+
+.shift-right-enter-active,
+.shift-left-enter-active {
+  transition-timing-function: ease-out;
+}
+
+.shift-right-leave-active,
+.shift-left-leave-active {
+  transition-timing-function: ease-in;
+}
+
+.shift-right-enter {
+  transform: translateX(150%);
+}
+
+.shift-right-leave-to {
+  transform: translateX(-150%);
+}
+
+.shift-left-enter {
+  transform: translateX(-150%);
+}
+
+.shift-left-leave-to {
+  transform: translateX(150%);
+}

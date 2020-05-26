@@ -34,7 +34,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~mq-sass/stylesheets/mq-sass';
+  @import 'node_modules/mq-sass/stylesheets/mq-sass';
 
   .featured,
   .minor {
@@ -56,7 +56,7 @@
 </style>
 
 <style lang="scss">
-  @import '~@/assets/vars';
+  @import '~@/assets/styles/vars';
 
   $yellow: #f5b700;
   $blue: #00a1e4;

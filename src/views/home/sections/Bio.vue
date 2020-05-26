@@ -9,7 +9,7 @@
   import Component from 'vue-class-component'
   import { Getter } from 'vuex-class'
 
-  import Career from './home/Career.vue'
+  import Career from './bio/Career.vue'
   import * as Types from '@/store/types/bio'
 
   @Component({

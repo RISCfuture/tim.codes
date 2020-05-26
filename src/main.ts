@@ -17,8 +17,9 @@ import '@/assets/fonts/Inter-Bold-slnt=0.ttf'
 import '@/assets/fonts/Inter-Light-slnt=0.ttf'
 
 import 'normalize.css/normalize.css'
-import '@/assets/fonts.scss'
-import '@/assets/layout.scss'
+import '@/assets/styles/fonts.scss'
+import '@/assets/styles/layout.scss'
+import '@/assets/styles/transitions.scss'
 
 Vue.config.productionTip = false
 
