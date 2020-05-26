@@ -21,7 +21,7 @@
   import Component from 'vue-class-component'
 
   @Component
-  export default class Projects extends Vue {
+  export default class Home extends Vue {
 
   }
 </script>
