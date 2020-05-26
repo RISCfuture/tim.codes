@@ -1,10 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 
 import {
-  Language, Library,
-  Project,
-  ProjectType,
-  WebsiteType
+  Language, Library, Project, ProjectType, WebsiteType
 } from '@/store/types/projects'
 
 export const projects: Project[] = [
@@ -38,6 +35,28 @@ export const projects: Project[] = [
   },
   {
     type: ProjectType.WEBSITE,
+    identifier: 'icrashedmyplane',
+    websites: [
+      { url: 'https://icrashedmyplane.com', type: WebsiteType.LIVE },
+      { url: 'https://github.com/RISCfuture/I-Crashed-My-Plane', type: WebsiteType.SOURCE }
+    ],
+    languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
+    libraries: [Library.VUEJS],
+    featured: true
+  },
+  {
+    type: ProjectType.WEBSITE,
+    identifier: 'learnmorsecode',
+    websites: [
+      { url: 'https://learnmorse.codes', type: WebsiteType.LIVE },
+      { url: 'https://github.com/RISCfuture/learnmorse.codes', type: WebsiteType.SOURCE }
+    ],
+    languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
+    libraries: [Library.VUEJS],
+    featured: true
+  },
+  {
+    type: ProjectType.WEBSITE,
     identifier: 'ranked',
     websites: [
       { url: 'https://r4nked.herokuapp.com', type: WebsiteType.LIVE },
@@ -45,7 +64,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.RAILS, Library.VUEJS],
-    featured: true
+    featured: false
   },
   {
     type: ProjectType.WEBSITE,
@@ -57,40 +76,6 @@ export const projects: Project[] = [
     ],
     languages: [Language.RUBY, Language.ES5, Language.HTML, Language.CSS],
     libraries: [Library.RAILS, Library.JQUERY, Library.BOOTSTRAP],
-    featured: false
-  },
-  {
-    type: ProjectType.WEBSITE,
-    identifier: 'also',
-    websites: [
-      { url: 'https://also.fm', type: WebsiteType.LIVE },
-      { url: 'https://github.com/RISCfuture/also.fm', type: WebsiteType.SOURCE }
-    ],
-    languages: [Language.RUBY, Language.ES5, Language.HTML, Language.CSS],
-    libraries: [Library.RAILS, Library.JQUERY],
-    featured: false
-  },
-  {
-    type: ProjectType.GEM,
-    identifier: 'find_or_create_on_scopes',
-    websites: [
-      {
-        url: 'https://github.com/RISCfuture/find_or_create_on_scopes',
-        type: WebsiteType.SOURCE
-      }
-    ],
-    languages: [Language.RUBY],
-    libraries: [],
-    featured: false
-  },
-  {
-    type: ProjectType.GEM,
-    identifier: 'configoro',
-    websites: [
-      { url: 'https://github.com/RISCfuture/Configoro', type: WebsiteType.SOURCE }
-    ],
-    languages: [Language.RUBY],
-    libraries: [],
     featured: false
   },
   {
@@ -116,19 +101,6 @@ export const projects: Project[] = [
       }
     ],
     languages: [Language.OBJECTIVE_C],
-    libraries: [],
-    featured: false
-  },
-  {
-    type: ProjectType.GEM,
-    identifier: 'unicode_scanner',
-    websites: [
-      {
-        url: 'https://github.com/RISCfuture/unicode_scanner',
-        type: WebsiteType.SOURCE
-      }
-    ],
-    languages: [Language.RUBY],
     libraries: [],
     featured: false
   },

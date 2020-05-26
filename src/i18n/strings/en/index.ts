@@ -80,6 +80,22 @@ const en: LocaleMessages = {
         'Generates and syndicates podcast RSS feed'
       ]
     },
+    icrashedmyplane: {
+      description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
+      achievements: [
+        'Seemingly simple front-end powered by sophisticated tree-walking algorithms',
+        'Extensive use of Vue transitions for a fluid app-like experience',
+        'Responsive design and dark mode support'
+      ]
+    },
+    learnmorsecode: {
+      description: 'A fun, affirming, and slightly pushy tool to teach Morse code',
+      achievements: [
+        'All Morse code audio and pictographs are generated programmatically; no assets are used',
+        'Extensive use of Vue transitions for a fluid app-like experience',
+        'Responsive design and dark mode support'
+      ]
+    },
     ranked: {
       description: 'Rank arbitrary lists of things using an Elo algorithm',
       achievements: [
@@ -90,23 +106,11 @@ const en: LocaleMessages = {
     logtensafe: {
       description: 'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
     },
-    also: {
-      description: 'Simple music sharing platform'
-    },
-    find_or_create_on_scopes: {
-      description: 'Adds #find_or_create and #create_or_update to Rails relationships'
-    },
-    configoro: {
-      description: 'Simple but versatile YAML-based configuration file interface for Rails'
-    },
     bad_behavior: {
       description: 'Scans your digital pilot logbook for potential violations of federal aviation regulations'
     },
     metar_decoder: {
       description: 'Decodes the “Remarks” section of a METAR into human-readable text'
-    },
-    unicode_scanner: {
-      description: '100%-conforming implementation of Ruby’s StringScanner with Unicode support'
     },
     hearts: {
       description: 'Converts images into “Emoji-art” using image sampling and color processing'
@@ -121,17 +125,17 @@ const en: LocaleMessages = {
     objective: {
       header: 'Objective:',
       content: 'Staff engineer at a software-comes-first firm in need of passionate '
-          + 'programmers and fast learners. Especially excited by web and applications '
-          + 'programming.'
+        + 'programmers and fast learners. Especially excited by web and applications '
+        + 'programming.'
     },
 
     summary: {
       header: 'Summary',
       content: 'Experienced, fast, disciplined and thorough programmer with strong '
-          + 'focus on design-oriented coding and complete documentation. Comfortable '
-          + 'in many languages (Ruby, JavaScript/Node, Swift, Objective-C, CSS/HTML), '
-          + 'libraries (Ruby on Rails, Vue.js, jQuery, Cocoa), and tools (Webpack, '
-          + 'Capistrano, Sidekiq, Git).'
+        + 'focus on design-oriented coding and complete documentation. Comfortable '
+        + 'in many languages (Ruby, JavaScript/Node, Swift, Objective-C, CSS/HTML), '
+        + 'libraries (Ruby on Rails, Vue.js, jQuery, Cocoa), and tools (Webpack, '
+        + 'Capistrano, Sidekiq, Git).'
     },
 
     accomplishments: {
@@ -156,40 +160,40 @@ const en: LocaleMessages = {
           title: 'Software Development Engineer II',
           company: 'Amazon.com',
           description: 'Programmer for the Transportation team, responsible for '
-              + 'implementing web-based visibility services and Oracle back-ends for '
-              + 'inbound and outbound freight.'
+            + 'implementing web-based visibility services and Oracle back-ends for '
+            + 'inbound and outbound freight.'
         },
         tickle: {
           title: 'Software Engineer',
           company: 'Tickle.com',
           description: 'Lead developer for the international Tickle.com websites '
-              + '(a J2EE/Spring website) and a Ruby on Rails ad-serving system.'
+            + '(a J2EE/Spring website) and a Ruby on Rails ad-serving system.'
         },
         scribd: {
           title: 'Senior Developer',
           company: 'Scribd',
           description: 'Primary Ruby on Rails back-end developer for Scribd.com; '
-              + 'website features, database optimizations, proper Rails style, and '
-              + 'expert advice.'
+            + 'website features, database optimizations, proper Rails style, and '
+            + 'expert advice.'
         },
         recurly: {
           title: 'Senior Developer',
           company: 'Recurly',
           description: 'Expert Ruby on Rails developer; wrote second-generation '
-              + 'payment gateway in Rails. Back-end refactoring, architecture, design.'
+            + 'payment gateway in Rails. Back-end refactoring, architecture, design.'
         },
         square: {
           title: 'Software Engineer — Tools',
           company: 'Square',
           description: 'Inagural internal tools developer for Square, with a focus '
-              + 'on Ruby on Rails. Designed, built, and launched major engineering '
-              + 'projects that were used internally and open-sourced.'
+            + 'on Ruby on Rails. Designed, built, and launched major engineering '
+            + 'projects that were used internally and open-sourced.'
         },
         omg: {
           title: 'Staff Software Engineer',
           company: 'One Medical Group',
           description: 'Software engineer on the New Services team. Developing '
-              + 'new features and products in Ruby on Rails and Angular 2.'
+            + 'new features and products in Ruby on Rails and Angular 2.'
         }
       }
     },

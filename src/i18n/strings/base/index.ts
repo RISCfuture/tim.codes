@@ -27,14 +27,12 @@ const base: LocaleMessages = {
   projects: {
     '1ma': { name: 'One Mike Alpha' },
     avfacts: { name: 'AvFacts' },
+    icrashedmyplane: { name: 'I Crashed My Plane' },
+    learnmorsecode: { name: 'Learn Morse Code' },
     ranked: { name: 'Ranked.' },
     logtensafe: { name: 'LogTenSafe' },
-    also: { name: 'also.fm' },
-    find_or_create_on_scopes: { name: 'find_or_create_on_scopes' },
-    configoro: { name: 'Configoro' },
     bad_behavior: { name: 'BadBehavior' },
     metar_decoder: { name: 'METAR Decoder' },
-    unicode_scanner: { name: 'UnicodeScanner' },
     hearts: { name: 'Hearts' }
   },
   resume: {
