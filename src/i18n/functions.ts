@@ -1,8 +1,16 @@
 import Cldr from 'cldrjs'
 import likelySubtags from 'cldr-data/supplemental/likelySubtags.json'
 import listsEn from 'cldr-data/main/en/listPatterns.json'
-import { initial, last } from 'lodash-es'
+import { initial, intersection, last } from 'lodash-es'
 import VueI18n from './index'
+
+const availableI18nLocales = VueI18n.availableLocales
+const availableCLDRLocales = ['en']
+const availableLocales = intersection(availableCLDRLocales, availableI18nLocales)
+const CLDRLocale = availableLocales.includes(VueI18n.locale) ? VueI18n.locale : 'en'
+// TODO: this isn't a perfect strategy; ideally we would match the CLDR locale to the (fallback?)
+//  locale used for each particular translated string. but we don't have access to that information
+//  on a call-by-call basis
 
 interface CLDRStringPattern {
   start: string;
@@ -12,7 +20,7 @@ interface CLDRStringPattern {
   [count: string]: string;
 }
 Cldr.load(likelySubtags, listsEn)
-export const CLDR = new Cldr(VueI18n.locale)
+const CLDR = new Cldr(CLDRLocale) // TODO add other locales as they are supported
 
 function listConstantLength(template: string, items: string[]): string {
   let output = template
@@ -37,6 +45,7 @@ function listStartAndMiddle(
     replace('{1}', listMiddle(items.slice(1), middleTemplate))
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export function list(items: string[], type = 'standard'): string {
   if (items.length === 1) return items[0]
 
