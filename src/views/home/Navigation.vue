@@ -40,6 +40,8 @@
   })
   export default class Navigation extends Vue {
     navigate(destination: { name: string }): void {
+      if (destination.name === this.$route.name) return
+
       let shiftRight = false
       if (this.$route.name === 'home') shiftRight = true
       else if (this.$route.name === 'projects') shiftRight = (destination.name === 'resume')
