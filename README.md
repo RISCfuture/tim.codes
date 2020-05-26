@@ -35,8 +35,9 @@ Jasmine) and end-to-end tests (run using Cypress). To run unit tests, run
 `yarn test:unit`. Run `yarn test:e2e` to launch the Cypress test runner and run 
 end-to-end tests.
 
-## Compiling for production
+## Deployment
 
-Run `yarn build` to build production sources to the `dist` directory. To deploy,
-I simply SFTP the compiled sources to my web host (using the `deploy.rb` 
-script).
+This website is hosted using GitHub pages. The `deploy.rb` script creates the
+`dist/` directory, makes it point to the `gh-pages` branch of this repository,
+deploys into that directory, commits the changes, and then pushes those changes
+upstream. GitHub should automatically handle the rest.
