@@ -2,7 +2,8 @@
   <tr>
     <td class="category">{{category}}</td>
     <td class="accomplishments">
-      <ul>
+      <p v-if="career.inline">{{inlineAccomplishments}}</p>
+      <ul v-else>
         <li v-for="accomplishment in accomplishments" :key="accomplishment">{{accomplishment}}</li>
       </ul>
     </td>
@@ -15,6 +16,7 @@
   import { Prop } from 'vue-property-decorator'
 
   import * as Types from '@/store/types/bio'
+  import { list } from '@/i18n/functions'
 
   @Component
   export default class Career extends Vue {
@@ -26,6 +28,10 @@
 
     get accomplishments(): string[] {
       return this.career.accomplishments.map(a => <string> this.$t(a.i18nKey))
+    }
+
+    get inlineAccomplishments(): string {
+      return list(this.accomplishments, 'standard-narrow')
     }
   }
 </script>
@@ -54,6 +60,10 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
+    }
+
+    p {
+      margin: 0;
     }
   }
 </style>
