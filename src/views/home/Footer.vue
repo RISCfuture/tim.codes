@@ -1,7 +1,7 @@
 <template>
   <footer>
     {{$t('footer.text', {year: copyrightYear})}}
-    <a href="https://github.com/RISCfuture/riscfuture.github.io">{{$t('footer.link_text')}}</a>
+    <a href="https://github.com/RISCfuture/tim.codes">{{$t('footer.link_text')}}</a>
   </footer>
 </template>
 
