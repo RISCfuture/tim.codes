@@ -39,7 +39,7 @@
   .featured,
   .minor {
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     @include mq(iphone) { display: block; }
     @include mq(ipad) { display: block; }

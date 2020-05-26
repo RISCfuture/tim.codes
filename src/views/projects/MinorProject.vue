@@ -31,7 +31,7 @@
 
     @include mq(large) {
       margin: 20px;
-      max-width: 33%;
+      max-width: calc(33% - 40px);
     }
   }
 
