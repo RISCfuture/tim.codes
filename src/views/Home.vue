@@ -177,6 +177,7 @@
   footer {
     font-size: 12px;
     padding: 5px 10px;
+    text-align: center;
   }
 
   .shift-right-enter-active,
