@@ -16,12 +16,14 @@ const base: LocaleMessages = {
   },
   social: {
     website: {
-      github: 'GitHub',
-      linkedin: 'LinkedIn',
-      twitter: 'Twitter',
       facebook: 'Facebook',
-      youtube: 'YouTube',
-      mixer: 'Mixer'
+      github: 'GitHub',
+      instagram: 'Instagram',
+      linkedin: 'LinkedIn',
+      quora: 'Quora',
+      twitch: 'Twitch',
+      twitter: 'Twitter',
+      youtube: 'YouTube'
     }
   },
   projects: {

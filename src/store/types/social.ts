@@ -4,7 +4,7 @@
 
 export interface Profile {
 
-  /** A unique identifier for the social media network (used to make an i18n key). */
+  /** A unique identifier for the social media network (used to reference the brand image). */
   identifier: string;
 
   /** The URL for the social media profile page. */

@@ -29,7 +29,7 @@ const en: LocaleMessages = {
     }
   },
   footer: {
-    text: 'All content, code, and images copyright ©2011–{year} Tim Morgan. All rights reserved. {link}',
+    text: 'All content, code, and images (except logomarks) copyright ©2011–{year} Tim Morgan. All rights reserved. {link}',
     link_text: 'View the source for this website on GitHub.'
   },
   project: {
