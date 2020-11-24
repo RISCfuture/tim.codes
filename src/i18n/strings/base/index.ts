@@ -7,6 +7,7 @@ const base: LocaleMessages = {
   bio: {
     accomplishment: {
       web_dev: {
+        google: 'Google',
         omg: 'One Medical',
         square: 'Square',
         recurly: 'Recurly',

@@ -194,6 +194,12 @@ const en: LocaleMessages = {
           company: 'One Medical Group',
           description: 'Software engineer on the New Services team. Developing '
             + 'new features and products in Ruby on Rails and Angular 2.'
+        },
+        google: {
+          title: 'Senior Software Engineer',
+          company: 'Google',
+          description: 'Software engineer on the Cloud Identity team, which manages access '
+            + 'control for internal and external HTTP and streaming connections.'
         }
       }
     },
