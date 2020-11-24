@@ -1,3 +1,5 @@
+/* eslint-disable mocha/no-exports */
+
 import { shallowMount, VueClass, Wrapper } from '@vue/test-utils'
 import { expect } from 'chai'
 import {

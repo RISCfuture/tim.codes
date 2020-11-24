@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <navigation @setTransition="transitionName = $event" />
+    <navigation @set-transition="transitionName = $event" />
     <content-view :transition-name="transitionName" />
     <footer-view />
   </div>

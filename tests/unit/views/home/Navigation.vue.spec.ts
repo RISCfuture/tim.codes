@@ -30,8 +30,8 @@ describe('Navigation.vue', () => {
       await wrapper.vm.$nextTick()
 
       expect(routerMock.location).to.eql({ name: 'home' })
-      expect(wrapper.emitted().setTransition).not.to.be.undefined
-      expect(wrapper.emitted().setTransition![0]).to.eql(['shift-left'])
+      expect(wrapper.emitted()['set-transition']).not.to.be.undefined
+      expect(wrapper.emitted()['set-transition']![0]).to.eql(['shift-left'])
     })
 
     it('shifts right when clicking a link right of the current page', async () => {
@@ -47,8 +47,8 @@ describe('Navigation.vue', () => {
       await wrapper.vm.$nextTick()
 
       expect(routerMock.location).to.eql({ name: 'resume' })
-      expect(wrapper.emitted().setTransition).not.to.be.undefined
-      expect(wrapper.emitted().setTransition![0]).to.eql(['shift-right'])
+      expect(wrapper.emitted()['set-transition']).not.to.be.undefined
+      expect(wrapper.emitted()['set-transition']![0]).to.eql(['shift-right'])
     })
   })
 })

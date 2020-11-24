@@ -46,7 +46,7 @@
       if (this.$route.name === 'home') shiftRight = true
       else if (this.$route.name === 'projects') shiftRight = (destination.name === 'resume')
 
-      this.$emit('setTransition', shiftRight ? 'shift-right' : 'shift-left')
+      this.$emit('set-transition', shiftRight ? 'shift-right' : 'shift-left')
       this.$router.push(destination)
     }
   }
