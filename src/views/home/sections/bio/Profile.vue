@@ -21,7 +21,6 @@
   import twitter from '@/assets/images/social/twitter.svg'
   import youtube from '@/assets/images/social/youtube.svg'
 
-
   const images: Record<string, string> = {
     facebook,
     github,
