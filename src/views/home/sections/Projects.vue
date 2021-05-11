@@ -56,6 +56,7 @@
 </style>
 
 <style lang="scss">
+  @use 'sass:math';
   @import '~@/assets/styles/vars';
 
   $yellow: #f5b700;
@@ -79,7 +80,7 @@
       padding: 0;
 
       li {
-        border-radius: ($height + $padding*2)/2 - $padding;
+        border-radius: math.div($height + $padding*2, 2) - $padding;
         color: #fff;
         display: inline-block;
         font-family: Inter, sans-serif;
