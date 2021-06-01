@@ -18,24 +18,32 @@ def move(files, name)
 end
 
 begin
+  puts "* Moving deploy files"
   move(live_files, INTERNAL_NAME)
   move(deploy_files, LIVE_NAME)
 
+  puts "* Hard reset of deploy branch"
   Dir.chdir('deploy') do
     system 'git', 'fetch'
+    system 'git', 'checkout', 'gh-pages'
     system 'git', 'reset', '--hard', 'origin/gh-pages'
   end
 
+  puts "* Compiling"
   system 'yarn', 'build'
 
+  puts "* Copying to deploy branch"
   system 'rsync', '-rv', '--exclude=".git"', '--force', 'dist/', 'deploy/'
 
   Dir.chdir('deploy') do
+    puts "* Committing deploy"
     system 'git', 'add', '-A'
     system 'git', 'commit', '-m', "Deploy by #{Etc.getlogin}"
+    puts "* Pushing deploy"
     system 'git', 'push'
   end
 ensure
+  puts "* Resetting deploy files"
   move(live_files, DEPLOY_NAME)
   move(internal_files, LIVE_NAME)
 end
