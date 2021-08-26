@@ -29,7 +29,10 @@ export enum WebsiteType {
   LIVE = 'live',
 
   /** The source code for the project. */
-  SOURCE = 'source'
+  SOURCE = 'source',
+
+  /** The location where the app can be downloaded. */
+  DOWNLOAD = 'download'
 }
 
 /**
@@ -53,10 +56,12 @@ export enum Language {
  */
 
 export enum Library {
-  RAILS = 'rails', /** < Ruby on Rails (Ruby) */
-  VUEJS = 'vuejs', /** < Vue.js (JavaScript) */
+  BOOTSTRAP = 'bootstrap', /** < Bootstrap (JavaScript) */
   JQUERY = 'jquery', /** < jQuery (JavaScript) */
-  BOOTSTRAP = 'bootstrap' /** < Bootstrap (JavaScript) */
+  RAILS = 'rails', /** < Ruby on Rails (Ruby) */
+  STIMULUS = 'stimulus', /** < Stimulus (JavaScript) */
+  SWIFTUI = 'swiftui', /** < SwiftUI (Swift) */
+  VUEJS = 'vuejs' /** < Vue.js (JavaScript) */
 }
 
 /**

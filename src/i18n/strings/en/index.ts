@@ -34,32 +34,35 @@ const en: LocaleMessages = {
   },
   project: {
     type: {
-      website: 'website',
+      app: 'app',
       gem: 'gem',
       library: 'library',
-      app: 'app',
-      tool: 'tool'
+      tool: 'tool',
+      website: 'website'
     },
     website_type: {
+      download: 'download',
       live: 'live',
       source: 'source'
     },
     language: {
-      ruby: 'Ruby',
+      c: 'C',
+      css: 'CSS',
       es5: 'ES5',
       es2015: 'ES2015',
-      typescript: 'TypeScript',
       html: 'HTML',
-      css: 'CSS',
-      swift: 'Swift',
       objective_c: 'Objective-C',
-      c: 'C'
+      ruby: 'Ruby',
+      swift: 'Swift',
+      typescript: 'TypeScript'
     },
     library: {
-      rails: 'Ruby on Rails',
-      vuejs: 'Vue.js',
+      bootstrap: 'Bootstrap',
       jquery: 'jQuery',
-      bootstrap: 'Bootstrap'
+      rails: 'Ruby on Rails',
+      stimulus: 'Stimulus + Turbo + Hotwire',
+      swiftui: 'SwiftUI',
+      vuejs: 'Vue.js'
     }
   },
   projects: {
