@@ -83,6 +83,18 @@ const en: LocaleMessages = {
         'Generates and syndicates podcast RSS feed'
       ]
     },
+    bad_behavior: {
+      description: 'Scans your digital pilot logbook for potential violations of federal aviation regulations'
+    },
+    fart: {
+      description: 'Simple questionnaire to help pilots evaluate the risk level of a proposed flight.'
+    },
+    flyweight: {
+      description: 'A website that allows passengers to provide me with weight and balance information in a discrete manner.'
+    },
+    hearts: {
+      description: 'Generates “emoji-art” from images'
+    },
     icrashedmyplane: {
       description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
       achievements: [
@@ -99,6 +111,12 @@ const en: LocaleMessages = {
         'Responsive design and dark mode support'
       ]
     },
+    logtensafe: {
+      description: 'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
+    },
+    metar_decoder: {
+      description: 'Decodes the “Remarks” section of a METAR into human-readable text'
+    },
     ranked: {
       description: 'Rank arbitrary lists of things using an Elo algorithm',
       achievements: [
@@ -106,17 +124,19 @@ const en: LocaleMessages = {
         'Stable and versatile ranking algorithm'
       ]
     },
-    logtensafe: {
-      description: 'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
+    sf50_told: {
+      description: 'SwiftUI app that calculates performance data for the Cirrus SF50 VisionJet',
+      achievements: [
+        'Mathematical model of SF50 takeoff and landing performance',
+        'Usable in high-connectivity as well as low-connectivity (in-flight) environments',
+        'On-device parsing and storage of FAA aeronautical data'
+      ]
     },
-    bad_behavior: {
-      description: 'Scans your digital pilot logbook for potential violations of federal aviation regulations'
+    swiftmetar: {
+      description: 'Swift library that parses METAR and TAF weather information'
     },
-    metar_decoder: {
-      description: 'Decodes the “Remarks” section of a METAR into human-readable text'
-    },
-    hearts: {
-      description: 'Converts images into “Emoji-art” using image sampling and color processing'
+    swiftnasr: {
+      description: 'Swift library that loads and parses FAA Aeronautical Data Distribution (FADDS) files'
     }
   },
   resume: {

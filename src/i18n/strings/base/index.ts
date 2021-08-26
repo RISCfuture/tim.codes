@@ -30,13 +30,18 @@ const base: LocaleMessages = {
   projects: {
     '1ma': { name: 'One Mike Alpha' },
     avfacts: { name: 'AvFacts' },
+    bad_behavior: { name: 'BadBehavior' },
+    fart: { name: 'Flight Assessment of Risk Tool' },
+    flyweight: { name: 'FlyWeight' },
+    hearts: { name: 'Hearts' },
     icrashedmyplane: { name: 'I Crashed My Plane' },
     learnmorsecode: { name: 'Learn Morse Code' },
-    ranked: { name: 'Ranked.' },
     logtensafe: { name: 'LogTenSafe' },
-    bad_behavior: { name: 'BadBehavior' },
     metar_decoder: { name: 'METAR Decoder' },
-    hearts: { name: 'Hearts' }
+    ranked: { name: 'Ranked.' },
+    sf50_told: { name: 'SF50 TOLD' },
+    swiftmetar: { name: 'SwiftMETAR' },
+    swiftnasr: { name: 'SwiftNASR' }
   },
   resume: {
     time_range: '{start}–{end}',
