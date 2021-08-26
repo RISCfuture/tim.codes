@@ -7,12 +7,13 @@ const base: LocaleMessages = {
   bio: {
     accomplishment: {
       web_dev: {
+        trusted: 'Trusted Health',
         google: 'Google',
         omg: 'One Medical',
         square: 'Square',
         recurly: 'Recurly',
         scribd: 'Scribd'
-      }
+      },
     }
   },
   social: {

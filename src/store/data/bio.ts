@@ -6,6 +6,7 @@ export const careers: Career[] = [
   {
     i18nKey: 'bio.occupation.web_dev',
     accomplishments: [
+      { i18nKey: 'bio.accomplishment.web_dev.trusted' },
       { i18nKey: 'bio.accomplishment.web_dev.google' },
       { i18nKey: 'bio.accomplishment.web_dev.omg' },
       { i18nKey: 'bio.accomplishment.web_dev.square' },

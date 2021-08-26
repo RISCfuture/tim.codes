@@ -68,8 +68,8 @@
 
     private addressParts(parts: string[]): string[] {
       return parts.map(part => (this.$te(`resume.address.${part}`)
-            ? <string> this.$t(`resume.address.${part}`)
-            : <string> this.$t('resume.address.omitted')))
+        ? <string> this.$t(`resume.address.${part}`)
+        : <string> this.$t('resume.address.omitted')))
     }
 
     get accomplishments(): string[] {

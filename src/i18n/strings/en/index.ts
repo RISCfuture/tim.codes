@@ -208,7 +208,7 @@ const en: LocaleMessages = {
         square: {
           title: 'Software Engineer — Tools',
           company: 'Square',
-          description: 'Inagural internal tools developer for Square, with a focus '
+          description: 'Inaugural internal tools developer for Square, with a focus '
             + 'on Ruby on Rails. Designed, built, and launched major engineering '
             + 'projects that were used internally and open-sourced.'
         },
@@ -223,6 +223,12 @@ const en: LocaleMessages = {
           company: 'Google',
           description: 'Software engineer on the Cloud Identity team, which manages access '
             + 'control for internal and external HTTP and streaming connections.'
+        },
+        trusted: {
+          title: 'Software Engineer',
+          company: 'Trusted Health',
+          description: 'Software engineer for the Works team, building software to help nurse '
+          + 'staffing agencies and hospitals fill nursing shifts.'
         }
       }
     },
