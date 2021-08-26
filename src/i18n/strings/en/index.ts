@@ -8,7 +8,8 @@ const en: LocaleMessages = {
   bio: {
     occupation: {
       web_dev: 'Web Developer',
-      pilot: 'Commercial Pilot'
+      pilot: 'Commercial Pilot',
+      ground_instructor: 'Ground Instructor'
     },
     accomplishment: {
       pilot: {
@@ -18,6 +19,10 @@ const en: LocaleMessages = {
         ames: 'Airplane Multi-Engine Sea',
         ia: 'Instrument Airplane',
         gli: 'Glider'
+      },
+      ground_instructor: {
+        advanced: 'Advanced',
+        instrument: 'Instrument'
       }
     }
   },

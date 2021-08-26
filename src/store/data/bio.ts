@@ -26,5 +26,13 @@ export const careers: Career[] = [
       { i18nKey: 'bio.accomplishment.pilot.gli', year: 2019 }
     ],
     inline: false
+  },
+  {
+    i18nKey: 'bio.occupation.ground_instructor',
+    accomplishments: [
+      { i18nKey: 'bio.accomplishment.ground_instructor.advanced', year: 2021 },
+      { i18nKey: 'bio.accomplishment.ground_instructor.instrument', year: 2021 }
+    ],
+    inline: true
   }
 ]
