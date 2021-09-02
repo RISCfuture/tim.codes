@@ -37,7 +37,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/assets/styles/vars';
+  @import "~@/assets/styles/vars";
 
   td {
     color: $alt-text-color;

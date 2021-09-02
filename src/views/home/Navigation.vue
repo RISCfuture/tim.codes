@@ -2,21 +2,24 @@
   <header :class="$route.name">
     <ul>
       <li>
-        <a :alt="$t('header.links.home')"
+        <a href="#"
+           :aria-label="$t('header.links.home')"
            @click="navigate({name: 'home'})"
            data-cy="menu-home">
           <home-image id="home-image" />
         </a>
       </li>
       <li>
-        <a :alt="$t('header.links.projects')"
+        <a href="#"
+           :aria-label="$t('header.links.projects')"
            @click="navigate({name: 'projects'})"
            data-cy="menu-projects">
           <projects-image id="projects-image" />
         </a>
       </li>
       <li>
-        <a :alt="$t('header.links.resume')"
+        <a href="#"
+           :aria-label="$t('header.links.resume')"
            @click="navigate({name: 'resume'})"
            data-cy="menu-resume">
           <resume-image id="resume-image" />
@@ -53,93 +56,88 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~mq-sass/stylesheets/mq-sass';
-  @import '~@/assets/styles/vars';
+@import "~mq-sass/stylesheets/mq-sass";
+@import "~@/assets/styles/vars";
 
-  header {
+header {
+  background-color: $header-color-home;
+  color: $header-text-color;
+  transition: background-color 0.5s;
+
+  &.home {
     background-color: $header-color-home;
-    color: $header-text-color;
-    transition: background-color 0.5s;
+  }
 
-    &.home {
-      background-color: $header-color-home;
-    }
+  &.projects {
+    background-color: $header-color-projects;
+  }
 
-    &.projects {
-      background-color: $header-color-projects;
-    }
+  &.resume {
+    background-color: $header-color-resume;
+  }
 
-    &.resume {
-      background-color: $header-color-resume;
-    }
+  h1 {
+    @include mq(iphone) { font-size: 18px; }
 
-    h1 {
-      font-weight: bold;
-      text-align: center;
+    @include mq(ipad) { font-size: 24px; }
 
-      @include mq(iphone) {
-        font-size: 18px;
+    @include mq(large) { font-size: 48px; }
+
+    font-weight: bold;
+    text-align: center;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    li {
+      @include mq(iphone) { margin: 0 10px; }
+
+      @include mq(ipad) { margin: 0 25px; }
+
+      @include mq(large) { margin: 0 50px; }
+
+      list-style-type: none;
+      padding: 0;
+
+      a {
+        cursor: pointer;
       }
-      @include mq(ipad) {
-        font-size: 24px;
-      }
-      @include mq(large) {
-        font-size: 48px;
-      }
-    }
 
-    ul {
-      align-items: center;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-
-      li {
-        list-style-type: none;
-        padding: 0;
+      svg {
         @include mq(iphone) {
-          margin: 0 10px;
+          height: auto;
+          width: 40px;
         }
+
         @include mq(ipad) {
-          margin: 0 25px;
+          height: auto;
+          width: 60px;
         }
+
         @include mq(large) {
-          margin: 0 50px;
+          height: auto;
+          width: 100px;
         }
 
-        a {
-          cursor: pointer;
-        }
-
-        svg {
-
-          transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
-          @include mq(iphone) {
-            height: auto;
-            width: 40px;
-          }
-          @include mq(ipad) {
-            height: auto;
-            width: 60px;
-          }
-          @include mq(large) {
-            height: auto;
-            width: 100px;
-          }
-        }
+        transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
       }
-    }
-
-    &.home #home-image {
-      transform: scale(1.2);
-    }
-
-    &.projects #projects-image {
-      transform: scale(1.2);
-    }
-
-    &.resume #resume-image {
-      transform: scale(1.2);
     }
   }
+
+  &.home #home-image {
+    transform: scale(1.2);
+  }
+
+  &.projects #projects-image {
+    transform: scale(1.2);
+  }
+
+  &.resume #resume-image {
+    transform: scale(1.2);
+  }
+}
 </style>

@@ -83,7 +83,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import 'node_modules/mq-sass/stylesheets/mq-sass';
+  @import "node_modules/mq-sass/stylesheets/mq-sass";
 
   h1 {
     font-size: 16px;
@@ -113,24 +113,26 @@
 
   @media only screen {
     h1 {
-      font-family: Inter, sans-serif;
-      font-weight: bold;
-      transform-origin: left center;
-
       @include mq(iphone) {
         opacity: 1;
         padding: 0;
       }
+
       @include mq(ipad) {
         opacity: 0.2;
         padding: 15px 0;
         transform: scale(3) translate(-5px, 10px);
       }
+
       @include mq(large) {
         opacity: 0.2;
         padding: 15px 0;
         transform: scale(4) translate(-5px, 5px);
       }
+
+      font-family: Inter, sans-serif;
+      font-weight: bold;
+      transform-origin: left center;
     }
 
     #header-name { display: none; }

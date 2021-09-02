@@ -34,16 +34,18 @@
 </script>
 
 <style scoped lang="scss">
-  @import 'node_modules/mq-sass/stylesheets/mq-sass';
+  @import "node_modules/mq-sass/stylesheets/mq-sass";
 
   .featured,
   .minor {
+    @include mq(iphone) { display: block; }
+
+    @include mq(ipad) { display: block; }
+
+    @include mq(large) { display: flex; }
+
     flex-flow: row wrap;
     justify-content: space-around;
-
-    @include mq(iphone) { display: block; }
-    @include mq(ipad) { display: block; }
-    @include mq(large) { display: flex; }
   }
 
   .featured {
@@ -56,14 +58,14 @@
 </style>
 
 <style lang="scss">
-  @use 'sass:math';
-  @import '~@/assets/styles/vars';
+  @use "sass:color";
+  @use "sass:math";
+  @import "~@/assets/styles/vars";
 
   $yellow: #f5b700;
   $blue: #00a1e4;
   $red: #dc0073;
-  $text-color: darken(desaturate($header-color-projects, 75%), 20%);
-
+  $text-color: color.adjust($header-color-projects, $saturation: -75%, $lightness: -20%);
   $height: 12px;
   $padding: 3px;
 
@@ -80,7 +82,7 @@
       padding: 0;
 
       li {
-        border-radius: math.div($height + $padding*2, 2) - $padding;
+        border-radius: math.div($height + $padding * 2, 2) - $padding;
         color: #fff;
         display: inline-block;
         font-family: Inter, sans-serif;
@@ -111,10 +113,8 @@
 
       li {
         border-bottom: 1px solid $blue;
-
         color: $blue;
         display: inline-block;
-
         list-style: none;
         margin: 6px;
         padding: 0;

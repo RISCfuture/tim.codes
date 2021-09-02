@@ -18,24 +18,21 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~mq-sass/stylesheets/mq-sass';
-  @import '~@/assets/styles/vars';
+  @import "~mq-sass/stylesheets/mq-sass";
+  @import "~@/assets/styles/vars";
 
   article {
-    margin-left: auto;
-    margin-right: auto;
     @include mq(iphone) {
       margin-top: 20px;
-    }
-    @include mq(large) {
-      margin-top: 60px;
-    }
-
-    @include mq(iphone) {
       max-width: 480px;
     }
+
     @include mq(large) {
+      margin-top: 60px;
       max-width: 960px;
     }
+
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

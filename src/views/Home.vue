@@ -22,8 +22,8 @@
 </script>
 
 <style lang="scss">
-  @import '~mq-sass/stylesheets/mq-sass';
-  @import '~@/assets/styles/vars';
+  @import "~mq-sass/stylesheets/mq-sass";
+  @import "~@/assets/styles/vars";
 
   @media only print {
     header {

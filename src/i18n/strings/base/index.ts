@@ -13,7 +13,7 @@ const base: LocaleMessages = {
         square: 'Square',
         recurly: 'Recurly',
         scribd: 'Scribd'
-      },
+      }
     }
   },
   social: {

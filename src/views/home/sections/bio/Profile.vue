@@ -47,6 +47,12 @@
 </script>
 
 <style lang="scss" scoped>
+  img {
+    height: auto;
+    transition: transform 0.25s;
+    width: 32px;
+  }
+
   .social-icon {
     display: flex;
     flex-flow: column nowrap;
@@ -61,12 +67,6 @@
     &:hover img {
       transform: scale(1.5);
       transform-origin: center;
-    }
-
-    img {
-      height: auto;
-      transition: transform 0.25s;
-      width: 32px;
     }
   }
 </style>

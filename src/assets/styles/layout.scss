@@ -1,4 +1,4 @@
-@import './vars';
+@import "./vars";
 
 @media only screen {
   html,
@@ -10,8 +10,7 @@
 
   .container {
     display: grid;
-    grid-column-gap: 0;
-    grid-row-gap: 0;
+    grid-gap: 0;
     grid-template-columns: 100%;
     grid-template-rows: min-content 1fr min-content;
 
@@ -22,7 +21,6 @@
 
 * {
   font-family: Titilium, sans-serif;
-  //font-weight: normal;
 }
 
 a {

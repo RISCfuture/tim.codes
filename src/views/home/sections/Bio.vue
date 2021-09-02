@@ -33,9 +33,9 @@
   #bio {
     display: grid;
     gap: 1px 1px;
-    grid-template-areas: '.' '.';
-    grid-template-columns: auto;
-    grid-template-rows: min-content 1fr;
+    grid-template:
+      "." "."
+      min-content 1fr / auto;
     height: 100%;
   }
 

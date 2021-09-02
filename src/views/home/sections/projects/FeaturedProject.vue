@@ -24,7 +24,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import 'node_modules/mq-sass/stylesheets/mq-sass';
+  @import "node_modules/mq-sass/stylesheets/mq-sass";
 
   div {
     margin-bottom: 20px;
