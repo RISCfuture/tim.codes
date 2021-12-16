@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions,import/no-unresolved */
+
 import { LocaleMessages } from 'vue-i18n'
 import merge from 'lodash-es/merge'
 
