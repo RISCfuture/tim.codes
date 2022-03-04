@@ -1,7 +1,13 @@
 <template>
   <div class="social-icon">
-    <a :href="profile.website" target="_blank">
-      <img :alt="alt" :src="iconURL" />
+    <a
+      :href="profile.website"
+      target="_blank"
+    >
+      <img
+        :alt="alt"
+        :src="iconURL"
+      >
     </a>
   </div>
 </template>

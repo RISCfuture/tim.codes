@@ -1,40 +1,75 @@
 <template>
-  <div class="resume" data-cy="navigation-root-resume">
-    <h1 id="header-name">Tim Morgan</h1>
+  <div
+    class="resume"
+    data-cy="navigation-root-resume"
+  >
+    <h1 id="header-name">
+      Tim Morgan
+    </h1>
     <div class="address">
-      <span v-html="addressLine1" /><br />
-      {{addressLine2}}
+      <span v-html="addressLine1" /><br>
+      {{ addressLine2 }}
     </div>
 
     <p class="objective">
-      <strong>{{$t('resume.objective.header')}}</strong>
-      {{$t('resume.objective.content')}}
+      <strong>{{ $t('resume.objective.header') }}</strong>
+      {{ $t('resume.objective.content') }}
     </p>
 
-    <h1 id="header-summary">{{$t('resume.summary.header')}}</h1>
-    <p>{{$t('resume.summary.content')}}</p>
+    <h1 id="header-summary">
+      {{ $t('resume.summary.header') }}
+    </h1>
+    <p>{{ $t('resume.summary.content') }}</p>
 
-    <h1 id="header-accomplishments">{{$t('resume.accomplishments.header')}}</h1>
+    <h1 id="header-accomplishments">
+      {{ $t('resume.accomplishments.header') }}
+    </h1>
     <ul>
-      <li v-for="accomplishment in accomplishments" :key="accomplishment">{{accomplishment}}</li>
+      <li
+        v-for="accomplishment in accomplishments"
+        :key="accomplishment"
+      >
+        {{ accomplishment }}
+      </li>
     </ul>
 
-    <h1 id="header-jobs">{{$t('resume.jobs.header')}}</h1>
+    <h1 id="header-jobs">
+      {{ $t('resume.jobs.header') }}
+    </h1>
     <ul class="history">
-      <job v-for="job in jobs" :job="job" :key="job.identifier" />
+      <job
+        v-for="job in jobs"
+        :key="job.identifier"
+        :job="job"
+      />
     </ul>
 
-    <h1 id="header-supporting-experience">{{$t('resume.supporting_experience.header')}}</h1>
+    <h1 id="header-supporting-experience">
+      {{ $t('resume.supporting_experience.header') }}
+    </h1>
     <ul>
-      <li v-for="item in supportingExperience" :key="item">{{item}}</li>
+      <li
+        v-for="item in supportingExperience"
+        :key="item"
+      >
+        {{ item }}
+      </li>
     </ul>
 
-    <h1 id="header-education">{{$t('resume.education.header')}}</h1>
+    <h1 id="header-education">
+      {{ $t('resume.education.header') }}
+    </h1>
     <ul class="history">
-      <education v-for="ed in education" :education="ed" :key="ed.identifier" />
+      <education
+        v-for="ed in education"
+        :key="ed.identifier"
+        :education="ed"
+      />
     </ul>
 
-    <p class="references">References available upon request.</p>
+    <p class="references">
+      References available upon request.
+    </p>
   </div>
 </template>
 

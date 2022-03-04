@@ -1,7 +1,7 @@
 <template>
   <li>
     <h2 v-html="header" />
-    <p>{{$t(`resume.jobs.identifiers.${job.identifier}.description`)}}</p>
+    <p>{{ $t(`resume.jobs.identifiers.${job.identifier}.description`) }}</p>
   </li>
 </template>
 

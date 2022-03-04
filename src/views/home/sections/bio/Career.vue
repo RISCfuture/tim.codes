@@ -1,10 +1,19 @@
 <template>
   <tr>
-    <td class="category">{{category}}</td>
+    <td class="category">
+      {{ category }}
+    </td>
     <td class="accomplishments">
-      <p v-if="career.inline">{{inlineAccomplishments}}</p>
+      <p v-if="career.inline">
+        {{ inlineAccomplishments }}
+      </p>
       <ul v-else>
-        <li v-for="accomplishment in accomplishments" :key="accomplishment">{{accomplishment}}</li>
+        <li
+          v-for="accomplishment in accomplishments"
+          :key="accomplishment"
+        >
+          {{ accomplishment }}
+        </li>
       </ul>
     </td>
   </tr>

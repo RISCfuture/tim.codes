@@ -1,10 +1,21 @@
 <template>
-  <div id="bio" data-cy="navigation-root-home">
+  <div
+    id="bio"
+    data-cy="navigation-root-home"
+  >
     <table id="career-list">
-      <career :career="career" :key="career.i18nKey" v-for="career in careers" />
+      <career
+        v-for="career in careers"
+        :key="career.i18nKey"
+        :career="career"
+      />
     </table>
     <div id="social-icons">
-      <profile v-for="profile in profiles" :profile="profile" :key="profile.identifier" />
+      <profile
+        v-for="profile in profiles"
+        :key="profile.identifier"
+        :profile="profile"
+      />
     </div>
   </div>
 </template>

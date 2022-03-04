@@ -1,15 +1,19 @@
 <template>
   <div class="projects">
     <div class="featured">
-      <featured-project v-for="project in featuredProjects"
-                        :key="project.identifier"
-                        :project="project" />
+      <featured-project
+        v-for="project in featuredProjects"
+        :key="project.identifier"
+        :project="project"
+      />
     </div>
 
     <div class="minor">
-      <minor-project v-for="project in minorProjects"
-                     :key="project.identifier"
-                     :project="project" />
+      <minor-project
+        v-for="project in minorProjects"
+        :key="project.identifier"
+        :project="project"
+      />
     </div>
   </div>
 </template>

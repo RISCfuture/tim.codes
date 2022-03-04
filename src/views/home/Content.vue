@@ -1,6 +1,9 @@
 <template>
   <article>
-    <transition :name="transitionName" mode="out-in">
+    <transition
+      :name="transitionName"
+      mode="out-in"
+    >
       <router-view />
     </transition>
   </article>

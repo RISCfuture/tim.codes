@@ -8,19 +8,31 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "docs:generate": "npx typedoc --out docs src",
-    "ci:e2e:start-server": "yarn serve",
-    "ci:e2e:run": "cypress run --record --key 9f6637ca-487a-45cf-a469-8c4dbf083a0d",
     "ci:e2e": "npx start-server-and-test ci:e2e:start-server 8080 ci:e2e:run",
-    "ci:unit": "yarn run test:unit"
+    "ci:e2e:run": "cypress run --record --key 9f6637ca-487a-45cf-a469-8c4dbf083a0d",
+    "ci:e2e:start-server": "yarn serve",
+    "ci:unit": "yarn run test:unit",
+    "docs:generate": "npx typedoc --out docs src"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "vue-cli-service lint --fix"
+    ],
+    "*.{css,scss,vue}": [
+      "npx stylelint --fix"
+    ]
+  },
+  "packageManager": "yarn@3.2.0",
   "dependencies": {
+    "@bugsnag/core": "^7.16.1",
     "@bugsnag/js": "^7.14.0",
     "@bugsnag/plugin-vue": "^7.14.0",
     "cldr-data": "^36.0.0",
     "cldrjs": "^0.5.5",
     "core-js": "^3.19.1",
-    "cypress": "9.0.0",
     "iana-tz-data": "^2019.1.0",
     "lodash-es": "^4.17.21",
     "mq-sass": "^0.8.0",
@@ -34,6 +46,8 @@
     "vuex-class": "^0.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
     "@cypress/webpack-preprocessor": "^5.10.0",
     "@types/chai": "^4.2.22",
     "@types/cldrjs": "^0.4.20",
@@ -44,6 +58,7 @@
     "@vue/cli-plugin-babel": "^4.5.15",
     "@vue/cli-plugin-e2e-cypress": "^4.5.15",
     "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "^4.5.15",
     "@vue/cli-plugin-unit-mocha": "^4.5.15",
     "@vue/cli-plugin-vuex": "^4.5.15",
@@ -51,8 +66,10 @@
     "@vue/eslint-config-airbnb": "^6.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^1.3.0",
+    "babel-loader": "^8.2.4",
     "chai": "^4.3.4",
     "chai-each": "^0.0.1",
+    "cypress": "^9",
     "cypress-intellij-reporter": "^0.0.7",
     "eslint": "^7.32.0",
     "eslint-plugin-chai-expect": "^3.0.0",
@@ -64,6 +81,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^8.1.1",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
+    "husky": "^7.0.4",
     "lint-staged": "^12.0.3",
     "null-loader": "^4.0.1",
     "postcss": "^8.4.5",
@@ -71,27 +89,17 @@
     "sass": "^1.43.4",
     "sass-loader": "^10.2.0",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^14.1.0",
-    "stylelint-config-recommended-scss": "^5.0.2",
-    "stylelint-config-recommended-vue": "^1.1.0",
+    "stylelint": "14.2",
+    "stylelint-config-recommended-scss": "^5",
+    "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-processor-html": "^1.0.0",
-    "stylelint-scss": "^4.0.1",
     "stylelint-webpack-plugin": "^3.1.0",
     "typedoc": "^0.22.9",
     "typescript": "^4.5.2",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue}": [
-      "vue-cli-service lint --fix"
-    ],
-    "*.{css,scss,vue}": [
-      "npx stylelint --fix"
-    ]
+    "vue-cli-plugin-svg": "^0.2.1",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4"
   }
 }

@@ -2,26 +2,32 @@
   <header :class="$route.name">
     <ul>
       <li>
-        <a href="#"
-           :aria-label="$t('header.links.home')"
-           @click="navigate({name: 'home'})"
-           data-cy="menu-home">
+        <a
+          href="#"
+          :aria-label="$t('header.links.home')"
+          data-cy="menu-home"
+          @click="navigate({name: 'home'})"
+        >
           <home-image id="home-image" />
         </a>
       </li>
       <li>
-        <a href="#"
-           :aria-label="$t('header.links.projects')"
-           @click="navigate({name: 'projects'})"
-           data-cy="menu-projects">
+        <a
+          href="#"
+          :aria-label="$t('header.links.projects')"
+          data-cy="menu-projects"
+          @click="navigate({name: 'projects'})"
+        >
           <projects-image id="projects-image" />
         </a>
       </li>
       <li>
-        <a href="#"
-           :aria-label="$t('header.links.resume')"
-           @click="navigate({name: 'resume'})"
-           data-cy="menu-resume">
+        <a
+          href="#"
+          :aria-label="$t('header.links.resume')"
+          data-cy="menu-resume"
+          @click="navigate({name: 'resume'})"
+        >
           <resume-image id="resume-image" />
         </a>
       </li>
