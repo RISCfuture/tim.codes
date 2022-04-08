@@ -9,12 +9,14 @@ const base: LocaleMessages = {
   bio: {
     accomplishment: {
       web_dev: {
-        trusted: 'Trusted Health',
+        amazon: 'Amazon',
         google: 'Google',
         omg: 'One Medical',
-        square: 'Square',
         recurly: 'Recurly',
-        scribd: 'Scribd'
+        scribd: 'Scribd',
+        square: 'Square',
+        tickle: 'Tickle.com',
+        trusted: 'Trusted Health'
       }
     }
   },
@@ -34,6 +36,7 @@ const base: LocaleMessages = {
     '1ma': { name: 'One Mike Alpha' },
     avfacts: { name: 'AvFacts' },
     bad_behavior: { name: 'BadBehavior' },
+    closest_ndb: { name: 'Closest NDB' },
     fart: { name: 'Flight Assessment of Risk Tool' },
     flyweight: { name: 'FlyWeight' },
     hearts: { name: 'Hearts' },

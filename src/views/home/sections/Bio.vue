@@ -53,7 +53,6 @@
   #career-list {
     margin-left: auto;
     margin-right: auto;
-    max-width: 480px;
   }
 
   #social-icons {

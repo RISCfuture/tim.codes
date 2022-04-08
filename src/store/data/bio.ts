@@ -11,9 +11,11 @@ export const careers: Career[] = [
       { i18nKey: 'bio.accomplishment.web_dev.omg' },
       { i18nKey: 'bio.accomplishment.web_dev.square' },
       { i18nKey: 'bio.accomplishment.web_dev.recurly' },
-      { i18nKey: 'bio.accomplishment.web_dev.scribd' }
+      { i18nKey: 'bio.accomplishment.web_dev.scribd' },
+      { i18nKey: 'bio.accomplishment.web_dev.tickle' },
+      { i18nKey: 'bio.accomplishment.web_dev.amazon' }
     ],
-    inline: true
+    inline: false
   },
   {
     i18nKey: 'bio.occupation.pilot',
@@ -24,6 +26,14 @@ export const careers: Career[] = [
       { i18nKey: 'bio.accomplishment.pilot.ames', year: 2019 },
       { i18nKey: 'bio.accomplishment.pilot.ia', year: 2012 },
       { i18nKey: 'bio.accomplishment.pilot.gli', year: 2019 }
+    ],
+    inline: false
+  },
+  {
+    i18nKey: 'bio.occupation.flight_instructor',
+    accomplishments: [
+      { i18nKey: 'bio.accomplishment.flight_instructor.ase', year: 2021 },
+      { i18nKey: 'bio.accomplishment.flight_instructor.ifr-a', year: 2021 }
     ],
     inline: false
   },

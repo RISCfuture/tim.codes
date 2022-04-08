@@ -9,22 +9,27 @@ import enPrivate from './private'
 const en: LocaleMessages = {
   bio: {
     occupation: {
-      web_dev: 'Web Developer',
+      flight_instructor: 'Flight Instructor',
+      ground_instructor: 'Ground Instructor',
       pilot: 'Commercial Pilot',
-      ground_instructor: 'Ground Instructor'
+      web_dev: 'Web Developer'
     },
     accomplishment: {
       pilot: {
-        asel: 'Airplane Single-Engine Land',
-        ases: 'Airplane Single-Engine Sea',
         amel: 'Airplane Multi-Engine Land',
         ames: 'Airplane Multi-Engine Sea',
-        ia: 'Instrument Airplane',
-        gli: 'Glider'
+        asel: 'Airplane Single-Engine Land',
+        ases: 'Airplane Single-Engine Sea',
+        gli: 'Glider',
+        ia: 'Instrument Airplane'
       },
       ground_instructor: {
         advanced: 'Advanced',
         instrument: 'Instrument'
+      },
+      flight_instructor: {
+        ase: 'Airplane Single-Engine',
+        'ifr-a': 'Instrument Airplane'
       }
     }
   },
@@ -92,6 +97,9 @@ const en: LocaleMessages = {
     },
     bad_behavior: {
       description: 'Scans your digital pilot logbook for potential violations of federal aviation regulations'
+    },
+    closest_ndb: {
+      description: 'A useless but entertaining web page that tells you where the closest non-directional beacon is from your current location'
     },
     fart: {
       description: 'Simple questionnaire to help pilots evaluate the risk level of a proposed flight.'

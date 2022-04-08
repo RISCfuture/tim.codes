@@ -81,6 +81,23 @@ export const projects: Project[] = [
     featured: false
   },
   {
+    type: ProjectType.WEBSITE,
+    identifier: 'closest_ndb',
+    websites: [
+      {
+        url: 'https://github.com/RISCfuture/closest-ndb',
+        type: WebsiteType.SOURCE
+      },
+      {
+        url: 'https://riscfuture.github.io/closest-ndb',
+        type: WebsiteType.LIVE
+      }
+    ],
+    languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
+    libraries: [Library.VUEJS],
+    featured: false
+  },
+  {
     type: ProjectType.TOOL,
     identifier: 'hearts',
     websites: [
