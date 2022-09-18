@@ -44,9 +44,7 @@ jobs:
           node-version: 16.x
           cache: yarn
       - name: Install dependencies
-        run: |
-          yarn install
-          npm install @vue/cli
+        run: yarn install
       - name: Copy private files
         run: |
           cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
