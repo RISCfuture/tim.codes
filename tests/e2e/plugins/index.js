@@ -8,42 +8,45 @@
 
 /* eslint-disable import/no-extraneous-dependencies, global-require */
 // eslint-disable-next-line
-const path = require('path')
+const path = require("path");
 const webpack = require('@cypress/webpack-preprocessor')
 
 module.exports = (on, config) => {
-  on('file:preprocessor', webpack({
-    webpackOptions: {
+  on(
+    'file:preprocessor',
+    webpack({
+      webpackOptions: {
+        /* Make module resolution in the Cypress environment the same as in the
+           app environment. This allows us to import app code within Cypress
+           tests. */
 
-      /* Make module resolution in the Cypress environment the same as in the app environment. This
-         allows us to import app code within Cypress tests. */
+        resolve: {
+          extensions: ['.ts', '.tsx', '.js'],
+          alias: {
+            '@': path.resolve(__dirname, '../../../src')
+          }
+        },
 
-      resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
-        alias: {
-          '@': path.resolve(__dirname, '../../../src')
+        // Transpile Cypress tests written in Typescript.
+
+        module: {
+          rules: [
+            {
+              test: /\.tsx?$/,
+              loader: 'ts-loader',
+              options: { transpileOnly: true }
+            }
+          ]
         }
       },
-
-      // Transpile Cypress tests written in Typescript.
-
-      module: {
-        rules: [
-          {
-            test: /\.tsx?$/,
-            loader: 'ts-loader',
-            options: { transpileOnly: true }
-          }
-        ]
-      }
-    },
-    watchOptions: {}
-  }))
+      watchOptions: {}
+    })
+  )
 
   return {
     ...config,
     fixturesFolder: 'tests/e2e/fixtures',
-    integrationFolder: 'tests/e2e/specs',
+    specPattern: 'tests/e2e/specs/**/*.ts',
     screenshotsFolder: 'tests/e2e/screenshots',
     videosFolder: 'tests/e2e/videos',
     supportFile: 'tests/e2e/support/index.js'
