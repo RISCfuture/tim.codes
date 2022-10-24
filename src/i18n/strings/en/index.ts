@@ -242,8 +242,9 @@ const en: LocaleMessages = {
         trusted: {
           title: 'Software Engineer',
           company: 'Trusted Health',
-          description: 'Software engineer for the Works team, building software to help nurse '
-          + 'staffing agencies and hospitals fill nursing shifts.'
+          description: 'Software engineer for the Clinician Data team, building '
+            + 'software to improve messaging between nurses and operations staff, '
+            + 'as well as improving the nurse onboarding experience.'
         }
       }
     },

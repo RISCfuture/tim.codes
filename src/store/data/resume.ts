@@ -40,7 +40,7 @@ export const jobs: Job[] = [
     identifier: 'google', startYear: 2020, endYear: 2021, location: JobLocation.SF
   },
   {
-    identifier: 'trusted', startYear: 2021, endYear: null, location: JobLocation.SF
+    identifier: 'trusted', startYear: 2021, endYear: 2022, location: JobLocation.SF
   }
 ]
 
