@@ -140,7 +140,7 @@ const en: LocaleMessages = {
       ]
     },
     sf50_told: {
-      description: 'SwiftUI app that calculates performance data for the Cirrus SF50 VisionJet',
+      description: 'SwiftUI app that calculates performance data for the Cirrus SF50 Vision Jet',
       achievements: [
         'Mathematical model of SF50 takeoff and landing performance',
         'Usable in high-connectivity as well as low-connectivity (in-flight) environments',
