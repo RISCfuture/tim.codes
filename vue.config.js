@@ -6,6 +6,9 @@ module.exports = {
   lintOnSave: false,
 
   chainWebpack: config => {
+    config.module.rule('vue').use('vue-svg-inline-loader').loader('vue-svg-inline-loader').options({
+      /* ... */
+    })
     if (process.env.NODE_ENV === 'development') {
       // safari dev fix: https://github.com/vuejs/vue-cli/issues/1132
       config.output.filename('[name].[hash].js').end()

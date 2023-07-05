@@ -3,6 +3,7 @@
     <a
       :href="profile.website"
       target="_blank"
+      rel="noopener noreferrer"
     >
       <img
         :alt="alt"

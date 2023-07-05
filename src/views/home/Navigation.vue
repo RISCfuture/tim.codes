@@ -6,7 +6,7 @@
           href="#"
           :aria-label="$t('header.links.home')"
           data-cy="menu-home"
-          @click="navigate({name: 'home'})"
+          @click="navigate({ name: 'home' })"
         >
           <home-image id="home-image" />
         </a>
@@ -16,7 +16,7 @@
           href="#"
           :aria-label="$t('header.links.projects')"
           data-cy="menu-projects"
-          @click="navigate({name: 'projects'})"
+          @click="navigate({ name: 'projects' })"
         >
           <projects-image id="projects-image" />
         </a>
@@ -26,7 +26,7 @@
           href="#"
           :aria-label="$t('header.links.resume')"
           data-cy="menu-resume"
-          @click="navigate({name: 'resume'})"
+          @click="navigate({ name: 'resume' })"
         >
           <resume-image id="resume-image" />
         </a>
