@@ -1,6 +1,6 @@
 <template>
   <footer>
-    {{ $t('footer.text', {year: copyrightYear}) }}
+    {{ $t('footer.text', { year: copyrightYear }) }}
     <a href="https://github.com/RISCfuture/tim.codes">{{ $t('footer.link_text') }}</a>
   </footer>
 </template>
