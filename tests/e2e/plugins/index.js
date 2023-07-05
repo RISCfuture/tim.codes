@@ -45,10 +45,10 @@ module.exports = (on, config) => {
 
   return {
     ...config,
-    fixturesFolder: 'cypress/fixtures',
-    specPattern: 'cypress/specs/**/*.ts',
-    screenshotsFolder: 'cypress/screenshots',
-    videosFolder: 'cypress/videos',
-    supportFile: 'cypress/support/index.js'
+    fixturesFolder: 'tests/e2e/fixtures',
+    specPattern: 'tests/e2e/specs/**/*.cy.ts',
+    screenshotsFolder: 'tests/e2e/screenshots',
+    videosFolder: 'tests/e2e/videos',
+    supportFile: 'tests/e2e/support/index.js'
   }
 }
