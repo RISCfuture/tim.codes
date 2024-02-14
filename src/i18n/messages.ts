@@ -1,6 +1,5 @@
-import { LocaleMessages } from 'vue-i18n'
 import en from '@/i18n/strings/en'
+import type { DefaultLocaleMessageSchema, LocaleMessages } from 'vue-i18n'
 
-const messages: LocaleMessages = { en, 'en-us': en }
-// necessary because $te does not check fallbacks
+const messages: LocaleMessages<DefaultLocaleMessageSchema> = { en, 'en-us': en }
 export default messages
