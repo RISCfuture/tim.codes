@@ -1,12 +1,13 @@
-import Vue from 'vue'
-import Bugsnag, { Plugin } from '@bugsnag/js'
+import Bugsnag, { type Plugin } from '@bugsnag/js'
 import BugsnagPluginVue from '@bugsnag/plugin-vue'
+import BugsnagPerformance from '@bugsnag/browser-performance'
 
 Bugsnag.start({
   apiKey: 'b03f578479a46c5628b9a8c8d4e927ac',
-  plugins: [<Plugin> new BugsnagPluginVue()],
+  plugins: [<Plugin>new BugsnagPluginVue()],
   enabledReleaseStages: ['production']
 })
+BugsnagPerformance.start({ apiKey: 'b03f578479a46c5628b9a8c8d4e927ac' })
 
-// eslint-disable-next-line no-unused-expressions
-Bugsnag.getPlugin('vue')?.installVueErrorHandler(Vue)
+const bugsnagVue = Bugsnag.getPlugin('vue')
+export default bugsnagVue

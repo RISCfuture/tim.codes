@@ -1,14 +1,11 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
-
 import messages from '@/i18n/messages'
-import dateTimeFormats from '@/i18n/dateTimeFormats'
+import { createI18n } from 'vue-i18n'
 
-Vue.use(VueI18n)
-
-export default new VueI18n({
+export default createI18n({
   locale: navigator.language,
+  legacy: false,
+  globalInjection: false,
   fallbackLocale: 'en',
-  messages,
-  dateTimeFormats
+  silentFallbackWarn: true,
+  messages
 })
