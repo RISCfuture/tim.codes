@@ -6,12 +6,12 @@ is intended to help people understand how I write code and the standards and
 patterns I use.
 
 tim.codes is written in Vue.js using TypeScript. State management is done with
-Vuex, routing is handled with vue-router, and localization is done using 
-i18n-vue (though American English is currently the only supported locale).
+Pinia, routing is handled with vue-router, and localization is done using 
+vue-i18n (though American English is currently the only supported locale).
 
-Vue CLI is the toolchain used to develop this website. Most operations are done
-powered by the `vue-cli-service` command, though the `package.json` file has
-`yarn` aliases for all common development and deployment tasks.
+Vite and Vue is the toolchain used to develop this website. Most operations are
+done powered by the `vite` command, though the `package.json` file has `yarn`
+aliases for all common development and deployment tasks.
 
 ## Installation
  out this project into a directory,
@@ -24,8 +24,8 @@ private information locally.)
 
 ## Running in development
 
-`yarn serve` will compile the source with Webpack, and run a local development
-server at http://localhost:8080. The development web server supports 
+`yarn dev` will compile the source with Webpack, and run a local development
+server at http://localhost:5173. The development web server supports 
 hot-reloading.
 
 ## Running tests
@@ -37,7 +37,7 @@ end-to-end tests.
 
 ## Deployment
 
-This website is hosted using GitHub pages. The `deploy.rb` script creates the
-`dist/` directory, makes it point to the `gh-pages` branch of this repository,
-deploys into that directory, commits the changes, and then pushes those changes
-upstream. GitHub should automatically handle the rest.
+This website is hosted using GitHub pages. The `deploy.yml` GitHub Action creates
+the `dist/` directory, makes it point to the `gh-pages` branch of this
+repository, deploys into that directory, commits the changes, and then pushes
+those changes upstream. GitHub should automatically handle the rest.

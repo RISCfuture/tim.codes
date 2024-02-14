@@ -1,35 +1,37 @@
-/* eslint-disable import/extensions,import/no-unresolved */
-
-import { LocaleMessages } from 'vue-i18n'
 import merge from 'lodash-es/merge'
 
 import base from '../base'
 import enPrivate from './private'
+import type { DefaultLocaleMessageSchema, LocaleMessages } from 'vue-i18n'
 
-const en: LocaleMessages = {
+const en: LocaleMessages<DefaultLocaleMessageSchema> = {
   bio: {
     occupation: {
-      flight_instructor: 'Flight Instructor',
-      ground_instructor: 'Ground Instructor',
-      pilot: 'Commercial Pilot',
-      web_dev: 'Web Developer'
+      flightInstructor: 'Flight Instructor',
+      groundInstructor: 'Ground Instructor',
+      ATP: 'Airline Transport Pilot',
+      CPL: 'Commercial Pilot',
+      dev: 'Web Developer'
     },
     accomplishment: {
-      pilot: {
-        amel: 'Airplane Multi-Engine Land',
-        ames: 'Airplane Multi-Engine Sea',
-        asel: 'Airplane Single-Engine Land',
-        ases: 'Airplane Single-Engine Sea',
-        gli: 'Glider',
-        ia: 'Instrument Airplane'
+      ATP: {
+        AMEL: 'Airplane Multi-Engine Land',
+        ASEL: 'Airplane Single-Engine Land',
+        SF50: 'Cirrus SF50 Vision Jet',
+        B737: 'Boeing 737 NG'
       },
-      ground_instructor: {
+      CPL: {
+        AMES: 'Airplane Multi-Engine Sea',
+        ASES: 'Airplane Single-Engine Sea',
+        GLI: 'Glider'
+      },
+      groundInstructor: {
         advanced: 'Advanced',
         instrument: 'Instrument'
       },
-      flight_instructor: {
-        ase: 'Airplane Single-Engine',
-        'ifr-a': 'Instrument Airplane'
+      flightInstructor: {
+        ASE: 'Airplane Single-Engine',
+        'IFR-A': 'Instrument Airplane'
       }
     }
   },
@@ -42,7 +44,7 @@ const en: LocaleMessages = {
   },
   footer: {
     text: 'All content, code, and images (except logomarks) copyright ©2011–{year} Tim Morgan. All rights reserved. {link}',
-    link_text: 'View the source for this website on GitHub.'
+    linkText: 'View the source for this website on GitHub.'
   },
   project: {
     type: {
@@ -52,34 +54,35 @@ const en: LocaleMessages = {
       tool: 'tool',
       website: 'website'
     },
-    website_type: {
+    websiteType: {
       download: 'download',
       live: 'live',
       source: 'source'
     },
     language: {
-      c: 'C',
-      css: 'CSS',
-      es5: 'ES5',
-      es2015: 'ES2015',
-      html: 'HTML',
-      objective_c: 'Objective-C',
+      C: 'C',
+      CSS: 'CSS',
+      ES5: 'ES5',
+      ES2015: 'ES2015',
+      HTML: 'HTML',
+      objectiveC: 'Objective-C',
       ruby: 'Ruby',
       swift: 'Swift',
-      typescript: 'TypeScript'
+      typeScript: 'TypeScript'
     },
     library: {
       bootstrap: 'Bootstrap',
-      jquery: 'jQuery',
+      jQuery: 'jQuery',
       rails: 'Ruby on Rails',
       stimulus: 'Stimulus + Turbo + Hotwire',
-      swiftui: 'SwiftUI',
-      vuejs: 'Vue.js'
+      swiftUI: 'SwiftUI',
+      vueJS: 'Vue.js'
     }
   },
   projects: {
-    '1ma': {
-      description: 'A website that loads telemetry from my airplane, N171MA, and displays it in an engaging graphical way.',
+    '1MA': {
+      description:
+        'A website that loads telemetry from my airplane, N171MA, and displays it in an engaging graphical way',
       achievements: [
         'Custom data loader written in C',
         'Compelling data visualization using HighCharts',
@@ -87,7 +90,7 @@ const en: LocaleMessages = {
         'Sophisticated telemetry processing and merging from multiple sensors'
       ]
     },
-    avfacts: {
+    avFacts: {
       description: 'The website that powers my aviation podcast',
       achievements: [
         'Custom Active Storage handlers for processing audio files for podcast distribution',
@@ -95,22 +98,29 @@ const en: LocaleMessages = {
         'Generates and syndicates podcast RSS feed'
       ]
     },
-    bad_behavior: {
-      description: 'Scans your digital pilot logbook for potential violations of federal aviation regulations'
+    badBehavior: {
+      description:
+        'Scans your digital pilot logbook for potential violations of federal aviation regulations'
     },
-    closest_ndb: {
-      description: 'A useless but entertaining web page that tells you where the closest non-directional beacon is from your current location'
+    closestNDB: {
+      description:
+        'A useless but entertaining web page that tells you where the closest non-directional beacon is from your current location'
     },
-    fart: {
-      description: 'Simple questionnaire to help pilots evaluate the risk level of a proposed flight.'
+    FART: {
+      description:
+        'Simple questionnaire to help pilots evaluate the risk level of a proposed flight'
     },
     flyweight: {
-      description: 'A website that allows passengers to provide me with weight and balance information in a discrete manner.'
+      description:
+        'A website that allows passengers to provide me with weight and balance information in a discrete manner'
+    },
+    greenie: {
+      description: 'A website that lets virtual fighter pilots track their carrier landings'
     },
     hearts: {
       description: 'Generates “emoji-art” from images'
     },
-    icrashedmyplane: {
+    ICrashedMyPlane: {
       description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
       achievements: [
         'Seemingly simple front-end powered by sophisticated tree-walking algorithms',
@@ -118,7 +128,7 @@ const en: LocaleMessages = {
         'Responsive design and dark mode support'
       ]
     },
-    learnmorsecode: {
+    learnMorseCode: {
       description: 'A fun, affirming, and slightly pushy tool to teach Morse code',
       achievements: [
         'All Morse code audio and pictographs are generated programmatically; no assets are used',
@@ -126,10 +136,11 @@ const en: LocaleMessages = {
         'Responsive design and dark mode support'
       ]
     },
-    logtensafe: {
-      description: 'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
+    logTenSafe: {
+      description:
+        'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
     },
-    metar_decoder: {
+    METARDecoder: {
       description: 'Decodes the “Remarks” section of a METAR into human-readable text'
     },
     ranked: {
@@ -139,7 +150,7 @@ const en: LocaleMessages = {
         'Stable and versatile ranking algorithm'
       ]
     },
-    sf50_told: {
+    SF50Told: {
       description: 'SwiftUI app that calculates performance data for the Cirrus SF50 Vision Jet',
       achievements: [
         'Mathematical model of SF50 takeoff and landing performance',
@@ -147,49 +158,69 @@ const en: LocaleMessages = {
         'On-device parsing and storage of FAA aeronautical data'
       ]
     },
-    swiftmetar: {
+    swiftMETAR: {
       description: 'Swift library that parses METAR and TAF weather information'
     },
-    swiftnasr: {
-      description: 'Swift library that loads and parses FAA Aeronautical Data Distribution (FADDS) files'
+    swiftNASR: {
+      description:
+        'Swift library that loads and parses FAA Aeronautical Data Distribution (FADDS) files'
     }
   },
   resume: {
     present: 'Present',
+    references: 'References available upon request.',
     address: {
       country: 'USA',
       omitted: '[omitted]'
     },
     objective: {
       header: 'Objective:',
-      content: 'Staff engineer at a software-comes-first firm in need of passionate '
-        + 'programmers and fast learners. Especially excited by web and applications '
-        + 'programming.'
+      content:
+        'Software engineer at a small- to medium-sized startup in need of ' +
+        'passionate programmers and fast learners. Especially excited by web and ' +
+        'application development, code quality, and making things better.'
     },
-
-    summary: {
-      header: 'Summary',
-      content: 'Experienced, fast, disciplined and thorough programmer with strong '
-        + 'focus on design-oriented coding and complete documentation. Comfortable '
-        + 'in many languages (Ruby, JavaScript/Node, Swift, Objective-C, CSS/HTML), '
-        + 'libraries (Ruby on Rails, Vue.js, jQuery, Cocoa), and tools (Webpack, '
-        + 'Capistrano, Sidekiq, Git).'
-    },
-
-    accomplishments: {
-      header: 'Selected Accomplishments',
-      content: [
-        'Built and open-sourced two major tools for Square: Squash and Shuttle.',
-        'Premier Ruby on Rails developer at the one of the busiest Rails websites; '
-        + 'extensive experience with a full range of web technologies, front-to-back.',
-        'Designed and developed numerous personal websites using Ruby on Rails and '
-        + 'Vue.js.',
-        'Designed and developed an asynchronous Rails 3.0 website for communicating '
-        + 'with a variety of payment gateways using EM-HTTP.',
-        'Designed and implemented in C++ a model of flight physics for a computer '
-        + 'simulation as part of a team of six specialists. Also designed a model '
-        + 'of physical G-force effects whose realism is unprecedented in the industry.'
-      ]
+    jobProjects: {
+      trusted: {
+        messaging: {
+          title: 'Trusted Messaging',
+          description: 'interchange between Sunshine and Front for support conversations'
+        }
+      },
+      square: {
+        squash: {
+          title: 'Squash',
+          description: 'error tracking and stacktrace analysis, open-sourced'
+        },
+        shuttle: {
+          title: 'Shuttle',
+          description: 'i18n pipeline and translator software, open-sourced'
+        },
+        other: {
+          title: 'numerous internal user-facing websites'
+        }
+      },
+      recurly: {
+        gateway: {
+          title: 'Recurly Gateway',
+          description: 'Chase Orbital gateway for payment processing'
+        }
+      },
+      scribd: {
+        jumpfrog: {
+          title: 'Jumpfrog',
+          description: 'error tracking and stacktrace analysis'
+        }
+      },
+      tickle: {
+        leo: {
+          title: 'Leo',
+          description: 'ad-serving platform and ad analysis'
+        },
+        filter: {
+          title: 'objectionable content filtering system'
+        }
+      }
     },
     jobs: {
       header: 'Professional History',
@@ -197,67 +228,102 @@ const en: LocaleMessages = {
         amazon: {
           title: 'Software Development Engineer II',
           company: 'Amazon.com',
-          description: 'Programmer for the Transportation team, responsible for '
-            + 'implementing web-based visibility services and Oracle back-ends for '
-            + 'inbound and outbound freight.'
+          description:
+            'Programmer for the Transportation team, responsible for ' +
+            'implementing web-based visibility services and Oracle back-ends for ' +
+            'inbound and outbound freight.'
         },
         tickle: {
           title: 'Software Engineer',
           company: 'Tickle.com',
-          description: 'Lead developer for the international Tickle.com websites '
-            + '(a J2EE/Spring website) and a Ruby on Rails ad-serving system.'
+          description:
+            'Wrote payment processing for the international Tickle.com ' +
+            'websites, rewrote an ad-serving system in Rails.'
         },
         scribd: {
           title: 'Senior Developer',
           company: 'Scribd',
-          description: 'Primary Ruby on Rails back-end developer for Scribd.com; '
-            + 'website features, database optimizations, proper Rails style, and '
-            + 'expert advice.'
+          description:
+            'Back-end developer for Scribd.com; storefront, payment ' +
+            'processing, website features, database optimizations, proper Rails ' +
+            'style, and expert advice.'
         },
         recurly: {
           title: 'Senior Developer',
           company: 'Recurly',
-          description: 'Expert Ruby on Rails developer; wrote second-generation '
-            + 'payment gateway in Rails. Back-end refactoring, architecture, design.'
+          description:
+            'Expert Ruby on Rails developer; wrote second-generation ' +
+            'payment gateway in Rails. Back-end refactoring, architecture, design.'
         },
         square: {
           title: 'Software Engineer — Tools',
           company: 'Square',
-          description: 'Inaugural internal tools developer for Square, with a focus '
-            + 'on Ruby on Rails. Designed, built, and launched major engineering '
-            + 'projects that were used internally and open-sourced.'
+          description:
+            'Inaugural internal tools developer for Square, with a ' +
+            'focus on developer tooling and localization infrastructure. Designed, ' +
+            'built, and launched major engineering projects that were used ' +
+            'internally and open-sourced.'
         },
-        omg: {
+        OMG: {
           title: 'Staff Software Engineer',
           company: 'One Medical Group',
-          description: 'Software engineer on the New Services team. Developing '
-            + 'new features and products in Ruby on Rails and Angular 2.'
+          description:
+            'Software engineer on the New Services team, developing ' +
+            'new features and products for the onboarding flow.'
         },
         google: {
           title: 'Senior Software Engineer',
           company: 'Google',
-          description: 'Software engineer on the Cloud Identity team, which manages access '
-            + 'control for internal and external HTTP and streaming connections.'
+          description:
+            'Software engineer on the Cloud Identity team, which manages ' +
+            'access control for internal and external HTTP and streaming connections.'
         },
         trusted: {
           title: 'Software Engineer',
           company: 'Trusted Health',
-          description: 'Software engineer for the Clinician Data team, building '
-            + 'software to improve messaging between nurses and operations staff, '
-            + 'as well as improving the nurse onboarding experience.'
+          description:
+            'Software engineer for the Clinician Data team, building ' +
+            'software to improve messaging between nurses and operations staff, ' +
+            'as well as improving the nurse onboarding experience.'
+        },
+        occupier: {
+          title: 'Staff Software Engineer',
+          company: 'Occupier',
+          description:
+            'Staff software engineer on the Lease Admin team, ' +
+            'responsible for building features to help clients manage their lease ' +
+            'portfolio.'
+        },
+        adept: {
+          title: 'Software Engineer',
+          company: 'Adept',
+          description: 'Internal tools engineer.'
         }
       }
     },
-    supporting_experience: {
+    jobSkills: {
+      angular: 'Angular',
+      AWS: 'AWS',
+      CPP: 'C++',
+      go: 'Go',
+      J2EE: 'J2EE',
+      kubernetes: 'Kubernetes',
+      perl: 'Perl',
+      rails: 'Ruby on Rails',
+      react: 'React',
+      spring: 'Spring',
+      typeScript: 'TypeScript'
+    },
+    supportingExperience: {
       header: 'Supporting Experience',
       content: [
-        'Certified commercial pilot (2013) (private 2007).',
-        'Wrote over twenty feature articles and over 100 news articles for Inside '
-        + 'Mac Games as their Senior Writer specializing in flight simulators and '
-        + 'audio hardware.',
-        'Founded and ran the Beloit College Filmmaking Club, and as president, '
-        + 'spearheaded the creation of three feature-length documentaries on and '
-        + 'off campus.'
+        'Certified airline transport pilot (2024) (private 2007).',
+        'Wrote over twenty feature articles and over 100 news articles for Inside ' +
+          'Mac Games as their Senior Writer specializing in flight simulators and ' +
+          'audio hardware.',
+        'Founded and ran the Beloit College Filmmaking Club, and as president, ' +
+          'spearheaded the creation of three feature-length documentaries on and ' +
+          'off campus.'
       ]
     },
     education: {

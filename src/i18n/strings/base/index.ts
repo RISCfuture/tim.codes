@@ -1,17 +1,16 @@
-/* eslint-disable import/extensions,import/no-unresolved */
-
-import { LocaleMessages } from 'vue-i18n'
 import merge from 'lodash-es/merge'
 
 import basePrivate from './private'
+import type { DefaultLocaleMessageSchema, LocaleMessages } from 'vue-i18n'
 
-const base: LocaleMessages = {
+const base: LocaleMessages<DefaultLocaleMessageSchema> = {
   bio: {
     accomplishment: {
-      web_dev: {
+      dev: {
+        adept: 'Adept',
         amazon: 'Amazon',
         google: 'Google',
-        omg: 'One Medical',
+        OMG: 'One Medical',
         recurly: 'Recurly',
         scribd: 'Scribd',
         square: 'Square',
@@ -26,47 +25,51 @@ const base: LocaleMessages = {
       github: 'GitHub',
       instagram: 'Instagram',
       linkedin: 'LinkedIn',
+      mastodon: 'Mastodon',
       quora: 'Quora',
+      threads: 'Threads',
       twitch: 'Twitch',
       twitter: 'Twitter',
       youtube: 'YouTube'
     }
   },
   projects: {
-    '1ma': { name: 'One Mike Alpha' },
-    avfacts: { name: 'AvFacts' },
-    bad_behavior: { name: 'BadBehavior' },
-    closest_ndb: { name: 'Closest NDB' },
-    fart: { name: 'Flight Assessment of Risk Tool' },
+    '1MA': { name: 'One Mike Alpha' },
+    avFacts: { name: 'AvFacts' },
+    badBehavior: { name: 'BadBehavior' },
+    closestNDB: { name: 'Closest NDB' },
+    FART: { name: 'Flight Assessment of Risk Tool' },
     flyweight: { name: 'FlyWeight' },
+    greenie: { name: 'Greenie' },
     hearts: { name: 'Hearts' },
-    icrashedmyplane: { name: 'I Crashed My Plane' },
-    learnmorsecode: { name: 'Learn Morse Code' },
-    logtensafe: { name: 'LogTenSafe' },
-    metar_decoder: { name: 'METAR Decoder' },
+    ICrashedMyPlane: { name: 'I Crashed My Plane' },
+    learnMorseCode: { name: 'Learn Morse Code' },
+    logTenSafe: { name: 'LogTenSafe' },
+    METARDecoder: { name: 'METAR Decoder' },
     ranked: { name: 'Ranked.' },
-    sf50_told: { name: 'SF50 TOLD' },
-    swiftmetar: { name: 'SwiftMETAR' },
-    swiftnasr: { name: 'SwiftNASR' }
+    SF50Told: { name: 'SF50 TOLD' },
+    swiftMETAR: { name: 'SwiftMETAR' },
+    swiftNASR: { name: 'SwiftNASR' }
   },
   resume: {
-    time_range: '{start}–{end}',
+    timeRange: '{start}–{end}',
     address: {
       street: '',
       city: 'San Francisco, CA',
       zip: '',
       phone: '',
-      email: 'resume@timothymorgan.info'
+      email: "resume{'@'}timothymorgan.info"
     },
     jobs: {
-      header_format: '<span class="time-range">{timeRange}</span> <span class="title">{title}</span>, {company} ({location})',
+      headerFormat: '{timeRange} {title}, {company} ({location})',
       locations: {
         sf: 'San Francisco',
         seattle: 'Seattle'
       }
     },
     education: {
-      format: '<span class="degree">{degree}, {concentration}</span> {institution}; {location}; {timeRange}',
+      degreeConcentration: '{degree}, {concentrations}',
+      format: '{degreeConcentration} {institution}; {location}; {timeRange}',
       degree: {
         bs: 'B.S.'
       },

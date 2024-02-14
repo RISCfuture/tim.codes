@@ -1,6 +1,6 @@
-import { LocaleMessages } from 'vue-i18n'
+import type { DefaultLocaleMessageSchema, LocaleMessages } from 'vue-i18n'
 
-const enPrivate: LocaleMessages = {
+const enPrivate: LocaleMessages<DefaultLocaleMessageSchema> = {
   resume: {
     address: {
       street: '[redacted]'

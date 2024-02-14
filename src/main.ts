@@ -1,12 +1,4 @@
-import Vue from 'vue'
-
-import './config/bugsnag'
-
-import i18n from './i18n'
-import router from './router'
-import store from './store'
-
-import App from './App.vue'
+import bugsnagVue from '@/config/bugsnag'
 
 import '@/assets/fonts/TitilliumWeb-Regular.ttf'
 import '@/assets/fonts/TitilliumWeb-Italic.ttf'
@@ -21,11 +13,18 @@ import '@/assets/styles/fonts.scss'
 import '@/assets/styles/layout.scss'
 import '@/assets/styles/transitions.scss'
 
-Vue.config.productionTip = false
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-new Vue({
-  i18n,
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+import App from './App.vue'
+import router from './router'
+import i18n from '@/i18n'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+app.use(i18n)
+if (bugsnagVue) app.use(bugsnagVue)
+
+app.mount('#app')

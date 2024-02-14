@@ -11,42 +11,72 @@ on:
 
 jobs:
   test:
-    name: Tests
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
+    - name: Enable Corepack
+      run: corepack enable
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
-        node-version: 20.x
+        node-version-file: .nvmrc
     - name: Install dependencies
       run: yarn install
     - name: Copy private files
       run: |
         cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
         cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+    - name: Type check
+      run: yarn type-check
     - name: Run unit tests
-      run: yarn ci:unit
-    - name: Run e2e tests
-      run: yarn ci:e2e
+      run: yarn test:unit
+  e2e:
+    name: End-to-End Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+    - name: Copy private files
+      run: |
+        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+    - name: Enable Corepack
+      run: corepack enable
+    - uses: cypress-io/github-action@v6
+      with:
+        build: yarn build
+        start: npx vite preview --port 4173
+        record: true
+      env:
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   lint:
     name: Linters
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
+    - name: Copy private files
+      run: |
+        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+    - name: Enable Corepack
+      run: corepack enable
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
-        node-version: 20.x
+        node-version-file: .nvmrc
     - name: Install dependencies
       run: yarn install
     - name: Run ESLint
-      run: npx vue-cli-service lint
+      run: yarn lint
     - name: Run Stylelint
       run: npx stylelint src/**/*.css src/**/*.vue src/**/*.scss
+    - name: Type check
+      run: yarn type-check
