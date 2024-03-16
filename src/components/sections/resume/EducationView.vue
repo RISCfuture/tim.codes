@@ -18,17 +18,17 @@
 import type { Education } from '@/types/resume'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import useFormatYear from '@/hooks/formatYear'
 import { list } from '@/i18n/functions'
 
-const { t } = useI18n()
-const formatYear = useFormatYear()
+const { t, d } = useI18n()
 
 const props = defineProps<{ education: Education }>()
 
 const timeRange = computed(() => {
-  const start = formatYear(props.education.startYear)
-  const end = props.education.endYear ? formatYear(props.education.endYear) : t('resume.present')
+  const start = d(new Date(props.education.startYear, 1), 'yearOnly')
+  const end = props.education.endYear
+    ? d(new Date(props.education.endYear, 1), 'yearOnly')
+    : t('resume.present')
   return t('resume.timeRange', { start, end })
 })
 const concentrations = computed(() => {

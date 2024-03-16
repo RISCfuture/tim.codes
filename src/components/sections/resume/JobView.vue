@@ -18,17 +18,17 @@
 <script setup lang="ts">
 import type { Job } from '@/types/resume'
 import { computed } from 'vue'
-import useFormatYear from '@/hooks/formatYear'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
-const formatYear = useFormatYear()
+const { t, d } = useI18n()
 
 const props = defineProps<{ job: Job }>()
 
 const timeRange = computed(() => {
-  const start = formatYear(props.job.startYear)
-  const end = props.job.endYear ? formatYear(props.job.endYear) : t('resume.present')
+  const start = d(new Date(props.job.startYear, 1), 'yearOnly')
+  const end = props.job.endYear
+    ? d(new Date(props.job.endYear, 1), 'yearOnly')
+    : t('resume.present')
   return t('resume.timeRange', { start, end })
 })
 const title = computed(() => t(`resume.jobs.identifiers.${props.job.identifier}.title`))

@@ -6,13 +6,11 @@
 </template>
 
 <script setup lang="ts">
-import useFormatYear from '@/hooks/formatYear'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, d } = useI18n()
 
-const formatYear = useFormatYear()
-const copyrightYear = formatYear(new Date().getFullYear())
+const copyrightYear = d(new Date(), 'yearOnly')
 </script>
 
 <style scoped lang="scss">
