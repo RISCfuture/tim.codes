@@ -80,24 +80,6 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     }
   },
   projects: {
-    '1MA': {
-      description:
-        'A website that loads telemetry from my airplane, N171MA, and displays it in an engaging graphical way',
-      achievements: [
-        'Custom data loader written in C',
-        'Compelling data visualization using HighCharts',
-        'Mapbox integration for geolocated data',
-        'Sophisticated telemetry processing and merging from multiple sensors'
-      ]
-    },
-    avFacts: {
-      description: 'The website that powers my aviation podcast',
-      achievements: [
-        'Custom Active Storage handlers for processing audio files for podcast distribution',
-        'Admin user interface for writing, performing, and releasing new episodes',
-        'Generates and syndicates podcast RSS feed'
-      ]
-    },
     badBehavior: {
       description:
         'Scans your digital pilot logbook for potential violations of federal aviation regulations'
@@ -114,11 +96,11 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       description:
         'A website that allows passengers to provide me with weight and balance information in a discrete manner'
     },
+    fourtiles: {
+      description: 'A fun game where you make words by combining tiles.'
+    },
     greenie: {
       description: 'A website that lets virtual fighter pilots track their carrier landings'
-    },
-    hearts: {
-      description: 'Generates “emoji-art” from images'
     },
     ICrashedMyPlane: {
       description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
@@ -135,13 +117,6 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Extensive use of Vue transitions for a fluid app-like experience',
         'Responsive design and dark mode support'
       ]
-    },
-    logTenSafe: {
-      description:
-        'Website and Cocoa Mac OS X app for backing up digital pilot logbooks automatically'
-    },
-    METARDecoder: {
-      description: 'Decodes the “Remarks” section of a METAR into human-readable text'
     },
     ranked: {
       description: 'Rank arbitrary lists of things using an Elo algorithm',

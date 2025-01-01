@@ -1,35 +1,6 @@
 import { Language, Library, type Project, ProjectType, WebsiteType } from '@/types/projects'
 
 export const projects: Project[] = [
-  // {
-  //   type: ProjectType.WEBSITE,
-  //   identifier: '1MA',
-  //   websites: [
-  //     {
-  //       url: 'https://github.com/RISCfuture/OneMikeAlpha',
-  //       type: WebsiteType.SOURCE,
-  //     },
-  //     {
-  //       url: 'https://github.com/RISCfuture/1MA-Avidyne-R9-Data-Loader',
-  //       type: WebsiteType.SOURCE,
-  //     },
-  //   ],
-  //   languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS, Language.C],
-  //   libraries: [Library.RAILS, Library.VUEJS],
-  //   featured: false,
-  // },
-  {
-    type: ProjectType.WEBSITE,
-    identifier: 'avFacts',
-    websites: [
-      { url: 'https://avfacts.org', type: WebsiteType.LIVE },
-      { url: 'https://github.com/AvFacts/Backend', type: WebsiteType.SOURCE },
-      { url: 'https://github.com/AvFacts/Frontend', type: WebsiteType.SOURCE }
-    ],
-    languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
-    libraries: [Library.RAILS, Library.VUEJS],
-    featured: false
-  },
   {
     type: ProjectType.TOOL,
     identifier: 'badBehavior',
@@ -99,14 +70,6 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    type: ProjectType.TOOL,
-    identifier: 'hearts',
-    websites: [{ url: 'https://github.com/RISCfuture/hearts', type: WebsiteType.SOURCE }],
-    languages: [Language.SWIFT],
-    libraries: [],
-    featured: false
-  },
-  {
     type: ProjectType.WEBSITE,
     identifier: 'ICrashedMyPlane',
     websites: [
@@ -128,32 +91,6 @@ export const projects: Project[] = [
     libraries: [Library.VUEJS],
     featured: true
   },
-  {
-    type: ProjectType.WEBSITE,
-    identifier: 'logTenSafe',
-    websites: [
-      { url: 'https://logtensafe.com', type: WebsiteType.LIVE },
-      { url: 'https://github.com/LogTenSafe/Backend', type: WebsiteType.SOURCE },
-      { url: 'https://github.com/LogTenSafe/Front-end', type: WebsiteType.SOURCE },
-      { url: 'https://github.com/LogTenSafe/macOS', type: WebsiteType.SOURCE }
-    ],
-    languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
-    libraries: [Library.RAILS, Library.VUEJS, Library.BOOTSTRAP],
-    featured: false
-  },
-  // {
-  //   type: ProjectType.TOOL,
-  //   identifier: 'METARDecoder',
-  //   websites: [
-  //     {
-  //       url: 'https://github.com/RISCfuture/METAR-Decoder',
-  //       type: WebsiteType.SOURCE,
-  //     },
-  //   ],
-  //   languages: [Language.OBJECTIVE_C],
-  //   libraries: [],
-  //   featured: false,
-  // },
   {
     type: ProjectType.WEBSITE,
     identifier: 'ranked',
@@ -213,6 +150,17 @@ export const projects: Project[] = [
     ],
     languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.RAILS, Library.VUEJS],
+    featured: false
+  },
+  {
+    type: ProjectType.WEBSITE,
+    identifier: 'fourtiles',
+    websites: [
+      { url: 'https://github.com/Fourtiles/fourtiles.github.io', type: WebsiteType.SOURCE },
+      { url: 'https://fourtiles.github.io', type: WebsiteType.LIVE }
+    ],
+    languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
+    libraries: [Library.VUEJS],
     featured: true
   }
 ]
