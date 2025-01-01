@@ -272,22 +272,11 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         adept: {
           title: 'Software Engineer',
           company: 'Adept',
-          description: 'Internal tools engineer.'
+          description:
+            'Engineering lead responsible for building internal tooling that assisted ' +
+            'researchers and employees with AI analysis and fine-tuning.'
         }
       }
-    },
-    jobSkills: {
-      angular: 'Angular',
-      AWS: 'AWS',
-      CPP: 'C++',
-      go: 'Go',
-      J2EE: 'J2EE',
-      kubernetes: 'Kubernetes',
-      perl: 'Perl',
-      rails: 'Ruby on Rails',
-      react: 'React',
-      spring: 'Spring',
-      typeScript: 'TypeScript'
     },
     supportingExperience: {
       header: 'Supporting Experience',
