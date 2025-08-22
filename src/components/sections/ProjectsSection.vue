@@ -30,10 +30,13 @@ const minorProjects = projectsStore.minorProjects
 </script>
 
 <style scoped lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
+@use '@/assets/styles/breakpoints' as *;
 
 .featured,
 .minor {
+  flex-flow: row wrap;
+  justify-content: space-around;
+
   @include mq(iphone) {
     display: block;
   }
@@ -45,9 +48,6 @@ const minorProjects = projectsStore.minorProjects
   @include mq(large) {
     display: flex;
   }
-
-  flex-flow: row wrap;
-  justify-content: space-around;
 }
 
 .featured {
@@ -62,7 +62,7 @@ const minorProjects = projectsStore.minorProjects
 <style lang="scss">
 @use 'sass:color';
 @use 'sass:math';
-@import '@/assets/styles/vars';
+@use '@/assets/styles/vars' as *;
 
 $yellow: #f5b700;
 $blue: #00a1e4;

@@ -77,7 +77,7 @@ const supportingExperience = computed(
 </script>
 
 <style scoped lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
+@use '@/assets/styles/breakpoints' as *;
 
 h1 {
   font-size: 16px;

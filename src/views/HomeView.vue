@@ -16,8 +16,8 @@ const transitionName = ref('shift-right')
 </script>
 
 <style lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
-@import '@/assets/styles/vars';
+@use '@/assets/styles/breakpoints' as *;
+@use '@/assets/styles/vars' as *;
 
 @media only print {
   header {

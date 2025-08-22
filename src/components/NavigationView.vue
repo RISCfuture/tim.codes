@@ -62,8 +62,8 @@ function navigate(destination: { name: string }) {
 </script>
 
 <style scoped lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
-@import '@/assets/styles/vars';
+@use '@/assets/styles/breakpoints' as *;
+@use '@/assets/styles/vars' as *;
 
 header {
   color: $header-text-color;
@@ -71,6 +71,11 @@ header {
   transition: background-color 0.5s;
 
   h1 {
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(0 0 0 / 20%);
+
     @include mq(iphone) {
       padding: 10px 0;
       font-size: 18px;
@@ -85,11 +90,6 @@ header {
       padding: 20px 0;
       font-size: 48px;
     }
-
-    margin: 0;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgb(0 0 0 / 20%);
   }
 
   ul {
@@ -123,6 +123,8 @@ header {
       }
 
       svg {
+        transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
+
         @include mq(iphone) {
           width: 40px;
           height: auto;
@@ -137,8 +139,6 @@ header {
           width: 100px;
           height: auto;
         }
-
-        transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
       }
     }
   }

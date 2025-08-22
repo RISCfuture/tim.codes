@@ -32,7 +32,7 @@ const inlineAccomplishments = computed(() => list(accomplishments.value, 'standa
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/styles/vars';
+@use '@/assets/styles/vars' as *;
 
 td {
   padding-bottom: 10px;

@@ -35,7 +35,7 @@ const { i18nData, i18nType, i18nLanguages, i18nLibraries, i18nWebsiteType } = us
 </script>
 
 <style scoped lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
+@use '@/assets/styles/breakpoints' as *;
 
 div {
   margin-bottom: 20px;

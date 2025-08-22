@@ -13,10 +13,13 @@ defineProps<{ transitionName: string }>()
 </script>
 
 <style scoped lang="scss">
-@import 'mq-sass/stylesheets/mq-sass';
-@import '@/assets/styles/vars';
+@use '@/assets/styles/breakpoints' as *;
+@use '@/assets/styles/vars' as *;
 
 article {
+  margin-right: auto;
+  margin-left: auto;
+
   @include mq(iphone) {
     max-width: 480px;
     margin-top: 20px;
@@ -26,8 +29,5 @@ article {
     max-width: 960px;
     margin-top: 60px;
   }
-
-  margin-right: auto;
-  margin-left: auto;
 }
 </style>

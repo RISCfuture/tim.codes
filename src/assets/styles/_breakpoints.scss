@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+// Define breakpoints matching the current mq-sass usage
+$breakpoints: (
+  'iphone': 320px,
+  'ipad': 768px,
+  'large': 1024px
+);
+
+// Main mixin for media queries - matches mq-sass API
+@mixin mq($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map.";
+  }
+}
+
+// Optional: Function to get breakpoint value
+@function breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  }
+
+  @warn "Breakpoint '#{$name}' not found in $breakpoints map.";
+  @return null;
+}
