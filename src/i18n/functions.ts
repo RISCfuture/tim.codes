@@ -34,8 +34,8 @@ function listConstantLength(template: string, items: string[]): string {
 }
 
 function listMiddle(items: string[], template: string): string {
-  if (items.length === 1) return items[0]
-  return template.replace('{0}', items[0]).replace('{1}', listMiddle(items.slice(1), template))
+  if (items.length === 1) return items[0]!
+  return template.replace('{0}', items[0]!).replace('{1}', listMiddle(items.slice(1), template))
 }
 
 function listStartAndMiddle(
@@ -44,19 +44,19 @@ function listStartAndMiddle(
   middleTemplate: string
 ): string {
   return startTemplate
-    .replace('{0}', items[0])
+    .replace('{0}', items[0]!)
     .replace('{1}', listMiddle(items.slice(1), middleTemplate))
 }
 
 export function list(items: string[], type = 'standard'): string {
-  if (items.length === 1) return items[0]
+  if (items.length === 1) return items[0]!
 
   const pattern: CLDRStringPattern =
     CLDR.main(`listPatterns/listPattern-type-${type}`) ||
     CLDR.main('listPatterns/listPattern-type-standard')
 
   if (pattern[items.length.toString()]) {
-    return listConstantLength(pattern[items.length.toString()], items)
+    return listConstantLength(pattern[items.length.toString()]!, items)
   }
 
   const firstAndMiddle = listStartAndMiddle(initial(items), pattern.start, pattern.middle)

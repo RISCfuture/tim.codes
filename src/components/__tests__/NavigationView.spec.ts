@@ -21,7 +21,7 @@ describe('NavigationView', () => {
     await fireEvent.click(homeTab)
 
     expect(emitted()).toHaveProperty('set-transition')
-    expect(emitted()['set-transition'][0]).toEqual(['shift-left'])
+    expect(emitted()['set-transition']![0]).toEqual(['shift-left'])
   })
 
   it('shifts right when clicking a link right of the current page', async () => {
@@ -35,6 +35,6 @@ describe('NavigationView', () => {
     await fireEvent.click(homeTab)
 
     expect(emitted()).toHaveProperty('set-transition')
-    expect(emitted()['set-transition'][0]).toEqual(['shift-right'])
+    expect(emitted()['set-transition']![0]).toEqual(['shift-right'])
   })
 })
