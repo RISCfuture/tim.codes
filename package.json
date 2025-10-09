@@ -20,9 +20,7 @@
     "ci:build": "run-p type-check \"build-only {@}\" --"
   },
   "dependencies": {
-    "@bugsnag/browser-performance": "^3.0.0",
-    "@bugsnag/js": "^8.6.0",
-    "@bugsnag/plugin-vue": "^8.6.0",
+    "@sentry/vue": "^10.18.0",
     "cldr-data": "^36.0.4",
     "cldrjs": "^0.5.5",
     "lodash-es": "^4.17.21",
