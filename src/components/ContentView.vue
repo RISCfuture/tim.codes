@@ -17,17 +17,23 @@ defineProps<{ transitionName: string }>()
 @use '@/assets/styles/vars' as *;
 
 article {
+  width: 100%;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 10px;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
-  @include mq(iphone) {
-    max-width: 480px;
-    margin-top: 20px;
+  @include mq(ipad) {
+    margin-top: 40px;
+    padding: 0 20px;
   }
 
   @include mq(large) {
-    max-width: 960px;
     margin-top: 60px;
+    padding: 0 40px;
   }
 }
 </style>

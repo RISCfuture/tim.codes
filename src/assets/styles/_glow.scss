@@ -1,0 +1,215 @@
+// Glow effects for text, boxes, borders, and filters
+// These mixins create layered shadow effects for depth and visual interest
+
+// TEXT GLOW EFFECTS
+// Usage: @include text-glow-sm(118, 169, 185);
+
+@mixin text-glow-sm($r, $g, $b) {
+  text-shadow:
+    0 0 10px rgba($r, $g, $b, 0.3),
+    0 0 20px rgba($r, $g, $b, 0.15);
+}
+
+@mixin text-glow-md($r, $g, $b) {
+  text-shadow:
+    0 0 15px rgba($r, $g, $b, 0.4),
+    0 0 30px rgba($r, $g, $b, 0.2),
+    0 0 45px rgba($r, $g, $b, 0.1);
+}
+
+@mixin text-glow-lg($r, $g, $b) {
+  text-shadow:
+    0 0 20px rgba($r, $g, $b, 0.6),
+    0 0 40px rgba($r, $g, $b, 0.3),
+    0 0 60px rgba($r, $g, $b, 0.15);
+}
+
+// Special title glow with white + shadow combo
+@mixin text-glow-title {
+  text-shadow:
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+@mixin text-glow-title-hover {
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.7),
+    0 0 80px rgba(255, 255, 255, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+// BOX SHADOW GLOW EFFECTS
+// Usage: @include box-glow-sm(118, 169, 185);
+
+@mixin box-glow-sm($r, $g, $b) {
+  box-shadow:
+    0 0 15px rgba($r, $g, $b, 0.4),
+    0 0 30px rgba($r, $g, $b, 0.2);
+}
+
+@mixin box-glow-md($r, $g, $b) {
+  box-shadow:
+    0 0 20px rgba($r, $g, $b, 0.8),
+    0 0 40px rgba($r, $g, $b, 0.4);
+}
+
+@mixin box-glow-lg($r, $g, $b) {
+  box-shadow:
+    0 0 25px rgba($r, $g, $b, 0.6),
+    0 0 50px rgba($r, $g, $b, 0.3),
+    0 0 75px rgba($r, $g, $b, 0.15);
+}
+
+// BORDER GLOW EFFECTS
+// Multi-layer glowing border effect (like bottom border on header)
+// Usage: @include border-glow(118, 169, 185);
+
+@mixin border-glow-sm($r, $g, $b) {
+  box-shadow:
+    0 0 8px 4px rgba($r, $g, $b, 1),
+    0 0 16px 6px rgba($r, $g, $b, 0.9),
+    0 2px 24px 8px rgba($r, $g, $b, 0.4);
+}
+
+@mixin border-glow-md($r, $g, $b) {
+  box-shadow:
+    0 0 4px 2px rgba(255, 255, 255, 1),
+    0 0 10px 4px rgba($r, $g, $b, 1),
+    0 0 16px 6px rgba($r, $g, $b, 1),
+    0 0 24px 8px rgba($r, $g, $b, 0.8),
+    0 2px 32px 10px rgba($r, $g, $b, 0.4);
+}
+
+@mixin border-glow-lg($r, $g, $b) {
+  box-shadow:
+    0 0 4px 2px rgba(255, 255, 255, 1),
+    0 0 10px 4px rgba($r + 100, $g + 100, $b + 100, 1),
+    0 0 16px 6px rgba($r, $g, $b, 1),
+    0 0 24px 8px rgba($r, $g, $b, 0.8),
+    0 2px 32px 10px rgba($r, $g, $b, 0.4);
+}
+
+// FILTER GLOW EFFECTS (for SVG elements)
+// Usage: @include filter-glow-basic;
+
+@mixin filter-glow-basic {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@mixin filter-glow-hover {
+  filter:
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+@mixin filter-glow-active($r, $g, $b) {
+  filter:
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 0 30px rgba($r, $g, $b, 0.9))
+    drop-shadow(0 0 60px rgba($r, $g, $b, 0.5));
+}
+
+// INSET GLOW (for depth/lighting effects)
+// Usage: @include inset-glow-sm;
+
+@mixin inset-glow-sm {
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+@mixin inset-glow-md {
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+@mixin inset-glow-lg {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+// COMBINED GLOW (box-shadow + inset for accent bars)
+// Usage: @include accent-glow-sm(118, 169, 185);
+
+@mixin accent-glow-sm($r, $g, $b) {
+  box-shadow:
+    0 0 15px rgba($r, $g, $b, 0.4),
+    0 0 30px rgba($r, $g, $b, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+@mixin accent-glow-md($r, $g, $b) {
+  box-shadow:
+    0 0 25px rgba($r, $g, $b, 0.6),
+    0 0 50px rgba($r, $g, $b, 0.3),
+    0 0 75px rgba($r, $g, $b, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+// SUBTLE GLOW (for footer borders, subtle effects)
+
+@mixin subtle-glow-white {
+  box-shadow:
+    0 0 8px 2px rgba(255, 255, 255, 0.03),
+    0 -2px 12px 2px rgba(255, 255, 255, 0.02);
+}
+
+@mixin subtle-glow-themed($r, $g, $b) {
+  box-shadow:
+    0 0 20px rgba($r, $g, $b, 0.15),
+    inset 0 0 20px rgba($r, $g, $b, 0.05);
+}
+
+// THEMED GLOW MIXINS (for use with CSS custom properties like var(--theme-glow))
+// These work with CSS custom properties that contain RGB values as "r, g, b"
+
+@mixin text-glow-themed-sm {
+  text-shadow:
+    0 0 10px rgba(var(--theme-glow), 0.3),
+    0 0 20px rgba(var(--theme-glow), 0.15);
+}
+
+@mixin text-glow-themed-md {
+  text-shadow:
+    0 0 15px rgba(var(--theme-glow), 0.4),
+    0 0 30px rgba(var(--theme-glow), 0.2),
+    0 0 45px rgba(var(--theme-glow), 0.1);
+}
+
+@mixin text-glow-themed-lg {
+  text-shadow:
+    0 0 20px rgba(var(--theme-glow), 0.6),
+    0 0 40px rgba(var(--theme-glow), 0.3),
+    0 0 60px rgba(var(--theme-glow), 0.15);
+}
+
+@mixin box-glow-themed-sm {
+  box-shadow:
+    0 0 15px rgba(var(--theme-glow), 0.4),
+    0 0 30px rgba(var(--theme-glow), 0.2);
+}
+
+@mixin box-glow-themed-md {
+  box-shadow:
+    0 0 20px rgba(var(--theme-glow), 0.8),
+    0 0 40px rgba(var(--theme-glow), 0.4);
+}
+
+@mixin box-glow-themed-lg {
+  box-shadow:
+    0 0 25px rgba(var(--theme-glow), 0.6),
+    0 0 50px rgba(var(--theme-glow), 0.3),
+    0 0 75px rgba(var(--theme-glow), 0.15);
+}
+
+@mixin accent-glow-themed-sm {
+  box-shadow:
+    0 0 15px rgba(var(--theme-glow), 0.4),
+    0 0 30px rgba(var(--theme-glow), 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+@mixin accent-glow-themed-md {
+  box-shadow:
+    0 0 25px rgba(var(--theme-glow), 0.6),
+    0 0 50px rgba(var(--theme-glow), 0.3),
+    0 0 75px rgba(var(--theme-glow), 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}

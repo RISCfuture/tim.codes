@@ -1,8 +1,8 @@
 <template>
   <svg
     width="100"
-    height="54"
-    viewBox="0 0 100 54"
+    height="100"
+    viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
@@ -11,7 +11,7 @@
       <path id="c" d="M0 0h27v54H0z" />
       <path id="e" d="M0 0h27v36H0z" />
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fill-rule="evenodd" transform="translate(0 23)">
       <g transform="translate(71.422 12)">
         <mask id="b" fill="#fff">
           <use xlink:href="#a" />

@@ -1,0 +1,127 @@
+// Gradient utility mixins for creating consistent gradient patterns
+
+// ANGULAR GRADIENT (135deg) - Most common pattern
+// Usage: @include gradient-angular(#76a9b9, #5a8a9a);
+
+@mixin gradient-angular($color1, $color2) {
+  background: linear-gradient(135deg, $color1 0%, $color2 100%);
+}
+
+// CSS variable version
+@mixin gradient-angular-var($var-name) {
+  background: var($var-name);
+}
+
+// HORIZONTAL GRADIENT (90deg)
+// Usage: @include gradient-horizontal(transparent, rgba(255, 255, 255, 0.05), transparent);
+
+@mixin gradient-horizontal($start, $middle, $end) {
+  background: linear-gradient(90deg, $start 0%, $middle 50%, $end 100%);
+}
+
+// VERTICAL GRADIENT (180deg)
+// Usage: @include gradient-vertical(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05));
+
+@mixin gradient-vertical($start, $end) {
+  background: linear-gradient(180deg, $start 0%, $end 100%);
+}
+
+// DIAGONAL GRADIENT (custom angle)
+// Usage: @include gradient-diagonal(120deg, rgba(r, g, b, 0.03), rgba(r, g, b, 0.06), rgba(r, g, b, 0.03));
+
+@mixin gradient-diagonal($angle, $start, $middle, $end) {
+  background: linear-gradient($angle, $start 0%, $middle 50%, $end 100%);
+}
+
+// MULTI-STOP GRADIENT (for card accents with color tints)
+// Usage: @include gradient-card-accent(var(--card-bg), var(--bg-color-elevated), rgba(118, 169, 185, 0.03));
+
+@mixin gradient-card-accent($base, $elevated, $tint) {
+  background: linear-gradient(
+    135deg,
+    $base 0%,
+    $elevated 80%,
+    $tint 100%
+  );
+}
+
+@mixin gradient-card-accent-dark($base, $elevated, $tint) {
+  [data-theme='dark'] & {
+    background: linear-gradient(
+      135deg,
+      $base 0%,
+      $elevated 70%,
+      $tint 100%
+    );
+  }
+}
+
+// SUBTLE OVERLAY GRADIENT (for depth effects)
+// Usage: @include gradient-overlay-depth;
+
+@mixin gradient-overlay-depth {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 5%) 0%,
+    transparent 50%,
+    rgb(0 0 0 / 3%) 100%
+  );
+}
+
+// THEMED COLOR TINT GRADIENT (using CSS custom properties)
+// Usage: @include gradient-themed-tint(0.03, 0.06, 0.03); (requires --theme-glow variable)
+
+@mixin gradient-themed-tint($start-opacity, $middle-opacity, $end-opacity) {
+  background: linear-gradient(
+    120deg,
+    rgba(var(--theme-glow), $start-opacity) 0%,
+    rgba(var(--theme-glow), $middle-opacity) 50%,
+    rgba(var(--theme-glow), $end-opacity) 100%
+  );
+}
+
+// Alternating pattern (for list items)
+@mixin gradient-themed-tint-alt($start-opacity, $middle-opacity, $end-opacity) {
+  background: linear-gradient(
+    120deg,
+    rgba(var(--theme-glow), $start-opacity) 0%,
+    rgba(var(--theme-glow), $middle-opacity) 50%,
+    rgba(var(--theme-glow), $end-opacity) 100%
+  );
+}
+
+// HEADER GRADIENT WITH OVERLAY
+// Usage: @include gradient-header-overlay;
+
+@mixin gradient-header-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+// TEXT GRADIENT (for gradient text effects)
+// Usage: @include text-gradient(#76a9b9, #5a8a9a);
+
+@mixin text-gradient($color1, $color2) {
+  background: linear-gradient(135deg, $color1 0%, $color2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// RADIAL GRADIENT (for spotlight effects)
+// Usage: @include gradient-radial(circle, rgba(255, 255, 255, 0.1), transparent);
+
+@mixin gradient-radial($shape, $center, $edge) {
+  background: radial-gradient($shape, $center 0%, $edge 100%);
+}
+
+// SUBTLE HORIZONTAL BORDER GRADIENT (for footer effects)
+// Usage: @include gradient-border-subtle;
+
+@mixin gradient-border-subtle {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+}

@@ -1,0 +1,253 @@
+// Accent bars, borders, focus rings, and indicator patterns
+
+@use './glow' as *;
+@use './gradients' as *;
+
+// ACCENT BAR (vertical colored bar with glow)
+// Usage with explicit RGB: @include accent-bar-left(8px, var(--theme-gradient), 118, 169, 185);
+// Usage with CSS var: @include accent-bar-left-themed(8px, var(--theme-gradient));
+
+@mixin accent-bar-left($width, $gradient, $r, $g, $b) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $width;
+    height: 100%;
+    content: '';
+    background: $gradient;
+    border-radius: calc($width / 2);
+    @include accent-glow-sm($r, $g, $b);
+    transition:
+      height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease;
+  }
+
+  &:hover::before {
+    height: 100%;
+    @include accent-glow-md($r, $g, $b);
+  }
+}
+
+@mixin accent-bar-right($width, $gradient, $r, $g, $b) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $width;
+    height: 70%;
+    content: '';
+    background: $gradient;
+    border-radius: calc($width / 2);
+    @include accent-glow-sm($r, $g, $b);
+    transition:
+      height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease;
+  }
+
+  &:hover::before {
+    height: 100%;
+    @include accent-glow-md($r, $g, $b);
+  }
+}
+
+// Themed versions that work with CSS custom properties
+@mixin accent-bar-left-themed($width, $gradient) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $width;
+    height: 100%;
+    content: '';
+    background: $gradient;
+    border-radius: calc($width / 2);
+    @include accent-glow-themed-sm;
+    transition:
+      height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease;
+  }
+
+  &:hover::before {
+    height: 100%;
+    @include accent-glow-themed-md;
+  }
+}
+
+@mixin accent-bar-right-themed($width, $gradient) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $width;
+    height: 70%;
+    content: '';
+    background: $gradient;
+    border-radius: calc($width / 2);
+    @include accent-glow-themed-sm;
+    transition:
+      height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease;
+  }
+
+  &:hover::before {
+    height: 100%;
+    @include accent-glow-themed-md;
+  }
+}
+
+// GLOWING INDICATOR LINE (for tab indicators)
+// Usage: @include glow-indicator(3px, rgba(255, 255, 255, 0.8));
+
+@mixin glow-indicator($height, $color) {
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: $height;
+    content: '';
+    background: $color;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: calc($height / 2);
+    transition:
+      width 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 60%;
+  }
+
+  &.active::after {
+    width: 80%;
+  }
+}
+
+// GLOWING INDICATOR LINE (themed version with RGB values)
+// Usage: @include glow-indicator-themed(3px, 118, 169, 185);
+
+@mixin glow-indicator-themed($height, $r, $g, $b) {
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: $height;
+    content: '';
+    background: rgba($r, $g, $b, 1);
+    box-shadow:
+      0 0 20px rgba($r, $g, $b, 0.8),
+      0 0 40px rgba($r, $g, $b, 0.4);
+    border-radius: calc($height / 2);
+    transition:
+      width 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 60%;
+  }
+
+  &.active::after {
+    width: 80%;
+  }
+}
+
+// FOCUS RING (accessible focus states)
+// Usage: @include focus-ring;
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(0 161 228 / 40%);
+    border-radius: 2px;
+  }
+}
+
+@mixin focus-ring-custom($r, $g, $b) {
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($r, $g, $b, 0.4);
+    border-radius: 2px;
+  }
+}
+
+@mixin focus-ring-enhanced($r, $g, $b) {
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba($r, $g, $b, 0.4),
+      0 0 0 4px var(--header-overlay),
+      0 0 12px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+// CARD ACCENT BORDER (left border with gradient background)
+// Usage: @include card-accent-border(4px, $color);
+
+@mixin card-accent-border($width, $color) {
+  border-left: $width solid $color;
+  @include gradient-card-accent(var(--card-bg), var(--bg-color-elevated), rgba($color, 0.03));
+
+  @include gradient-card-accent-dark(var(--card-bg), var(--bg-color-elevated), rgba($color, 0.08));
+}
+
+// GLOWING BOTTOM BORDER (for header effects)
+// Usage: @include glow-bottom-border(4px, 118, 169, 185);
+
+@mixin glow-bottom-border($height, $r, $g, $b) {
+  &::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: $height;
+    content: '';
+    background: rgba($r, $g, $b, 1);
+    @include border-glow-md($r, $g, $b);
+    transition:
+      background 0.6s ease,
+      box-shadow 0.6s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+// DIVIDER LINE (with subtle glow)
+// Usage: @include divider-line(2px, bottom);
+
+@mixin divider-line($width, $position: bottom) {
+  @if $position == bottom {
+    border-bottom: $width solid var(--divider-color);
+  } @else if $position == top {
+    border-top: $width solid var(--divider-color);
+  }
+}
+
+// THEMED BORDER (with theme color variable)
+// Usage: @include themed-border(2px, left);
+
+@mixin themed-border($width, $position: left) {
+  @if $position == left {
+    border-left: $width solid var(--theme-color);
+  } @else if $position == right {
+    border-right: $width solid var(--theme-color);
+  } @else if $position == top {
+    border-top: $width solid var(--theme-color);
+  } @else if $position == bottom {
+    border-bottom: $width solid var(--theme-color);
+  }
+}

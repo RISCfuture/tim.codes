@@ -1,3 +1,120 @@
+// Light theme (default)
+:root {
+  // Header colors
+  --header-color-home: #76a9b9;
+  --header-color-home-gradient: linear-gradient(135deg, #76a9b9 0%, #5a8a9a 100%);
+  --header-color-projects: #ed444c;
+  --header-color-projects-gradient: linear-gradient(135deg, #ed444c 0%, #c93640 100%);
+  --header-color-resume: #7abb80;
+  --header-color-resume-gradient: linear-gradient(135deg, #7abb80 0%, #5fa066 100%);
+  --header-text-color: #fff;
+  --header-overlay: rgb(0 0 0 / 20%);
+  --header-overlay-hover: rgb(0 0 0 / 30%);
+
+  // Text colors
+  --text-color: #1a1a1a;
+  --text-color-secondary: #4a4a4a;
+  --alt-text-color: #3a5743;
+
+  // Background colors
+  --bg-color: #ffffff;
+  --bg-color-secondary: #f8f9fa;
+  --bg-color-elevated: #ffffff;
+
+  // Card and surface colors
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  --card-shadow-hover: 0 8px 24px rgb(0 0 0 / 15%);
+
+  // Project tag colors
+  --tag-type-bg: #dc0073;
+  --tag-language-bg: #f5b700;
+  --tag-library-bg: #00a1e4;
+
+  // Border and divider colors
+  --border-color: #e0e0e0;
+  --divider-color: rgb(0 0 0 / 10%);
+
+  // Interactive states
+  --link-color: #00a1e4;
+  --link-hover-color: #0081b8;
+  --focus-ring: 0 0 0 3px rgb(0 161 228 / 40%);
+
+  // Resume colors with gradients
+  --resume-jobs-color: #f5b700;
+  --resume-jobs-color-light: #ffd54f;
+  --resume-jobs-gradient: linear-gradient(135deg, #f5b700 0%, #ffa726 100%);
+  --resume-supporting-color: #00a1e4;
+  --resume-supporting-color-light: #42b8f0;
+  --resume-supporting-gradient: linear-gradient(135deg, #00a1e4 0%, #0288d1 100%);
+  --resume-education-color: #dc0073;
+  --resume-education-color-light: #e91e8c;
+  --resume-education-gradient: linear-gradient(135deg, #dc0073 0%, #c2185b 100%);
+
+  // Footer
+  --footer-bg: var(--bg-color-secondary);
+  --footer-text: var(--text-color-secondary);
+}
+
+// Dark theme
+[data-theme='dark'] {
+  // Header colors - slightly muted for dark mode
+  --header-color-home: #5a8a9a;
+  --header-color-home-gradient: linear-gradient(135deg, #5a8a9a 0%, #47707d 100%);
+  --header-color-projects: #c93640;
+  --header-color-projects-gradient: linear-gradient(135deg, #c93640 0%, #a82b35 100%);
+  --header-color-resume: #5fa066;
+  --header-color-resume-gradient: linear-gradient(135deg, #5fa066 0%, #4d8352 100%);
+  --header-text-color: #f0f0f0;
+  --header-overlay: rgb(0 0 0 / 30%);
+  --header-overlay-hover: rgb(0 0 0 / 45%);
+
+  // Text colors
+  --text-color: #e8e8e8;
+  --text-color-secondary: #b0b0b0;
+  --alt-text-color: #8fc199;
+
+  // Background colors
+  --bg-color: #1a1a1a;
+  --bg-color-secondary: #242424;
+  --bg-color-elevated: #2a2a2a;
+
+  // Card and surface colors
+  --card-bg: #252525;
+  --card-shadow: 0 2px 8px rgb(0 0 0 / 40%);
+  --card-shadow-hover: 0 8px 24px rgb(0 0 0 / 60%);
+
+  // Project tag colors - slightly adjusted for dark mode
+  --tag-type-bg: #e01a7a;
+  --tag-language-bg: #ffc320;
+  --tag-library-bg: #1ab0f0;
+
+  // Border and divider colors
+  --border-color: #404040;
+  --divider-color: rgb(255 255 255 / 10%);
+
+  // Interactive states
+  --link-color: #4db8f0;
+  --link-hover-color: #6ec5f3;
+  --focus-ring: 0 0 0 3px rgb(77 184 240 / 40%);
+
+  // Resume colors with gradients
+  --resume-jobs-color: #ffc320;
+  --resume-jobs-color-light: #ffd966;
+  --resume-jobs-gradient: linear-gradient(135deg, #ffc320 0%, #ffab00 100%);
+  --resume-supporting-color: #1ab0f0;
+  --resume-supporting-color-light: #4fc3f7;
+  --resume-supporting-gradient: linear-gradient(135deg, #1ab0f0 0%, #0288d1 100%);
+  --resume-education-color: #e01a7a;
+  --resume-education-color-light: #ec407a;
+  --resume-education-gradient: linear-gradient(135deg, #e01a7a 0%, #c2185b 100%);
+
+  // Footer
+  --footer-bg: var(--bg-color-secondary);
+  --footer-text: var(--text-color-secondary);
+}
+
+// Legacy SCSS variables for backward compatibility
 $header-color-home: #76a9b9;
 $header-color-projects: #ed444c;
 $header-color-resume: #7abb80;

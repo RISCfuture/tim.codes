@@ -43,26 +43,53 @@ const alt = computed(() => t(`social.website.${props.profile.identifier}`))
 </script>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/breakpoints' as *;
+
 img {
-  width: 32px;
+  width: 20px;
   height: auto;
-  transition: transform 0.25s;
+  filter: grayscale(0.3);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.3s ease;
+
+  @include mq(ipad) {
+    width: 32px;
+  }
 }
 
 .social-icon {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  padding: 0 20px;
-  transition: padding 0.25s;
+  padding: 0 4px;
+  transition: transform 0.3s ease;
+
+  @include mq(ipad) {
+    padding: 0 20px;
+  }
 
   &:hover {
-    padding: 0 30px;
+    transform: translateY(-4px);
   }
 
   &:hover img {
-    transform: scale(1.5);
+    filter: grayscale(0) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    transform: scale(1.3) rotate(5deg);
     transform-origin: center;
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(0.95);
+  }
+
+  a:focus-visible {
+    outline: none;
+
+    img {
+      box-shadow: var(--focus-ring);
+      border-radius: 4px;
+    }
   }
 }
 </style>

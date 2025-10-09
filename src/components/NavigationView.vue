@@ -1,38 +1,43 @@
 <template>
   <header :class="route.name">
-    <ul role="tablist">
-      <li id="home-tab" role="tab">
-        <a
-          href="/"
-          :aria-label="t('header.links.home')"
-          :aria-selected="route.name === 'home'"
-          @click.prevent="navigate({ name: 'bio' })"
-        >
-          <home-image id="home-image" />
-        </a>
-      </li>
-      <li id="projects-tab" role="tab">
-        <a
-          href="/projects"
-          :aria-label="t('header.links.projects')"
-          :aria-selected="route.name === 'projects'"
-          @click.prevent="navigate({ name: 'projects' })"
-        >
-          <projects-image id="projects-image" />
-        </a>
-      </li>
-      <li id="resume-tab" role="tab">
-        <a
-          href="/resume"
-          :aria-label="t('header.links.resume')"
-          :aria-selected="route.name === 'resume'"
-          @click.prevent="navigate({ name: 'resume' })"
-        >
-          <resume-image id="resume-image" />
-        </a>
-      </li>
-    </ul>
-    <h1>Tim Morgan</h1>
+    <div class="header-content">
+      <h1>Tim Morgan</h1>
+      <ul role="tablist">
+        <li id="home-tab" role="tab" :class="{ active: route.name === 'bio' }">
+          <a
+            href="/"
+            :aria-label="t('header.links.home')"
+            :aria-selected="route.name === 'home'"
+            @click.prevent="navigate({ name: 'bio' })"
+          >
+            <home-image id="home-image" />
+            <span class="tab-label">{{ t('header.links.home') }}</span>
+          </a>
+        </li>
+        <li id="projects-tab" role="tab" :class="{ active: route.name === 'projects' }">
+          <a
+            href="/projects"
+            :aria-label="t('header.links.projects')"
+            :aria-selected="route.name === 'projects'"
+            @click.prevent="navigate({ name: 'projects' })"
+          >
+            <projects-image id="projects-image" />
+            <span class="tab-label">{{ t('header.links.projects') }}</span>
+          </a>
+        </li>
+        <li id="resume-tab" role="tab" :class="{ active: route.name === 'resume' }">
+          <a
+            href="/resume"
+            :aria-label="t('header.links.resume')"
+            :aria-selected="route.name === 'resume'"
+            @click.prevent="navigate({ name: 'resume' })"
+          >
+            <resume-image id="resume-image" />
+            <span class="tab-label">{{ t('header.links.resume') }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </header>
 </template>
 
@@ -64,119 +69,205 @@ function navigate(destination: { name: string }) {
 <style scoped lang="scss">
 @use '@/assets/styles/breakpoints' as *;
 @use '@/assets/styles/vars' as *;
+@use '@/assets/styles/glow' as *;
+@use '@/assets/styles/gradients' as *;
+@use '@/assets/styles/interactions' as *;
+@use '@/assets/styles/responsive' as *;
+@use '@/assets/styles/accents' as *;
 
 header {
-  color: $header-text-color;
-  background-color: $header-color-home;
-  transition: background-color 0.5s;
+  position: relative;
+  color: var(--header-text-color);
+  @include gradient-header-overlay;
+  @include transition-slow(background, color);
+  overflow: visible;
 
-  h1 {
-    margin: 0;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgb(0 0 0 / 20%);
-
-    @include mq(iphone) {
-      padding: 10px 0;
-      font-size: 18px;
-    }
-
-    @include mq(ipad) {
-      padding: 10px 0;
-      font-size: 24px;
-    }
-
-    @include mq(large) {
-      padding: 20px 0;
-      font-size: 48px;
-    }
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: var(--header-color-home-gradient);
+    transition: opacity 0.6s ease;
+    z-index: 0;
   }
 
-  ul {
+  // Default glowing bottom border (overridden by themed versions)
+  &::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    content: '';
+    background: rgba(255, 255, 255, 1);
+    box-shadow:
+      0 0 8px 4px rgba(255, 255, 255, 1),
+      0 0 16px 6px rgba(255, 255, 255, 1),
+      0 0 24px 8px rgba(255, 255, 255, 0.9),
+      0 2px 30px 10px rgba(255, 255, 255, 0.4);
+    transition:
+      background 0.6s ease,
+      box-shadow 0.6s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  @include flex-column-to-row;
+  align-items: center;
+  @include padding-scale(12px 15px, 30px, 20px 60px);
+
+  @include mq(large) {
+    justify-content: space-between;
+  }
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  @include text-glow-title;
+  @include transition-standard(text-shadow);
+  @include margin-scale(0 0 10px 0, 0 0 20px 0, 0);
+  @include font-scale-fixed(24px, 42px, 48px);
+  @include letter-spacing-scale(1.5px, 2px, 2px);
+
+  &:hover {
+    @include text-glow-title-hover;
+  }
+}
+
+ul {
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  @include gap-scale(0, 0, 8px);
+}
+
+li {
+  position: relative;
+  @include glow-indicator(3px, rgba(255, 255, 255, 0.8));
+
+  a {
     display: flex;
-    flex-flow: row nowrap;
-    align-items: stretch;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-      margin: 0;
-      list-style-type: none;
-
-      @include mq(iphone) {
-        padding: 5px 10px;
-      }
-
-      @include mq(ipad) {
-        padding: 10px 25px;
-      }
-
-      @include mq(large) {
-        padding: 20px 50px;
-      }
-
-      a {
-        cursor: pointer;
-      }
-
-      svg {
-        transition: transform 0.4s cubic-bezier(0.54, 0.59, 0.52, 1.1);
-
-        @include mq(iphone) {
-          width: 40px;
-          height: auto;
-        }
-
-        @include mq(ipad) {
-          width: 60px;
-          height: auto;
-        }
-
-        @include mq(large) {
-          width: 100px;
-          height: auto;
-        }
-      }
-    }
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    @include transition-standard(color, transform);
+    @include gap-scale(4px, 10px, 12px);
+    @include padding-scale(8px 12px 10px, 16px 30px 20px, 20px 40px 24px);
   }
 
-  &.bio {
-    background-color: $header-color-home;
-
-    #home-tab {
-      background-color: rgb(0 0 0 / 20%);
-    }
-
-    #home-image {
-      transform: scale(1.2);
-    }
+  svg {
+    display: block;
+    margin: 0 auto;
+    @include filter-glow-basic;
+    @include transition-standard(filter, transform);
+    @include svg-size-scale(24px, 48px, 64px);
   }
 
-  &.projects {
-    background-color: $header-color-projects;
-
-    #projects-tab {
-      background-color: rgb(0 0 0 / 20%);
-    }
-
-    #projects-image {
-      transform: scale(1.2);
-    }
+  .tab-label {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.5;
+    @include transition-standard(opacity, text-shadow);
+    @include font-scale-fixed(9px, 13px, 14px);
+    @include letter-spacing-scale(0.8px, 1px, 1px);
   }
 
-  &.resume {
-    background-color: $header-color-resume;
+  &:hover a {
+    color: rgba(255, 255, 255, 0.9);
+  }
 
-    #resume-tab {
-      background-color: rgb(0 0 0 / 20%);
-    }
+  &:hover svg {
+    @include filter-glow-hover;
+    transform: translateY(-2px);
+  }
 
-    #resume-image {
-      transform: scale(1.2);
-    }
+  &:hover .tab-label {
+    opacity: 0.8;
+  }
+
+  // Active tab styling
+  &.active a {
+    color: #fff;
+  }
+
+  &.active .tab-label {
+    opacity: 1;
+  }
+}
+
+// Color-specific effects
+header.bio {
+  &::before {
+    background: var(--header-color-home-gradient);
+  }
+
+  #home-tab.active svg {
+    @include filter-glow-active(118, 169, 185);
+  }
+
+  #home-tab.active::after {
+    background: rgba(118, 169, 185, 1);
+    @include box-glow-md(118, 169, 185);
+  }
+
+  &::after {
+    background: rgba(118, 169, 185, 1);
+    @include border-glow-lg(118, 169, 185);
+  }
+}
+
+header.projects {
+  &::before {
+    background: var(--header-color-projects-gradient);
+  }
+
+  #projects-tab.active svg {
+    @include filter-glow-active(237, 68, 76);
+  }
+
+  #projects-tab.active::after {
+    background: rgba(237, 68, 76, 1);
+    @include box-glow-md(237, 68, 76);
+  }
+
+  &::after {
+    background: rgba(237, 68, 76, 1);
+    @include border-glow-lg(237, 68, 76);
+  }
+}
+
+header.resume {
+  &::before {
+    background: var(--header-color-resume-gradient);
+  }
+
+  #resume-tab.active svg {
+    @include filter-glow-active(122, 187, 128);
+  }
+
+  #resume-tab.active::after {
+    background: rgba(122, 187, 128, 1);
+    @include box-glow-md(122, 187, 128);
+  }
+
+  &::after {
+    background: rgba(122, 187, 128, 1);
+    @include border-glow-lg(122, 187, 128);
   }
 }
 </style>

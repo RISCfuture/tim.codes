@@ -1,0 +1,263 @@
+// Interactive patterns: hover, focus, active states, and transitions
+
+// TRANSITION PRESETS
+// Usage: @include transition-fast(opacity, transform);
+
+@mixin transition-fast($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, #{$property} 0.2s ease, comma);
+  }
+  transition: $transitions;
+}
+
+@mixin transition-standard($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, #{$property} 0.3s ease, comma);
+  }
+  transition: $transitions;
+}
+
+@mixin transition-slow($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, #{$property} 0.6s ease, comma);
+  }
+  transition: $transitions;
+}
+
+// CUSTOM TIMING FUNCTIONS
+@mixin transition-bounce($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append(
+      $transitions,
+      #{$property} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      comma
+    );
+  }
+  transition: $transitions;
+}
+
+@mixin transition-smooth($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append(
+      $transitions,
+      #{$property} 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      comma
+    );
+  }
+  transition: $transitions;
+}
+
+@mixin transition-ease-out($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, #{$property} 0.4s ease-out, comma);
+  }
+  transition: $transitions;
+}
+
+@mixin transition-ease-in($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, #{$property} 0.4s cubic-bezier(0.7, 0, 0.84, 0), comma);
+  }
+  transition: $transitions;
+}
+
+// HOVER EFFECTS
+
+// Lift effect (card hover)
+@mixin hover-lift($distance: -4px) {
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// Slide effect (list item hover)
+@mixin hover-slide($distance: 6px) {
+  &:hover {
+    transform: translateX($distance);
+  }
+}
+
+// Scale effect (button hover)
+@mixin hover-scale($scale: 1.1) {
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// Glow effect (icon hover)
+@mixin hover-glow($r, $g, $b) {
+  &:hover {
+    box-shadow: 0 0 12px 2px rgba($r, $g, $b, 0.3);
+  }
+}
+
+// Combined lift + shadow (card hover)
+@mixin hover-lift-shadow($lift: -4px) {
+  &:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY($lift);
+  }
+}
+
+// ACTIVE STATES
+
+@mixin active-scale-down($scale: 0.95) {
+  &:active {
+    transform: scale($scale);
+  }
+}
+
+// SCROLL ANIMATION (fade in + slide)
+// Usage: @include scroll-animation-fade-up;
+
+@mixin scroll-animation-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  @include transition-slow(opacity, transform);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin scroll-animation-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  @include transition-slow(opacity, transform);
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin scroll-animation-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  @include transition-slow(opacity, transform);
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ICON TRANSITIONS (for theme toggle, etc.)
+// Usage: @include icon-fade-transition;
+
+@mixin icon-fade-transition {
+  &-enter-active,
+  &-leave-active {
+    @include transition-fast(opacity, transform);
+  }
+
+  &-enter-from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+
+  &-leave-to {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
+  }
+}
+
+// PAGE TRANSITIONS
+// Usage: @include page-transition-slide;
+
+@mixin page-transition-slide {
+  &-enter-active,
+  &-leave-active {
+    transition:
+      transform 0.4s,
+      opacity 0.4s,
+      filter 0.4s;
+  }
+
+  &-enter-active {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &-leave-active {
+    transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+  }
+}
+
+// REDUCED MOTION (accessibility)
+// Usage: @include reduced-motion;
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@mixin reduced-motion-element {
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &::before,
+    &::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+// INTERACTIVE BUTTON/LINK
+// Usage: @include interactive-element;
+
+@mixin interactive-element {
+  cursor: pointer;
+  @include transition-standard(color, transform, box-shadow);
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(0 161 228 / 40%);
+    border-radius: 2px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// SMOOTH SCROLL
+// Usage: @include smooth-scroll;
+
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+// STAGGER ANIMATION (for list items)
+// Usage: Apply to parent, items will stagger with nth-child
+@mixin stagger-children($delay: 0.1s) {
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * $delay};
+    }
+  }
+}

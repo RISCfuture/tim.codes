@@ -1,0 +1,164 @@
+// Shared card styles with gradients for depth
+
+@use './gradients' as *;
+@use './glow' as *;
+@use './interactions' as *;
+
+@mixin card-base {
+  background: linear-gradient(
+    135deg,
+    var(--card-bg) 0%,
+    var(--bg-color-elevated) 100%
+  );
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+@mixin card-hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+}
+
+// Card with colored accent border
+@mixin card-accent($color) {
+  @include card-base;
+  border-left: 4px solid $color;
+  background: linear-gradient(
+    135deg,
+    var(--card-bg) 0%,
+    var(--bg-color-elevated) 80%,
+    rgba($color, 0.03) 100%
+  );
+
+  [data-theme='dark'] & {
+    background: linear-gradient(
+      135deg,
+      var(--card-bg) 0%,
+      var(--bg-color-elevated) 70%,
+      rgba($color, 0.08) 100%
+    );
+  }
+}
+
+// Subtle gradient overlay for depth
+@mixin card-depth {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 5%) 0%,
+      transparent 50%,
+      rgb(0 0 0 / 3%) 100%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// LIST ITEM CARD (for accomplishment items)
+// Usage: @include list-item-card;
+
+@mixin list-item-card {
+  position: relative;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  color: var(--text-color);
+  @include gradient-themed-tint(0.03, 0.06, 0.03);
+  border-radius: 6px;
+  @include transition-standard(color, transform, text-shadow, background, box-shadow);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Alternating subtle color intensity
+  &:nth-child(even) {
+    @include gradient-themed-tint(0.05, 0.08, 0.05);
+  }
+
+  &:hover {
+    transform: translateX(6px);
+    @include gradient-themed-tint(0.08, 0.12, 0.08);
+    text-shadow:
+      0 0 15px rgba(var(--theme-glow), 0.3),
+      0 0 30px rgba(var(--theme-glow), 0.15);
+    box-shadow:
+      0 0 20px rgba(var(--theme-glow), 0.15),
+      inset 0 0 20px rgba(var(--theme-glow), 0.05);
+  }
+}
+
+// BADGE COMPONENT (for category badges)
+// Usage: @include badge-component;
+
+@mixin badge-component {
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  color: var(--text-color);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 10px rgba(var(--theme-glow), 0.3),
+    0 0 20px rgba(var(--theme-glow), 0.15);
+  @include transition-standard(color, text-shadow);
+}
+
+@mixin badge-component-hover {
+  text-shadow:
+    0 0 20px rgba(var(--theme-glow), 0.6),
+    0 0 40px rgba(var(--theme-glow), 0.3),
+    0 0 60px rgba(var(--theme-glow), 0.15);
+}
+
+// HERO CARD (larger, more prominent card)
+// Usage: @include hero-card;
+
+@mixin hero-card {
+  @include card-base;
+  padding: 40px;
+  border-radius: 20px;
+
+  &:hover {
+    @include card-hover;
+    @include card-depth;
+  }
+}
+
+// FOOTER COMPONENT
+// Usage: @include footer-component;
+
+@mixin footer-component {
+  position: relative;
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--border-color);
+  @include transition-standard(background-color, border-color);
+
+  &::before {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    content: '';
+    @include gradient-border-subtle;
+    @include subtle-glow-white;
+    pointer-events: none;
+  }
+}

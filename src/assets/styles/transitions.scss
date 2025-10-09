@@ -1,32 +1,55 @@
+// Enhanced page transitions with parallax and blur
 .shift-right-enter-active,
 .shift-right-leave-active,
 .shift-left-enter-active,
 .shift-left-leave-active {
-  transition: transform 0.25s;
+  transition:
+    transform 0.4s,
+    opacity 0.4s,
+    filter 0.4s;
 }
 
 .shift-right-enter-active,
 .shift-left-enter-active {
-  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .shift-right-leave-active,
 .shift-left-leave-active {
-  transition-timing-function: ease-in;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
 }
 
-.shift-right-enter {
-  transform: translateX(150%);
+.shift-right-enter-from {
+  transform: translateX(100%) scale(0.95);
+  opacity: 0;
+  filter: blur(8px);
 }
 
 .shift-right-leave-to {
-  transform: translateX(-150%);
+  transform: translateX(-30%) scale(0.98);
+  opacity: 0;
+  filter: blur(4px);
 }
 
-.shift-left-enter {
-  transform: translateX(-150%);
+.shift-left-enter-from {
+  transform: translateX(-100%) scale(0.95);
+  opacity: 0;
+  filter: blur(8px);
 }
 
 .shift-left-leave-to {
-  transform: translateX(150%);
+  transform: translateX(30%) scale(0.98);
+  opacity: 0;
+  filter: blur(4px);
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  .shift-right-enter-from,
+  .shift-right-leave-to,
+  .shift-left-enter-from,
+  .shift-left-leave-to {
+    transform: none;
+    filter: none;
+  }
 }

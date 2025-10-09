@@ -32,49 +32,53 @@ const minorProjects = projectsStore.minorProjects
 <style scoped lang="scss">
 @use '@/assets/styles/breakpoints' as *;
 
+.projects {
+  width: 100%;
+}
+
 .featured,
 .minor {
-  flex-flow: row wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-auto-rows: auto;
+  gap: 30px;
+  margin-bottom: 60px;
 
   @include mq(iphone) {
-    display: block;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
   }
 
   @include mq(ipad) {
-    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
   }
 
   @include mq(large) {
-    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
-.featured {
-  margin-bottom: 50px;
-}
-
 .minor {
-  justify-content: flex-start;
+  @include mq(large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
 
 <style lang="scss">
-@use 'sass:color';
 @use 'sass:math';
-@use '@/assets/styles/vars' as *;
+@use '@/assets/styles/breakpoints' as *;
 
-$yellow: #f5b700;
-$blue: #00a1e4;
-$red: #dc0073;
-$text-color: color.adjust($header-color-projects, $saturation: -75%, $lightness: -20%);
 $height: 12px;
 $padding: 3px;
 
 article > .projects {
   h1,
   p {
-    color: $text-color;
+    color: var(--text-color);
+    transition: color 0.3s ease;
   }
 
   ul.tags {
@@ -94,18 +98,28 @@ article > .projects {
       letter-spacing: -0.5px;
       list-style: none;
       border-radius: math.div($height + $padding * 2, 2) - $padding;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 2px 4px rgb(0 0 0 / 20%),
+          0 0 8px 1px rgba(255, 255, 255, 0.2);
+      }
     }
 
     li.type {
-      background-color: $red;
+      background-color: var(--tag-type-bg);
     }
 
     li.language {
-      background-color: $yellow;
+      background-color: var(--tag-language-bg);
     }
 
     li.library {
-      background-color: $blue;
+      background-color: var(--tag-library-bg);
     }
   }
 
@@ -117,9 +131,22 @@ article > .projects {
       display: inline-block;
       padding: 0;
       margin: 6px;
-      color: $blue;
+      color: var(--link-color);
       list-style: none;
-      border-bottom: 1px solid $blue;
+      border-bottom: 1px solid var(--link-color);
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        color: var(--link-hover-color);
+        border-color: var(--link-hover-color);
+        transform: translateX(2px);
+        text-shadow: 0 0 8px rgba(237, 68, 76, 0.4);
+        border-bottom-width: 2px;
+        box-shadow: 0 2px 6px rgba(237, 68, 76, 0.3);
+      }
     }
 
     li,

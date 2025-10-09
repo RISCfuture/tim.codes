@@ -1,0 +1,266 @@
+// Responsive grid, spacing, and typography utilities
+
+@use './breakpoints' as *;
+
+// RESPONSIVE GRID PATTERNS
+// Usage: @include grid-1-to-2(240px, 300px, 50px);
+
+@mixin grid-1-to-2($min-width, $max-width, $gap) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc($gap / 2);
+
+  @include mq(ipad) {
+    grid-template-columns: minmax($min-width, $max-width) 1fr;
+    gap: $gap;
+  }
+}
+
+@mixin grid-1-to-2-to-3($gap-small, $gap-medium, $gap-large) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap-small;
+
+  @include mq(ipad) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $gap-medium;
+  }
+
+  @include mq(large) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gap-large;
+  }
+}
+
+// Flex direction change
+@mixin flex-column-to-row {
+  display: flex;
+  flex-direction: column;
+
+  @include mq(large) {
+    flex-direction: row;
+  }
+}
+
+// RESPONSIVE SPACING SCALES
+// Usage: @include spacing-scale(padding, 12px 15px, 30px, 20px 60px);
+
+@mixin spacing-scale($property, $mobile, $tablet, $desktop) {
+  #{$property}: $mobile;
+
+  @include mq(ipad) {
+    #{$property}: $tablet;
+  }
+
+  @include mq(large) {
+    #{$property}: $desktop;
+  }
+}
+
+// Shorthand versions for common spacing patterns
+@mixin padding-scale($mobile, $tablet, $desktop) {
+  @include spacing-scale(padding, $mobile, $tablet, $desktop);
+}
+
+@mixin margin-scale($mobile, $tablet, $desktop) {
+  @include spacing-scale(margin, $mobile, $tablet, $desktop);
+}
+
+// GAP UTILITIES (consistent scaling ratios)
+// Usage: @include gap-scale(10px, 20px, 30px);
+
+@mixin gap-scale($mobile, $tablet, $desktop) {
+  gap: $mobile;
+
+  @include mq(ipad) {
+    gap: $tablet;
+  }
+
+  @include mq(large) {
+    gap: $desktop;
+  }
+}
+
+// Common 2x scaling pattern
+@mixin gap-scale-2x($base) {
+  gap: $base;
+
+  @include mq(ipad) {
+    gap: calc($base * 2);
+  }
+
+  @include mq(large) {
+    gap: calc($base * 3);
+  }
+}
+
+// TYPOGRAPHY SCALES
+// Usage: @include font-scale(20px, 28px, 38px, 32px, 42px);
+
+@mixin font-scale-fixed($mobile, $tablet, $desktop) {
+  font-size: $mobile;
+
+  @include mq(ipad) {
+    font-size: $tablet;
+  }
+
+  @include mq(large) {
+    font-size: $desktop;
+  }
+}
+
+@mixin font-scale-clamp($mobile, $min, $vw, $max) {
+  font-size: $mobile;
+
+  @include mq(ipad) {
+    font-size: clamp($min, $vw, $max);
+  }
+}
+
+// Letter spacing scale
+@mixin letter-spacing-scale($mobile, $tablet, $desktop) {
+  letter-spacing: $mobile;
+
+  @include mq(ipad) {
+    letter-spacing: $tablet;
+  }
+
+  @include mq(large) {
+    letter-spacing: $desktop;
+  }
+}
+
+// RESPONSIVE WIDTHS
+// Usage: @include width-scale(100%, 960px, 1200px);
+
+@mixin max-width-scale($mobile, $tablet, $desktop) {
+  max-width: $mobile;
+
+  @include mq(ipad) {
+    max-width: $tablet;
+  }
+
+  @include mq(large) {
+    max-width: $desktop;
+  }
+}
+
+// RESPONSIVE CONTAINER
+// Usage: @include container-responsive;
+
+@mixin container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @include mq(ipad) {
+    padding: 0 20px;
+  }
+
+  @include mq(large) {
+    padding: 0 40px;
+  }
+}
+
+// RESPONSIVE TEXT ALIGNMENT
+// Usage: @include text-align-responsive(left, center, left);
+
+@mixin text-align-responsive($mobile, $tablet, $desktop) {
+  text-align: $mobile;
+
+  @include mq(ipad) {
+    text-align: $tablet;
+  }
+
+  @include mq(large) {
+    text-align: $desktop;
+  }
+}
+
+// RESPONSIVE TRANSFORM (for scroll animations)
+// Usage: @include transform-responsive(translateY(20px), translateX(-30px));
+
+@mixin transform-responsive($mobile, $tablet) {
+  transform: $mobile;
+
+  @include mq(ipad) {
+    transform: $tablet;
+  }
+}
+
+// RESPONSIVE DISPLAY
+// Usage: @include display-responsive(block, flex, grid);
+
+@mixin display-responsive($mobile, $tablet, $desktop) {
+  display: $mobile;
+
+  @include mq(ipad) {
+    display: $tablet;
+  }
+
+  @include mq(large) {
+    display: $desktop;
+  }
+}
+
+// RESPONSIVE POSITION
+// Usage: @include position-responsive(static, relative, absolute);
+
+@mixin position-responsive($mobile, $tablet, $desktop) {
+  position: $mobile;
+
+  @include mq(ipad) {
+    position: $tablet;
+  }
+
+  @include mq(large) {
+    position: $desktop;
+  }
+}
+
+// RESPONSIVE SVG SIZE
+// Usage: @include svg-size-scale(24px, 48px, 64px);
+
+@mixin svg-size-scale($mobile, $tablet, $desktop) {
+  width: $mobile;
+  height: auto;
+
+  @include mq(ipad) {
+    width: $tablet;
+  }
+
+  @include mq(large) {
+    width: $desktop;
+  }
+}
+
+// RESPONSIVE LINE HEIGHT
+// Usage: @include line-height-scale(1.2, 1.4, 1.5);
+
+@mixin line-height-scale($mobile, $tablet, $desktop) {
+  line-height: $mobile;
+
+  @include mq(ipad) {
+    line-height: $tablet;
+  }
+
+  @include mq(large) {
+    line-height: $desktop;
+  }
+}
+
+// RESPONSIVE BORDER RADIUS
+// Usage: @include border-radius-scale(6px, 8px, 12px);
+
+@mixin border-radius-scale($mobile, $tablet, $desktop) {
+  border-radius: $mobile;
+
+  @include mq(ipad) {
+    border-radius: $tablet;
+  }
+
+  @include mq(large) {
+    border-radius: $desktop;
+  }
+}
