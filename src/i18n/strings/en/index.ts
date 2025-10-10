@@ -85,25 +85,51 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
   projects: {
     badBehavior: {
       description:
-        'Scans your digital pilot logbook for potential violations of federal aviation regulations'
+        'Scans your digital pilot logbook for potential violations of federal aviation regulations',
+      achievements: [
+        'Automatically adapts to custom fields in LogTen Pro databases',
+        'Validates complex 12-month IFR currency grace periods'
+      ]
     },
     closestNDB: {
       description:
-        'A useless but entertaining web page that tells you where the closest non-directional beacon is from your current location'
+        'A useless but entertaining web page that tells you where the closest non-directional beacon is from your current location',
+      achievements: [
+        'Displays distance and bearing to 300+ remaining NDBs worldwide using your GPS location',
+        'Animated ADF instrument with rotating needle and authentic Morse code rendering'
+      ]
     },
     FART: {
       description:
-        'Simple questionnaire to help pilots evaluate the risk level of a proposed flight'
+        'Simple questionnaire to help pilots evaluate the risk level of a proposed flight',
+      achievements: [
+        'Calculates personalized risk scores using a standardized FAA questionnaire',
+        'Native iOS and macOS apps from a single codebase with adaptive interfaces'
+      ]
     },
     flyweight: {
       description:
-        'A website that allows passengers to provide me with weight and balance information in a discrete manner'
+        'A website that allows passengers to provide me with weight and balance information in a discrete manner',
+      achievements: [
+        'Real-time updates when passengers add their weight using WebSocket connections',
+        'Automatically purges all passenger data one week after each flight',
+        'No account required for passengers'
+      ]
     },
     fourtiles: {
-      description: 'A fun game where you make words by combining tiles.'
+      description: 'A fun game where you make words by combining tiles.',
+      achievements: [
+        '4,000 unique puzzles automatically generated from five words split into four tiles each',
+        'Automatically saves progress locally and resumes games when you return',
+        'Smooth animations and engaging visual feedback for tile combinations'
+      ]
     },
     greenie: {
-      description: 'A website that lets virtual fighter pilots track their carrier landings'
+      description: 'A website that lets virtual fighter pilots track their carrier landings',
+      achievements: [
+        'Parses DCS log files to extract LSO grades, wire numbers, and landing scores',
+        'Real-time updates as your logfile processes with live WebSocket notifications'
+      ]
     },
     ICrashedMyPlane: {
       description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
@@ -137,11 +163,19 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       ]
     },
     swiftMETAR: {
-      description: 'Swift library that parses METAR and TAF weather information'
+      description: 'Swift library that parses METAR and TAF weather information',
+      achievements: [
+        'Strong typing and strict parsing of METAR and TAF strings',
+        'Parses 49 different METAR remark types from tornadic activity to ice accretion'
+      ]
     },
     swiftNASR: {
       description:
-        'Swift library that loads and parses FAA Aeronautical Data Distribution (FADDS) files'
+        'Swift library that loads and parses FAA Aeronautical Data Distribution (FADDS) files',
+      achievements: [
+        'Automatically adapts to FAA format changes by reading layout specification files',
+        'Provides type-safe access to 50+ aviation data types (fuel specs, ARFF classes, etc.)'
+      ]
     }
   },
   resume: {

@@ -1,7 +1,8 @@
 <template>
   <div ref="elementRef" class="minor-project-card" :class="{ visible: isVisible }">
     <h1>
-      <a :href="project.websites[0].url">{{ i18nData.name }}</a>
+      <a v-if="project.websites[0]?.url" :href="project.websites[0].url">{{ i18nData.name }}</a>
+      <span v-else>{{ i18nData.name }}</span>
     </h1>
     <p>{{ i18nData.description }}</p>
     <ul class="tags">
