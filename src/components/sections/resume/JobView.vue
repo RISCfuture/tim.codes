@@ -1,10 +1,14 @@
 <template>
   <li ref="elementRef" :class="{ visible: isVisible }">
     <i18n-t tag="h2" keypath="resume.jobs.headerFormat">
-      <template #title><span class="title">{{ title }}</span></template>
+      <template #title
+        ><span class="title">{{ title }}</span></template
+      >
       <template #company>{{ company }}</template>
       <template #location>{{ location }}</template>
-      <template #timeRange><span class="time-range">{{ timeRange }}</span></template>
+      <template #timeRange
+        ><span class="time-range">{{ timeRange }}</span></template
+      >
     </i18n-t>
 
     <p>{{ t(`resume.jobs.identifiers.${job.identifier}.description`) }}</p>

@@ -1,12 +1,12 @@
 // Light theme (default)
 :root {
-  // Header colors
-  --header-color-home: #76a9b9;
-  --header-color-home-gradient: linear-gradient(135deg, #76a9b9 0%, #5a8a9a 100%);
-  --header-color-projects: #ed444c;
-  --header-color-projects-gradient: linear-gradient(135deg, #ed444c 0%, #c93640 100%);
-  --header-color-resume: #7abb80;
-  --header-color-resume-gradient: linear-gradient(135deg, #7abb80 0%, #5fa066 100%);
+  // Header colors - Gas-based neon colors
+  --header-color-home: #93b0ff; // Argon-Mercury (435.8nm)
+  --header-color-home-gradient: linear-gradient(135deg, #93b0ff 0%, #7a96e6 100%);
+  --header-color-projects: #ff4b2b; // True Neon (640.2nm)
+  --header-color-projects-gradient: linear-gradient(135deg, #ff4b2b 0%, #e63e23 100%);
+  --header-color-resume: #c8ffd2; // Krypton (557.7nm)
+  --header-color-resume-gradient: linear-gradient(135deg, #c8ffd2 0%, #a8e6b3 100%);
   --header-text-color: #fff;
   --header-overlay: rgb(0 0 0 / 20%);
   --header-overlay-hover: rgb(0 0 0 / 30%);
@@ -17,12 +17,12 @@
   --alt-text-color: #3a5743;
 
   // Background colors
-  --bg-color: #ffffff;
+  --bg-color: #fff;
   --bg-color-secondary: #f8f9fa;
-  --bg-color-elevated: #ffffff;
+  --bg-color-elevated: #fff;
 
   // Card and surface colors
-  --card-bg: #ffffff;
+  --card-bg: #fff;
   --card-shadow: 0 2px 8px rgb(0 0 0 / 8%);
   --card-shadow-hover: 0 8px 24px rgb(0 0 0 / 15%);
 
@@ -58,13 +58,13 @@
 
 // Dark theme
 [data-theme='dark'] {
-  // Header colors - slightly muted for dark mode
-  --header-color-home: #5a8a9a;
-  --header-color-home-gradient: linear-gradient(135deg, #5a8a9a 0%, #47707d 100%);
-  --header-color-projects: #c93640;
-  --header-color-projects-gradient: linear-gradient(135deg, #c93640 0%, #a82b35 100%);
-  --header-color-resume: #5fa066;
-  --header-color-resume-gradient: linear-gradient(135deg, #5fa066 0%, #4d8352 100%);
+  // Header colors - Gas-based neon colors, slightly muted for dark mode
+  --header-color-home: #7a96e6; // Argon-Mercury (435.8nm) muted
+  --header-color-home-gradient: linear-gradient(135deg, #7a96e6 0%, #6780cc 100%);
+  --header-color-projects: #e63e23; // True Neon (640.2nm) muted
+  --header-color-projects-gradient: linear-gradient(135deg, #e63e23 0%, #cc351d 100%);
+  --header-color-resume: #a8e6b3; // Krypton (557.7nm) muted
+  --header-color-resume-gradient: linear-gradient(135deg, #a8e6b3 0%, #8fcc99 100%);
   --header-text-color: #f0f0f0;
   --header-overlay: rgb(0 0 0 / 30%);
   --header-overlay-hover: rgb(0 0 0 / 45%);
@@ -114,10 +114,10 @@
   --footer-text: var(--text-color-secondary);
 }
 
-// Legacy SCSS variables for backward compatibility
-$header-color-home: #76a9b9;
-$header-color-projects: #ed444c;
-$header-color-resume: #7abb80;
+// Legacy SCSS variables for backward compatibility - Gas-based neon colors
+$header-color-home: #93b0ff; // Argon-Mercury (435.8nm)
+$header-color-projects: #ff4b2b; // True Neon (640.2nm)
+$header-color-resume: #c8ffd2; // Krypton (557.7nm)
 $text-color: #000;
 $header-text-color: #fff;
 $alt-text-color: #3a5743;

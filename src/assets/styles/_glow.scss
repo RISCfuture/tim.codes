@@ -1,42 +1,44 @@
 // Glow effects for text, boxes, borders, and filters
 // These mixins create layered shadow effects for depth and visual interest
 
+@use './neon' as neon;
+
 // TEXT GLOW EFFECTS
 // Usage: @include text-glow-sm(118, 169, 185);
 
 @mixin text-glow-sm($r, $g, $b) {
   text-shadow:
-    0 0 10px rgba($r, $g, $b, 0.3),
-    0 0 20px rgba($r, $g, $b, 0.15);
+    0 0 10px rgba($r, $g, $b, 30%),
+    0 0 20px rgba($r, $g, $b, 15%);
 }
 
 @mixin text-glow-md($r, $g, $b) {
   text-shadow:
-    0 0 15px rgba($r, $g, $b, 0.4),
-    0 0 30px rgba($r, $g, $b, 0.2),
-    0 0 45px rgba($r, $g, $b, 0.1);
+    0 0 15px rgba($r, $g, $b, 40%),
+    0 0 30px rgba($r, $g, $b, 20%),
+    0 0 45px rgba($r, $g, $b, 10%);
 }
 
 @mixin text-glow-lg($r, $g, $b) {
   text-shadow:
-    0 0 20px rgba($r, $g, $b, 0.6),
-    0 0 40px rgba($r, $g, $b, 0.3),
-    0 0 60px rgba($r, $g, $b, 0.15);
+    0 0 20px rgba($r, $g, $b, 60%),
+    0 0 40px rgba($r, $g, $b, 30%),
+    0 0 60px rgba($r, $g, $b, 15%);
 }
 
 // Special title glow with white + shadow combo
 @mixin text-glow-title {
   text-shadow:
-    0 0 30px rgba(255, 255, 255, 0.5),
-    0 0 60px rgba(255, 255, 255, 0.25),
-    0 4px 12px rgba(0, 0, 0, 0.5);
+    0 0 30px rgb(255 255 255 / 50%),
+    0 0 60px rgb(255 255 255 / 25%),
+    0 4px 12px rgb(0 0 0 / 50%);
 }
 
 @mixin text-glow-title-hover {
   text-shadow:
-    0 0 40px rgba(255, 255, 255, 0.7),
-    0 0 80px rgba(255, 255, 255, 0.35),
-    0 4px 12px rgba(0, 0, 0, 0.5);
+    0 0 40px rgb(255 255 255 / 70%),
+    0 0 80px rgb(255 255 255 / 35%),
+    0 4px 12px rgb(0 0 0 / 50%);
 }
 
 // BOX SHADOW GLOW EFFECTS
@@ -44,21 +46,21 @@
 
 @mixin box-glow-sm($r, $g, $b) {
   box-shadow:
-    0 0 15px rgba($r, $g, $b, 0.4),
-    0 0 30px rgba($r, $g, $b, 0.2);
+    0 0 15px rgba($r, $g, $b, 40%),
+    0 0 30px rgba($r, $g, $b, 20%);
 }
 
 @mixin box-glow-md($r, $g, $b) {
   box-shadow:
-    0 0 20px rgba($r, $g, $b, 0.8),
-    0 0 40px rgba($r, $g, $b, 0.4);
+    0 0 20px rgba($r, $g, $b, 80%),
+    0 0 40px rgba($r, $g, $b, 40%);
 }
 
 @mixin box-glow-lg($r, $g, $b) {
   box-shadow:
-    0 0 25px rgba($r, $g, $b, 0.6),
-    0 0 50px rgba($r, $g, $b, 0.3),
-    0 0 75px rgba($r, $g, $b, 0.15);
+    0 0 25px rgba($r, $g, $b, 60%),
+    0 0 50px rgba($r, $g, $b, 30%),
+    0 0 75px rgba($r, $g, $b, 15%);
 }
 
 // BORDER GLOW EFFECTS
@@ -67,62 +69,58 @@
 
 @mixin border-glow-sm($r, $g, $b) {
   box-shadow:
-    0 0 8px 4px rgba($r, $g, $b, 1),
-    0 0 16px 6px rgba($r, $g, $b, 0.9),
-    0 2px 24px 8px rgba($r, $g, $b, 0.4);
+    0 0 8px 4px rgba($r, $g, $b, 100%),
+    0 0 16px 6px rgba($r, $g, $b, 90%),
+    0 2px 24px 8px rgba($r, $g, $b, 40%);
 }
 
 @mixin border-glow-md($r, $g, $b) {
   box-shadow:
-    0 0 4px 2px rgba(255, 255, 255, 1),
-    0 0 10px 4px rgba($r, $g, $b, 1),
-    0 0 16px 6px rgba($r, $g, $b, 1),
-    0 0 24px 8px rgba($r, $g, $b, 0.8),
-    0 2px 32px 10px rgba($r, $g, $b, 0.4);
+    0 0 4px 2px rgb(255 255 255 / 100%),
+    0 0 10px 4px rgba($r, $g, $b, 100%),
+    0 0 16px 6px rgba($r, $g, $b, 100%),
+    0 0 24px 8px rgba($r, $g, $b, 80%),
+    0 2px 32px 10px rgba($r, $g, $b, 40%);
 }
 
 @mixin border-glow-lg($r, $g, $b) {
   box-shadow:
-    0 0 4px 2px rgba(255, 255, 255, 1),
+    0 0 4px 2px rgb(255 255 255 / 100%),
     0 0 10px 4px rgba($r + 100, $g + 100, $b + 100, 1),
-    0 0 16px 6px rgba($r, $g, $b, 1),
-    0 0 24px 8px rgba($r, $g, $b, 0.8),
-    0 2px 32px 10px rgba($r, $g, $b, 0.4);
+    0 0 16px 6px rgba($r, $g, $b, 100%),
+    0 0 24px 8px rgba($r, $g, $b, 80%),
+    0 2px 32px 10px rgba($r, $g, $b, 40%);
 }
 
 // FILTER GLOW EFFECTS (for SVG elements)
 // Usage: @include filter-glow-basic;
 
 @mixin filter-glow-basic {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%));
 }
 
 @mixin filter-glow-hover {
-  filter:
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))
-    drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(0 4px 8px rgb(0 0 0 / 40%)) drop-shadow(0 0 20px rgb(255 255 255 / 30%));
 }
 
 @mixin filter-glow-active($r, $g, $b) {
-  filter:
-    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
-    drop-shadow(0 0 30px rgba($r, $g, $b, 0.9))
-    drop-shadow(0 0 60px rgba($r, $g, $b, 0.5));
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) drop-shadow(0 0 30px rgba($r, $g, $b, 90%))
+    drop-shadow(0 0 60px rgba($r, $g, $b, 50%));
 }
 
 // INSET GLOW (for depth/lighting effects)
 // Usage: @include inset-glow-sm;
 
 @mixin inset-glow-sm {
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 10px rgb(255 255 255 / 20%);
 }
 
 @mixin inset-glow-md {
-  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 15px rgb(255 255 255 / 30%);
 }
 
 @mixin inset-glow-lg {
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 0 20px rgb(255 255 255 / 40%);
 }
 
 // COMBINED GLOW (box-shadow + inset for accent bars)
@@ -130,31 +128,31 @@
 
 @mixin accent-glow-sm($r, $g, $b) {
   box-shadow:
-    0 0 15px rgba($r, $g, $b, 0.4),
-    0 0 30px rgba($r, $g, $b, 0.2),
-    inset 0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 15px rgba($r, $g, $b, 40%),
+    0 0 30px rgba($r, $g, $b, 20%),
+    inset 0 0 10px rgb(255 255 255 / 20%);
 }
 
 @mixin accent-glow-md($r, $g, $b) {
   box-shadow:
-    0 0 25px rgba($r, $g, $b, 0.6),
-    0 0 50px rgba($r, $g, $b, 0.3),
-    0 0 75px rgba($r, $g, $b, 0.15),
-    inset 0 0 15px rgba(255, 255, 255, 0.3);
+    0 0 25px rgba($r, $g, $b, 60%),
+    0 0 50px rgba($r, $g, $b, 30%),
+    0 0 75px rgba($r, $g, $b, 15%),
+    inset 0 0 15px rgb(255 255 255 / 30%);
 }
 
 // SUBTLE GLOW (for footer borders, subtle effects)
 
 @mixin subtle-glow-white {
   box-shadow:
-    0 0 8px 2px rgba(255, 255, 255, 0.03),
-    0 -2px 12px 2px rgba(255, 255, 255, 0.02);
+    0 0 8px 2px rgb(255 255 255 / 3%),
+    0 -2px 12px 2px rgb(255 255 255 / 2%);
 }
 
 @mixin subtle-glow-themed($r, $g, $b) {
   box-shadow:
-    0 0 20px rgba($r, $g, $b, 0.15),
-    inset 0 0 20px rgba($r, $g, $b, 0.05);
+    0 0 20px rgba($r, $g, $b, 15%),
+    inset 0 0 20px rgba($r, $g, $b, 5%);
 }
 
 // THEMED GLOW MIXINS (for use with CSS custom properties like var(--theme-glow))
@@ -162,54 +160,103 @@
 
 @mixin text-glow-themed-sm {
   text-shadow:
-    0 0 10px rgba(var(--theme-glow), 0.3),
-    0 0 20px rgba(var(--theme-glow), 0.15);
+    0 0 10px rgb(var(--theme-glow), 0.3),
+    0 0 20px rgb(var(--theme-glow), 0.15);
 }
 
 @mixin text-glow-themed-md {
   text-shadow:
-    0 0 15px rgba(var(--theme-glow), 0.4),
-    0 0 30px rgba(var(--theme-glow), 0.2),
-    0 0 45px rgba(var(--theme-glow), 0.1);
+    0 0 15px rgb(var(--theme-glow), 0.4),
+    0 0 30px rgb(var(--theme-glow), 0.2),
+    0 0 45px rgb(var(--theme-glow), 0.1);
 }
 
 @mixin text-glow-themed-lg {
   text-shadow:
-    0 0 20px rgba(var(--theme-glow), 0.6),
-    0 0 40px rgba(var(--theme-glow), 0.3),
-    0 0 60px rgba(var(--theme-glow), 0.15);
+    0 0 20px rgb(var(--theme-glow), 0.6),
+    0 0 40px rgb(var(--theme-glow), 0.3),
+    0 0 60px rgb(var(--theme-glow), 0.15);
 }
 
 @mixin box-glow-themed-sm {
   box-shadow:
-    0 0 15px rgba(var(--theme-glow), 0.4),
-    0 0 30px rgba(var(--theme-glow), 0.2);
+    0 0 15px rgb(var(--theme-glow), 0.4),
+    0 0 30px rgb(var(--theme-glow), 0.2);
 }
 
 @mixin box-glow-themed-md {
   box-shadow:
-    0 0 20px rgba(var(--theme-glow), 0.8),
-    0 0 40px rgba(var(--theme-glow), 0.4);
+    0 0 20px rgb(var(--theme-glow), 0.8),
+    0 0 40px rgb(var(--theme-glow), 0.4);
 }
 
 @mixin box-glow-themed-lg {
   box-shadow:
-    0 0 25px rgba(var(--theme-glow), 0.6),
-    0 0 50px rgba(var(--theme-glow), 0.3),
-    0 0 75px rgba(var(--theme-glow), 0.15);
+    0 0 25px rgb(var(--theme-glow), 0.6),
+    0 0 50px rgb(var(--theme-glow), 0.3),
+    0 0 75px rgb(var(--theme-glow), 0.15);
 }
 
 @mixin accent-glow-themed-sm {
   box-shadow:
-    0 0 15px rgba(var(--theme-glow), 0.4),
-    0 0 30px rgba(var(--theme-glow), 0.2),
-    inset 0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 15px rgb(var(--theme-glow), 0.4),
+    0 0 30px rgb(var(--theme-glow), 0.2),
+    inset 0 0 10px rgb(255 255 255 / 20%);
 }
 
 @mixin accent-glow-themed-md {
   box-shadow:
-    0 0 25px rgba(var(--theme-glow), 0.6),
-    0 0 50px rgba(var(--theme-glow), 0.3),
-    0 0 75px rgba(var(--theme-glow), 0.15),
-    inset 0 0 15px rgba(255, 255, 255, 0.3);
+    0 0 25px rgb(var(--theme-glow), 0.6),
+    0 0 50px rgb(var(--theme-glow), 0.3),
+    0 0 75px rgb(var(--theme-glow), 0.15),
+    inset 0 0 15px rgb(255 255 255 / 30%);
+}
+
+// ============================================================================
+// NEON-ENHANCED GLOW MIXINS
+// These mixins integrate with the neon system for progressive enhancement
+// ============================================================================
+
+// Enhanced border glow with neon fallback
+// Usage: @include border-glow-neon(118, 169, 185, 4px);
+@mixin border-glow-neon($r, $g, $b, $height: 4px, $luminosity: 0.85) {
+  // Use neon effect if available
+  @include neon.neon-line($r, $g, $b, $height, $luminosity);
+
+  // Ensure fallback is applied for non-Houdini browsers
+  @supports not (background: paint(neon)) {
+    @include border-glow-lg($r, $g, $b);
+  }
+}
+
+// Enhanced box glow with neon element
+// Usage: @include box-glow-neon(237, 68, 76, 0.8);
+@mixin box-glow-neon($r, $g, $b, $luminosity: 0.85, $flicker: 0.08) {
+  @include neon.neon-element($r, $g, $b, $luminosity, $flicker);
+
+  // Ensure strong fallback
+  @supports not (background: paint(neon)) {
+    @include box-glow-lg($r, $g, $b);
+  }
+}
+
+// Enhanced text glow with neon
+// Usage: @include text-glow-neon(118, 169, 185, 0.9);
+@mixin text-glow-neon($r, $g, $b, $luminosity: 0.85) {
+  @include neon.neon-text($r, $g, $b, $luminosity);
+
+  // Fallback already included in neon-text mixin
+}
+
+// Helper mixin to add neon data attribute programmatically
+// Note: Actual data-neon attribute should be added in HTML or via Vue composable
+@mixin enable-neon-attribute {
+  &[data-neon] {
+    // Worklet will handle this if supported
+    @supports (background: paint(neon)) {
+      // Paint worklet active
+      position: relative;
+      isolation: isolate;
+    }
+  }
 }

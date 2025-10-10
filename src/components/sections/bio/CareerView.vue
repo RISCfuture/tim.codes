@@ -62,6 +62,7 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 @use '@/assets/styles/responsive' as *;
 @use '@/assets/styles/accents' as *;
 @use '@/assets/styles/cards' as *;
+@use '@/assets/styles/neon' as *;
 
 .career-callout {
   position: relative;
@@ -90,26 +91,26 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
     @include divider-line(2px, bottom);
   }
 
-  // Color theme variables
+  // Color theme variables - Gas-based neon colors
   &.theme-dev {
-    --theme-color: #76a9b9;
-    --theme-color-light: #9ac5d1;
-    --theme-gradient: linear-gradient(135deg, #76a9b9 0%, #5a8a9a 100%);
-    --theme-glow: 118, 169, 185;
+    --theme-color: #93b0ff; // Argon-Mercury (435.8nm)
+    --theme-color-light: #b0c8ff;
+    --theme-gradient: linear-gradient(135deg, #93b0ff 0%, #7a96e6 100%);
+    --theme-glow: var(--neon-gas-argon-blue);
   }
 
   &.theme-pilot {
-    --theme-color: #ed444c;
-    --theme-color-light: #f27078;
-    --theme-gradient: linear-gradient(135deg, #ed444c 0%, #c93640 100%);
-    --theme-glow: 237, 68, 76;
+    --theme-color: #ff4b2b; // True Neon (640.2nm)
+    --theme-color-light: #ff6e52;
+    --theme-gradient: linear-gradient(135deg, #ff4b2b 0%, #e63e23 100%);
+    --theme-glow: var(--neon-gas-true-neon);
   }
 
   &.theme-instructor {
-    --theme-color: #7abb80;
-    --theme-color-light: #9cd0a1;
-    --theme-gradient: linear-gradient(135deg, #7abb80 0%, #5fa066 100%);
-    --theme-glow: 122, 187, 128;
+    --theme-color: #c8ffd2; // Krypton (557.7nm)
+    --theme-color-light: #deffea;
+    --theme-gradient: linear-gradient(135deg, #c8ffd2 0%, #a8e6b3 100%);
+    --theme-glow: var(--neon-gas-krypton);
   }
 }
 
@@ -122,8 +123,14 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   @include letter-spacing-scale(-0.5px, -1px, -1px);
   @include text-align-responsive(left, right, right);
 
+  // Use CSS custom properties for dynamic neon color based on theme
+  color: var(--theme-color);
+
   @include mq(ipad) {
-    @include text-glow-themed-md;
+    text-shadow:
+      0 0 15px rgba(var(--theme-glow), 0.4),
+      0 0 30px rgba(var(--theme-glow), 0.2),
+      0 0 45px rgba(var(--theme-glow), 0.1);
   }
 
   @include mq(large) {
@@ -131,7 +138,10 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   }
 
   .career-callout:hover & {
-    @include text-glow-themed-lg;
+    text-shadow:
+      0 0 20px rgba(var(--theme-glow), 0.6),
+      0 0 40px rgba(var(--theme-glow), 0.3),
+      0 0 60px rgba(var(--theme-glow), 0.15);
   }
 
   &::before {
@@ -182,7 +192,9 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   }
 
   .career-callout:hover & {
-    @include text-glow-themed-sm;
+    text-shadow:
+      0 0 10px rgba(var(--theme-glow), 0.3),
+      0 0 20px rgba(var(--theme-glow), 0.15);
   }
 }
 

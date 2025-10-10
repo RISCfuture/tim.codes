@@ -2,12 +2,7 @@
   <div class="container">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-      class="sr-only"
-    >
+    <div role="status" aria-live="polite" aria-atomic="true" class="sr-only">
       {{ themeAnnouncement }}
     </div>
 
@@ -35,16 +30,19 @@ const themeAnnouncement = computed(() =>
 
 // Announce theme changes
 let announcementTimeout: ReturnType<typeof setTimeout> | null = null
-watch(() => themeStore.theme, () => {
-  // Clear previous timeout to prevent multiple announcements
-  if (announcementTimeout) {
-    clearTimeout(announcementTimeout)
+watch(
+  () => themeStore.theme,
+  () => {
+    // Clear previous timeout to prevent multiple announcements
+    if (announcementTimeout) {
+      clearTimeout(announcementTimeout)
+    }
+    // Short delay to ensure the announcement is made
+    announcementTimeout = setTimeout(() => {
+      announcementTimeout = null
+    }, 100)
   }
-  // Short delay to ensure the announcement is made
-  announcementTimeout = setTimeout(() => {
-    announcementTimeout = null
-  }, 100)
-})
+)
 </script>
 
 <style lang="scss">
@@ -81,6 +79,22 @@ watch(() => themeStore.theme, () => {
 }
 
 @media only print {
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    color: #000;
+    background: #fff;
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
   header {
     display: none;
   }
@@ -92,6 +106,29 @@ watch(() => themeStore.theme, () => {
   .skip-link,
   .sr-only {
     display: none;
+  }
+
+  #main-content {
+    overflow: visible;
+
+    article {
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+      color: #000;
+      background: #fff;
+    }
+  }
+
+  // Reset all CSS custom properties to professional black and white
+  * {
+    color: #000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
   }
 }
 </style>

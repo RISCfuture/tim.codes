@@ -20,6 +20,11 @@
         <a :href="website.url">{{ i18nWebsiteType(website.type) }}</a>
       </li>
     </ul>
+    <ul v-if="i18nData.achievements && i18nData.achievements.length > 0" class="achievements">
+      <li v-for="(achievement, index) in i18nData.achievements" :key="index">
+        {{ achievement }}
+      </li>
+    </ul>
   </div>
 </template>
 

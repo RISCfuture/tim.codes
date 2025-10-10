@@ -155,5 +155,31 @@ article > .projects {
       font-weight: 300;
     }
   }
+
+  ul.achievements {
+    padding: 0;
+    margin: 15px 0 0;
+
+    li {
+      margin: 8px 0;
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text-color);
+      list-style: none;
+      transition: color 0.3s ease;
+
+      &::before {
+        margin-right: 8px;
+        font-weight: bold;
+        color: var(--header-color-projects);
+        text-shadow:
+          0 0 8px rgba(237, 68, 76, 0.4),
+          0 0 16px rgba(237, 68, 76, 0.2);
+        content: '▸';
+      }
+    }
+  }
 }
 </style>

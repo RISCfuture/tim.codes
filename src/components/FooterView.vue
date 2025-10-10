@@ -73,4 +73,10 @@ footer {
 .copyright {
   color: var(--footer-text);
 }
+
+@media only print {
+  footer {
+    display: none !important;
+  }
+}
 </style>

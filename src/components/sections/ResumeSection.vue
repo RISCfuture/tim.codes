@@ -126,8 +126,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(245, 183, 0, 0.3))
-    drop-shadow(0 0 30px rgba(245, 183, 0, 0.15));
+  filter: drop-shadow(0 0 15px rgba(245, 183, 0, 0.3)) drop-shadow(0 0 30px rgba(245, 183, 0, 0.15));
 
   &::after {
     background: var(--resume-jobs-gradient);
@@ -142,8 +141,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(0, 161, 228, 0.3))
-    drop-shadow(0 0 30px rgba(0, 161, 228, 0.15));
+  filter: drop-shadow(0 0 15px rgba(0, 161, 228, 0.3)) drop-shadow(0 0 30px rgba(0, 161, 228, 0.15));
 
   &::after {
     background: var(--resume-supporting-gradient);
@@ -158,8 +156,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(220, 0, 115, 0.3))
-    drop-shadow(0 0 30px rgba(220, 0, 115, 0.15));
+  filter: drop-shadow(0 0 15px rgba(220, 0, 115, 0.3)) drop-shadow(0 0 30px rgba(220, 0, 115, 0.15));
 
   &::after {
     background: var(--resume-education-gradient);
@@ -320,43 +317,99 @@ ul {
 @media only print {
   .resume {
     padding: 0;
+    color: #000;
+    background: #fff;
   }
 
   h1 {
-    margin-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #000 !important;
+    text-shadow: none !important;
+    background: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    filter: none !important;
 
     &::after {
       display: none;
     }
   }
 
+  #header-name {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 24px;
+    text-align: center;
+  }
+
   .objective {
-    padding: 10px;
-    font-size: 14px;
-    border-left-width: 2px;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #000;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 0;
     box-shadow: none;
+
+    &::before {
+      display: none;
+    }
+
+    strong {
+      color: #000;
+    }
   }
 
   #supporting-experience {
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 4px;
+    margin-bottom: 15px;
 
     li {
-      padding: 5px 10px;
-      font-size: 12px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #000;
+      background: #f5f5f5;
+      border-radius: 0;
       box-shadow: none;
+      transform: none;
+
+      &::before {
+        color: #000;
+        text-shadow: none !important;
+        background: none !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: unset !important;
+        filter: none !important;
+      }
+
+      &:hover {
+        background: #f5f5f5;
+        box-shadow: none;
+        transform: none;
+      }
     }
   }
 
   .address,
   .address span {
-    font-size: 12px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: #000;
   }
 
   .references {
-    padding: 10px;
-    font-size: 12px;
+    padding: 8px;
+    margin-top: 15px;
+    font-size: 11px;
+    color: #000;
+    background: #f5f5f5;
+    border-radius: 0;
   }
 }
 </style>
@@ -533,27 +586,49 @@ ul.history li {
 
 @media only print {
   .history {
-    gap: 10px;
+    gap: 8px;
+    margin-bottom: 15px;
   }
 
-  ul.history li {
-    padding: 10px;
-    border-left-width: 2px;
-    box-shadow: none;
+  ul.history li,
+  #header-jobs ~ ul.history li,
+  #header-education ~ ul.history li {
+    padding: 8px;
+    color: #000;
+    background: #f5f5f5 !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
     opacity: 1;
     transform: none;
 
+    &:hover {
+      background: #f5f5f5 !important;
+      box-shadow: none !important;
+      transform: none;
+    }
+
     h2 {
-      margin-bottom: 5px;
-      font-size: 14px;
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #000;
+      text-shadow: none !important;
+
+      .title {
+        color: #000 !important;
+        text-shadow: none !important;
+      }
 
       .time-range {
-        font-size: 12px;
+        font-size: 11px;
+        color: #000;
       }
     }
 
     p {
-      font-size: 12px;
+      font-size: 11px;
+      line-height: 1.3;
+      color: #000;
     }
   }
 }

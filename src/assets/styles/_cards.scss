@@ -5,11 +5,7 @@
 @use './interactions' as *;
 
 @mixin card-base {
-  background: linear-gradient(
-    135deg,
-    var(--card-bg) 0%,
-    var(--bg-color-elevated) 100%
-  );
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-color-elevated) 100%);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   transition:
@@ -26,13 +22,14 @@
 // Card with colored accent border
 @mixin card-accent($color) {
   @include card-base;
-  border-left: 4px solid $color;
+
   background: linear-gradient(
     135deg,
     var(--card-bg) 0%,
     var(--bg-color-elevated) 80%,
     rgba($color, 0.03) 100%
   );
+  border-left: 4px solid $color;
 
   [data-theme='dark'] & {
     background: linear-gradient(
@@ -54,6 +51,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
     content: '';
     background: linear-gradient(
       135deg,
@@ -64,7 +62,6 @@
     border-radius: inherit;
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none;
   }
 
   &:hover::before {
@@ -80,8 +77,11 @@
   padding: 6px 12px;
   margin-bottom: 6px;
   color: var(--text-color);
+
   @include gradient-themed-tint(0.03, 0.06, 0.03);
+
   border-radius: 6px;
+
   @include transition-standard(color, transform, text-shadow, background, box-shadow);
 
   &:last-child {
@@ -94,14 +94,15 @@
   }
 
   &:hover {
-    transform: translateX(6px);
-    @include gradient-themed-tint(0.08, 0.12, 0.08);
     text-shadow:
-      0 0 15px rgba(var(--theme-glow), 0.3),
-      0 0 30px rgba(var(--theme-glow), 0.15);
+      0 0 15px rgb(var(--theme-glow), 0.3),
+      0 0 30px rgb(var(--theme-glow), 0.15);
     box-shadow:
-      0 0 20px rgba(var(--theme-glow), 0.15),
-      inset 0 0 20px rgba(var(--theme-glow), 0.05);
+      0 0 20px rgb(var(--theme-glow), 0.15),
+      inset 0 0 20px rgb(var(--theme-glow), 0.05);
+    transform: translateX(6px);
+
+    @include gradient-themed-tint(0.08, 0.12, 0.08);
   }
 }
 
@@ -115,16 +116,17 @@
   color: var(--text-color);
   text-transform: uppercase;
   text-shadow:
-    0 0 10px rgba(var(--theme-glow), 0.3),
-    0 0 20px rgba(var(--theme-glow), 0.15);
+    0 0 10px rgb(var(--theme-glow), 0.3),
+    0 0 20px rgb(var(--theme-glow), 0.15);
+
   @include transition-standard(color, text-shadow);
 }
 
 @mixin badge-component-hover {
   text-shadow:
-    0 0 20px rgba(var(--theme-glow), 0.6),
-    0 0 40px rgba(var(--theme-glow), 0.3),
-    0 0 60px rgba(var(--theme-glow), 0.15);
+    0 0 20px rgb(var(--theme-glow), 0.6),
+    0 0 40px rgb(var(--theme-glow), 0.3),
+    0 0 60px rgb(var(--theme-glow), 0.15);
 }
 
 // HERO CARD (larger, more prominent card)
@@ -132,6 +134,7 @@
 
 @mixin hero-card {
   @include card-base;
+
   padding: 40px;
   border-radius: 20px;
 
@@ -148,6 +151,7 @@
   position: relative;
   background-color: var(--footer-bg);
   border-top: 1px solid var(--border-color);
+
   @include transition-standard(background-color, border-color);
 
   &::before {
@@ -156,9 +160,10 @@
     left: 0;
     width: 100%;
     height: 3px;
+    pointer-events: none;
     content: '';
+
     @include gradient-border-subtle;
     @include subtle-glow-white;
-    pointer-events: none;
   }
 }

@@ -12,11 +12,7 @@ export interface ScrollAnimationOptions {
  * @returns ref to attach to the element and isVisible ref for reactive state
  */
 export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
-  const {
-    threshold = 0.1,
-    rootMargin = '0px 0px -100px 0px',
-    triggerOnce = true,
-  } = options
+  const { threshold = 0.1, rootMargin = '0px 0px -100px 0px', triggerOnce = true } = options
 
   const elementRef: Ref<HTMLElement | null> = ref(null)
   const isVisible = ref(false)
@@ -47,7 +43,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       },
       {
         threshold,
-        rootMargin,
+        rootMargin
       }
     )
 
@@ -80,6 +76,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 
   return {
     elementRef,
-    isVisible,
+    isVisible
   }
 }

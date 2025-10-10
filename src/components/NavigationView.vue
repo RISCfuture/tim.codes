@@ -74,6 +74,7 @@ function navigate(destination: { name: string }) {
 @use '@/assets/styles/interactions' as *;
 @use '@/assets/styles/responsive' as *;
 @use '@/assets/styles/accents' as *;
+@use '@/assets/styles/neon' as *;
 
 header {
   position: relative;
@@ -82,6 +83,7 @@ header {
   @include transition-slow(background, color);
   overflow: visible;
 
+  // Bio background layer
   &::before {
     position: absolute;
     top: 0;
@@ -90,8 +92,39 @@ header {
     height: 100%;
     content: '';
     background: var(--header-color-home-gradient);
-    transition: opacity 0.6s ease;
+    opacity: 1;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 0;
+  }
+
+  // Projects background layer
+  .header-content::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    content: '';
+    background: var(--header-color-projects-gradient);
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
+  }
+
+  // Resume background layer
+  .header-content::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    content: '';
+    background: var(--header-color-resume-gradient);
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
   }
 
   // Default glowing bottom border (overridden by themed versions)
@@ -109,10 +142,11 @@ header {
       0 0 24px 8px rgba(255, 255, 255, 0.9),
       0 2px 30px 10px rgba(255, 255, 255, 0.4);
     transition:
-      background 0.6s ease,
-      box-shadow 0.6s ease;
+      background 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     z-index: 2;
+    animation: neon-border-pulse 3s ease-in-out infinite;
   }
 }
 
@@ -132,14 +166,19 @@ h1 {
   font-family: Inter, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  @include text-glow-title;
+  @include neon-text(255, 255, 255, 0.5);
   @include transition-standard(text-shadow);
   @include margin-scale(0 0 10px 0, 0 0 20px 0, 0);
   @include font-scale-fixed(24px, 42px, 48px);
   @include letter-spacing-scale(1.5px, 2px, 2px);
 
+  // Intense flicker effect using existing neon system
+  --neon-flicker-intensity: 0.2;
+  animation: neon-flicker calc(1s / var(--neon-flicker-frequency)) infinite ease-in-out;
+
   &:hover {
-    @include text-glow-title-hover;
+    // Increase luminosity on hover
+    --neon-luminosity: 0.7;
   }
 }
 
@@ -210,64 +249,120 @@ li {
   }
 }
 
-// Color-specific effects
+// Color-specific effects - Gas-based neon colors
 header.bio {
   &::before {
-    background: var(--header-color-home-gradient);
+    opacity: 1;
+  }
+
+  .header-content::before,
+  .header-content::after {
+    opacity: 0;
   }
 
   #home-tab.active svg {
-    @include filter-glow-active(118, 169, 185);
+    @include filter-glow-active(147, 176, 255); // Argon-Mercury (435.8nm)
   }
 
   #home-tab.active::after {
-    background: rgba(118, 169, 185, 1);
-    @include box-glow-md(118, 169, 185);
+    // Use neon glow for tab indicator
+    background: rgb(var(--neon-gas-argon-blue));
+    box-shadow:
+      0 0 20px rgba(var(--neon-gas-argon-blue), 0.9),
+      0 0 40px rgba(var(--neon-gas-argon-blue), 0.5),
+      0 0 60px rgba(var(--neon-gas-argon-blue), 0.25);
   }
 
   &::after {
-    background: rgba(118, 169, 185, 1);
-    @include border-glow-lg(118, 169, 185);
+    // Use physically-accurate neon for header border
+    @include neon-line-shadow(147, 176, 255, 4px, 1.9);
   }
 }
 
 header.projects {
   &::before {
-    background: var(--header-color-projects-gradient);
+    opacity: 0;
+  }
+
+  .header-content::before {
+    opacity: 1;
+  }
+
+  .header-content::after {
+    opacity: 0;
   }
 
   #projects-tab.active svg {
-    @include filter-glow-active(237, 68, 76);
+    @include filter-glow-active(255, 75, 43); // True Neon (640.2nm)
   }
 
   #projects-tab.active::after {
-    background: rgba(237, 68, 76, 1);
-    @include box-glow-md(237, 68, 76);
+    // Use neon glow for tab indicator
+    background: rgb(var(--neon-gas-true-neon));
+    box-shadow:
+      0 0 20px rgba(var(--neon-gas-true-neon), 0.9),
+      0 0 40px rgba(var(--neon-gas-true-neon), 0.5),
+      0 0 60px rgba(var(--neon-gas-true-neon), 0.25);
   }
 
   &::after {
-    background: rgba(237, 68, 76, 1);
-    @include border-glow-lg(237, 68, 76);
+    // Use physically-accurate neon for header border
+    @include neon-line-shadow(255, 75, 43, 4px, 1.9);
   }
 }
 
 header.resume {
   &::before {
-    background: var(--header-color-resume-gradient);
+    opacity: 0;
+  }
+
+  .header-content::before {
+    opacity: 0;
+  }
+
+  .header-content::after {
+    opacity: 1;
   }
 
   #resume-tab.active svg {
-    @include filter-glow-active(122, 187, 128);
+    @include filter-glow-active(200, 255, 210); // Krypton (557.7nm)
   }
 
   #resume-tab.active::after {
-    background: rgba(122, 187, 128, 1);
-    @include box-glow-md(122, 187, 128);
+    // Use neon glow for tab indicator
+    background: rgb(var(--neon-gas-krypton));
+    box-shadow:
+      0 0 20px rgba(var(--neon-gas-krypton), 0.9),
+      0 0 40px rgba(var(--neon-gas-krypton), 0.5),
+      0 0 60px rgba(var(--neon-gas-krypton), 0.25);
   }
 
   &::after {
-    background: rgba(122, 187, 128, 1);
-    @include border-glow-lg(122, 187, 128);
+    // Use physically-accurate neon for header border
+    @include neon-line-shadow(200, 255, 210, 4px, 1.9);
+  }
+}
+
+// Pulse animation for neon border
+@keyframes neon-border-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.15);
+  }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  header::after {
+    animation: none !important;
+  }
+
+  h1 {
+    animation: none !important;
   }
 }
 </style>

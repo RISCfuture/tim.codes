@@ -1,0 +1,428 @@
+// Physically-accurate neon lighting system
+// Simulates real neon tube properties: gas discharge, electrode heating, glass refraction
+// Usage: Apply data-neon attribute to elements with CSS custom properties
+
+@use './interactions' as *;
+@use 'sass:map';
+
+// ============================================================================
+// PHYSICAL NEON COLOR CONSTANTS
+// Based on actual gas discharge emission spectra
+// ============================================================================
+
+// True neon (Ne) - Orange-red, 640.2nm wavelength
+$neon-true: (
+  r: 255,
+  g: 75,
+  b: 43,
+  wavelength: 640.2,
+  gas: 'neon'
+);
+
+// Argon (Ar) with mercury - Blue-lavender, 435.8nm
+$neon-argon-blue: (
+  r: 147,
+  g: 176,
+  b: 255,
+  wavelength: 435.8,
+  gas: 'argon-mercury'
+);
+
+// Mercury vapor - Bright cyan-blue, 546.1nm
+$neon-mercury: (
+  r: 66,
+  g: 200,
+  b: 255,
+  wavelength: 546.1,
+  gas: 'mercury'
+);
+
+// Helium (He) - Yellow-gold, 587.6nm
+$neon-helium: (
+  r: 255,
+  g: 215,
+  b: 100,
+  wavelength: 587.6,
+  gas: 'helium'
+);
+
+// Xenon (Xe) - Pale blue-white, 460nm
+$neon-xenon: (
+  r: 180,
+  g: 200,
+  b: 255,
+  wavelength: 460,
+  gas: 'xenon'
+);
+
+// Krypton (Kr) - Green-white, 557.7nm
+$neon-krypton: (
+  r: 200,
+  g: 255,
+  b: 210,
+  wavelength: 557.7,
+  gas: 'krypton'
+);
+
+// ============================================================================
+// CSS CUSTOM PROPERTIES (for data-neon elements)
+// ============================================================================
+
+// Default neon configuration
+:root {
+  // Gas constant RGB values (for use in rgba() functions)
+  --neon-gas-true-neon: 255, 75, 43; // Orange-red, 640.2nm
+  --neon-gas-argon-blue: 147, 176, 255; // Blue-lavender, 435.8nm
+  --neon-gas-mercury: 66, 200, 255; // Cyan-blue, 546.1nm
+  --neon-gas-helium: 255, 215, 100; // Yellow-gold, 587.6nm
+  --neon-gas-xenon: 180, 200, 255; // Pale blue-white, 460nm
+  --neon-gas-krypton: 200, 255, 210; // Green-white, 557.7nm
+
+  // Core neon properties
+  --neon-color-r: 255;
+  --neon-color-g: 75;
+  --neon-color-b: 43;
+  --neon-luminosity: 0.85; // 0-1 scale, brightness of discharge
+  --neon-tube-thickness: 4px; // Physical tube diameter
+  --neon-glass-opacity: 0.15; // Glass tube visibility
+
+  // Physical effects
+  --neon-flicker-intensity: 0.08; // 0-1, plasma instability
+  --neon-flicker-frequency: 60; // Hz, AC frequency
+  --neon-electrode-heat: 1.3; // Multiplier for cathode/anode glow
+  --neon-warm-up-duration: 800ms; // Time to full brightness
+
+  // Light scattering
+  --neon-bloom-radius: 20px; // Light bleeding from tube
+  --neon-chromatic-aberration: 0.3; // Color fringing intensity
+  --neon-ambient-glow: 40px; // Distance of ambient illumination
+
+  // Advanced physics
+  --neon-refraction-index: 1.5; // Glass refraction (soda-lime glass)
+  --neon-phosphor-coating: 0; // 0 = no phosphor, 1 = full coating
+  --neon-gas-pressure: 1; // Normalized, affects brightness/color
+}
+
+// ============================================================================
+// NEON PRESETS (apply via class or mixin)
+// ============================================================================
+
+// Apply preset neon colors based on real gases
+@mixin neon-preset-true-neon {
+  --neon-color-r: #{map.get($neon-true, r)};
+  --neon-color-g: #{map.get($neon-true, g)};
+  --neon-color-b: #{map.get($neon-true, b)};
+  --neon-phosphor-coating: 0; // Pure gas discharge
+}
+
+@mixin neon-preset-argon-blue {
+  --neon-color-r: #{map.get($neon-argon-blue, r)};
+  --neon-color-g: #{map.get($neon-argon-blue, g)};
+  --neon-color-b: #{map.get($neon-argon-blue, b)};
+  --neon-phosphor-coating: 0.3; // Slight phosphor for color shift
+}
+
+@mixin neon-preset-mercury-blue {
+  --neon-color-r: #{map.get($neon-mercury, r)};
+  --neon-color-g: #{map.get($neon-mercury, g)};
+  --neon-color-b: #{map.get($neon-mercury, b)};
+  --neon-phosphor-coating: 0;
+}
+
+@mixin neon-preset-helium-gold {
+  --neon-color-r: #{map.get($neon-helium, r)};
+  --neon-color-g: #{map.get($neon-helium, g)};
+  --neon-color-b: #{map.get($neon-helium, b)};
+  --neon-phosphor-coating: 0;
+}
+
+@mixin neon-preset-custom($r, $g, $b, $phosphor: 0) {
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
+  --neon-phosphor-coating: #{$phosphor};
+}
+
+// ============================================================================
+// NEON ELEMENT MIXIN (main API)
+// ============================================================================
+
+// Apply neon effect to an element
+// Usage: @include neon-element(237, 68, 76, 0.8, 0.15);
+@mixin neon-element($r, $g, $b, $luminosity: 0.85, $flicker: 0.08) {
+  position: relative;
+
+  // Set custom properties for this element
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
+  --neon-luminosity: #{$luminosity};
+  --neon-flicker-intensity: #{$flicker};
+
+  // Fallback: Use existing glow system for browsers without Houdini
+  @supports not (background: paint(neon)) {
+    @include neon-fallback($r, $g, $b, $luminosity);
+  }
+
+  // Enhanced: CSS Houdini Paint API for supported browsers
+  @supports (background: paint(neon)) {
+    // Paint worklet will be registered and handle rendering
+    &[data-neon],
+    &.neon-enhanced {
+      // The worklet reads CSS custom properties and paints the neon effect
+      isolation: isolate; // Create stacking context for blend modes
+    }
+  }
+}
+
+// ============================================================================
+// FALLBACK RENDERING (for browsers without Houdini)
+// ============================================================================
+
+// Simulate neon with layered shadows and gradients
+@mixin neon-fallback($r, $g, $b, $luminosity) {
+  // Core glow (simulates gas discharge)
+  box-shadow:
+    // Inner bright core (electrode region)
+    inset 0 0 calc(var(--neon-tube-thickness) * 0.5) rgba($r, $g, $b, $luminosity * 0.9),
+    // Glass tube edge highlight
+    inset 0 1px calc(var(--neon-tube-thickness) * 0.2) rgb(255 255 255 / 40%),
+    // Primary glow (bloom)
+    0 0 calc(var(--neon-bloom-radius) * 0.5) rgba($r, $g, $b, $luminosity * 0.8),
+    0 0 var(--neon-bloom-radius) rgba($r, $g, $b, $luminosity * 0.5),
+    0 0 calc(var(--neon-bloom-radius) * 1.5) rgba($r, $g, $b, $luminosity * 0.25),
+    // Ambient glow (atmospheric scattering)
+    0 0 var(--neon-ambient-glow) rgba($r, $g, $b, $luminosity * 0.15),
+    // Chromatic aberration (red channel)
+    0 0 calc(var(--neon-bloom-radius) * 0.3)
+      rgba(255, calc($g * 0.5), calc($b * 0.5), $luminosity * 0.2),
+    // Chromatic aberration (blue channel)
+    0 0 calc(var(--neon-bloom-radius) * 0.4)
+      rgba(calc($r * 0.5), calc($g * 0.5), 255, $luminosity * 0.2);
+
+  // Add subtle animation for warmup effect
+  animation: neon-warmup var(--neon-warm-up-duration) ease-out forwards;
+}
+
+// ============================================================================
+// NEON TEXT EFFECT
+// ============================================================================
+
+@mixin neon-text($r, $g, $b, $luminosity: 0.85) {
+  color: rgba($r, $g, $b, 100%);
+
+  // Text-shadow approach (always applied - works in all browsers)
+  text-shadow:
+    // Core letter illumination
+    0 0 4px rgba(255, 255, 255, $luminosity * 0.8),
+    0 0 8px rgba($r, $g, $b, $luminosity * 0.9),
+    // Primary glow
+    0 0 12px rgba($r, $g, $b, $luminosity * 0.7),
+    0 0 20px rgba($r, $g, $b, $luminosity * 0.5),
+    0 0 30px rgba($r, $g, $b, $luminosity * 0.3),
+    // Atmospheric glow
+    0 0 50px rgba($r, $g, $b, $luminosity * 0.15),
+    // Chromatic aberration
+    0 0 10px rgba(255, calc($g * 0.5), calc($b * 0.5), $luminosity * 0.2);
+  animation: neon-text-warmup var(--neon-warm-up-duration) ease-out forwards;
+}
+
+// ============================================================================
+// NEON BORDER/LINE EFFECT
+// ============================================================================
+
+// For glowing lines (like header borders, tab indicators)
+@mixin neon-line($r, $g, $b, $height: 4px, $luminosity: 0.85) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $height;
+    content: '';
+    background: rgba($r, $g, $b, 100%);
+
+    // Fallback for non-Houdini browsers
+    @supports not (background: paint(neon)) {
+      box-shadow:
+        // Inner tube glow
+        inset 0 0 calc($height * 0.5) rgb(255 255 255 / 60%),
+        // Glass highlight
+        inset 0 1px calc($height * 0.2) rgb(255 255 255 / 40%),
+        // Primary bloom
+        0 0 calc($height * 2) rgba($r, $g, $b, $luminosity * 0.9),
+        0 0 calc($height * 4) rgba($r, $g, $b, $luminosity * 0.6),
+        0 0 calc($height * 6) rgba($r, $g, $b, $luminosity * 0.3),
+        // Ambient glow
+        0 2px calc($height * 8) rgba($r, $g, $b, $luminosity * 0.2),
+        // Chromatic aberration
+        0 0 calc($height * 3) rgba(255, calc($g * 0.5), calc($b * 0.5), $luminosity * 0.15);
+
+      @include transition-slow(box-shadow, background);
+    }
+  }
+}
+
+// Variant: Just the box-shadow styles (for when ::after already exists)
+@mixin neon-line-shadow($r, $g, $b, $height: 4px, $luminosity: 0.85) {
+  background: rgba($r, $g, $b, 100%);
+  box-shadow:
+    // Inner tube glow
+    inset 0 0 calc($height * 0.5) rgb(255 255 255 / 60%),
+    // Glass highlight
+    inset 0 1px calc($height * 0.2) rgb(255 255 255 / 40%),
+    // Primary bloom
+    0 0 calc($height * 2) rgba($r, $g, $b, $luminosity * 0.9),
+    0 0 calc($height * 4) rgba($r, $g, $b, $luminosity * 0.6),
+    0 0 calc($height * 6) rgba($r, $g, $b, $luminosity * 0.3),
+    // Ambient glow
+    0 2px calc($height * 8) rgba($r, $g, $b, $luminosity * 0.2),
+    // Chromatic aberration
+    0 0 calc($height * 3) rgba(255, calc($g * 0.5), calc($b * 0.5), $luminosity * 0.15);
+
+  @include transition-slow(box-shadow, background);
+}
+
+// ============================================================================
+// FLICKER ANIMATION (for browsers without Houdini doing JS animation)
+// ============================================================================
+
+@keyframes neon-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  2% {
+    opacity: calc(1 - var(--neon-flicker-intensity) * 0.3);
+  }
+
+  4% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: calc(1 - var(--neon-flicker-intensity) * 0.5);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: calc(1 - var(--neon-flicker-intensity) * 0.15);
+  }
+
+  52% {
+    opacity: 1;
+  }
+}
+
+// Warm-up animation (gradual brightness increase)
+@keyframes neon-warmup {
+  0% {
+    opacity: 0.3;
+    filter: brightness(0.5) blur(2px);
+  }
+
+  30% {
+    opacity: 0.6;
+    filter: brightness(0.7) blur(1px);
+  }
+
+  60% {
+    opacity: 0.85;
+    filter: brightness(0.9) blur(0.5px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes neon-text-warmup {
+  0% {
+    text-shadow:
+      0 0 2px rgb(255 255 255 / 30%),
+      0 0 4px rgb(var(--neon-color-r) var(--neon-color-g) var(--neon-color-b) / 30%);
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// ============================================================================
+// UTILITY CLASSES (for HTML usage)
+// ============================================================================
+
+// Apply flicker animation
+.neon-flicker {
+  animation: neon-flicker calc(1s / var(--neon-flicker-frequency)) infinite ease-in-out;
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+// Disable flicker
+.neon-static {
+  --neon-flicker-intensity: 0;
+
+  animation: none;
+}
+
+// Intensity presets
+.neon-dim {
+  --neon-luminosity: 0.5;
+}
+
+.neon-normal {
+  --neon-luminosity: 0.85;
+}
+
+.neon-bright {
+  --neon-luminosity: 1;
+}
+
+// Size presets
+.neon-thin {
+  --neon-tube-thickness: 2px;
+  --neon-bloom-radius: 12px;
+  --neon-ambient-glow: 24px;
+}
+
+.neon-thick {
+  --neon-tube-thickness: 8px;
+  --neon-bloom-radius: 32px;
+  --neon-ambient-glow: 60px;
+}
+
+// ============================================================================
+// ACCESSIBILITY
+// ============================================================================
+
+// Disable all animations for reduced motion
+@media (prefers-reduced-motion: reduce) {
+  [data-neon],
+  .neon-enhanced {
+    --neon-flicker-intensity: 0;
+
+    animation: none !important;
+  }
+}
+
+// High contrast mode - simplify to solid colors
+@media (prefers-contrast: high) {
+  [data-neon],
+  .neon-enhanced {
+    --neon-bloom-radius: 0;
+    --neon-ambient-glow: 0;
+    --neon-chromatic-aberration: 0;
+  }
+}

@@ -37,22 +37,12 @@
 // Usage: @include gradient-card-accent(var(--card-bg), var(--bg-color-elevated), rgba(118, 169, 185, 0.03));
 
 @mixin gradient-card-accent($base, $elevated, $tint) {
-  background: linear-gradient(
-    135deg,
-    $base 0%,
-    $elevated 80%,
-    $tint 100%
-  );
+  background: linear-gradient(135deg, $base 0%, $elevated 80%, $tint 100%);
 }
 
 @mixin gradient-card-accent-dark($base, $elevated, $tint) {
   [data-theme='dark'] & {
-    background: linear-gradient(
-      135deg,
-      $base 0%,
-      $elevated 70%,
-      $tint 100%
-    );
+    background: linear-gradient(135deg, $base 0%, $elevated 70%, $tint 100%);
   }
 }
 
@@ -74,9 +64,9 @@
 @mixin gradient-themed-tint($start-opacity, $middle-opacity, $end-opacity) {
   background: linear-gradient(
     120deg,
-    rgba(var(--theme-glow), $start-opacity) 0%,
-    rgba(var(--theme-glow), $middle-opacity) 50%,
-    rgba(var(--theme-glow), $end-opacity) 100%
+    rgb(var(--theme-glow), $start-opacity) 0%,
+    rgb(var(--theme-glow), $middle-opacity) 50%,
+    rgb(var(--theme-glow), $end-opacity) 100%
   );
 }
 
@@ -84,9 +74,9 @@
 @mixin gradient-themed-tint-alt($start-opacity, $middle-opacity, $end-opacity) {
   background: linear-gradient(
     120deg,
-    rgba(var(--theme-glow), $start-opacity) 0%,
-    rgba(var(--theme-glow), $middle-opacity) 50%,
-    rgba(var(--theme-glow), $end-opacity) 100%
+    rgb(var(--theme-glow), $start-opacity) 0%,
+    rgb(var(--theme-glow), $middle-opacity) 50%,
+    rgb(var(--theme-glow), $end-opacity) 100%
   );
 }
 
@@ -94,7 +84,7 @@
 // Usage: @include gradient-header-overlay;
 
 @mixin gradient-header-overlay {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(180deg, rgb(0 0 0 / 15%) 0%, rgb(0 0 0 / 5%) 100%);
 }
 
 // TEXT GRADIENT (for gradient text effects)
@@ -103,7 +93,6 @@
 @mixin text-gradient($color1, $color2) {
   background: linear-gradient(135deg, $color1 0%, $color2 100%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -121,7 +110,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.05) 50%,
+    rgb(255 255 255 / 5%) 50%,
     transparent 100%
   );
 }
