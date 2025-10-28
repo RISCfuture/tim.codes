@@ -81,45 +81,85 @@ article > .projects {
     transition: color 0.3s ease;
   }
 
+  ul.tags li {
+    display: inline-block;
+    padding: $padding;
+    margin: 3px;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-transform: lowercase;
+    letter-spacing: -0.5px;
+    list-style: none;
+    border-radius: math.div($height + $padding * 2, 2) - $padding;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &.type {
+      background-color: var(--tag-type-bg);
+    }
+
+    &.language {
+      background-color: var(--tag-language-bg);
+    }
+
+    &.library {
+      background-color: var(--tag-library-bg);
+    }
+  }
+
+  ul.websites li,
+  ul.websites li a {
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+  }
+
+  ul.websites li {
+    display: inline-block;
+    padding: 0;
+    margin: 6px;
+    color: var(--link-color);
+    list-style: none;
+    border-bottom: 1px solid var(--link-color);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  ul.achievements li {
+    margin: 8px 0;
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text-color);
+    list-style: none;
+    transition: color 0.3s ease;
+
+    &::before {
+      margin-right: 8px;
+      font-weight: bold;
+      color: var(--header-color-projects);
+      text-shadow:
+        0 0 8px rgb(237 68 76 / 40%),
+        0 0 16px rgb(237 68 76 / 20%);
+      content: '▸';
+    }
+  }
+
   ul.tags {
     padding: 0;
     margin: 0;
     font-size: $height;
     line-height: $height;
 
-    li {
-      display: inline-block;
-      padding: $padding;
-      margin: 3px;
-      font-family: Inter, sans-serif;
-      font-weight: 300;
-      color: #fff;
-      text-transform: lowercase;
-      letter-spacing: -0.5px;
-      list-style: none;
-      border-radius: math.div($height + $padding * 2, 2) - $padding;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow:
-          0 2px 4px rgb(0 0 0 / 20%),
-          0 0 8px 1px rgba(255, 255, 255, 0.2);
-      }
-    }
-
-    li.type {
-      background-color: var(--tag-type-bg);
-    }
-
-    li.language {
-      background-color: var(--tag-language-bg);
-    }
-
-    li.library {
-      background-color: var(--tag-library-bg);
+    li:hover {
+      box-shadow:
+        0 2px 4px rgb(0 0 0 / 20%),
+        0 0 8px 1px rgb(255 255 255 / 20%);
+      transform: translateY(-2px);
     }
   }
 
@@ -127,59 +167,19 @@ article > .projects {
     padding: 0;
     margin: 0;
 
-    li {
-      display: inline-block;
-      padding: 0;
-      margin: 6px;
-      color: var(--link-color);
-      list-style: none;
-      border-bottom: 1px solid var(--link-color);
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-
-      &:hover {
-        color: var(--link-hover-color);
-        border-color: var(--link-hover-color);
-        transform: translateX(2px);
-        text-shadow: 0 0 8px rgba(237, 68, 76, 0.4);
-        border-bottom-width: 2px;
-        box-shadow: 0 2px 6px rgba(237, 68, 76, 0.3);
-      }
-    }
-
-    li,
-    li a {
-      font-family: Inter, sans-serif;
-      font-weight: 300;
+    li:hover {
+      color: var(--link-hover-color);
+      text-shadow: 0 0 8px rgb(237 68 76 / 40%);
+      border-color: var(--link-hover-color);
+      border-bottom-width: 2px;
+      box-shadow: 0 2px 6px rgb(237 68 76 / 30%);
+      transform: translateX(2px);
     }
   }
 
   ul.achievements {
     padding: 0;
     margin: 15px 0 0;
-
-    li {
-      margin: 8px 0;
-      font-family: Inter, sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.5;
-      color: var(--text-color);
-      list-style: none;
-      transition: color 0.3s ease;
-
-      &::before {
-        margin-right: 8px;
-        font-weight: bold;
-        color: var(--header-color-projects);
-        text-shadow:
-          0 0 8px rgba(237, 68, 76, 0.4),
-          0 0 16px rgba(237, 68, 76, 0.2);
-        content: '▸';
-      }
-    }
   }
 }
 </style>

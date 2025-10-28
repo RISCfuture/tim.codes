@@ -33,33 +33,36 @@ const profiles = socialStore.profiles
 
 footer {
   display: grid;
-  grid-template-rows: auto auto;
   grid-template-areas:
     'social'
     'info';
+  grid-template-rows: auto auto;
+
   @include footer-component;
   @include gap-scale(8px, 30px, 30px);
   @include padding-scale(10px 10px 10px, 40px 20px 20px, 40px 20px 20px);
 }
 
 .social-icons {
-  grid-area: social;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  grid-area: social;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
+
   @include gap-scale-2x(10px);
 }
 
 .footer-content {
-  grid-area: info;
   display: grid;
+  grid-area: info;
   grid-template-columns: 1fr auto;
   align-items: center;
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  width: 100%;
+
   @include gap-scale(8px, 20px, 20px);
   @include font-scale-fixed(10px, 12px, 12px);
 

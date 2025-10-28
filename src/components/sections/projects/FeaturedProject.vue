@@ -54,14 +54,14 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   margin: 0;
   background: linear-gradient(
     135deg,
-    rgba(237, 68, 76, 0.04) 0%,
-    rgba(237, 68, 76, 0.08) 50%,
-    rgba(237, 68, 76, 0.04) 100%
+    rgb(237 68 76 / 4%) 0%,
+    rgb(237 68 76 / 8%) 50%,
+    rgb(237 68 76 / 4%) 100%
   );
   border-radius: 12px;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 0 30px rgba(237, 68, 76, 0.03);
+    0 2px 8px rgb(0 0 0 / 8%),
+    inset 0 0 30px rgb(237 68 76 / 3%);
   opacity: 0;
   transform: translateY(30px) scale(0.95);
   transition:
@@ -77,17 +77,17 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
     left: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
     content: '';
     background: linear-gradient(
       135deg,
-      rgba(237, 68, 76, 0.1) 0%,
+      rgb(237 68 76 / 10%) 0%,
       transparent 50%,
-      rgba(237, 68, 76, 0.05) 100%
+      rgb(237 68 76 / 5%) 100%
     );
     border-radius: 12px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none;
   }
 
   &.visible {
@@ -98,14 +98,14 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   &:hover {
     background: linear-gradient(
       135deg,
-      rgba(237, 68, 76, 0.06) 0%,
-      rgba(237, 68, 76, 0.12) 50%,
-      rgba(237, 68, 76, 0.06) 100%
+      rgb(237 68 76 / 6%) 0%,
+      rgb(237 68 76 / 12%) 50%,
+      rgb(237 68 76 / 6%) 100%
     );
     box-shadow:
-      0 8px 24px rgba(237, 68, 76, 0.15),
-      0 0 40px rgba(237, 68, 76, 0.1),
-      inset 0 0 40px rgba(237, 68, 76, 0.05);
+      0 8px 24px rgb(237 68 76 / 15%),
+      0 0 40px rgb(237 68 76 / 10%),
+      inset 0 0 40px rgb(237 68 76 / 5%);
     transform: translateY(-4px) scale(1);
 
     &::before {
@@ -124,8 +124,8 @@ h1 {
   a {
     position: relative;
     text-shadow:
-      0 0 10px rgba(237, 68, 76, 0.2),
-      0 0 20px rgba(237, 68, 76, 0.1);
+      0 0 10px rgb(237 68 76 / 20%),
+      0 0 20px rgb(237 68 76 / 10%);
 
     &::after {
       position: absolute;
@@ -135,14 +135,14 @@ h1 {
       height: 2px;
       content: '';
       background: linear-gradient(90deg, #ed444c, #f27078);
-      box-shadow: 0 0 8px rgba(237, 68, 76, 0.5);
+      box-shadow: 0 0 8px rgb(237 68 76 / 50%);
       transition: width 0.3s ease;
     }
 
     &:hover {
       text-shadow:
-        0 0 15px rgba(237, 68, 76, 0.4),
-        0 0 30px rgba(237, 68, 76, 0.2);
+        0 0 15px rgb(237 68 76 / 40%),
+        0 0 30px rgb(237 68 76 / 20%);
     }
 
     &:hover::after {

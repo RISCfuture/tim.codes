@@ -54,14 +54,14 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   margin: 0;
   background: linear-gradient(
     135deg,
-    rgba(237, 68, 76, 0.03) 0%,
-    rgba(237, 68, 76, 0.06) 50%,
-    rgba(237, 68, 76, 0.03) 100%
+    rgb(237 68 76 / 3%) 0%,
+    rgb(237 68 76 / 6%) 50%,
+    rgb(237 68 76 / 3%) 100%
   );
   border-radius: 10px;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 0 25px rgba(237, 68, 76, 0.02);
+    0 2px 8px rgb(0 0 0 / 8%),
+    inset 0 0 25px rgb(237 68 76 / 2%);
   opacity: 0;
   transform: translateY(20px) scale(0.96);
   transition:
@@ -78,14 +78,14 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   &:hover {
     background: linear-gradient(
       135deg,
-      rgba(237, 68, 76, 0.05) 0%,
-      rgba(237, 68, 76, 0.1) 50%,
-      rgba(237, 68, 76, 0.05) 100%
+      rgb(237 68 76 / 5%) 0%,
+      rgb(237 68 76 / 10%) 50%,
+      rgb(237 68 76 / 5%) 100%
     );
     box-shadow:
-      0 8px 24px rgba(237, 68, 76, 0.12),
-      0 0 35px rgba(237, 68, 76, 0.08),
-      inset 0 0 35px rgba(237, 68, 76, 0.04);
+      0 8px 24px rgb(237 68 76 / 12%),
+      0 0 35px rgb(237 68 76 / 8%),
+      inset 0 0 35px rgb(237 68 76 / 4%);
     transform: translateY(-3px) scale(1);
   }
 }
@@ -106,8 +106,8 @@ h1 {
   a {
     position: relative;
     text-shadow:
-      0 0 8px rgba(237, 68, 76, 0.15),
-      0 0 16px rgba(237, 68, 76, 0.08);
+      0 0 8px rgb(237 68 76 / 15%),
+      0 0 16px rgb(237 68 76 / 8%);
 
     &::after {
       position: absolute;
@@ -117,14 +117,14 @@ h1 {
       height: 2px;
       content: '';
       background: linear-gradient(90deg, #ed444c, #f27078);
-      box-shadow: 0 0 6px rgba(237, 68, 76, 0.4);
+      box-shadow: 0 0 6px rgb(237 68 76 / 40%);
       transition: width 0.3s ease;
     }
 
     &:hover {
       text-shadow:
-        0 0 12px rgba(237, 68, 76, 0.3),
-        0 0 24px rgba(237, 68, 76, 0.15);
+        0 0 12px rgb(237 68 76 / 30%),
+        0 0 24px rgb(237 68 76 / 15%);
     }
 
     &:hover::after {

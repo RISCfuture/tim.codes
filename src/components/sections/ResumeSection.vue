@@ -124,45 +124,42 @@ h1 {
 #header-jobs {
   background: var(--resume-jobs-gradient);
   background-clip: text;
-  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 15px rgb(245 183 0 / 30%)) drop-shadow(0 0 30px rgb(245 183 0 / 15%));
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(245, 183, 0, 0.3)) drop-shadow(0 0 30px rgba(245, 183, 0, 0.15));
 
   &::after {
     background: var(--resume-jobs-gradient);
     box-shadow:
-      0 0 15px rgba(245, 183, 0, 0.4),
-      0 0 30px rgba(245, 183, 0, 0.2);
+      0 0 15px rgb(245 183 0 / 40%),
+      0 0 30px rgb(245 183 0 / 20%);
   }
 }
 
 #header-supporting-experience {
   background: var(--resume-supporting-gradient);
   background-clip: text;
-  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 15px rgb(0 161 228 / 30%)) drop-shadow(0 0 30px rgb(0 161 228 / 15%));
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(0, 161, 228, 0.3)) drop-shadow(0 0 30px rgba(0, 161, 228, 0.15));
 
   &::after {
     background: var(--resume-supporting-gradient);
     box-shadow:
-      0 0 15px rgba(0, 161, 228, 0.4),
-      0 0 30px rgba(0, 161, 228, 0.2);
+      0 0 15px rgb(0 161 228 / 40%),
+      0 0 30px rgb(0 161 228 / 20%);
   }
 }
 
 #header-education {
   background: var(--resume-education-gradient);
   background-clip: text;
-  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 15px rgb(220 0 115 / 30%)) drop-shadow(0 0 30px rgb(220 0 115 / 15%));
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(220, 0, 115, 0.3)) drop-shadow(0 0 30px rgba(220, 0, 115, 0.15));
 
   &::after {
     background: var(--resume-education-gradient);
     box-shadow:
-      0 0 15px rgba(220, 0, 115, 0.4),
-      0 0 30px rgba(220, 0, 115, 0.2);
+      0 0 15px rgb(220 0 115 / 40%),
+      0 0 30px rgb(220 0 115 / 20%);
   }
 }
 
@@ -257,14 +254,14 @@ ul {
     font-size: 12px;
     background: linear-gradient(
       135deg,
-      rgba(0, 161, 228, 0.04) 0%,
-      rgba(0, 161, 228, 0.08) 50%,
-      rgba(0, 161, 228, 0.04) 100%
+      rgb(0 161 228 / 4%) 0%,
+      rgb(0 161 228 / 8%) 50%,
+      rgb(0 161 228 / 4%) 100%
     );
     border-radius: 6px;
     box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.08),
-      inset 0 0 25px rgba(0, 161, 228, 0.03);
+      0 2px 8px rgb(0 0 0 / 8%),
+      inset 0 0 25px rgb(0 161 228 / 3%);
     transition:
       transform 0.2s ease,
       box-shadow 0.3s ease,
@@ -279,26 +276,25 @@ ul {
     &:hover {
       background: linear-gradient(
         135deg,
-        rgba(0, 161, 228, 0.06) 0%,
-        rgba(0, 161, 228, 0.12) 50%,
-        rgba(0, 161, 228, 0.06) 100%
+        rgb(0 161 228 / 6%) 0%,
+        rgb(0 161 228 / 12%) 50%,
+        rgb(0 161 228 / 6%) 100%
       );
       box-shadow:
-        0 8px 24px rgba(0, 161, 228, 0.15),
-        0 0 35px rgba(0, 161, 228, 0.1),
-        inset 0 0 35px rgba(0, 161, 228, 0.05);
+        0 8px 24px rgb(0 161 228 / 15%),
+        0 0 35px rgb(0 161 228 / 10%),
+        inset 0 0 35px rgb(0 161 228 / 5%);
       transform: translateY(-2px);
     }
 
     &::before {
       margin-right: 8px;
       font-weight: bold;
+      content: '▸';
       background: var(--resume-supporting-gradient);
       background-clip: text;
-      -webkit-background-clip: text;
+      filter: drop-shadow(0 0 8px rgb(0 161 228 / 40%));
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 8px rgba(0, 161, 228, 0.4));
-      content: '▸';
     }
   }
 }
@@ -328,9 +324,8 @@ ul {
     text-shadow: none !important;
     background: none !important;
     background-clip: unset !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
     filter: none !important;
+    -webkit-text-fill-color: unset !important;
 
     &::after {
       display: none;
@@ -383,9 +378,8 @@ ul {
         text-shadow: none !important;
         background: none !important;
         background-clip: unset !important;
-        -webkit-background-clip: unset !important;
-        -webkit-text-fill-color: unset !important;
         filter: none !important;
+        -webkit-text-fill-color: unset !important;
       }
 
       &:hover {
@@ -427,40 +421,12 @@ ul {
   }
 }
 
-// Jobs section cards - yellow/orange gradient
-#header-jobs ~ ul.history li {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 183, 0, 0.04) 0%,
-    rgba(245, 183, 0, 0.08) 50%,
-    rgba(245, 183, 0, 0.04) 100%
-  );
-  border-left: 4px solid #f5b700;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 0 30px rgba(245, 183, 0, 0.03);
-
-  &:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(245, 183, 0, 0.06) 0%,
-      rgba(245, 183, 0, 0.12) 50%,
-      rgba(245, 183, 0, 0.06) 100%
-    );
-    box-shadow:
-      0 8px 24px rgba(245, 183, 0, 0.15),
-      0 0 40px rgba(245, 183, 0, 0.1),
-      inset 0 0 40px rgba(245, 183, 0, 0.05);
-  }
-}
-
 ul.history li {
   padding: 12px;
+  overflow-wrap: break-word;
   border-radius: 6px;
   opacity: 0;
   transform: translateY(20px) scale(0.98);
-  overflow-wrap: break-word;
-  word-wrap: break-word;
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out,
@@ -503,14 +469,14 @@ ul.history li {
       font-weight: 700;
       color: var(--resume-jobs-color);
       text-shadow:
-        0 0 10px rgba(245, 183, 0, 0.3),
-        0 0 20px rgba(245, 183, 0, 0.15);
+        0 0 10px rgb(245 183 0 / 30%),
+        0 0 20px rgb(245 183 0 / 15%);
     }
 
     .resume li:hover & .title {
       text-shadow:
-        0 0 15px rgba(245, 183, 0, 0.5),
-        0 0 30px rgba(245, 183, 0, 0.25);
+        0 0 15px rgb(245 183 0 / 50%),
+        0 0 30px rgb(245 183 0 / 25%);
     }
 
     .time-range {
@@ -553,35 +519,62 @@ ul.history li {
   }
 }
 
+// Jobs section cards - yellow/orange gradient
+#header-jobs ~ ul.history li {
+  background: linear-gradient(
+    135deg,
+    rgb(245 183 0 / 4%) 0%,
+    rgb(245 183 0 / 8%) 50%,
+    rgb(245 183 0 / 4%) 100%
+  );
+  border-left: 4px solid #f5b700;
+  box-shadow:
+    0 2px 8px rgb(0 0 0 / 8%),
+    inset 0 0 30px rgb(245 183 0 / 3%);
+}
+
 // Education section cards - pink gradient
 #header-education ~ ul.history li {
   background: linear-gradient(
     135deg,
-    rgba(220, 0, 115, 0.04) 0%,
-    rgba(220, 0, 115, 0.08) 50%,
-    rgba(220, 0, 115, 0.04) 100%
+    rgb(220 0 115 / 4%) 0%,
+    rgb(220 0 115 / 8%) 50%,
+    rgb(220 0 115 / 4%) 100%
   );
   border-left: 4px solid #dc0073;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 0 30px rgba(220, 0, 115, 0.03);
-
-  &:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(220, 0, 115, 0.06) 0%,
-      rgba(220, 0, 115, 0.12) 50%,
-      rgba(220, 0, 115, 0.06) 100%
-    );
-    box-shadow:
-      0 8px 24px rgba(220, 0, 115, 0.15),
-      0 0 40px rgba(220, 0, 115, 0.1),
-      inset 0 0 40px rgba(220, 0, 115, 0.05);
-  }
+    0 2px 8px rgb(0 0 0 / 8%),
+    inset 0 0 30px rgb(220 0 115 / 3%);
 
   h2 .title {
     color: var(--resume-education-color);
   }
+}
+
+#header-jobs ~ ul.history li:hover {
+  background: linear-gradient(
+    135deg,
+    rgb(245 183 0 / 6%) 0%,
+    rgb(245 183 0 / 12%) 50%,
+    rgb(245 183 0 / 6%) 100%
+  );
+  box-shadow:
+    0 8px 24px rgb(245 183 0 / 15%),
+    0 0 40px rgb(245 183 0 / 10%),
+    inset 0 0 40px rgb(245 183 0 / 5%);
+}
+
+#header-education ~ ul.history li:hover {
+  background: linear-gradient(
+    135deg,
+    rgb(220 0 115 / 6%) 0%,
+    rgb(220 0 115 / 12%) 50%,
+    rgb(220 0 115 / 6%) 100%
+  );
+  box-shadow:
+    0 8px 24px rgb(220 0 115 / 15%),
+    0 0 40px rgb(220 0 115 / 10%),
+    inset 0 0 40px rgb(220 0 115 / 5%);
 }
 
 @media only print {
@@ -590,9 +583,7 @@ ul.history li {
     margin-bottom: 15px;
   }
 
-  ul.history li,
-  #header-jobs ~ ul.history li,
-  #header-education ~ ul.history li {
+  ul.history li {
     padding: 8px;
     color: #000;
     background: #f5f5f5 !important;
@@ -601,12 +592,6 @@ ul.history li {
     box-shadow: none !important;
     opacity: 1;
     transform: none;
-
-    &:hover {
-      background: #f5f5f5 !important;
-      box-shadow: none !important;
-      transform: none;
-    }
 
     h2 {
       margin-bottom: 4px;
@@ -629,6 +614,19 @@ ul.history li {
       font-size: 11px;
       line-height: 1.3;
       color: #000;
+    }
+  }
+
+  #header-jobs ~ ul.history li,
+  #header-education ~ ul.history li {
+    background: #f5f5f5 !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    &:hover {
+      background: #f5f5f5 !important;
+      box-shadow: none !important;
+      transform: none;
     }
   }
 }

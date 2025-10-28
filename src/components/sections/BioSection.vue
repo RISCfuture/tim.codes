@@ -32,16 +32,16 @@ const careers = bioStore.careers
 }
 
 .hero-section {
-  flex: 1;
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
 }
 
 .career-grid {
-  width: 100%;
-  max-width: 900px;
   display: grid;
   gap: 0;
+  width: 100%;
+  max-width: 900px;
 }
 </style>

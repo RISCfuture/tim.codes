@@ -67,7 +67,7 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 .career-callout {
   position: relative;
   overflow-wrap: break-word;
-  word-wrap: break-word;
+
   @include grid-1-to-2(240px, 300px, 50px);
   @include scroll-animation-fade-up;
   @include padding-scale(20px 0, 35px 0, 35px 0);
@@ -117,6 +117,7 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 .category-badge {
   position: relative;
   line-height: 1.1;
+
   @include badge-component;
   @include padding-scale(0 0 0 15px, 0 30px 0 0, 0 30px 0 0);
   @include font-scale-clamp(20px, 28px, 3vw, 38px);
@@ -128,9 +129,9 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 
   @include mq(ipad) {
     text-shadow:
-      0 0 15px rgba(var(--theme-glow), 0.4),
-      0 0 30px rgba(var(--theme-glow), 0.2),
-      0 0 45px rgba(var(--theme-glow), 0.1);
+      0 0 15px rgb(var(--theme-glow), 0.4),
+      0 0 30px rgb(var(--theme-glow), 0.2),
+      0 0 45px rgb(var(--theme-glow), 0.1);
   }
 
   @include mq(large) {
@@ -139,32 +140,34 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 
   .career-callout:hover & {
     text-shadow:
-      0 0 20px rgba(var(--theme-glow), 0.6),
-      0 0 40px rgba(var(--theme-glow), 0.3),
-      0 0 60px rgba(var(--theme-glow), 0.15);
+      0 0 20px rgb(var(--theme-glow), 0.6),
+      0 0 40px rgb(var(--theme-glow), 0.3),
+      0 0 60px rgb(var(--theme-glow), 0.15);
   }
 
   &::before {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 8px;
     height: 100%;
     content: '';
     background: var(--theme-gradient);
     border-radius: 4px;
+
     @include accent-glow-themed-sm;
     @include transition-bounce(height, box-shadow);
 
     @include mq(ipad) {
-      left: auto;
       right: 0;
+      left: auto;
       height: 70%;
     }
   }
 
   .career-callout:hover &::before {
     height: 100%;
+
     @include accent-glow-themed-md;
   }
 }
@@ -183,6 +186,7 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   margin: 0;
   font-weight: 400;
   color: var(--text-color);
+
   @include transition-standard(color, text-shadow);
   @include font-scale-clamp(15px, 22px, 2.5vw, 32px);
   @include line-height-scale(1.4, 1.5, 1.5);
@@ -193,19 +197,20 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 
   .career-callout:hover & {
     text-shadow:
-      0 0 10px rgba(var(--theme-glow), 0.3),
-      0 0 20px rgba(var(--theme-glow), 0.15);
+      0 0 10px rgb(var(--theme-glow), 0.3),
+      0 0 20px rgb(var(--theme-glow), 0.15);
   }
 }
 
 .accomplishment-list {
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
-  width: 100%;
 
   li {
     font-weight: 400;
+
     @include list-item-card;
     @include padding-scale(6px 12px, 10px 18px, 10px 18px);
     @include margin-scale(0 0 6px 0, 0 0 10px 0, 0 0 10px 0);

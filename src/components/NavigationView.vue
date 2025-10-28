@@ -78,23 +78,24 @@ function navigate(destination: { name: string }) {
 
 header {
   position: relative;
+  overflow: visible;
   color: var(--header-text-color);
+
   @include gradient-header-overlay;
   @include transition-slow(background, color);
-  overflow: visible;
 
   // Bio background layer
   &::before {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
     width: 100%;
     height: 100%;
     content: '';
     background: var(--header-color-home-gradient);
     opacity: 1;
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 0;
   }
 
   // Projects background layer
@@ -102,14 +103,14 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
     width: 100vw;
     height: 100%;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
     content: '';
     background: var(--header-color-projects-gradient);
     opacity: 0;
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
-    margin-left: calc(-1 * (100vw - 100%) / 2);
   }
 
   // Resume background layer
@@ -117,14 +118,14 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
     width: 100vw;
     height: 100%;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
     content: '';
     background: var(--header-color-resume-gradient);
     opacity: 0;
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
-    margin-left: calc(-1 * (100vw - 100%) / 2);
   }
 
   // Default glowing bottom border (overridden by themed versions)
@@ -132,20 +133,20 @@ header {
     position: absolute;
     bottom: -2px;
     left: 0;
+    z-index: 2;
     width: 100%;
     height: 4px;
+    pointer-events: none;
     content: '';
-    background: rgba(255, 255, 255, 1);
+    background: rgb(255 255 255 / 100%);
     box-shadow:
-      0 0 8px 4px rgba(255, 255, 255, 1),
-      0 0 16px 6px rgba(255, 255, 255, 1),
-      0 0 24px 8px rgba(255, 255, 255, 0.9),
-      0 2px 30px 10px rgba(255, 255, 255, 0.4);
+      0 0 8px 4px rgb(255 255 255 / 100%),
+      0 0 16px 6px rgb(255 255 255 / 100%),
+      0 0 24px 8px rgb(255 255 255 / 90%),
+      0 2px 30px 10px rgb(255 255 255 / 40%);
     transition:
       background 1.2s cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    z-index: 2;
     animation: neon-border-pulse 3s ease-in-out infinite;
   }
 }
@@ -153,8 +154,11 @@ header {
 .header-content {
   position: relative;
   z-index: 1;
+
   @include flex-column-to-row;
+
   align-items: center;
+
   @include padding-scale(12px 15px, 30px, 20px 60px);
 
   @include mq(large) {
@@ -166,6 +170,7 @@ h1 {
   font-family: Inter, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+
   @include neon-text(255, 255, 255, 0.5);
   @include transition-standard(text-shadow);
   @include margin-scale(0 0 10px 0, 0 0 20px 0, 0);
@@ -174,6 +179,7 @@ h1 {
 
   // Intense flicker effect using existing neon system
   --neon-flicker-intensity: 0.2;
+
   animation: neon-flicker calc(1s / var(--neon-flicker-frequency)) infinite ease-in-out;
 
   &:hover {
@@ -188,11 +194,13 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+
   @include gap-scale(0, 0, 8px);
 }
 
 li {
   position: relative;
+
   @include glow-indicator(3px, rgba(255, 255, 255, 0.8));
 
   a {
@@ -200,9 +208,10 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    cursor: pointer;
+    color: rgb(255 255 255 / 60%);
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+
     @include transition-standard(color, transform);
     @include gap-scale(4px, 10px, 12px);
     @include padding-scale(8px 12px 10px, 16px 30px 20px, 20px 40px 24px);
@@ -211,6 +220,7 @@ li {
   svg {
     display: block;
     margin: 0 auto;
+
     @include filter-glow-basic;
     @include transition-standard(filter, transform);
     @include svg-size-scale(24px, 48px, 64px);
@@ -221,17 +231,19 @@ li {
     font-weight: 700;
     text-transform: uppercase;
     opacity: 0.5;
+
     @include transition-standard(opacity, text-shadow);
     @include font-scale-fixed(9px, 13px, 14px);
     @include letter-spacing-scale(0.8px, 1px, 1px);
   }
 
   &:hover a {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(255 255 255 / 90%);
   }
 
   &:hover svg {
     @include filter-glow-hover;
+
     transform: translateY(-2px);
   }
 
@@ -268,9 +280,9 @@ header.bio {
     // Use neon glow for tab indicator
     background: rgb(var(--neon-gas-argon-blue));
     box-shadow:
-      0 0 20px rgba(var(--neon-gas-argon-blue), 0.9),
-      0 0 40px rgba(var(--neon-gas-argon-blue), 0.5),
-      0 0 60px rgba(var(--neon-gas-argon-blue), 0.25);
+      0 0 20px rgb(var(--neon-gas-argon-blue), 0.9),
+      0 0 40px rgb(var(--neon-gas-argon-blue), 0.5),
+      0 0 60px rgb(var(--neon-gas-argon-blue), 0.25);
   }
 
   &::after {
@@ -300,9 +312,9 @@ header.projects {
     // Use neon glow for tab indicator
     background: rgb(var(--neon-gas-true-neon));
     box-shadow:
-      0 0 20px rgba(var(--neon-gas-true-neon), 0.9),
-      0 0 40px rgba(var(--neon-gas-true-neon), 0.5),
-      0 0 60px rgba(var(--neon-gas-true-neon), 0.25);
+      0 0 20px rgb(var(--neon-gas-true-neon), 0.9),
+      0 0 40px rgb(var(--neon-gas-true-neon), 0.5),
+      0 0 60px rgb(var(--neon-gas-true-neon), 0.25);
   }
 
   &::after {
@@ -332,9 +344,9 @@ header.resume {
     // Use neon glow for tab indicator
     background: rgb(var(--neon-gas-krypton));
     box-shadow:
-      0 0 20px rgba(var(--neon-gas-krypton), 0.9),
-      0 0 40px rgba(var(--neon-gas-krypton), 0.5),
-      0 0 60px rgba(var(--neon-gas-krypton), 0.25);
+      0 0 20px rgb(var(--neon-gas-krypton), 0.9),
+      0 0 40px rgb(var(--neon-gas-krypton), 0.5),
+      0 0 60px rgb(var(--neon-gas-krypton), 0.25);
   }
 
   &::after {

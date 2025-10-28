@@ -58,7 +58,7 @@ watch(
   font-weight: 600;
   color: var(--header-text-color);
   background-color: var(--header-color-home);
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px;
   transition: top 0.2s ease;
 
   &:focus {
@@ -73,9 +73,9 @@ watch(
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+  clip-path: inset(50%);
 }
 
 @media only print {
@@ -124,10 +124,9 @@ watch(
   * {
     color: #000 !important;
     text-shadow: none !important;
+    background-clip: unset !important;
     box-shadow: none !important;
     filter: none !important;
-    background-clip: unset !important;
-    -webkit-background-clip: unset !important;
     -webkit-text-fill-color: unset !important;
   }
 }

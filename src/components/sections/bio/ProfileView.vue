@@ -74,7 +74,7 @@ img {
   }
 
   &:hover img {
-    filter: grayscale(0) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    filter: grayscale(0) drop-shadow(0 0 8px rgb(255 255 255 / 60%));
     transform: scale(1.3) rotate(5deg);
     transform-origin: center;
   }
@@ -87,8 +87,8 @@ img {
     outline: none;
 
     img {
-      box-shadow: var(--focus-ring);
       border-radius: 4px;
+      box-shadow: var(--focus-ring);
     }
   }
 }

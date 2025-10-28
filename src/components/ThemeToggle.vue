@@ -77,12 +77,15 @@ function toggleTheme() {
   background: transparent;
   border: 2px solid currentcolor;
   border-radius: 50%;
+
   @include transition-fast(transform, background-color, border-color);
 
   &:hover {
     background-color: var(--header-overlay-hover);
+
     @include hover-scale(1.1);
-    box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.3);
+
+    box-shadow: 0 0 12px 2px rgb(255 255 255 / 30%);
   }
 
   @include focus-ring-enhanced(255, 255, 255);
