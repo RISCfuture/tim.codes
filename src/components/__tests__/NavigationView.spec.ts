@@ -4,8 +4,12 @@ import i18n from '@/i18n'
 import { fireEvent, render, screen } from '@testing-library/vue'
 
 vi.mock('vue-router', () => ({
-  useRoute: vi.fn(() => ({ name: 'projects' })),
-  useRouter: vi.fn(() => ({ push: vi.fn() }))
+  useRoute: vi.fn(function () {
+    return { name: 'projects' }
+  }),
+  useRouter: vi.fn(function () {
+    return { push: vi.fn() }
+  })
 }))
 
 describe('NavigationView', () => {
