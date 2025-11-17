@@ -12,11 +12,12 @@
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix",
+    "lint:eslint": "eslint . --fix",
+    "lint:stylelint": "stylelint \"src/**/*.{vue,css,scss,sass}\"",
+    "lint": "run-s 'lint:*'",
     "format": "prettier --write src/",
     "doc": "npx typedoc --out docs src",
     "ci:unit": "vitest --run",
-    "stylelint": "stylelint \"src/**/*.{vue,css,scss,sass}\"",
     "ci:build": "run-p type-check \"build-only {@}\" --"
   },
   "dependencies": {

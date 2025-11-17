@@ -85,5 +85,5 @@ jobs:
           SENTRY_PROJECT: tim-dot-codes
         with:
           environment: production
-          version: ${{ github.sha }}
+          release: ${{ github.sha }}
           sourcemaps: "./dist"
