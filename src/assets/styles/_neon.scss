@@ -109,30 +109,46 @@ $neon-krypton: (
 
 // Apply preset neon colors based on real gases
 @mixin neon-preset-true-neon {
-  --neon-color-r: #{map.get($neon-true, r)};
-  --neon-color-g: #{map.get($neon-true, g)};
-  --neon-color-b: #{map.get($neon-true, b)};
+  $r: map.get($neon-true, r);
+  $g: map.get($neon-true, g);
+  $b: map.get($neon-true, b);
+
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
   --neon-phosphor-coating: 0; // Pure gas discharge
 }
 
 @mixin neon-preset-argon-blue {
-  --neon-color-r: #{map.get($neon-argon-blue, r)};
-  --neon-color-g: #{map.get($neon-argon-blue, g)};
-  --neon-color-b: #{map.get($neon-argon-blue, b)};
+  $r: map.get($neon-argon-blue, r);
+  $g: map.get($neon-argon-blue, g);
+  $b: map.get($neon-argon-blue, b);
+
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
   --neon-phosphor-coating: 0.3; // Slight phosphor for color shift
 }
 
 @mixin neon-preset-mercury-blue {
-  --neon-color-r: #{map.get($neon-mercury, r)};
-  --neon-color-g: #{map.get($neon-mercury, g)};
-  --neon-color-b: #{map.get($neon-mercury, b)};
+  $r: map.get($neon-mercury, r);
+  $g: map.get($neon-mercury, g);
+  $b: map.get($neon-mercury, b);
+
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
   --neon-phosphor-coating: 0;
 }
 
 @mixin neon-preset-helium-gold {
-  --neon-color-r: #{map.get($neon-helium, r)};
-  --neon-color-g: #{map.get($neon-helium, g)};
-  --neon-color-b: #{map.get($neon-helium, b)};
+  $r: map.get($neon-helium, r);
+  $g: map.get($neon-helium, g);
+  $b: map.get($neon-helium, b);
+
+  --neon-color-r: #{$r};
+  --neon-color-g: #{$g};
+  --neon-color-b: #{$b};
   --neon-phosphor-coating: 0;
 }
 
