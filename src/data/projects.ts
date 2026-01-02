@@ -92,18 +92,6 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    type: ProjectType.WEBSITE,
-    identifier: 'ranked',
-    websites: [
-      { url: 'https://r4nked.github.io', type: WebsiteType.LIVE },
-      { url: 'https://github.com/r4nked/Backend', type: WebsiteType.SOURCE },
-      { url: 'https://github.com/r4nked/Frontend', type: WebsiteType.SOURCE }
-    ],
-    languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
-    libraries: [Library.RAILS, Library.VUEJS],
-    featured: false
-  },
-  {
     type: ProjectType.APP,
     identifier: 'SF50Told',
     websites: [
@@ -138,18 +126,6 @@ export const projects: Project[] = [
     websites: [{ url: 'https://github.com/RISCfuture/SwiftNASR', type: WebsiteType.SOURCE }],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: false
-  },
-  {
-    type: ProjectType.WEBSITE,
-    identifier: 'greenie',
-    websites: [
-      { url: 'https://github.com/Greenie-app/Backend', type: WebsiteType.SOURCE },
-      { url: 'https://github.com/Greenie-app/Frontend', type: WebsiteType.SOURCE },
-      { url: 'https://greenie.app', type: WebsiteType.LIVE }
-    ],
-    languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
-    libraries: [Library.RAILS, Library.VUEJS],
     featured: false
   },
   {

@@ -39,10 +39,8 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     FART: { name: 'Flight Assessment of Risk Tool' },
     flyweight: { name: 'FlyWeight' },
     fourtiles: { name: 'Fourtiles' },
-    greenie: { name: 'Greenie' },
     ICrashedMyPlane: { name: 'I Crashed My Plane' },
     learnMorseCode: { name: 'Learn Morse Code' },
-    ranked: { name: 'Ranked.' },
     SF50Told: { name: 'SF50 TOLD' },
     swiftMETAR: { name: 'SwiftMETAR' },
     swiftNASR: { name: 'SwiftNASR' }

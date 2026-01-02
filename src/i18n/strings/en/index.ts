@@ -124,13 +124,6 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Smooth animations and engaging visual feedback for tile combinations'
       ]
     },
-    greenie: {
-      description: 'A website that lets virtual fighter pilots track their carrier landings',
-      achievements: [
-        'Parses DCS log files to extract LSO grades, wire numbers, and landing scores',
-        'Real-time updates as your logfile processes with live WebSocket notifications'
-      ]
-    },
     ICrashedMyPlane: {
       description: 'An engaging way to navigate NTSB 830 regulations after you crash your plane',
       achievements: [
@@ -145,13 +138,6 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'All Morse code audio and pictographs are generated programmatically; no assets are used',
         'Extensive use of Vue transitions for a fluid app-like experience',
         'Responsive design and dark mode support'
-      ]
-    },
-    ranked: {
-      description: 'Rank arbitrary lists of things using an Elo algorithm',
-      achievements: [
-        'No back-end ranking storage; all state encoded into the URL',
-        'Stable and versatile ranking algorithm'
       ]
     },
     SF50Told: {
