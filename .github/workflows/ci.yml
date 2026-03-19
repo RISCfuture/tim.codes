@@ -14,13 +14,13 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: true
     - name: Enable Corepack
       run: corepack enable
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         cache: yarn
         node-version-file: .node-version
@@ -38,7 +38,7 @@ jobs:
     name: End-to-End Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: true
     - name: Copy private files
@@ -48,7 +48,7 @@ jobs:
     - name: Enable Corepack
       run: corepack enable
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         cache: yarn
         node-version-file: .node-version
@@ -64,7 +64,7 @@ jobs:
     name: Linters
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: true
     - name: Copy private files
@@ -74,7 +74,7 @@ jobs:
     - name: Enable Corepack
       run: corepack enable
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         cache: yarn
         node-version-file: .node-version
