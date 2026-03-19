@@ -9,20 +9,20 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/',
         name: 'bio',
-        component: () => import('../components/sections/BioSection.vue')
+        component: () => import('../components/sections/BioSection.vue'),
       },
       {
         path: 'projects',
         name: 'projects',
-        component: () => import('../components/sections/ProjectsSection.vue')
+        component: () => import('../components/sections/ProjectsSection.vue'),
       },
       {
         path: 'resume',
         name: 'resume',
-        component: () => import('../components/sections/ResumeSection.vue')
-      }
-    ]
-  }
+        component: () => import('../components/sections/ResumeSection.vue'),
+      },
+    ],
+  },
 ]
 
 // Dev-only route to preview error boundary
@@ -30,13 +30,13 @@ if (import.meta.env.DEV) {
   routes.push({
     path: '/dev/error',
     name: 'dev-error',
-    component: () => import('../views/DevErrorView.vue')
+    component: () => import('../views/DevErrorView.vue'),
   })
 }
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
 })
 
 export default router

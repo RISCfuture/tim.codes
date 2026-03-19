@@ -15,9 +15,9 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
         scribd: 'Scribd',
         square: 'Square',
         tickle: 'Tickle.com',
-        trusted: 'Trusted Health'
-      }
-    }
+        trusted: 'Trusted Health',
+      },
+    },
   },
   social: {
     website: {
@@ -30,8 +30,8 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
       threads: 'Threads',
       twitch: 'Twitch',
       twitter: 'Twitter',
-      youtube: 'YouTube'
-    }
+      youtube: 'YouTube',
+    },
   },
   projects: {
     badBehavior: { name: 'BadBehavior' },
@@ -43,7 +43,7 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     learnMorseCode: { name: 'Learn Morse Code' },
     SF50Told: { name: 'SF50 TOLD' },
     swiftMETAR: { name: 'SwiftMETAR' },
-    swiftNASR: { name: 'SwiftNASR' }
+    swiftNASR: { name: 'SwiftNASR' },
   },
   resume: {
     timeRange: '{start}–{end}',
@@ -52,29 +52,29 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
       city: 'San Francisco, CA',
       zip: '',
       phone: '',
-      email: "resume{'@'}timothymorgan.info"
+      email: "resume{'@'}timothymorgan.info",
     },
     jobs: {
       headerFormat: '{timeRange} {title}, {company} ({location})',
       locations: {
         sf: 'San Francisco',
-        seattle: 'Seattle'
-      }
+        seattle: 'Seattle',
+      },
     },
     education: {
       degreeConcentration: '{degree}, {concentrations}',
       format: '{degreeConcentration} {institution}; {location}; {timeRange}',
       degree: {
-        bs: 'B.S.'
+        bs: 'B.S.',
       },
       institution: {
         beloit: {
           name: 'Beloit College',
-          location: 'Beloit, WI'
-        }
-      }
-    }
-  }
+          location: 'Beloit, WI',
+        },
+      },
+    },
+  },
 }
 
 export default merge({}, base, basePrivate)

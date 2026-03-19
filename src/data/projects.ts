@@ -7,12 +7,12 @@ export const projects: Project[] = [
     websites: [
       {
         url: 'https://github.com/RISCfuture/BadBehavior',
-        type: WebsiteType.SOURCE
-      }
+        type: WebsiteType.SOURCE,
+      },
     ],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: false
+    featured: false,
   },
   {
     type: ProjectType.APP,
@@ -20,16 +20,16 @@ export const projects: Project[] = [
     websites: [
       {
         url: 'https://github.com/RISCfuture/FART',
-        type: WebsiteType.SOURCE
+        type: WebsiteType.SOURCE,
       },
       {
         url: 'https://apps.apple.com/us/app/flight-assessment-of-risk-tool/id1570992859',
-        type: WebsiteType.DOWNLOAD
-      }
+        type: WebsiteType.DOWNLOAD,
+      },
     ],
     languages: [Language.SWIFT],
     libraries: [Library.SWIFTUI],
-    featured: false
+    featured: false,
   },
   {
     type: ProjectType.WEBSITE,
@@ -37,20 +37,20 @@ export const projects: Project[] = [
     websites: [
       {
         url: 'https://github.com/FlyWeight-org/Backend',
-        type: WebsiteType.SOURCE
+        type: WebsiteType.SOURCE,
       },
       {
         url: 'https://github.com/FlyWeight-org/Frontend',
-        type: WebsiteType.SOURCE
+        type: WebsiteType.SOURCE,
       },
       {
         url: 'https://flyweight.org',
-        type: WebsiteType.LIVE
-      }
+        type: WebsiteType.LIVE,
+      },
     ],
     languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.RAILS, Library.VUEJS],
-    featured: true
+    featured: true,
   },
   {
     type: ProjectType.WEBSITE,
@@ -58,38 +58,38 @@ export const projects: Project[] = [
     websites: [
       {
         url: 'https://github.com/RISCfuture/closest-ndb',
-        type: WebsiteType.SOURCE
+        type: WebsiteType.SOURCE,
       },
       {
         url: 'https://riscfuture.github.io/closest-ndb',
-        type: WebsiteType.LIVE
-      }
+        type: WebsiteType.LIVE,
+      },
     ],
     languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.VUEJS],
-    featured: false
+    featured: false,
   },
   {
     type: ProjectType.WEBSITE,
     identifier: 'ICrashedMyPlane',
     websites: [
       { url: 'https://icrashedmyplane.com', type: WebsiteType.LIVE },
-      { url: 'https://github.com/RISCfuture/I-Crashed-My-Plane', type: WebsiteType.SOURCE }
+      { url: 'https://github.com/RISCfuture/I-Crashed-My-Plane', type: WebsiteType.SOURCE },
     ],
     languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.VUEJS],
-    featured: true
+    featured: true,
   },
   {
     type: ProjectType.WEBSITE,
     identifier: 'learnMorseCode',
     websites: [
       { url: 'https://learnmorse.codes', type: WebsiteType.LIVE },
-      { url: 'https://github.com/RISCfuture/learnmorse.codes', type: WebsiteType.SOURCE }
+      { url: 'https://github.com/RISCfuture/learnmorse.codes', type: WebsiteType.SOURCE },
     ],
     languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.VUEJS],
-    featured: true
+    featured: true,
   },
   {
     type: ProjectType.APP,
@@ -97,20 +97,20 @@ export const projects: Project[] = [
     websites: [
       {
         url: 'https://github.com/RISCfuture/SF50-TOLD',
-        type: WebsiteType.SOURCE
+        type: WebsiteType.SOURCE,
       },
       {
         url: 'https://apps.apple.com/us/app/sf50-told/id1552835232',
-        type: WebsiteType.DOWNLOAD
+        type: WebsiteType.DOWNLOAD,
       },
       {
         url: 'https://apps.apple.com/us/app/sr22-g2-told/id1553162654',
-        type: WebsiteType.DOWNLOAD
-      }
+        type: WebsiteType.DOWNLOAD,
+      },
     ],
     languages: [Language.SWIFT],
     libraries: [Library.SWIFTUI],
-    featured: true
+    featured: true,
   },
   {
     type: ProjectType.LIBRARY,
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     websites: [{ url: 'https://github.com/RISCfuture/SwiftMETAR', type: WebsiteType.SOURCE }],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: false
+    featured: false,
   },
   {
     type: ProjectType.LIBRARY,
@@ -126,17 +126,17 @@ export const projects: Project[] = [
     websites: [{ url: 'https://github.com/RISCfuture/SwiftNASR', type: WebsiteType.SOURCE }],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: false
+    featured: false,
   },
   {
     type: ProjectType.WEBSITE,
     identifier: 'fourtiles',
     websites: [
       { url: 'https://github.com/Fourtiles/fourtiles.github.io', type: WebsiteType.SOURCE },
-      { url: 'https://fourtiles.github.io', type: WebsiteType.LIVE }
+      { url: 'https://fourtiles.github.io', type: WebsiteType.LIVE },
     ],
     languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.VUEJS],
-    featured: true
-  }
+    featured: true,
+  },
 ]

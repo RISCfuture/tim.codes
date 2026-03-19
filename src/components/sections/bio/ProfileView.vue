@@ -33,7 +33,7 @@ const images: Record<string, string> = {
   threads,
   twitch,
   twitter,
-  youtube
+  youtube,
 }
 
 const props = defineProps<{ profile: Profile }>()

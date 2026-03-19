@@ -16,7 +16,7 @@ export enum ProjectType {
   APP = 'app',
 
   /** A command-line tool. */
-  TOOL = 'tool'
+  TOOL = 'tool',
 }
 
 /**
@@ -30,7 +30,7 @@ export enum WebsiteType {
   SOURCE = 'source',
 
   /** The location where the app can be downloaded. */
-  DOWNLOAD = 'download'
+  DOWNLOAD = 'download',
 }
 
 /**
@@ -46,7 +46,7 @@ export enum Language {
   CSS = 'CSS' /** < CSS, Sass, SCSS */,
   SWIFT = 'swift' /** < Swift */,
   OBJECTIVE_C = 'objectiveC' /** < Objective-C */,
-  C = 'c' /** < C */
+  C = 'c' /** < C */,
 }
 
 /**
@@ -59,7 +59,7 @@ export enum Library {
   RAILS = 'rails' /** < Ruby on Rails (Ruby) */,
   STIMULUS = 'stimulus' /** < Stimulus (JavaScript) */,
   SWIFTUI = 'swiftUI' /** < SwiftUI (Swift) */,
-  VUEJS = 'vueJS' /** < Vue.js (JavaScript) */
+  VUEJS = 'vueJS' /** < Vue.js (JavaScript) */,
 }
 
 /**

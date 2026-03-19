@@ -25,7 +25,7 @@ const transitionName = ref('shift-right')
 const themeStore = useThemeStore()
 
 const themeAnnouncement = computed(() =>
-  themeStore.theme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled'
+  themeStore.theme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled',
 )
 
 // Announce theme changes
@@ -41,7 +41,7 @@ watch(
     announcementTimeout = setTimeout(() => {
       announcementTimeout = null
     }, 100)
-  }
+  },
 )
 </script>
 

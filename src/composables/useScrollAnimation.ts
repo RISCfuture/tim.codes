@@ -33,7 +33,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             isVisible.value = true
-            if (triggerOnce && observer && entry.target) {
+            if (triggerOnce && observer) {
               observer.unobserve(entry.target)
             }
           } else if (!triggerOnce) {
@@ -43,14 +43,14 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       },
       {
         threshold,
-        rootMargin
-      }
+        rootMargin,
+      },
     )
 
     observer.observe(elementRef.value)
 
     // Check immediately if element is already in viewport on page load
-    nextTick(() => {
+    void nextTick(() => {
       if (elementRef.value) {
         const rect = elementRef.value.getBoundingClientRect()
         const windowHeight = window.innerHeight || document.documentElement.clientHeight
@@ -76,6 +76,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 
   return {
     elementRef,
-    isVisible
+    isVisible,
   }
 }

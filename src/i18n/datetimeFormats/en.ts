@@ -1,6 +1,6 @@
 const en: Record<string, Intl.DateTimeFormatOptions> = {
   yearOnly: {
-    year: 'numeric'
-  }
+    year: 'numeric',
+  },
 }
 export default en

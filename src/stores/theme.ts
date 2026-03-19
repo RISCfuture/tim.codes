@@ -8,8 +8,8 @@ export const useThemeStore = defineStore('theme', () => {
 
   // Initialize theme from localStorage or system preference
   function initializeTheme() {
-    const stored = localStorage.getItem('theme') as Theme | null
-    if (stored && (stored === 'light' || stored === 'dark')) {
+    const stored = localStorage.getItem('theme')
+    if (stored === 'light' || stored === 'dark') {
       theme.value = stored
     } else {
       // Check system preference
@@ -38,6 +38,6 @@ export const useThemeStore = defineStore('theme', () => {
   return {
     theme,
     initializeTheme,
-    toggleTheme
+    toggleTheme,
   }
 })

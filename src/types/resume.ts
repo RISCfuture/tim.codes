@@ -20,7 +20,7 @@ export enum JobLocation {
   SF = 'sf',
 
   /** Seattle, WA */
-  SEATTLE = 'seattle'
+  SEATTLE = 'seattle',
 }
 
 /**
@@ -47,7 +47,7 @@ export interface Job extends TimeRanged {
 
 export enum Degree {
   /** Bachelor of Science */
-  BS = 'bs'
+  BS = 'bs',
 }
 
 /**

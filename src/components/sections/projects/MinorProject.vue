@@ -1,7 +1,12 @@
 <template>
   <div ref="elementRef" class="minor-project-card" :class="{ visible: isVisible }">
     <h1>
-      <a v-if="project.websites[0]?.url" :href="project.websites[0].url" @click="handleLinkClick(project.websites[0].type)">{{ i18nData.name }}</a>
+      <a
+        v-if="project.websites[0]?.url"
+        :href="project.websites[0].url"
+        @click="handleLinkClick(project.websites[0].type)"
+        >{{ i18nData.name }}</a
+      >
       <span v-else>{{ i18nData.name }}</span>
     </h1>
     <p>{{ i18nData.description }}</p>
@@ -18,7 +23,9 @@
     </ul>
     <ul class="websites">
       <li v-for="website in project.websites" :key="website.url">
-        <a :href="website.url" @click="handleLinkClick(website.type)">{{ i18nWebsiteType(website.type) }}</a>
+        <a :href="website.url" @click="handleLinkClick(website.type)">{{
+          i18nWebsiteType(website.type)
+        }}</a>
       </li>
     </ul>
     <ul v-if="i18nData.achievements && i18nData.achievements.length > 0" class="achievements">
@@ -44,7 +51,7 @@ function handleLinkClick(linkType: WebsiteType) {
 }
 
 const { i18nData, i18nType, i18nLanguages, i18nLibraries, i18nWebsiteType } = useProject(
-  props.project
+  props.project,
 )
 
 const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })

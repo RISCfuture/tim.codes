@@ -10,12 +10,12 @@ export const baseConfig: UserConfig = {
   plugins: [vue(), vueDevTools({ launchEditor: 'rubymine' })],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   build: {
-    sourcemap: true
-  }
+    sourcemap: true,
+  },
 }
 
 // https://vite.dev/config/
@@ -28,9 +28,9 @@ export default defineConfig(({ command, mode }) => ({
     ...(command === 'build' && mode !== 'test' && !process.env.CYPRESS
       ? [
           legacy({
-            targets: ['defaults', 'iOS >= 12', 'Safari >= 12']
-          })
+            targets: ['defaults', 'iOS >= 12', 'Safari >= 12'],
+          }),
         ]
-      : [])
-  ]
+      : []),
+  ],
 }))

@@ -3,9 +3,11 @@
   "include":         [
     "vite.config.*",
     "vitest.config.*",
+    "vitest.setup.*",
     "cypress.config.*",
-    "nightwatch.conf.*",
-    "playwright.config.*"
+    "eslint.config.*",
+    "prettier.config.*",
+    "stylelint.config.*"
   ],
   "compilerOptions": {
     "noEmit":           true,

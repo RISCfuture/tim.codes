@@ -45,7 +45,6 @@
 import { useResumeStore } from '@/stores/resume'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import type { ResumeBullets } from '@/i18n/strings/types'
 import JobView from '@/components/sections/resume/JobView.vue'
 import EducationView from '@/components/sections/resume/EducationView.vue'
 
@@ -57,7 +56,7 @@ const education = resumeStore.sortedEducation
 
 function addressParts(parts: string[]) {
   return parts.map((part) =>
-    te(`resume.address.${part}`, 'en') ? t(`resume.address.${part}`) : t('resume.address.omitted')
+    te(`resume.address.${part}`, 'en') ? t(`resume.address.${part}`) : t('resume.address.omitted'),
   )
 }
 
@@ -72,7 +71,8 @@ const addressLine2 = computed(() => {
 })
 
 const supportingExperience = computed(
-  () => (tm('resume.supportingExperience') as ResumeBullets).content
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access -- vue-i18n tm() returns untyped data
+  () => tm('resume.supportingExperience').content,
 )
 </script>
 

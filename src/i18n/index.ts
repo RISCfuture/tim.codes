@@ -9,5 +9,5 @@ export default createI18n({
   fallbackLocale: 'en',
   silentFallbackWarn: true,
   messages,
-  datetimeFormats
+  datetimeFormats,
 })

@@ -16,6 +16,6 @@ export const useResumeStore = defineStore('resume', {
 
   getters: {
     sortedJobs: (state) => state.jobs.sort(byEndYear),
-    sortedEducation: (state) => state.education.sort(byEndYear)
-  }
+    sortedEducation: (state) => state.education.sort(byEndYear),
+  },
 })

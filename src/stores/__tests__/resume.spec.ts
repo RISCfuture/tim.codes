@@ -20,7 +20,7 @@ describe('resume store', () => {
         'recurly',
         'scribd',
         'tickle',
-        'amazon'
+        'amazon',
       ])
     })
   })

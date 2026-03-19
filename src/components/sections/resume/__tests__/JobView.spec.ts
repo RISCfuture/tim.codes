@@ -9,7 +9,7 @@ const job: Job = {
   startYear: 2005,
   endYear: 2006,
   location: JobLocation.SEATTLE,
-  projects: []
+  projects: [],
 }
 
 describe('JobView.vue', () => {
@@ -17,12 +17,12 @@ describe('JobView.vue', () => {
     render(JobView, {
       props: { job },
       global: {
-        plugins: [i18n]
-      }
+        plugins: [i18n],
+      },
     })
 
     expect(
-      screen.findByText('2005–2006 Software Development Engineer II, Amazon.com (Seattle)')
+      screen.findByText('2005–2006 Software Development Engineer II, Amazon.com (Seattle)'),
     ).toBeTruthy()
   })
 })

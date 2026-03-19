@@ -21,9 +21,11 @@ import router from './router'
 import i18n from '@/i18n'
 import { useThemeStore } from '@/stores/theme'
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- Vue app type mismatch with Sentry
 const app = createApp(App)
 
-const sentryDSN = import.meta.env.VITE_SENTRY_DSN
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Vite env types are loosely typed
+const sentryDSN: string = import.meta.env.VITE_SENTRY_DSN
 Sentry.init({
   app,
   dsn: sentryDSN,
@@ -31,16 +33,16 @@ Sentry.init({
   integrations: [
     Sentry.vueIntegration({
       tracingOptions: {
-        trackComponents: true
-      }
+        trackComponents: true,
+      },
     }),
     Sentry.browserTracingIntegration({ router }),
-    Sentry.replayIntegration()
+    Sentry.replayIntegration(),
   ],
   tracesSampleRate: 1.0,
   enableLogs: true,
   replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1.0
+  replaysOnErrorSampleRate: 1.0,
 })
 
 const pinia = createPinia()

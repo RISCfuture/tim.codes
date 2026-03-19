@@ -16,7 +16,7 @@ $neon-true: (
   g: 75,
   b: 43,
   wavelength: 640.2,
-  gas: 'neon'
+  gas: 'neon',
 );
 
 // Argon (Ar) with mercury - Blue-lavender, 435.8nm
@@ -25,7 +25,7 @@ $neon-argon-blue: (
   g: 176,
   b: 255,
   wavelength: 435.8,
-  gas: 'argon-mercury'
+  gas: 'argon-mercury',
 );
 
 // Mercury vapor - Bright cyan-blue, 546.1nm
@@ -34,7 +34,7 @@ $neon-mercury: (
   g: 200,
   b: 255,
   wavelength: 546.1,
-  gas: 'mercury'
+  gas: 'mercury',
 );
 
 // Helium (He) - Yellow-gold, 587.6nm
@@ -43,7 +43,7 @@ $neon-helium: (
   g: 215,
   b: 100,
   wavelength: 587.6,
-  gas: 'helium'
+  gas: 'helium',
 );
 
 // Xenon (Xe) - Pale blue-white, 460nm
@@ -52,7 +52,7 @@ $neon-xenon: (
   g: 200,
   b: 255,
   wavelength: 460,
-  gas: 'xenon'
+  gas: 'xenon',
 );
 
 // Krypton (Kr) - Green-white, 557.7nm
@@ -61,7 +61,7 @@ $neon-krypton: (
   g: 255,
   b: 210,
   wavelength: 557.7,
-  gas: 'krypton'
+  gas: 'krypton',
 );
 
 // ============================================================================

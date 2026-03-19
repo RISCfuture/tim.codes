@@ -5,7 +5,7 @@
         <span class="degree">{{
           t('resume.education.degreeConcentration', {
             degree,
-            concentrations
+            concentrations,
           })
         }}</span>
       </template>
@@ -36,16 +36,16 @@ const timeRange = computed(() => {
 })
 const concentrations = computed(() => {
   const concentrations = props.education.concentrations.map((c) =>
-    t(`resume.education.concentration.${c}`)
+    t(`resume.education.concentration.${c}`),
   )
   return list(concentrations)
 })
 const degree = computed(() => t(`resume.education.degree.${props.education.degree}`))
 const institution = computed(() =>
-  t(`resume.education.institution.${props.education.institution}.name`)
+  t(`resume.education.institution.${props.education.institution}.name`),
 )
 const location = computed(() =>
-  t(`resume.education.institution.${props.education.institution}.location`)
+  t(`resume.education.institution.${props.education.institution}.location`),
 )
 
 const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.3 })

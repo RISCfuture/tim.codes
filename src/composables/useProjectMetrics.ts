@@ -7,8 +7,8 @@ export function useProjectMetrics() {
       attributes: {
         project_id: projectId,
         link_type: linkType,
-        featured: String(featured)
-      }
+        featured: String(featured),
+      },
     })
   }
 

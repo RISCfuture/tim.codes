@@ -4,9 +4,9 @@ const enPrivate: LocaleMessages<DefaultLocaleMessageSchema> = {
   resume: {
     address: {
       zip: '94107',
-      phone: '[redacted]'
-    }
-  }
+      phone: '[redacted]',
+    },
+  },
 }
 
 export default enPrivate

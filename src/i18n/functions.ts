@@ -27,38 +27,44 @@ const CLDR = new Cldr(CLDRLocale) // TODO add other locales as they are supporte
 
 function listConstantLength(template: string, items: string[]): string {
   let output = template
-  items.forEach((item, index) => {
-    output = output.replace(`{${index}}`, item)
-  })
+  for (const [index, item] of items.entries()) {
+    output = output.replace(`{${index.toString()}}`, item)
+  }
   return output
 }
 
 function listMiddle(items: string[], template: string): string {
-  if (items.length === 1) return items[0]!
-  return template.replace('{0}', items[0]!).replace('{1}', listMiddle(items.slice(1), template))
+  if (items.length === 1) return items[0] ?? ''
+  return template
+    .replace('{0}', items[0] ?? '')
+    .replace('{1}', listMiddle(items.slice(1), template))
 }
 
 function listStartAndMiddle(
   items: string[],
   startTemplate: string,
-  middleTemplate: string
+  middleTemplate: string,
 ): string {
   return startTemplate
-    .replace('{0}', items[0]!)
+    .replace('{0}', items[0] ?? '')
     .replace('{1}', listMiddle(items.slice(1), middleTemplate))
 }
 
 export function list(items: string[], type = 'standard'): string {
-  if (items.length === 1) return items[0]!
+  if (items.length === 1) return items[0] ?? ''
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- CLDR.main() returns untyped data
   const pattern: CLDRStringPattern =
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/prefer-nullish-coalescing -- CLDR.main() is untyped, || needed for falsy check
     CLDR.main(`listPatterns/listPattern-type-${type}`) ||
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- CLDR.main() is untyped
     CLDR.main('listPatterns/listPattern-type-standard')
 
-  if (pattern[items.length.toString()]) {
-    return listConstantLength(pattern[items.length.toString()]!, items)
+  const constantTemplate = pattern[items.length.toString()]
+  if (constantTemplate) {
+    return listConstantLength(constantTemplate, items)
   }
 
   const firstAndMiddle = listStartAndMiddle(initial(items), pattern.start, pattern.middle)
-  return pattern.end.replace('{0}', firstAndMiddle).replace('{1}', last(items)!)
+  return pattern.end.replace('{0}', firstAndMiddle).replace('{1}', last(items) ?? '')
 }

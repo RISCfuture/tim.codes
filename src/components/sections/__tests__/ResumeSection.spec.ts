@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/vue'
 
 const resume = {
   jobs: [],
-  education: []
+  education: [],
 }
 
 describe('ResumeSection.vue', () => {
@@ -14,13 +14,13 @@ describe('ResumeSection.vue', () => {
     it('returns a formatted address', () => {
       const pinia = createTestingPinia({
         initialState: { resume },
-        createSpy: vi.fn
+        createSpy: vi.fn,
       })
 
       render(ResumeSection, {
         global: {
-          plugins: [i18n, pinia]
-        }
+          plugins: [i18n, pinia],
+        },
       })
 
       expect(screen.findByText('.address')).toBeTruthy()

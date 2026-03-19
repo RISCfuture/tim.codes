@@ -1,27 +1,30 @@
 // Mock localStorage for tests
-const localStorageMock = {
-  getItem: function (key: string): string | null {
-    return this[key] || null
+const storage = new Map<string, string>()
+
+const localStorageMock: Storage = {
+  getItem(key: string): string | null {
+    return storage.get(key) ?? null
   },
-  setItem: function (key: string, value: string) {
-    this[key] = value
+  setItem(key: string, value: string) {
+    storage.set(key, value)
   },
-  removeItem: function (key: string) {
-    delete this[key]
+  removeItem(key: string) {
+    storage.delete(key)
   },
-  clear: function () {
-    const keys = Object.keys(this)
-    keys.forEach((key) => {
-      if (typeof this[key] !== 'function') {
-        delete this[key]
-      }
-    })
-  }
+  clear() {
+    storage.clear()
+  },
+  get length() {
+    return storage.size
+  },
+  key(index: number): string | null {
+    return [...storage.keys()][index] ?? null
+  },
 }
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
-  writable: true
+  writable: true,
 })
 
 // Mock window.matchMedia for tests
@@ -31,23 +34,23 @@ Object.defineProperty(window, 'matchMedia', {
     matches: false,
     media: query,
     onchange: null,
-    addListener: () => {}, // deprecated
-    removeListener: () => {}, // deprecated
+    addListener: () => {},
+    removeListener: () => {},
     addEventListener: () => {},
     removeEventListener: () => {},
-    dispatchEvent: () => true
-  })
+    dispatchEvent: () => true,
+  }),
 })
 
 // Mock IntersectionObserver for tests
 global.IntersectionObserver = class IntersectionObserver {
   readonly root: Element | null = null
   readonly rootMargin: string = ''
-  readonly thresholds: ReadonlyArray<number> = []
+  readonly thresholds: readonly number[] = []
 
   constructor(
     public callback: IntersectionObserverCallback,
-    public options?: IntersectionObserverInit
+    public options?: IntersectionObserverInit,
   ) {}
 
   observe() {

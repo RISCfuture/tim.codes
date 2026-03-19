@@ -1,5 +1,5 @@
 <template>
-  <header :class="route.name">
+  <header :class="String(route.name)">
     <div class="header-content">
       <h1>Tim Morgan</h1>
       <ul role="tablist">
@@ -62,7 +62,7 @@ function navigate(destination: { name: string }) {
   else if (route.name === 'projects') shiftRight = destination.name === 'resume'
 
   emit('set-transition', shiftRight ? 'shift-right' : 'shift-left')
-  router.push(destination)
+  void router.push(destination)
 }
 </script>
 

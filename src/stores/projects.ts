@@ -6,6 +6,6 @@ export const useProjectsStore = defineStore('projects', {
 
   getters: {
     featuredProjects: (state) => state.projects.filter((project) => project.featured),
-    minorProjects: (state) => state.projects.filter((project) => !project.featured)
-  }
+    minorProjects: (state) => state.projects.filter((project) => !project.featured),
+  },
 })

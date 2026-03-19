@@ -10,7 +10,7 @@ const education: Education = {
   concentrations: ['cs', 'physics'],
   institution: 'beloit',
   startYear: 2001,
-  endYear: 2005
+  endYear: 2005,
 }
 
 describe('EducationView.vue', () => {
@@ -18,12 +18,12 @@ describe('EducationView.vue', () => {
     render(EducationView, {
       props: { education },
       global: {
-        plugins: [i18n]
-      }
+        plugins: [i18n],
+      },
     })
 
     expect(
-      screen.findByText('B.S., Computer Science and Physics Beloit College; Beloit, WI; 2001–2005')
+      screen.findByText('B.S., Computer Science and Physics Beloit College; Beloit, WI; 2001–2005'),
     ).toBeTruthy()
   })
 })

@@ -10,5 +10,5 @@ export const profiles: Profile[] = [
   { identifier: 'twitch', website: 'https://twitch.tv/riscfuture' },
   { identifier: 'instagram', website: 'https://www.instagram.com/riscfuture/' },
   { identifier: 'mastodon', website: 'https://mastodon.cloud/@riscfuture' },
-  { identifier: 'threads', website: 'https://www.threads.net/@riscfuture' }
+  { identifier: 'threads', website: 'https://www.threads.net/@riscfuture' },
 ]
