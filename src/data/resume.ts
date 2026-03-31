@@ -67,6 +67,13 @@ export const jobs: Job[] = [
   {
     identifier: 'adept',
     startYear: 2024,
+    endYear: 2025,
+    location: JobLocation.SF,
+    projects: [],
+  },
+  {
+    identifier: 'hamilton',
+    startYear: 2025,
     endYear: null,
     location: JobLocation.SF,
     projects: [],

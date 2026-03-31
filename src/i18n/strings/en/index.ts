@@ -299,6 +299,11 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
             'Engineering lead responsible for building internal tooling that assisted ' +
             'researchers and employees with AI analysis and fine-tuning.',
         },
+        hamilton: {
+          title: 'Founding Software Engineer',
+          company: 'Hamilton AI',
+          description: 'Using AI to build out major portions of a part-135 operator platform.',
+        },
       },
     },
     supportingExperience: {

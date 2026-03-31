@@ -7,6 +7,7 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
   bio: {
     accomplishment: {
       dev: {
+        hamilton: 'Hamilton AI',
         adept: 'Adept',
         amazon: 'Amazon',
         google: 'Google',

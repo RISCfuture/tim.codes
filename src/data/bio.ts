@@ -4,12 +4,12 @@ export const careers: Career[] = [
   {
     i18nKey: 'bio.occupation.dev',
     accomplishments: [
+      { i18nKey: 'bio.accomplishment.dev.hamilton' },
       { i18nKey: 'bio.accomplishment.dev.adept' },
       { i18nKey: 'bio.accomplishment.dev.google' },
       { i18nKey: 'bio.accomplishment.dev.OMG' },
       { i18nKey: 'bio.accomplishment.dev.square' },
       { i18nKey: 'bio.accomplishment.dev.scribd' },
-      { i18nKey: 'bio.accomplishment.dev.amazon' },
     ],
     inline: false,
   },
