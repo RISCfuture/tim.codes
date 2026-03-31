@@ -83,6 +83,10 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     },
   },
   projects: {
+    sections: {
+      tradCoded: 'Trad-Coded',
+      vibeCoded: 'Vibe-Coded',
+    },
     badBehavior: {
       description:
         'Scans your digital pilot logbook for potential violations of federal aviation regulations',
@@ -161,6 +165,83 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'Automatically adapts to FAA format changes by reading layout specification files',
         'Provides type-safe access to 50+ aviation data types (fuel specs, ARFF classes, etc.)',
+      ],
+    },
+    IPInbound: {
+      description: 'Helps pilots fly an IP-to-target run to an accurate time on target',
+      achievements: [
+        'Real-time countdown timer with course and speed guidance',
+        'Available on the iOS App Store',
+      ],
+    },
+    claudeMonitor: {
+      description: 'A macOS menu bar app that tracks Claude Code token usage',
+      achievements: [
+        'Native macOS menulet with real-time token tracking',
+        'Reads Claude Code keychain data for automatic authentication',
+      ],
+    },
+    swiftAirmen: {
+      description: 'Swift parser for the FAA airmen certification database',
+      achievements: [
+        'Parses the FAA airmen certification releasable database files',
+        'Type-safe access to pilot certificate and rating data',
+      ],
+    },
+    swiftNMEA: {
+      description: 'A Swift-native, strongly-typed NMEA sentence parser and interpreter',
+      achievements: [
+        'Streaming parser for real-time GPS data processing',
+        'Strongly-typed representations of NMEA sentence types',
+      ],
+    },
+    approachVisualizer: {
+      description: '3D visualization of instrument approach procedures using BabylonJS',
+      achievements: [
+        'Real-time 3D rendering of approach paths with BabylonJS',
+        'Parses and visualizes FAA coded instrument flight procedures',
+      ],
+    },
+    streamingCSV: {
+      description: 'High-performance, memory-efficient CSV reader and writer for Swift',
+      achievements: [
+        'Processes files row by row without loading entire datasets into memory',
+        'Supports both reading and writing with typed row access',
+      ],
+    },
+    streamingLZMA: {
+      description: 'Swift-idiomatic streaming LZMA and XZ (LZMA2) compression library',
+      achievements: [
+        'Streaming compression and decompression without loading full files into memory',
+        'Supports both LZMA and XZ (LZMA2) formats',
+      ],
+    },
+    swiftCIFP: {
+      description: 'Swift library that parses FAA Coded Instrument Flight Procedures',
+      achievements: [
+        'Strongly-typed parsing of SIDs, STARs, and instrument approaches',
+        'Identifies missed approach segments and associated runways',
+      ],
+    },
+    swiftGeographic: {
+      description: 'Swift-native geographic coordinate conversions',
+      achievements: [
+        'Converts between UTM, UPS, MGRS, and geographic coordinates',
+        'Native Swift implementations of Transverse Mercator and Polar Stereographic projections',
+      ],
+    },
+    swiftDOF: {
+      description: 'FAA Digital Obstacle File (DOF) parser for Swift',
+      achievements: [
+        'Parses FAA obstacle data with type-safe representations',
+        'Supports streaming parsing for memory efficiency',
+      ],
+    },
+    swiftR2: {
+      description: 'A Cloudflare R2 client for Swift',
+      achievements: [
+        'Native Swift client for Cloudflare R2 object storage',
+        'Async/await API with support for multipart uploads',
       ],
     },
   },

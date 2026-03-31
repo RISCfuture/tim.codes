@@ -5,7 +5,13 @@ export const useProjectsStore = defineStore('projects', {
   state: () => ({ projects }),
 
   getters: {
-    featuredProjects: (state) => state.projects.filter((project) => project.featured),
-    minorProjects: (state) => state.projects.filter((project) => !project.featured),
+    tradCodedFeatured: (state) =>
+      state.projects.filter((project) => !project.vibeCoded && project.featured),
+    tradCodedMinor: (state) =>
+      state.projects.filter((project) => !project.vibeCoded && !project.featured),
+    vibeCodedFeatured: (state) =>
+      state.projects.filter((project) => project.vibeCoded && project.featured),
+    vibeCodedMinor: (state) =>
+      state.projects.filter((project) => project.vibeCoded && !project.featured),
   },
 })

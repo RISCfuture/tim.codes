@@ -1,32 +1,58 @@
 <template>
   <div class="projects">
-    <div class="featured">
-      <featured-project
-        v-for="project in featuredProjects"
-        :key="project.identifier"
-        :project="project"
-      />
-    </div>
+    <section class="project-section trad-coded">
+      <h2 class="section-header">{{ t('projects.sections.tradCoded') }}</h2>
+      <div class="featured">
+        <featured-project
+          v-for="project in tradCodedFeatured"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
 
-    <div class="minor">
-      <minor-project
-        v-for="project in minorProjects"
-        :key="project.identifier"
-        :project="project"
-      />
-    </div>
+      <div class="minor">
+        <minor-project
+          v-for="project in tradCodedMinor"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
+    </section>
+
+    <section class="project-section vibe-coded">
+      <h2 class="section-header">{{ t('projects.sections.vibeCoded') }}</h2>
+      <div class="featured">
+        <featured-project
+          v-for="project in vibeCodedFeatured"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
+
+      <div class="minor">
+        <minor-project
+          v-for="project in vibeCodedMinor"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import FeaturedProject from '@/components/sections/projects/FeaturedProject.vue'
 import MinorProject from '@/components/sections/projects/MinorProject.vue'
 import { useProjectsStore } from '@/stores/projects'
 
+const { t } = useI18n()
 const projectsStore = useProjectsStore()
 
-const featuredProjects = projectsStore.featuredProjects
-const minorProjects = projectsStore.minorProjects
+const tradCodedFeatured = projectsStore.tradCodedFeatured
+const tradCodedMinor = projectsStore.tradCodedMinor
+const vibeCodedFeatured = projectsStore.vibeCodedFeatured
+const vibeCodedMinor = projectsStore.vibeCodedMinor
 </script>
 
 <style scoped lang="scss">
@@ -36,17 +62,78 @@ const minorProjects = projectsStore.minorProjects
   width: 100%;
 }
 
+.section-header {
+  position: relative;
+  margin-bottom: 45px;
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  transition: color 0.3s ease;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @include mq(iphone) {
+    margin-bottom: 35px;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    content: '';
+    border-radius: 2px;
+  }
+}
+
+.trad-coded .section-header {
+  background-image: var(--projects-trad-gradient);
+  filter: drop-shadow(0 0 15px rgb(255 75 43 / 30%)) drop-shadow(0 0 30px rgb(255 75 43 / 15%));
+
+  &::after {
+    background: var(--projects-trad-gradient);
+    box-shadow:
+      0 0 15px rgb(255 75 43 / 40%),
+      0 0 30px rgb(255 75 43 / 20%);
+  }
+}
+
+.vibe-coded .section-header {
+  background-image: var(--projects-vibe-gradient);
+  filter: drop-shadow(0 0 15px rgb(156 39 176 / 30%)) drop-shadow(0 0 30px rgb(156 39 176 / 15%));
+
+  &::after {
+    background: var(--projects-vibe-gradient);
+    box-shadow:
+      0 0 15px rgb(156 39 176 / 40%),
+      0 0 30px rgb(156 39 176 / 20%);
+  }
+}
+
+.project-section {
+  margin-bottom: 60px;
+
+  @include mq(iphone) {
+    margin-bottom: 40px;
+  }
+}
+
 .featured,
 .minor {
   display: grid;
   grid-auto-rows: auto;
   gap: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 
   @include mq(iphone) {
     grid-template-columns: 1fr;
     gap: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   @include mq(ipad) {
