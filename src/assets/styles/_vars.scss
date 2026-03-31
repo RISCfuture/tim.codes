@@ -40,6 +40,10 @@
   --link-hover-color: #0081b8;
   --focus-ring: 0 0 0 3px rgb(0 161 228 / 40%);
 
+  // Project section gradients
+  --projects-trad-gradient: linear-gradient(135deg, #ff4b2b 0%, #ff6f47 100%);
+  --projects-vibe-gradient: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+
   // Resume colors with gradients
   --resume-jobs-color: #f5b700;
   --resume-jobs-color-light: #ffd54f;
@@ -97,6 +101,10 @@
   --link-color: #4db8f0;
   --link-hover-color: #6ec5f3;
   --focus-ring: 0 0 0 3px rgb(77 184 240 / 40%);
+
+  // Project section gradients
+  --projects-trad-gradient: linear-gradient(135deg, #e63e23 0%, #ff6f47 100%);
+  --projects-vibe-gradient: linear-gradient(135deg, #ab47bc 0%, #8e24aa 100%);
 
   // Resume colors with gradients
   --resume-jobs-color: #ffc320;

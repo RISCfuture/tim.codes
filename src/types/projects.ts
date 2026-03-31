@@ -100,4 +100,7 @@ export interface Project {
 
   /** If true, the project is shown prominently and at the head of the list. */
   featured: boolean
+
+  /** If true, the project was majority vibe-coded with AI assistance. */
+  vibeCoded: boolean
 }
