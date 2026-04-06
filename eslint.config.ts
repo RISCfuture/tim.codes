@@ -89,7 +89,11 @@ export default tseslint.config(
   // Cypress files
   {
     name: 'app/cypress',
-    files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}', 'cypress/support/**/*.{js,ts,jsx,tsx}'],
+    files: [
+      'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
+      'cypress/support/**/*.{js,ts,jsx,tsx}',
+      'cypress/pages/**/*.{js,ts,jsx,tsx}',
+    ],
     extends: [pluginCypress.configs.recommended],
   },
 
