@@ -1,6 +1,5 @@
 import eslint from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
-import pluginCypress from 'eslint-plugin-cypress'
 import pluginVue from 'eslint-plugin-vue'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
@@ -73,10 +72,10 @@ export default tseslint.config(
     },
   },
 
-  // Test files
+  // Unit test files
   {
     name: 'app/tests',
-    files: ['src/**/__tests__/**', '**/*.spec.ts', 'vitest.setup.ts'],
+    files: ['src/**/__tests__/**', 'src/**/*.spec.ts', 'vitest.setup.ts'],
     extends: [pluginVitest.configs.recommended],
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off',
@@ -86,15 +85,11 @@ export default tseslint.config(
     },
   },
 
-  // Cypress files
+  // E2E test files
   {
-    name: 'app/cypress',
-    files: [
-      'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
-      'cypress/support/**/*.{js,ts,jsx,tsx}',
-      'cypress/pages/**/*.{js,ts,jsx,tsx}',
-    ],
-    extends: [pluginCypress.configs.recommended],
+    name: 'app/e2e',
+    files: ['e2e/**/*.ts'],
+    extends: [tseslint.configs.disableTypeChecked],
   },
 
   // Prettier must be last

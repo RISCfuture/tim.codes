@@ -54,12 +54,12 @@ jobs:
         node-version-file: .nvmrc
     - name: Install dependencies
       run: yarn install
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
     - name: Build project
       run: yarn build
     - name: Run E2E tests
       run: yarn test:e2e
-      env:
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
   lint:
     name: Linters
     runs-on: ubuntu-latest
