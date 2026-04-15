@@ -45,8 +45,15 @@ export default defineConfig(async ({ command, mode }) => {
           build: { sri: false },
           policy: {
             'default-src': ["'self'"],
-            'script-src': ["'self'"],
-            'style-src': ["'self'"],
+            // @vitejs/plugin-legacy emits a data: URI feature-detection
+            // script; allowing `data:` is the Vite-recommended workaround.
+            'script-src': ["'self'", 'data:'],
+            'script-src-elem': ["'self'", 'data:'],
+            // The legacy bundle injects <style> tags at runtime from JS,
+            // which csp-guard can't hash ahead of time, so we allow
+            // unsafe-inline for style elements too.
+            'style-src': ["'self'", "'unsafe-inline'"],
+            'style-src-elem': ["'self'", "'unsafe-inline'"],
             'style-src-attr': ["'unsafe-inline'"], // covers Vue :style bindings
             'img-src': ["'self'", 'data:', 'blob:'],
             'font-src': ["'self'"],
