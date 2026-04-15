@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tim Morgan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tim Morgan: Software engineer, commercial pilot">
+  <meta name="theme-color" content="#93b0ff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="canonical" href="https://tim.codes/">
+  <!--
+    Single Page Apps for GitHub Pages
+    https://github.com/rafgraph/spa-github-pages
+    MIT License - Rafael Pedicini
+
+    Redirects unknown paths back to the SPA root, preserving the path and
+    query in a single redirect-friendly query string. The main app reads this
+    on load and restores the original URL via history.replaceState.
+  -->
+  <script>
+    (function () {
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    })();
+  </script>
+</head>
+<body>
+<noscript>
+  <strong>Page not found. <a href="/">Return home</a>.</strong>
+</noscript>
+</body>
+</html>

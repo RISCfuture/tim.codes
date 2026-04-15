@@ -36,6 +36,7 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     },
   },
   header: {
+    nav: 'Primary navigation',
     links: {
       home: 'Home',
       projects: 'Projects',
