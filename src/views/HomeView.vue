@@ -7,10 +7,10 @@
     </div>
 
     <navigation-view @set-transition="transitionName = $event" />
-    <div id="main-content">
+    <main id="main-content">
       <content-view :transition-name="transitionName" />
-      <footer-view />
-    </div>
+    </main>
+    <footer-view />
   </div>
 </template>
 

@@ -2,41 +2,43 @@
   <header :class="String(route.name)">
     <div class="header-content">
       <h1>Tim Morgan</h1>
-      <ul role="tablist">
-        <li id="home-tab" role="tab" :class="{ active: route.name === 'bio' }">
-          <a
-            href="/"
-            :aria-label="t('header.links.home')"
-            :aria-selected="route.name === 'home'"
-            @click.prevent="navigate({ name: 'bio' })"
-          >
-            <home-image id="home-image" />
-            <span class="tab-label">{{ t('header.links.home') }}</span>
-          </a>
-        </li>
-        <li id="projects-tab" role="tab" :class="{ active: route.name === 'projects' }">
-          <a
-            href="/projects"
-            :aria-label="t('header.links.projects')"
-            :aria-selected="route.name === 'projects'"
-            @click.prevent="navigate({ name: 'projects' })"
-          >
-            <projects-image id="projects-image" />
-            <span class="tab-label">{{ t('header.links.projects') }}</span>
-          </a>
-        </li>
-        <li id="resume-tab" role="tab" :class="{ active: route.name === 'resume' }">
-          <a
-            href="/resume"
-            :aria-label="t('header.links.resume')"
-            :aria-selected="route.name === 'resume'"
-            @click.prevent="navigate({ name: 'resume' })"
-          >
-            <resume-image id="resume-image" />
-            <span class="tab-label">{{ t('header.links.resume') }}</span>
-          </a>
-        </li>
-      </ul>
+      <nav :aria-label="t('header.nav')">
+        <ul role="tablist">
+          <li id="home-tab" role="tab" :class="{ active: route.name === 'bio' }">
+            <a
+              href="/"
+              :aria-label="t('header.links.home')"
+              :aria-selected="route.name === 'home'"
+              @click.prevent="navigate({ name: 'bio' })"
+            >
+              <home-image id="home-image" />
+              <span class="tab-label">{{ t('header.links.home') }}</span>
+            </a>
+          </li>
+          <li id="projects-tab" role="tab" :class="{ active: route.name === 'projects' }">
+            <a
+              href="/projects"
+              :aria-label="t('header.links.projects')"
+              :aria-selected="route.name === 'projects'"
+              @click.prevent="navigate({ name: 'projects' })"
+            >
+              <projects-image id="projects-image" />
+              <span class="tab-label">{{ t('header.links.projects') }}</span>
+            </a>
+          </li>
+          <li id="resume-tab" role="tab" :class="{ active: route.name === 'resume' }">
+            <a
+              href="/resume"
+              :aria-label="t('header.links.resume')"
+              :aria-selected="route.name === 'resume'"
+              @click.prevent="navigate({ name: 'resume' })"
+            >
+              <resume-image id="resume-image" />
+              <span class="tab-label">{{ t('header.links.resume') }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>

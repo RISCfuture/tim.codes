@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
 
   <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link color="black" href="/icon-pinned-tab.svg" rel="mask-icon">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://tim.codes/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#93b0ff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()">
+
+  <!-- Apple / Mobile Web App -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tim Morgan">
+  <meta name="application-name" content="Tim Morgan">
 
   <!-- Primary Meta Tags -->
   <title>Tim Morgan</title>
   <meta name="title" content="Tim Morgan">
   <meta name="description" content="Tim Morgan: Software engineer, commercial pilot">
+  <meta name="author" content="Tim Morgan">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -19,6 +35,9 @@
   <meta property="og:title" content="Tim Morgan">
   <meta property="og:description" content="Tim Morgan: Software engineer, commercial pilot">
   <meta property="og:image" content="/icon-pinned-tab.svg">
+  <meta property="og:image:alt" content="Tim Morgan personal logo">
+  <meta property="og:site_name" content="Tim Morgan">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary">
@@ -26,6 +45,31 @@
   <meta property="twitter:title" content="Tim Morgan">
   <meta property="twitter:description" content="Tim Morgan: Software engineer, commercial pilot">
   <meta property="twitter:image" content="/icon-pinned-tab.svg">
+  <meta property="twitter:image:alt" content="Tim Morgan personal logo">
+
+  <!-- JSON-LD: Person schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tim Morgan",
+      "url": "https://tim.codes/",
+      "jobTitle": "Software Engineer",
+      "description": "Software engineer and commercial pilot",
+      "sameAs": [
+        "https://github.com/riscfuture",
+        "https://www.linkedin.com/in/riscfuture/",
+        "https://www.quora.com/profile/Tim-Morgan-5",
+        "https://twitter.com/riscfuture",
+        "https://www.facebook.com/tim.morgan",
+        "https://www.youtube.com/user/riscfuture",
+        "https://twitch.tv/riscfuture",
+        "https://www.instagram.com/riscfuture/",
+        "https://mastodon.cloud/@riscfuture",
+        "https://www.threads.net/@riscfuture"
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -35,6 +79,18 @@
 </noscript>
 
 <div id="app"></div>
+
+<!-- Single Page Apps for GitHub Pages — decode the 404.html redirect (rafgraph/spa-github-pages) -->
+<script>
+  (function (l) {
+    if (l.search[1] === '/') {
+      var decoded = l.search.slice(1).split('&').map(function (s) {
+        return s.replace(/~and~/g, '&');
+      }).join('?');
+      window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+    }
+  })(window.location);
+</script>
 
 <script type="module" src="/src/main.ts"></script>
 </body>
