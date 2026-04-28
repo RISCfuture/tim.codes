@@ -4,6 +4,7 @@ import { type UserConfig, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import legacy from '@vitejs/plugin-legacy'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // Base config shared with vitest
 export const baseConfig: UserConfig = {
@@ -26,6 +27,21 @@ export default defineConfig(async ({ command, mode }) => {
     buildPlugins.push(
       legacy({
         targets: ['defaults', 'iOS >= 12', 'Safari >= 12'],
+      }),
+    )
+    buildPlugins.push(
+      VitePWA({
+        registerType: 'autoUpdate',
+        manifest: false,
+        injectRegister: 'script',
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff,woff2}'],
+          navigateFallback: 'index.html',
+          navigateFallbackDenylist: [/^\/api/, /\.map$/],
+          cleanupOutdatedCaches: true,
+          clientsClaim: true,
+          skipWaiting: true,
+        },
       }),
     )
   }
