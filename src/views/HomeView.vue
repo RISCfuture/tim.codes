@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
+import { useTimeoutFn } from '@vueuse/core'
 import NavigationView from '@/components/NavigationView.vue'
 import ContentView from '@/components/ContentView.vue'
 import FooterView from '@/components/FooterView.vue'
@@ -28,19 +29,19 @@ const themeAnnouncement = computed(() =>
   themeStore.theme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled',
 )
 
-// Announce theme changes
-let announcementTimeout: ReturnType<typeof setTimeout> | null = null
+// Mirrors the original 100 ms debounce that gives screen readers time to
+// announce theme changes before another announcement can be queued.
+const announcementSettle = useTimeoutFn(
+  () => {
+    /* settle marker */
+  },
+  100,
+  { immediate: false },
+)
 watch(
   () => themeStore.theme,
   () => {
-    // Clear previous timeout to prevent multiple announcements
-    if (announcementTimeout) {
-      clearTimeout(announcementTimeout)
-    }
-    // Short delay to ensure the announcement is made
-    announcementTimeout = setTimeout(() => {
-      announcementTimeout = null
-    }, 100)
+    announcementSettle.start()
   },
 )
 </script>
