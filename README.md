@@ -1,5 +1,9 @@
 # tim.codes - my personal website
 
+[![CI](https://github.com/RISCfuture/tim.codes/actions/workflows/ci.yml/badge.svg)](https://github.com/RISCfuture/tim.codes/actions/workflows/ci.yml)
+[![Deploy](https://github.com/RISCfuture/tim.codes/actions/workflows/deploy.yml/badge.svg)](https://github.com/RISCfuture/tim.codes/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 This code powers https://tim.codes, my personal website. The website is intended
 to help people learn more about me and my background; this open-source codebase
 is intended to help people understand how I write code and the standards and
