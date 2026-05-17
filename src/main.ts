@@ -43,6 +43,17 @@ Sentry.init({
   enableLogs: true,
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
+  ignoreErrors: [
+    // Browser-extension content scripts inject WebExtension messaging into
+    // the page; their failures are not our code and are unfixable here.
+    // Sentry TIM-DOT-CODES-6.
+    /runtime\.sendMessage/,
+    // vite-plugin-pwa's injected SW registration throws InvalidStateError
+    // when Chrome registers during prerender. No elegant in-plugin or
+    // newer-version fix exists, so we filter the noise. Sentry
+    // TIM-DOT-CODES-5.
+    /Failed to register a ServiceWorker/,
+  ],
 })
 
 const pinia = createPinia()
