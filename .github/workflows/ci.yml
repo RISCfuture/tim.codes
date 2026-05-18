@@ -55,7 +55,11 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: Install Playwright browsers
-      run: npx playwright install --with-deps
+      # Use Yarn (not npx) so the project-pinned Playwright resolves through
+      # Yarn 4's dependency graph and installs browser builds matching
+      # @playwright/test's expected version. `npx playwright` fetches a
+      # different registry version and installs mismatched builds.
+      run: yarn playwright install --with-deps
     - name: Build project
       run: yarn build
     - name: Run E2E tests
