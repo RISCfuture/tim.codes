@@ -245,6 +245,20 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Async/await API with support for multipart uploads',
       ],
     },
+    swiftACD: {
+      description: 'Swift-native parser for FAA and EUROCONTROL aircraft performance data',
+      achievements: [
+        'Parses both FAA (ACD) and EUROCONTROL (APD) aircraft performance datasets',
+        'Strongly-typed Swift access to aircraft performance characteristics',
+      ],
+    },
+    gitHubUpdateChecker: {
+      description: 'A macOS software update framework like Sparkle, powered by GitHub releases',
+      achievements: [
+        'Checks GitHub releases for updates and notifies users, Sparkle-style',
+        'Drop-in software update framework for macOS apps',
+      ],
+    },
   },
   resume: {
     present: 'Present',
