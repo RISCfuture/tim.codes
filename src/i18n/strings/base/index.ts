@@ -56,6 +56,8 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     swiftGeographic: { name: 'SwiftGeographic' },
     swiftDOF: { name: 'SwiftDOF' },
     swiftR2: { name: 'SwiftR2' },
+    swiftACD: { name: 'SwiftACD' },
+    gitHubUpdateChecker: { name: 'GitHubUpdateChecker' },
   },
   resume: {
     timeRange: '{start}–{end}',
