@@ -14,12 +14,12 @@ Pinia, routing is handled with vue-router, and localization is done using
 vue-i18n (though American English is currently the only supported locale).
 
 Vite and Vue is the toolchain used to develop this website. Most operations are
-done powered by the `vite` command, though the `package.json` file has `yarn`
+done powered by the `vite` command, though the `package.json` file has `pnpm`
 aliases for all common development and deployment tasks.
 
 ## Installation
  out this project into a directory,
-then run `yarn install` in that directory
+then run `pnpm install` in that directory
 To run a copy of my website, simply check.
 
 You will also need to copy the `src/i18n/strings/{base,en}/private.deploy.ts`
@@ -28,7 +28,7 @@ private information locally.)
 
 ## Running in development
 
-`yarn dev` will compile the source with Webpack, and run a local development
+`pnpm dev` will compile the source with Webpack, and run a local development
 server at http://localhost:5173. The development web server supports 
 hot-reloading.
 
@@ -36,7 +36,7 @@ hot-reloading.
 
 This website has both unit tests (written using Mocha/Chai and run using
 Jasmine) and end-to-end tests (run using Cypress). To run unit tests, run
-`yarn test:unit`. Run `yarn test:e2e` to launch the Cypress test runner and run 
+`pnpm test:unit`. Run `pnpm test:e2e` to launch the Cypress test runner and run 
 end-to-end tests.
 
 ## Deployment

@@ -70,9 +70,9 @@ const vibeCodedMinor = projectsStore.vibeCodedMinor
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -1px;
+  background-clip: text;
   transition: color 0.3s ease;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 
   @include mq(iphone) {
     margin-bottom: 35px;
