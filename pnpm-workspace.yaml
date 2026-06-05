@@ -1,0 +1,8 @@
+allowBuilds:
+  '@parcel/watcher': true
+  cldr-data: true
+  core-js: true
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - cldr-data
+  - core-js

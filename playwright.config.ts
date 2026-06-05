@@ -18,7 +18,7 @@ export default defineConfig({
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
   webServer: {
-    command: 'yarn build && vite preview --port 4173 --strictPort',
+    command: 'pnpm run build && vite preview --port 4173 --strictPort',
     url: 'http://localhost:4173',
     reuseExistingServer: !process.env.CI,
   },
