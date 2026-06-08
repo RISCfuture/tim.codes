@@ -18,7 +18,7 @@ jobs:
       with:
         submodules: true
     - name: Set up pnpm
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v6
     - name: Set up Node.js
       uses: actions/setup-node@v6
       with:
@@ -46,7 +46,7 @@ jobs:
         cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
         cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
     - name: Set up pnpm
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v6
     - name: Set up Node.js
       uses: actions/setup-node@v6
       with:
@@ -76,7 +76,7 @@ jobs:
         cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
         cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
     - name: Set up pnpm
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v6
     - name: Set up Node.js
       uses: actions/setup-node@v6
       with:
