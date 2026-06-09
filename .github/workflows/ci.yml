@@ -14,79 +14,79 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-      with:
-        submodules: true
-    - name: Set up pnpm
-      uses: pnpm/action-setup@v6
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        cache: pnpm
-        node-version-file: .nvmrc
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    - name: Copy private files
-      run: |
-        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
-        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
-    - name: Type check
-      run: pnpm run type-check
-    - name: Run unit tests
-      run: pnpm run test:unit
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Copy private files
+        run: |
+          cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+          cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+      - name: Type check
+        run: pnpm run type-check
+      - name: Run unit tests
+        run: pnpm run test:unit
   e2e:
     name: End-to-End Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-      with:
-        submodules: true
-    - name: Copy private files
-      run: |
-        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
-        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
-    - name: Set up pnpm
-      uses: pnpm/action-setup@v6
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        cache: pnpm
-        node-version-file: .nvmrc
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    - name: Install Playwright browsers
-      # Use pnpm exec (not npx) so the project-pinned Playwright resolves
-      # through pnpm's dependency graph and installs browser builds matching
-      # @playwright/test's expected version. `npx playwright` fetches a
-      # different registry version and installs mismatched builds.
-      run: pnpm exec playwright install --with-deps
-    - name: Build project
-      run: pnpm run build
-    - name: Run E2E tests
-      run: pnpm run test:e2e
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - name: Copy private files
+        run: |
+          cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+          cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install Playwright browsers
+        # Use pnpm exec (not npx) so the project-pinned Playwright resolves
+        # through pnpm's dependency graph and installs browser builds matching
+        # @playwright/test's expected version. `npx playwright` fetches a
+        # different registry version and installs mismatched builds.
+        run: pnpm exec playwright install --with-deps
+      - name: Build project
+        run: pnpm run build
+      - name: Run E2E tests
+        run: pnpm run test:e2e
   lint:
     name: Linters
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-      with:
-        submodules: true
-    - name: Copy private files
-      run: |
-        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
-        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
-    - name: Set up pnpm
-      uses: pnpm/action-setup@v6
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        cache: pnpm
-        node-version-file: .nvmrc
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    - name: Run ESLint
-      run: pnpm run lint:eslint
-    - name: Run Stylelint
-      run: pnpm run lint:stylelint
-    - name: Type check
-      run: pnpm run type-check
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - name: Copy private files
+        run: |
+          cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+          cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run ESLint
+        run: pnpm run lint:eslint
+      - name: Run Stylelint
+        run: pnpm run lint:stylelint
+      - name: Type check
+        run: pnpm run type-check

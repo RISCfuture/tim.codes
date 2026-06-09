@@ -27,37 +27,36 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-    - name: Setup pages
-      uses: actions/configure-pages@v6
-    - name: Set up pnpm
-      uses: pnpm/action-setup@v6
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        cache: pnpm
-        node-version-file: .nvmrc
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    - name: Copy private files
-      run: |
-        cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
-        cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
-    - name: Build
-      run: pnpm run build
-      env:
-        VITE_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-    - name: Ensure /.well-known/ is in build output
-      run: |
-        cp -R public/.well-known dist/
-        test -f dist/.well-known/security.txt
-    - name: Upload
-      uses: actions/upload-pages-artifact@v5
-      with:
-        path: "dist/"
-        include-hidden-files: true
-
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup pages
+        uses: actions/configure-pages@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Copy private files
+        run: |
+          cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
+          cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
+      - name: Build
+        run: pnpm run build
+        env:
+          VITE_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      - name: Ensure /.well-known/ is in build output
+        run: |
+          cp -R public/.well-known dist/
+          test -f dist/.well-known/security.txt
+      - name: Upload
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: 'dist/'
+          include-hidden-files: true
 
   # Deployment job
   deploy:
@@ -91,4 +90,4 @@ jobs:
         with:
           environment: production
           release: ${{ github.sha }}
-          sourcemaps: "./dist"
+          sourcemaps: './dist'
