@@ -35,6 +35,12 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       },
     },
   },
+  meta: {
+    description: 'Tim Morgan: Software engineer, commercial pilot',
+  },
+  localeSwitcher: {
+    label: 'Language',
+  },
   header: {
     nav: 'Primary navigation',
     links: {

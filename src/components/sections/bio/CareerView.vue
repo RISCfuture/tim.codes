@@ -101,14 +101,22 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   &.theme-pilot {
     --theme-color: var(--neon-projects-tube); // Neon ~640nm (orange-red)
     --theme-color-light: var(--neon-projects-core);
-    --theme-gradient: linear-gradient(135deg, var(--neon-projects-tube) 0%, var(--neon-projects-bg-2) 100%);
+    --theme-gradient: linear-gradient(
+      135deg,
+      var(--neon-projects-tube) 0%,
+      var(--neon-projects-bg-2) 100%
+    );
     --theme-glow: 255, 50, 0; // #ff3200
   }
 
   &.theme-instructor {
     --theme-color: var(--neon-resume-tube); // Hg + green glass ~546nm (green)
     --theme-color-light: var(--neon-resume-core);
-    --theme-gradient: linear-gradient(135deg, var(--neon-resume-tube) 0%, var(--neon-resume-bg-2) 100%);
+    --theme-gradient: linear-gradient(
+      135deg,
+      var(--neon-resume-tube) 0%,
+      var(--neon-resume-bg-2) 100%
+    );
     --theme-glow: 96, 255, 0; // #60ff00
   }
 }
@@ -117,14 +125,19 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   position: relative;
   line-height: 1.1;
 
+  // Use CSS custom properties for dynamic neon color based on theme
+  color: var(--theme-color);
+
+  // Hyphenate long single-word occupation titles (e.g. German "Webentwickler",
+  // Russian "Инструктор") at syllable boundaries instead of hard-breaking
+  // mid-word. Relies on the per-locale `lang` attribute set on <html>.
+  hyphens: auto;
+
   @include badge-component;
   @include padding-scale(0 0 0 15px, 0 30px 0 0, 0 30px 0 0);
   @include font-scale-clamp(20px, 28px, 3vw, 38px);
   @include letter-spacing-scale(-0.5px, -1px, -1px);
   @include text-align-responsive(left, right, right);
-
-  // Use CSS custom properties for dynamic neon color based on theme
-  color: var(--theme-color);
 
   @include mq(ipad) {
     text-shadow:
