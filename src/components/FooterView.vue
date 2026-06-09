@@ -8,6 +8,7 @@
         {{ t('footer.text', { year: copyrightYear }) }}
         <a href="https://github.com/RISCfuture/tim.codes">{{ t('footer.linkText') }}</a>
       </div>
+      <locale-switcher />
     </div>
   </footer>
 </template>
@@ -15,6 +16,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import ProfileView from '@/components/sections/bio/ProfileView.vue'
+import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
 import { useSocialStore } from '@/stores/social'
 
 const { t, d } = useI18n()

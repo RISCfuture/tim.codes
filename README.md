@@ -11,7 +11,8 @@ patterns I use.
 
 tim.codes is written in Vue.js using TypeScript. State management is done with
 Pinia, routing is handled with vue-router, and localization is done using
-vue-i18n (though American English is currently the only supported locale).
+vue-i18n, with translations in seven locales (English, German, Spanish,
+French, Japanese, Russian, and Simplified Chinese).
 
 Vite and Vue is the toolchain used to develop this website. Most operations are
 done powered by the `vite` command, though the `package.json` file has `pnpm`

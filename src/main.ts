@@ -19,6 +19,7 @@ import { createSentryPiniaPlugin } from '@sentry/vue'
 import App from './App.vue'
 import router from './router'
 import i18n from '@/i18n'
+import { setupI18n } from '@/i18n/messages'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- Vue app type mismatch with Sentry
 const app = createApp(App)
@@ -61,5 +62,9 @@ app.use(pinia)
 
 app.use(router)
 app.use(i18n)
+
+// Load the active locale's strings before mounting so the first paint renders
+// in the user's language (non-`en` locales are fetched as separate chunks).
+await setupI18n()
 
 app.mount('#app')
