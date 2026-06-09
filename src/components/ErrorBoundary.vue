@@ -1,6 +1,6 @@
 <template>
   <slot v-if="!error" />
-  <div v-else class="error-boundary" :data-theme="theme">
+  <div v-else class="error-boundary">
     <div class="error-content">
       <h1 class="error-title">Something went wrong</h1>
       <p class="error-message">An unexpected error occurred. Please try reloading the page.</p>
@@ -13,13 +13,6 @@
 import { ref, onErrorCaptured } from 'vue'
 
 const error = ref<Error | null>(null)
-const theme = ref<'light' | 'dark'>('light')
-
-// Sync theme with document
-function syncTheme() {
-  theme.value = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
-}
-syncTheme()
 
 // Catch errors from child components
 onErrorCaptured((err) => {
@@ -37,12 +30,12 @@ function reload() {
  * Inline styles for robustness - works even if external CSS fails to load.
  */
 .error-boundary {
-  --bg: #1a1a1a;
-  --text: #e8e8e8;
+  --bg: #fff;
+  --text: #1a1a1a;
   --accent-r: 255;
   --accent-g: 75;
   --accent-b: 43;
-  --button-bg: #2a2a2a;
+  --button-bg: #f0f0f0;
 
   display: flex;
   align-items: center;
@@ -61,10 +54,12 @@ function reload() {
   background: var(--bg);
 }
 
-.error-boundary[data-theme='light'] {
-  --bg: #fff;
-  --text: #1a1a1a;
-  --button-bg: #f0f0f0;
+@media (prefers-color-scheme: dark) {
+  .error-boundary {
+    --bg: #1a1a1a;
+    --text: #e8e8e8;
+    --button-bg: #2a2a2a;
+  }
 }
 
 .error-content {

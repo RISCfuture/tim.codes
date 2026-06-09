@@ -2,10 +2,6 @@
   <div class="container">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div role="status" aria-live="polite" aria-atomic="true" class="sr-only">
-      {{ themeAnnouncement }}
-    </div>
-
     <navigation-view @set-transition="transitionName = $event" />
     <main id="main-content">
       <content-view :transition-name="transitionName" />
@@ -15,35 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
-import { useTimeoutFn } from '@vueuse/core'
+import { ref } from 'vue'
 import NavigationView from '@/components/NavigationView.vue'
 import ContentView from '@/components/ContentView.vue'
 import FooterView from '@/components/FooterView.vue'
-import { useThemeStore } from '@/stores/theme'
 
 const transitionName = ref('shift-right')
-const themeStore = useThemeStore()
-
-const themeAnnouncement = computed(() =>
-  themeStore.theme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled',
-)
-
-// Mirrors the original 100 ms debounce that gives screen readers time to
-// announce theme changes before another announcement can be queued.
-const announcementSettle = useTimeoutFn(
-  () => {
-    /* settle marker */
-  },
-  100,
-  { immediate: false },
-)
-watch(
-  () => themeStore.theme,
-  () => {
-    announcementSettle.start()
-  },
-)
 </script>
 
 <style lang="scss">
@@ -65,18 +38,6 @@ watch(
   &:focus {
     top: 0;
   }
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  white-space: nowrap;
-  border-width: 0;
-  clip-path: inset(50%);
 }
 
 @media only print {
@@ -104,8 +65,7 @@ watch(
     display: none;
   }
 
-  .skip-link,
-  .sr-only {
+  .skip-link {
     display: none;
   }
 

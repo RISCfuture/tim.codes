@@ -1,0 +1,21 @@
+// src/assets/styles/_neon-palette.scss
+// Spectrally-derived neon palette. DO NOT hand-edit the hex values: they are
+// computed by src/utils/neonSpectra.ts from cited NIST emission spectra (via the
+// CIE 1931 color-matching functions) and verified by
+// src/utils/__tests__/palette-sync.spec.ts. To change a color, edit the spectrum
+// in TypeScript and re-bake from NEON_PALETTE.
+
+:root {
+  --neon-bio-tube: #8200ff;
+  --neon-bio-core: #dab3ff;
+  --neon-bio-bg-1: #4d009c;
+  --neon-bio-bg-2: #6500c9;
+  --neon-projects-tube: #ff3200;
+  --neon-projects-core: #ffc2b3;
+  --neon-projects-bg-1: #731100;
+  --neon-projects-bg-2: #941900;
+  --neon-resume-tube: #60ff00;
+  --neon-resume-core: #cfffb3;
+  --neon-resume-bg-1: #134200;
+  --neon-resume-bg-2: #1b5700;
+}

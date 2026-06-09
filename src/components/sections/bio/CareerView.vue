@@ -62,7 +62,6 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 @use '@/assets/styles/responsive' as *;
 @use '@/assets/styles/accents' as *;
 @use '@/assets/styles/cards' as *;
-@use '@/assets/styles/neon' as *;
 
 .career-callout {
   position: relative;
@@ -93,24 +92,24 @@ const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
 
   // Color theme variables - Gas-based neon colors
   &.theme-dev {
-    --theme-color: #93b0ff; // Argon-Mercury (435.8nm)
-    --theme-color-light: #b0c8ff;
-    --theme-gradient: linear-gradient(135deg, #93b0ff 0%, #7a96e6 100%);
-    --theme-glow: var(--neon-gas-argon-blue);
+    --theme-color: var(--neon-bio-tube); // Argon/Hg ~435.8nm (violet-blue)
+    --theme-color-light: var(--neon-bio-core);
+    --theme-gradient: linear-gradient(135deg, var(--neon-bio-tube) 0%, var(--neon-bio-bg-2) 100%);
+    --theme-glow: 130, 0, 255; // #8200ff
   }
 
   &.theme-pilot {
-    --theme-color: #ff4b2b; // True Neon (640.2nm)
-    --theme-color-light: #ff6e52;
-    --theme-gradient: linear-gradient(135deg, #ff4b2b 0%, #e63e23 100%);
-    --theme-glow: var(--neon-gas-true-neon);
+    --theme-color: var(--neon-projects-tube); // Neon ~640nm (orange-red)
+    --theme-color-light: var(--neon-projects-core);
+    --theme-gradient: linear-gradient(135deg, var(--neon-projects-tube) 0%, var(--neon-projects-bg-2) 100%);
+    --theme-glow: 255, 50, 0; // #ff3200
   }
 
   &.theme-instructor {
-    --theme-color: #c8ffd2; // Krypton (557.7nm)
-    --theme-color-light: #deffea;
-    --theme-gradient: linear-gradient(135deg, #c8ffd2 0%, #a8e6b3 100%);
-    --theme-glow: var(--neon-gas-krypton);
+    --theme-color: var(--neon-resume-tube); // Hg + green glass ~546nm (green)
+    --theme-color-light: var(--neon-resume-core);
+    --theme-gradient: linear-gradient(135deg, var(--neon-resume-tube) 0%, var(--neon-resume-bg-2) 100%);
+    --theme-glow: 96, 255, 0; // #60ff00
   }
 }
 

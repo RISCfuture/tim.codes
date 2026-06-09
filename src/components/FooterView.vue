@@ -8,14 +8,12 @@
         {{ t('footer.text', { year: copyrightYear }) }}
         <a href="https://github.com/RISCfuture/tim.codes">{{ t('footer.linkText') }}</a>
       </div>
-      <theme-toggle />
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import ThemeToggle from '@/components/ThemeToggle.vue'
 import ProfileView from '@/components/sections/bio/ProfileView.vue'
 import { useSocialStore } from '@/stores/social'
 
@@ -27,7 +25,6 @@ const profiles = socialStore.profiles
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/styles/breakpoints' as *;
 @use '@/assets/styles/cards' as *;
 @use '@/assets/styles/responsive' as *;
 
@@ -39,8 +36,8 @@ footer {
   grid-template-rows: auto auto;
 
   @include footer-component;
-  @include gap-scale(8px, 30px, 30px);
-  @include padding-scale(10px 10px 10px, 40px 20px 20px, 40px 20px 20px);
+  @include gap-scale(6px, 12px, 12px);
+  @include padding-scale(8px 10px 10px, 16px 20px 16px, 16px 20px 16px);
 }
 
 .social-icons {
@@ -55,22 +52,13 @@ footer {
 }
 
 .footer-content {
-  display: grid;
   grid-area: info;
-  grid-template-columns: 1fr auto;
-  align-items: center;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+  text-align: center;
 
-  @include gap-scale(8px, 20px, 20px);
   @include font-scale-fixed(10px, 12px, 12px);
-
-  @include mq(iphone) {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
 }
 
 .copyright {
