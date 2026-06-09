@@ -43,9 +43,6 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       resume: 'Résumé',
     },
   },
-  theme: {
-    toggle: 'Toggle dark mode',
-  },
   footer: {
     text: 'All content, code, and images (except logomarks) copyright ©2011–{year} Tim Morgan. All rights reserved. {link}',
     linkText: 'View the source for this website on GitHub.',

@@ -1,8 +1,6 @@
 // Glow effects for text, boxes, borders, and filters
 // These mixins create layered shadow effects for depth and visual interest
 
-@use './neon' as neon;
-
 // TEXT GLOW EFFECTS
 // Usage: @include text-glow-sm(118, 169, 185);
 
@@ -101,11 +99,6 @@
 
 @mixin filter-glow-hover {
   filter: drop-shadow(0 4px 8px rgb(0 0 0 / 40%)) drop-shadow(0 0 20px rgb(255 255 255 / 30%));
-}
-
-@mixin filter-glow-active($r, $g, $b) {
-  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) drop-shadow(0 0 30px rgba($r, $g, $b, 90%))
-    drop-shadow(0 0 60px rgba($r, $g, $b, 50%));
 }
 
 // INSET GLOW (for depth/lighting effects)
@@ -210,53 +203,4 @@
     0 0 50px rgb(var(--theme-glow), 0.3),
     0 0 75px rgb(var(--theme-glow), 0.15),
     inset 0 0 15px rgb(255 255 255 / 30%);
-}
-
-// ============================================================================
-// NEON-ENHANCED GLOW MIXINS
-// These mixins integrate with the neon system for progressive enhancement
-// ============================================================================
-
-// Enhanced border glow with neon fallback
-// Usage: @include border-glow-neon(118, 169, 185, 4px);
-@mixin border-glow-neon($r, $g, $b, $height: 4px, $luminosity: 0.85) {
-  // Use neon effect if available
-  @include neon.neon-line($r, $g, $b, $height, $luminosity);
-
-  // Ensure fallback is applied for non-Houdini browsers
-  @supports not (background: paint(neon)) {
-    @include border-glow-lg($r, $g, $b);
-  }
-}
-
-// Enhanced box glow with neon element
-// Usage: @include box-glow-neon(237, 68, 76, 0.8);
-@mixin box-glow-neon($r, $g, $b, $luminosity: 0.85, $flicker: 0.08) {
-  @include neon.neon-element($r, $g, $b, $luminosity, $flicker);
-
-  // Ensure strong fallback
-  @supports not (background: paint(neon)) {
-    @include box-glow-lg($r, $g, $b);
-  }
-}
-
-// Enhanced text glow with neon
-// Usage: @include text-glow-neon(118, 169, 185, 0.9);
-@mixin text-glow-neon($r, $g, $b, $luminosity: 0.85) {
-  @include neon.neon-text($r, $g, $b, $luminosity);
-
-  // Fallback already included in neon-text mixin
-}
-
-// Helper mixin to add neon data attribute programmatically
-// Note: Actual data-neon attribute should be added in HTML or via Vue composable
-@mixin enable-neon-attribute {
-  &[data-neon] {
-    // Worklet will handle this if supported
-    @supports (background: paint(neon)) {
-      // Paint worklet active
-      position: relative;
-      isolation: isolate;
-    }
-  }
 }

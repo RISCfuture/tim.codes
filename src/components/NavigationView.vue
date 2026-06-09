@@ -8,7 +8,7 @@
             <a
               href="/"
               :aria-label="t('header.links.home')"
-              :aria-selected="route.name === 'home'"
+              :aria-selected="route.name === 'bio'"
               @click.prevent="navigate({ name: 'bio' })"
             >
               <home-image id="home-image" />
@@ -85,6 +85,7 @@ header {
 
   @include gradient-header-overlay;
   @include transition-slow(background, color);
+  @include neon-flicker;
 
   // Bio background layer
   &::before {
@@ -130,7 +131,7 @@ header {
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  // Default glowing bottom border (overridden by themed versions)
+  // Glowing neon tube border (colour set per section below).
   &::after {
     position: absolute;
     bottom: -2px;
@@ -140,16 +141,9 @@ header {
     height: 4px;
     pointer-events: none;
     content: '';
-    background: rgb(255 255 255 / 100%);
-    box-shadow:
-      0 0 8px 4px rgb(255 255 255 / 100%),
-      0 0 16px 6px rgb(255 255 255 / 100%),
-      0 0 24px 8px rgb(255 255 255 / 90%),
-      0 2px 30px 10px rgb(255 255 255 / 40%);
-    transition:
-      background 1.2s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: neon-border-pulse 3s ease-in-out infinite;
+    background: #fff;
+    opacity: var(--neon-intensity);
+    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -172,22 +166,12 @@ h1 {
   font-family: Inter, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+  opacity: var(--neon-intensity);
 
-  @include neon-text(255, 255, 255, 0.5);
-  @include transition-standard(text-shadow);
+  @include neon-text(#fff);
   @include margin-scale(0 0 10px 0, 0 0 20px 0, 0);
   @include font-scale-fixed(24px, 42px, 48px);
   @include letter-spacing-scale(1.5px, 2px, 2px);
-
-  // Intense flicker effect using existing neon system
-  --neon-flicker-intensity: 0.2;
-
-  animation: neon-flicker calc(1s / var(--neon-flicker-frequency)) infinite ease-in-out;
-
-  &:hover {
-    // Increase luminosity on hover
-    --neon-luminosity: 0.7;
-  }
 }
 
 ul {
@@ -231,10 +215,10 @@ li {
   .tab-label {
     font-family: Inter, sans-serif;
     font-weight: 700;
+    color: rgb(255 255 255 / 85%);
     text-transform: uppercase;
-    opacity: 0.5;
 
-    @include transition-standard(opacity, text-shadow);
+    @include transition-standard(color, text-shadow);
     @include font-scale-fixed(9px, 13px, 14px);
     @include letter-spacing-scale(0.8px, 1px, 1px);
   }
@@ -250,7 +234,7 @@ li {
   }
 
   &:hover .tab-label {
-    opacity: 0.8;
+    color: #fff;
   }
 
   // Active tab styling
@@ -259,12 +243,14 @@ li {
   }
 
   &.active .tab-label {
-    opacity: 1;
+    color: #fff;
   }
 }
 
 // Color-specific effects - Gas-based neon colors
 header.bio {
+  background-color: var(--neon-bio-bg-1);
+
   &::before {
     opacity: 1;
   }
@@ -275,25 +261,26 @@ header.bio {
   }
 
   #home-tab.active svg {
-    @include filter-glow-active(147, 176, 255); // Argon-Mercury (435.8nm)
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) drop-shadow(0 0 12px var(--neon-bio-tube))
+      drop-shadow(0 0 24px var(--neon-bio-tube));
   }
 
   #home-tab.active::after {
-    // Use neon glow for tab indicator
-    background: rgb(var(--neon-gas-argon-blue));
+    background: var(--neon-bio-core);
     box-shadow:
-      0 0 20px rgb(var(--neon-gas-argon-blue), 0.9),
-      0 0 40px rgb(var(--neon-gas-argon-blue), 0.5),
-      0 0 60px rgb(var(--neon-gas-argon-blue), 0.25);
+      0 0 20px var(--neon-bio-tube),
+      0 0 40px color-mix(in srgb, var(--neon-bio-tube) 50%, transparent),
+      0 0 60px color-mix(in srgb, var(--neon-bio-tube) 25%, transparent);
   }
 
   &::after {
-    // Use physically-accurate neon for header border
-    @include neon-line-shadow(147, 176, 255, 4px, 1.9);
+    @include neon-line(var(--neon-bio-tube));
   }
 }
 
 header.projects {
+  background-color: var(--neon-projects-bg-1);
+
   &::before {
     opacity: 0;
   }
@@ -307,25 +294,26 @@ header.projects {
   }
 
   #projects-tab.active svg {
-    @include filter-glow-active(255, 75, 43); // True Neon (640.2nm)
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) drop-shadow(0 0 12px var(--neon-projects-tube))
+      drop-shadow(0 0 24px var(--neon-projects-tube));
   }
 
   #projects-tab.active::after {
-    // Use neon glow for tab indicator
-    background: rgb(var(--neon-gas-true-neon));
+    background: var(--neon-projects-core);
     box-shadow:
-      0 0 20px rgb(var(--neon-gas-true-neon), 0.9),
-      0 0 40px rgb(var(--neon-gas-true-neon), 0.5),
-      0 0 60px rgb(var(--neon-gas-true-neon), 0.25);
+      0 0 20px var(--neon-projects-tube),
+      0 0 40px color-mix(in srgb, var(--neon-projects-tube) 50%, transparent),
+      0 0 60px color-mix(in srgb, var(--neon-projects-tube) 25%, transparent);
   }
 
   &::after {
-    // Use physically-accurate neon for header border
-    @include neon-line-shadow(255, 75, 43, 4px, 1.9);
+    @include neon-line(var(--neon-projects-tube));
   }
 }
 
 header.resume {
+  background-color: var(--neon-resume-bg-1);
+
   &::before {
     opacity: 0;
   }
@@ -339,44 +327,35 @@ header.resume {
   }
 
   #resume-tab.active svg {
-    @include filter-glow-active(200, 255, 210); // Krypton (557.7nm)
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) drop-shadow(0 0 12px var(--neon-resume-tube))
+      drop-shadow(0 0 24px var(--neon-resume-tube));
   }
 
   #resume-tab.active::after {
-    // Use neon glow for tab indicator
-    background: rgb(var(--neon-gas-krypton));
+    background: var(--neon-resume-core);
     box-shadow:
-      0 0 20px rgb(var(--neon-gas-krypton), 0.9),
-      0 0 40px rgb(var(--neon-gas-krypton), 0.5),
-      0 0 60px rgb(var(--neon-gas-krypton), 0.25);
+      0 0 20px var(--neon-resume-tube),
+      0 0 40px color-mix(in srgb, var(--neon-resume-tube) 50%, transparent),
+      0 0 60px color-mix(in srgb, var(--neon-resume-tube) 25%, transparent);
   }
 
   &::after {
-    // Use physically-accurate neon for header border
-    @include neon-line-shadow(200, 255, 210, 4px, 1.9);
+    @include neon-line(var(--neon-resume-tube));
   }
 }
 
-// Pulse animation for neon border
-@keyframes neon-border-pulse {
-  0%,
-  100% {
-    filter: brightness(1);
-  }
-
-  50% {
-    filter: brightness(1.15);
-  }
-}
-
-// Respect reduced motion preference
-@media (prefers-reduced-motion: reduce) {
-  header::after {
-    animation: none !important;
-  }
-
+// High-contrast / forced-colors: drop the soft neon glow for solid, legible
+// affordances (WCAG 1.4.11).
+@media (prefers-contrast: more), (forced-colors: active) {
   h1 {
-    animation: none !important;
+    filter: none;
+  }
+
+  header::after,
+  li.active::after {
+    background: CanvasText;
+    box-shadow: none;
+    filter: none;
   }
 }
 </style>

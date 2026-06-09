@@ -2,7 +2,6 @@
 
 @use './glow' as *;
 @use './gradients' as *;
-@use './neon' as *;
 
 // ACCENT BAR (vertical colored bar with glow)
 // Usage with explicit RGB: @include accent-bar-left(8px, var(--theme-gradient), 118, 169, 185);
@@ -212,15 +211,6 @@
 
   @include gradient-card-accent(var(--card-bg), var(--bg-color-elevated), rgba($color, 0.03));
   @include gradient-card-accent-dark(var(--card-bg), var(--bg-color-elevated), rgba($color, 0.08));
-}
-
-// GLOWING BOTTOM BORDER (for header effects)
-// Usage: @include glow-bottom-border(4px, 118, 169, 185);
-// Note: This now uses the neon system for enhanced realism
-
-@mixin glow-bottom-border($height, $r, $g, $b) {
-  // Use neon-line mixin which provides physical accuracy
-  @include neon-line($r, $g, $b, $height, 0.9);
 }
 
 // DIVIDER LINE (with subtle glow)

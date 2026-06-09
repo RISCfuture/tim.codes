@@ -41,7 +41,7 @@
 }
 
 @mixin gradient-card-accent-dark($base, $elevated, $tint) {
-  [data-theme='dark'] & {
+  @media (prefers-color-scheme: dark) {
     background: linear-gradient(135deg, $base 0%, $elevated 70%, $tint 100%);
   }
 }

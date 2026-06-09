@@ -31,7 +31,7 @@
   );
   border-left: 4px solid $color;
 
-  [data-theme='dark'] & {
+  @media (prefers-color-scheme: dark) {
     background: linear-gradient(
       135deg,
       var(--card-bg) 0%,
