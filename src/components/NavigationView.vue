@@ -1,7 +1,7 @@
 <template>
   <header :class="String(route.name)">
     <div class="header-content">
-      <h1>Tim Morgan</h1>
+      <h1 data-testid="site-title">Tim Morgan</h1>
       <nav :aria-label="t('header.nav')">
         <ul role="tablist">
           <li id="home-tab" role="tab" :class="{ active: route.name === 'bio' }">
@@ -12,7 +12,7 @@
               @click.prevent="navigate({ name: 'bio' })"
             >
               <home-image id="home-image" />
-              <span class="tab-label">{{ t('header.links.home') }}</span>
+              <span class="tab-label" data-testid="nav-tab-label">{{ t('header.links.home') }}</span>
             </a>
           </li>
           <li id="projects-tab" role="tab" :class="{ active: route.name === 'projects' }">
@@ -23,7 +23,7 @@
               @click.prevent="navigate({ name: 'projects' })"
             >
               <projects-image id="projects-image" />
-              <span class="tab-label">{{ t('header.links.projects') }}</span>
+              <span class="tab-label" data-testid="nav-tab-label">{{ t('header.links.projects') }}</span>
             </a>
           </li>
           <li id="resume-tab" role="tab" :class="{ active: route.name === 'resume' }">
@@ -34,7 +34,7 @@
               @click.prevent="navigate({ name: 'resume' })"
             >
               <resume-image id="resume-image" />
-              <span class="tab-label">{{ t('header.links.resume') }}</span>
+              <span class="tab-label" data-testid="nav-tab-label">{{ t('header.links.resume') }}</span>
             </a>
           </li>
         </ul>
