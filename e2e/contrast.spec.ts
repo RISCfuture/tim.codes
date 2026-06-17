@@ -43,17 +43,17 @@ function worstContrast(cssColor: string, section: NeonSection): number {
 for (const { hash, section } of routes) {
   test(`header text meets WCAG AA on ${section}`, async ({ page }) => {
     await page.goto(`/${hash}`)
-    await page.locator('header h1').waitFor()
+    await page.getByTestId('site-title').waitFor()
 
     // Large bold title — WCAG AA large-text threshold is 3:1.
     const titleColor = await page
-      .locator('header h1')
+      .getByTestId('site-title')
       .evaluate((el) => getComputedStyle(el).color)
     expect(worstContrast(titleColor, section)).toBeGreaterThanOrEqual(3)
 
     // Small bold nav labels — WCAG AA normal-text threshold is 4.5:1.
     const labelColors = await page
-      .locator('header .tab-label')
+      .getByTestId('nav-tab-label')
       .evaluateAll((els) => els.map((el) => getComputedStyle(el).color))
     expect(labelColors.length).toBeGreaterThan(0)
     for (const color of labelColors) {
