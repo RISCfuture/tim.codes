@@ -56,6 +56,17 @@ Sentry.init({
   ],
 })
 
+// Recover from stale-deploy chunk failures: after a redeploy, hashed assets
+// referenced by an already-loaded page 404, and Vite emits `vite:preloadError`.
+// Reload once to pick up the current index.html and assets; the sessionStorage
+// guard prevents a reload loop if the asset is genuinely missing. Sentry
+// TIM-DOT-CODES-7.
+window.addEventListener('vite:preloadError', () => {
+  if (sessionStorage.getItem('vitePreloadReloaded')) return
+  sessionStorage.setItem('vitePreloadReloaded', 'true')
+  window.location.reload()
+})
+
 const pinia = createPinia()
 pinia.use(createSentryPiniaPlugin())
 app.use(pinia)
@@ -68,3 +79,7 @@ app.use(i18n)
 await setupI18n()
 
 app.mount('#app')
+
+// A successful mount means the current assets loaded; clear the guard so a
+// future stale-deploy `vite:preloadError` can reload again.
+sessionStorage.removeItem('vitePreloadReloaded')
