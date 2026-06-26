@@ -30,13 +30,13 @@ export function rgbToHex({ r, g, b }: Rgb): string {
 /** Convert an 8-bit sRGB channel to linear-light (0–1), per the sRGB transfer function. */
 function srgbToLinear(channel: number): number {
   const c = channel / 255
-  return c <= 0.040_45 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4
+  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4
 }
 
 /** Convert a linear-light value (0–1) back to an 8-bit sRGB channel. */
 function linearToSrgb(value: number): number {
   const clamped = Math.max(0, Math.min(1, value))
-  const c = clamped <= 0.003_130_8 ? 12.92 * clamped : 1.055 * clamped ** (1 / 2.4) - 0.055
+  const c = clamped <= 0.0031308 ? 12.92 * clamped : 1.055 * clamped ** (1 / 2.4) - 0.055
   return c * 255
 }
 
