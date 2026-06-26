@@ -50,7 +50,7 @@ function spectrumToXyz(lines: SpectralLine[]): Xyz {
 /** Linear-light value (0–1) → 8-bit sRGB channel. */
 function linearToSrgbChannel(value: number): number {
   const clamped = Math.max(0, Math.min(1, value))
-  const c = clamped <= 0.003_130_8 ? 12.92 * clamped : 1.055 * clamped ** (1 / 2.4) - 0.055
+  const c = clamped <= 0.0031308 ? 12.92 * clamped : 1.055 * clamped ** (1 / 2.4) - 0.055
   return c * 255
 }
 
