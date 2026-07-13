@@ -53,6 +53,10 @@ Sentry.init({
     // newer-version fix exists, so we filter the noise. Sentry
     // TIM-DOT-CODES-5.
     /Failed to register a ServiceWorker/u,
+    // Native in-app browsers (WKWebView wrappers) inject a bridge script that
+    // calls `window.webkit.messageHandlers`; it throws when that handler is
+    // absent. Not our code and unfixable here. Sentry TIM-DOT-CODES-8.
+    /messageHandlers/u,
   ],
 })
 
@@ -60,8 +64,11 @@ Sentry.init({
 // referenced by an already-loaded page 404, and Vite emits `vite:preloadError`.
 // Reload once to pick up the current index.html and assets; the sessionStorage
 // guard prevents a reload loop if the asset is genuinely missing. Sentry
-// TIM-DOT-CODES-7.
-window.addEventListener('vite:preloadError', () => {
+// TIM-DOT-CODES-7. Calling `preventDefault()` stops Vite from rethrowing the
+// import failure, which we've already handled here, into Sentry as noise.
+// Sentry TIM-DOT-CODES-9.
+window.addEventListener('vite:preloadError', (event) => {
+  event.preventDefault()
   if (sessionStorage.getItem('vitePreloadReloaded')) return
   sessionStorage.setItem('vitePreloadReloaded', 'true')
   window.location.reload()
