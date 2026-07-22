@@ -4,12 +4,22 @@ test.describe('Navigation', () => {
   test('moves from Projects to Resume', async ({ projectsPage }) => {
     await projectsPage.visit()
     await projectsPage.clickResumeLink()
-    await expect(projectsPage.page).toHaveURL(/#\/resume/)
+    await expect(projectsPage.page).toHaveURL(/\/resume$/)
   })
 
   test('moves from Projects to Home', async ({ projectsPage }) => {
     await projectsPage.visit()
     await projectsPage.clickHomeLink()
-    await expect(projectsPage.page).toHaveURL(/#\/$/)
+    await expect(projectsPage.page).toHaveURL(/\/$/)
+  })
+
+  test('rewrites legacy hash URLs published under the old router', async ({ projectsPage }) => {
+    await projectsPage.page.goto('/#/resume')
+    await expect(projectsPage.page).toHaveURL(/\/resume$/)
+  })
+
+  test('keeps a real path when a stray fragment rides along', async ({ projectsPage }) => {
+    await projectsPage.page.goto('/projects#/')
+    await expect(projectsPage.page).toHaveURL(/\/projects/)
   })
 })

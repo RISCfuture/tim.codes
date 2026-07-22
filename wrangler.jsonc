@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tim-codes",
+  "account_id": "9edca68dc3e37bad6304e4bc0da34eca",
+  "compatibility_date": "2026-07-21",
+  // The site is reachable only through its custom domain, so the workers.dev
+  // hostname stays off and cannot serve a copy that bypasses the zone's
+  // security-header ruleset.
+  "workers_dev": false,
+  "routes": [{ "pattern": "tim.codes", "custom_domain": true }],
+  "assets": {
+    "directory": "./dist",
+    // The router uses real history, so every route is a path the server never
+    // has a file for; serve index.html and let the router resolve it.
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

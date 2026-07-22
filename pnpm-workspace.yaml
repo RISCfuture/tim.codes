@@ -1,6 +1,14 @@
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
+  esbuild: true
+  # Optional wrangler dependency for image transforms, which this site does not
+  # use. It has no prebuilt binary for our Node version and falls back to a
+  # node-gyp source build that fails, so keep it unbuilt.
+  sharp: false
+  workerd: true
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js
+  - esbuild
+  - workerd

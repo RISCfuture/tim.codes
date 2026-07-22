@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -35,8 +35,17 @@ if (import.meta.env.DEV) {
 }
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+})
+
+// Links published while the site used hash history still arrive as `/#/projects`,
+// which is always the root path carrying the real route in the fragment. Scoped to
+// the root so a stray `#/` on a genuine path cannot bounce the visitor home.
+router.beforeEach((to) => {
+  if (to.path !== '/' || !to.hash.startsWith('#/')) return true
+  const legacyPath = to.hash.slice(1)
+  return legacyPath === '/' ? true : legacyPath
 })
 
 export default router

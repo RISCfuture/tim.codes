@@ -8,10 +8,10 @@ import { NEON_PALETTE, type NeonSection } from '../src/utils/neonSpectra'
 // colours in the browser and verify WCAG contrast against the actual spectral
 // background gradient — the same palette the unit tests derive and guard.
 
-const routes: { hash: string; section: NeonSection }[] = [
-  { hash: '#/', section: 'bio' },
-  { hash: '#/projects', section: 'projects' },
-  { hash: '#/resume', section: 'resume' },
+const routes: { path: string; section: NeonSection }[] = [
+  { path: '/', section: 'bio' },
+  { path: '/projects', section: 'projects' },
+  { path: '/resume', section: 'resume' },
 ]
 
 /** Parse a computed `rgb(...)` / `rgba(...)` string into channels + alpha. */
@@ -40,9 +40,9 @@ function worstContrast(cssColor: string, section: NeonSection): number {
   return Math.min(...ratios)
 }
 
-for (const { hash, section } of routes) {
+for (const { path, section } of routes) {
   test(`header text meets WCAG AA on ${section}`, async ({ page }) => {
-    await page.goto(`/${hash}`)
+    await page.goto(path)
     await page.getByTestId('site-title').waitFor()
 
     // Large bold title — WCAG AA large-text threshold is 3:1.

@@ -14,7 +14,6 @@
   <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()">
 
   <!-- Apple / Mobile Web App -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -83,18 +82,20 @@
 
 <div id="app"></div>
 
-<!-- Single Page Apps for GitHub Pages — decode the 404.html redirect (rafgraph/spa-github-pages) -->
-<script>
-  (function (l) {
-    if (l.search[1] === '/') {
-      var decoded = l.search.slice(1).split('&').map(function (s) {
-        return s.replace(/~and~/g, '&');
-      }).join('?');
-      window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-    }
-  })(window.location);
-</script>
-
 <script type="module" src="/src/main.ts"></script>
+    <!-- Cloudflare Web Analytics. Embedded at build time rather than left to
+         edge auto-injection: the service worker precaches index.html, so
+         returning visitors would be served a copy predating the edge rewrite
+         and go uncounted. Reporting goes to cloudflareinsights.com: the
+         same-origin /cdn-cgi/rum endpoint only exists while auto-install is
+         enabled, and it is off here so the beacon loads exactly once.
+
+         No `integrity`: Cloudflare does not version-pin the beacon, so a
+         pinned hash would break on their next release. -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "4175c914aba74af7ae0009e668896baf"}'
+    ></script>
 </body>
 </html>
