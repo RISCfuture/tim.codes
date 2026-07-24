@@ -20,6 +20,9 @@ import App from './App.vue'
 import router from './router'
 import i18n from '@/i18n'
 import { setupI18n } from '@/i18n/messages'
+import { recoverFromPreloadErrors } from '@/utils/preloadRecovery'
+
+recoverFromPreloadErrors()
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- Vue app type mismatch with Sentry
 const app = createApp(App)
@@ -60,20 +63,6 @@ Sentry.init({
   ],
 })
 
-// Recover from stale-deploy chunk failures: after a redeploy, hashed assets
-// referenced by an already-loaded page 404, and Vite emits `vite:preloadError`.
-// Reload once to pick up the current index.html and assets; the sessionStorage
-// guard prevents a reload loop if the asset is genuinely missing. Sentry
-// TIM-DOT-CODES-7. Calling `preventDefault()` stops Vite from rethrowing the
-// import failure, which we've already handled here, into Sentry as noise.
-// Sentry TIM-DOT-CODES-9.
-window.addEventListener('vite:preloadError', (event) => {
-  event.preventDefault()
-  if (sessionStorage.getItem('vitePreloadReloaded')) return
-  sessionStorage.setItem('vitePreloadReloaded', 'true')
-  window.location.reload()
-})
-
 const pinia = createPinia()
 pinia.use(createSentryPiniaPlugin())
 app.use(pinia)
@@ -86,7 +75,3 @@ app.use(i18n)
 await setupI18n()
 
 app.mount('#app')
-
-// A successful mount means the current assets loaded; clear the guard so a
-// future stale-deploy `vite:preloadError` can reload again.
-sessionStorage.removeItem('vitePreloadReloaded')
