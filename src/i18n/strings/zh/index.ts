@@ -61,8 +61,10 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: '网站',
     },
     websiteType: {
+      docs: '文档',
       download: '下载',
       live: '在线访问',
+      marketing: '产品页面',
       source: '源代码',
     },
     language: {
@@ -239,6 +241,30 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         '检查 GitHub 发布版本以发现更新，并以 Sparkle 的方式通知用户',
         '可直接集成到 macOS 应用的软件更新框架',
+      ],
+    },
+    CTAHelper: {
+      description: '将 FAA 的低温高度修正应用于仪表进近公布高度的 iOS 应用',
+      achievements: [
+        '依据 AIP ENR 1.8 的方法，用机场当前 METAR 修正进近的每一个高度',
+        '随附按 AIRAC 周期生成的导航数据库，由四个 FAA 数据源合并而成，导入前以 SHA-256 校验',
+        '可按识别代码、城市或最近机场查找进近，并支持收藏与最近使用',
+      ],
+    },
+    SubTrack: {
+      description: '一款 macOS 应用，以复制而非重新编码的方式剔除视频文件中不需要的音轨和字幕轨',
+      achievements: [
+        '保留的轨道原样复制，两小时的 Blu-ray 转录几秒即可瘦身，且无质量损失',
+        '一套针对语言、评论音轨与备选混音的规则可应用于整个文件队列',
+        '内置经签名的静态链接 FFmpeg 构建，预设通过你自己的 iCloud 账户同步',
+      ],
+    },
+    zili: {
+      description: '一款围绕 HSK 词汇等级组织的 iOS 与 macOS 应用，用于学习读写中文',
+      achievements: [
+        '闪卡可按你选择的方向练习——英文↔中文、拼音或汉字、发音或笔顺',
+        '笔顺练习会动画演示每个字，并根据笔画顺序与方向判定正误',
+        '书写与听力测验取材于 HSK 例句，并可在应用任意位置轻点查词',
       ],
     },
   },

@@ -58,6 +58,9 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     swiftR2: { name: 'SwiftR2' },
     swiftACD: { name: 'SwiftACD' },
     gitHubUpdateChecker: { name: 'GitHubUpdateChecker' },
+    CTAHelper: { name: 'CTA Helper' },
+    SubTrack: { name: 'SubTrack' },
+    zili: { name: 'Zili' },
   },
   resume: {
     timeRange: '{start}–{end}',

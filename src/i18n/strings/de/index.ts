@@ -61,8 +61,10 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: 'Website',
     },
     websiteType: {
+      docs: 'Dokumentation',
       download: 'Download',
       live: 'Live',
+      marketing: 'Produktseite',
       source: 'Quellcode',
     },
     language: {
@@ -265,6 +267,33 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'Prüft GitHub-Releases auf Updates und benachrichtigt Nutzer im Sparkle-Stil',
         'Sofort einsetzbares Software-Update-Framework für macOS-Apps',
+      ],
+    },
+    CTAHelper: {
+      description:
+        'Wendet die Kalttemperatur-Höhenkorrekturen der FAA auf die veröffentlichten Höhen eines Instrumentenanflugs an',
+      achievements: [
+        'Korrigiert jede Höhe eines Anflugs anhand des aktuellen METAR des Flugplatzes, nach dem Verfahren aus AIP ENR 1.8',
+        'Liefert eine Navigationsdatenbank je AIRAC-Zyklus, aus vier FAA-Quellen zusammengeführt und vor dem Import per SHA-256 geprüft',
+        'Findet Anflüge nach Kennung, Ort oder nächstgelegenem Flugplatz, mit Favoriten und zuletzt verwendeten Einträgen',
+      ],
+    },
+    SubTrack: {
+      description:
+        'Eine macOS-App, die unerwünschte Ton- und Untertitelspuren aus Videodateien entfernt – durch Kopieren statt Neukodieren',
+      achievements: [
+        'Kopiert die behaltenen Spuren unverändert, sodass ein zweistündiger Blu-ray-Rip in Sekunden schrumpft, ohne Qualitätsverlust',
+        'Ein Regelsatz für Sprachen, Kommentarspuren und alternative Abmischungen gilt für eine ganze Dateiwarteschlange',
+        'Bringt ein signiertes, statisch gelinktes FFmpeg mit; Voreinstellungen synchronisieren über den eigenen iCloud-Account',
+      ],
+    },
+    zili: {
+      description:
+        'Eine iOS- und macOS-App zum Lesen- und Schreibenlernen des Chinesischen, aufgebaut auf den HSK-Vokabelstufen',
+      achievements: [
+        'Karteikarten üben in der gewählten Richtung – Englisch↔Chinesisch, Pinyin oder Hanzi, Aussprache oder Striche',
+        'Die Strichfolgeübung animiert jedes Zeichen und bewertet die Striche nach Reihenfolge und Richtung',
+        'Schreib- und Hörquiz greifen auf HSK-Sätze zurück; ein antippbares Wörterbuch ist überall verfügbar',
       ],
     },
   },

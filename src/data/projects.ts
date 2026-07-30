@@ -9,6 +9,7 @@ export const projects: Project[] = [
         url: 'https://github.com/RISCfuture/BadBehavior',
         type: WebsiteType.SOURCE,
       },
+      { url: 'https://riscfuture.github.io/BadBehavior/', type: WebsiteType.DOCS },
     ],
     languages: [Language.SWIFT],
     libraries: [],
@@ -22,6 +23,10 @@ export const projects: Project[] = [
       {
         url: 'https://github.com/RISCfuture/FART',
         type: WebsiteType.SOURCE,
+      },
+      {
+        url: 'https://riscfuture.github.io/FART/',
+        type: WebsiteType.MARKETING,
       },
       {
         url: 'https://apps.apple.com/us/app/flight-assessment-of-risk-tool/id1570992859',
@@ -64,7 +69,7 @@ export const projects: Project[] = [
         type: WebsiteType.SOURCE,
       },
       {
-        url: 'https://riscfuture.github.io/closest-ndb',
+        url: 'https://riscfuture.github.io/closest-ndb/',
         type: WebsiteType.LIVE,
       },
     ],
@@ -106,6 +111,10 @@ export const projects: Project[] = [
         type: WebsiteType.SOURCE,
       },
       {
+        url: 'https://sf50-told.github.io/iOS/',
+        type: WebsiteType.MARKETING,
+      },
+      {
         url: 'https://apps.apple.com/us/app/sf50-told/id1552835232',
         type: WebsiteType.DOWNLOAD,
       },
@@ -118,7 +127,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftMETAR',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftMETAR', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftMETAR', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftMETAR/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -127,7 +139,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftNASR',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftNASR', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftNASR', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftNASR/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -150,6 +165,7 @@ export const projects: Project[] = [
     identifier: 'IPInbound',
     websites: [
       { url: 'https://github.com/RISCfuture/IP-Inbound', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/IP-Inbound/', type: WebsiteType.MARKETING },
       {
         url: 'https://apps.apple.com/us/app/ip-inbound/id6745743691',
         type: WebsiteType.DOWNLOAD,
@@ -163,7 +179,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftAirmen',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftAirmen', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftAirmen', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftAirmen/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -172,7 +191,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftNMEA',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftNMEA', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftNMEA', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftNMEA/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -181,7 +203,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'garminACE',
-    websites: [{ url: 'https://github.com/RISCfuture/GarminACE', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/GarminACE', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/GarminACE/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -205,7 +230,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'streamingCSV',
-    websites: [{ url: 'https://github.com/RISCfuture/StreamingCSV', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/StreamingCSV', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/StreamingCSV/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: true,
@@ -214,7 +242,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'streamingLZMA',
-    websites: [{ url: 'https://github.com/RISCfuture/StreamingLZMA', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/StreamingLZMA', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/StreamingLZMA/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: true,
@@ -223,7 +254,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftCIFP',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftCIFP', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftCIFP', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftCIFP/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -232,7 +266,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftGeographic',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftGeographic', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftGeographic', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftGeographic/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -241,7 +278,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftDOF',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftDOF', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftDOF', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftDOF/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -250,7 +290,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftR2',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftR2', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftR2', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftR2/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -259,7 +302,10 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftACD',
-    websites: [{ url: 'https://github.com/RISCfuture/SwiftACD', type: WebsiteType.SOURCE }],
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftACD', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftACD/', type: WebsiteType.DOCS },
+    ],
     languages: [Language.SWIFT],
     libraries: [],
     featured: false,
@@ -270,9 +316,58 @@ export const projects: Project[] = [
     identifier: 'gitHubUpdateChecker',
     websites: [
       { url: 'https://github.com/RISCfuture/GitHubUpdateChecker', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/GitHubUpdateChecker/', type: WebsiteType.DOCS },
     ],
     languages: [Language.SWIFT],
     libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.APP,
+    identifier: 'CTAHelper',
+    websites: [
+      { url: 'https://github.com/CTA-Helper/iOS', type: WebsiteType.SOURCE },
+      { url: 'https://cta-helper.github.io/iOS/', type: WebsiteType.MARKETING },
+      {
+        url: 'https://apps.apple.com/us/app/cta-helper/id6795019635',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.SWIFTUI],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.APP,
+    identifier: 'SubTrack',
+    websites: [
+      { url: 'https://github.com/RISCfuture/SubTrack', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SubTrack/', type: WebsiteType.MARKETING },
+      {
+        url: 'https://apps.apple.com/us/app/subtrack-trim-video-files/id6794950780',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.SWIFTUI],
+    featured: true,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.APP,
+    identifier: 'zili',
+    websites: [
+      { url: 'https://github.com/HSK-Hanzi/iOS', type: WebsiteType.SOURCE },
+      { url: 'https://hsk-hanzi.github.io/iOS/', type: WebsiteType.MARKETING },
+      {
+        url: 'https://apps.apple.com/us/app/zili-learn-chinese/id6790533407',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.SWIFTUI],
     featured: false,
     vibeCoded: true,
   },

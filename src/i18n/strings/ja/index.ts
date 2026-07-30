@@ -61,8 +61,10 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: 'ウェブサイト',
     },
     websiteType: {
+      docs: 'ドキュメント',
       download: 'ダウンロード',
       live: 'ライブ',
+      marketing: '製品ページ',
       source: 'ソース',
     },
     language: {
@@ -256,6 +258,31 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'GitHub リリースの更新を確認し、Sparkle のようにユーザーへ通知',
         'macOS アプリ向けの導入が容易なソフトウェア更新フレームワーク',
+      ],
+    },
+    CTAHelper: {
+      description: '計器進入方式の公示高度に FAA の低温高度補正を適用する iOS アプリ',
+      achievements: [
+        'AIP ENR 1.8 の方式に従い、空港の最新 METAR から進入方式の各高度を補正',
+        '4つの FAA データソースを統合した AIRAC サイクルごとの航法データベースを配信し、取り込み前に SHA-256 で検証',
+        '識別記号、都市名、最寄り空港から進入方式を検索でき、お気に入りと履歴にも対応',
+      ],
+    },
+    SubTrack: {
+      description:
+        '再エンコードせずコピーして、動画ファイルから不要な音声・字幕トラックを取り除く macOS アプリ',
+      achievements: [
+        '残すトラックをそのままコピーするため、2時間の Blu-ray リップも画質を損なわず数秒で軽量化',
+        '言語、コメンタリー、別ミックスの扱いを定めた一つのルールセットをファイルのキュー全体に適用',
+        '署名済みの静的リンク版 FFmpeg を同梱し、プリセットは自分の iCloud アカウントで同期',
+      ],
+    },
+    zili: {
+      description: 'HSKの語彙レベルに沿って中国語の読み書きを学ぶ、iOSおよびmacOS向けアプリ',
+      achievements: [
+        'フラッシュカードは英語↔中国語、ピンインと漢字、発音と筆順など、好きな方向で練習できます',
+        '筆順練習では各文字をアニメーションで示し、書き順と方向の正しさを判定します',
+        '書き取りとリスニングのクイズはHSKの例文を使い、アプリのどこでも辞書をタップして参照できます',
       ],
     },
   },

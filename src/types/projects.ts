@@ -26,11 +26,17 @@ export enum WebsiteType {
   /** The live website powered by the project codebase. */
   LIVE = 'live',
 
+  /** A page describing the project, such as an app's product page. */
+  MARKETING = 'marketing',
+
   /** The source code for the project. */
   SOURCE = 'source',
 
   /** The location where the app can be downloaded. */
   DOWNLOAD = 'download',
+
+  /** The API reference or other documentation for the project. */
+  DOCS = 'docs',
 }
 
 /**

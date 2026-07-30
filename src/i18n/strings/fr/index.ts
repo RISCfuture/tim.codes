@@ -61,8 +61,10 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: 'site web',
     },
     websiteType: {
+      docs: 'documentation',
       download: 'télécharger',
       live: 'en ligne',
+      marketing: 'page produit',
       source: 'source',
     },
     language: {
@@ -269,6 +271,33 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'Vérifie les releases GitHub pour détecter les mises à jour et avertit les utilisateurs, façon Sparkle',
         'Framework de mise à jour logicielle clé en main pour les applications macOS',
+      ],
+    },
+    CTAHelper: {
+      description:
+        'Applique les corrections d’altitude par basse température de la FAA aux altitudes publiées d’une approche aux instruments',
+      achievements: [
+        'Corrige chaque altitude d’une approche à partir du METAR courant de l’aérodrome, selon la méthode de l’AIP ENR 1.8',
+        'Embarque une base de données de navigation par cycle AIRAC, issue de quatre sources de la FAA et vérifiée par SHA-256 avant import',
+        'Recherche les approches par identifiant, par ville ou par aérodrome le plus proche, avec favoris et consultations récentes',
+      ],
+    },
+    SubTrack: {
+      description:
+        'Une application macOS qui retire des fichiers vidéo les pistes audio et de sous-titres superflues en les copiant, sans réencoder',
+      achievements: [
+        'Copie telles quelles les pistes conservées : un rip Blu-ray de deux heures s’allège en quelques secondes, sans perte de qualité',
+        'Un seul jeu de règles pour les langues, les commentaires et les mixages alternatifs s’applique à toute une file de fichiers',
+        'Intègre une compilation de FFmpeg signée et liée statiquement, les préréglages se synchronisant via votre propre compte iCloud',
+      ],
+    },
+    zili: {
+      description:
+        'Une application iOS et macOS pour apprendre à lire et écrire le chinois, organisée selon les niveaux de vocabulaire HSK',
+      achievements: [
+        "Les cartes mémoire s'entraînent dans le sens de votre choix : anglais↔chinois, pinyin ou hanzi, prononciation ou tracés",
+        'La pratique des tracés anime chaque caractère et évalue vos traits selon leur ordre et leur direction',
+        "Les quiz d'écriture et d'écoute s'appuient sur des phrases HSK, avec un dictionnaire tactile partout dans l'app",
       ],
     },
   },

@@ -62,8 +62,10 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: 'website',
     },
     websiteType: {
+      docs: 'documentation',
       download: 'download',
       live: 'live',
+      marketing: 'product page',
       source: 'source',
     },
     language: {
@@ -260,6 +262,33 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'Checks GitHub releases for updates and notifies users, Sparkle-style',
         'Drop-in software update framework for macOS apps',
+      ],
+    },
+    CTAHelper: {
+      description:
+        'Applies FAA cold temperature altitude corrections to the published altitudes of an instrument approach',
+      achievements: [
+        "Corrects every altitude on an approach from the airport's current METAR, following the AIP ENR 1.8 method",
+        'Ships an AIRAC-cycle nav database merged from four FAA sources and verified by SHA-256 before import',
+        'Finds approaches by identifier, city, or nearest airport, with favorites and recents',
+      ],
+    },
+    SubTrack: {
+      description:
+        'A macOS app that strips unwanted audio and subtitle tracks out of video files by copying, not re-encoding',
+      achievements: [
+        'Stream-copies the tracks you keep, so a two-hour Blu-ray rip slims down in seconds with no quality loss',
+        'One rule set for languages, commentary, and alternate mixes applies across a whole queue of files',
+        'Bundles a signed, statically linked FFmpeg build, with presets syncing through your own iCloud account',
+      ],
+    },
+    zili: {
+      description:
+        'An iOS and macOS app for learning to read and write Chinese, organized around the HSK vocabulary levels',
+      achievements: [
+        'Flashcards drill in whichever direction you choose — English↔Chinese, pinyin or Hanzi, pronunciation or strokes',
+        'Stroke-order practice animates each character and marks your strokes by correct order and direction',
+        'Writing and listening quizzes draw on HSK sentences, with a tappable dictionary anywhere in the app',
       ],
     },
   },

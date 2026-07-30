@@ -61,8 +61,10 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
       website: 'sitio web',
     },
     websiteType: {
+      docs: 'documentación',
       download: 'descargar',
       live: 'en vivo',
+      marketing: 'página del producto',
       source: 'código fuente',
     },
     language: {
@@ -268,6 +270,33 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
       achievements: [
         'Comprueba las versiones de GitHub en busca de actualizaciones y avisa a los usuarios, al estilo de Sparkle',
         'Framework de actualización de software listo para usar en aplicaciones de macOS',
+      ],
+    },
+    CTAHelper: {
+      description:
+        'Aplica las correcciones de altitud por baja temperatura de la FAA a las altitudes publicadas de una aproximación instrumental',
+      achievements: [
+        'Corrige todas las altitudes de una aproximación a partir del METAR actual del aeropuerto, siguiendo el método de AIP ENR 1.8',
+        'Incluye una base de datos de navegación por ciclo AIRAC, combinada desde cuatro fuentes de la FAA y verificada con SHA-256 antes de importarla',
+        'Busca aproximaciones por identificador, ciudad o aeropuerto más cercano, con favoritos y recientes',
+      ],
+    },
+    SubTrack: {
+      description:
+        'Una aplicación de macOS que elimina las pistas de audio y subtítulos que no quieres de tus vídeos copiándolas, sin recodificar',
+      achievements: [
+        'Copia sin alterar las pistas que conservas, de modo que un rip de Blu-ray de dos horas adelgaza en segundos y sin pérdida de calidad',
+        'Un único conjunto de reglas para idiomas, comentarios y mezclas alternativas se aplica a toda una cola de archivos',
+        'Incorpora una compilación de FFmpeg firmada y enlazada estáticamente, con ajustes que se sincronizan mediante tu propia cuenta de iCloud',
+      ],
+    },
+    zili: {
+      description:
+        'Una app para iOS y macOS para aprender a leer y escribir chino, organizada según los niveles de vocabulario HSK',
+      achievements: [
+        'Las tarjetas practican en la dirección que elijas: inglés↔chino, pinyin o hanzi, pronunciación o trazos',
+        'La práctica de trazos anima cada carácter y califica los trazos según el orden y la dirección correctos',
+        'Los cuestionarios de escritura y escucha usan frases del HSK, con un diccionario táctil en toda la app',
       ],
     },
   },
