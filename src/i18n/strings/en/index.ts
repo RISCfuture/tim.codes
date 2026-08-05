@@ -53,6 +53,11 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     text: 'All content, code, and images (except logomarks) copyright ©2011–{year} Tim Morgan. All rights reserved. {link}',
     linkText: 'View the source for this website on GitHub.',
   },
+  notFound: {
+    title: 'Page not found',
+    message: 'That page doesn’t exist. It may have moved, or the link may be wrong.',
+    homeLink: 'Go to the home page',
+  },
   project: {
     type: {
       app: 'app',

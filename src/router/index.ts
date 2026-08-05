@@ -34,6 +34,13 @@ if (import.meta.env.DEV) {
   })
 }
 
+// Stays last so it only catches what every route above declined.
+routes.push({
+  path: '/:pathMatch(.*)*',
+  name: 'not-found',
+  component: () => import('../views/NotFoundView.vue'),
+})
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,

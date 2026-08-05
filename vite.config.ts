@@ -1,9 +1,41 @@
+import { copyFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 
-import { type UserConfig, defineConfig } from 'vite'
+import { type Plugin, type UserConfig, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
+
+import { prerenderPaths } from './src/router/prerenderPaths'
+
+/**
+ * Copies the built shell to `404.html` and to each client-side route, so the
+ * server answers real routes with a 200 and everything else with a 404 instead
+ * of handing the app to anything that asks.
+ *
+ * Routes are emitted flat (`projects.html`, not `projects/index.html`) because
+ * Cloudflare's `auto-trailing-slash` serves the flat form at `/projects`
+ * directly, while a directory makes it redirect to `/projects/` first.
+ *
+ * Runs in `closeBundle`, after VitePWA has written its precache manifest, which
+ * keeps these duplicates out of the service worker.
+ */
+function emitRouteShells(outDir = 'dist'): Plugin {
+  return {
+    name: 'emit-route-shells',
+    apply: 'build',
+    enforce: 'post',
+    closeBundle() {
+      const shell = resolve(outDir, 'index.html')
+      copyFileSync(shell, resolve(outDir, '404.html'))
+
+      for (const path of prerenderPaths) {
+        copyFileSync(shell, resolve(outDir, `${path.replace(/^\//, '')}.html`))
+      }
+    },
+  }
+}
 
 // Base config shared with vitest
 export const baseConfig: UserConfig = {
@@ -37,6 +69,7 @@ export default defineConfig(({ command, mode }) => {
           skipWaiting: true,
         },
       }),
+      emitRouteShells(),
     )
   }
 

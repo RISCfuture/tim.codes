@@ -52,6 +52,11 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
     text: 'Todo el contenido, el código y las imágenes (salvo los logotipos) son propiedad intelectual ©2011–{year} de Tim Morgan. Todos los derechos reservados. {link}',
     linkText: 'Ver el código fuente de esta web en GitHub.',
   },
+  notFound: {
+    title: 'Página no encontrada',
+    message: 'Esa página no existe. Puede que se haya movido o que el enlace sea incorrecto.',
+    homeLink: 'Ir a la página de inicio',
+  },
   project: {
     type: {
       app: 'aplicación',

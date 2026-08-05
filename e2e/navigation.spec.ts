@@ -22,4 +22,16 @@ test.describe('Navigation', () => {
     await projectsPage.page.goto('/projects#/')
     await expect(projectsPage.page).toHaveURL(/\/projects/)
   })
+
+  test('resolves a deep link opened directly', async ({ projectsPage }) => {
+    await projectsPage.page.goto('/resume')
+    await expect(projectsPage.page).toHaveURL(/\/resume$/)
+  })
+
+  test('shows the not-found view for a path that matches no route', async ({ projectsPage }) => {
+    await projectsPage.page.goto('/no-such-page')
+    await expect(
+      projectsPage.page.getByRole('heading', { name: 'Page not found' }),
+    ).toBeVisible()
+  })
 })

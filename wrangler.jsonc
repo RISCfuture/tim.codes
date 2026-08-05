@@ -10,9 +10,10 @@
   "routes": [{ "pattern": "tim.codes", "custom_domain": true }],
   "assets": {
     "directory": "./dist",
-    // The router uses real history, so every route is a path the server never
-    // has a file for; serve index.html and let the router resolve it.
-    "not_found_handling": "single-page-application"
+    // Every client-side route ships as a static copy of the shell (see
+    // `emitRouteShells` in vite.config.ts), so a path with no file behind it is
+    // genuinely missing and answers with 404.html rather than the app at 200.
+    "not_found_handling": "404-page"
   },
   "observability": {
     "enabled": true

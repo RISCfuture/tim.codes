@@ -52,6 +52,11 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
     text: 'Alle Inhalte, Codes und Bilder (außer Logos) urheberrechtlich geschützt ©2011–{year} Tim Morgan. Alle Rechte vorbehalten. {link}',
     linkText: 'Den Quellcode dieser Website auf GitHub ansehen.',
   },
+  notFound: {
+    title: 'Seite nicht gefunden',
+    message: 'Diese Seite existiert nicht. Möglicherweise wurde sie verschoben, oder der Link ist falsch.',
+    homeLink: 'Zur Startseite',
+  },
   project: {
     type: {
       app: 'App',

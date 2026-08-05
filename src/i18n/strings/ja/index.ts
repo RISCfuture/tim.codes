@@ -52,6 +52,11 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
     text: 'すべてのコンテンツ、コード、画像（ロゴマークを除く）の著作権は©2011–{year} Tim Morgan に帰属します。無断転載を禁じます。{link}',
     linkText: 'このウェブサイトのソースを GitHub で見る。',
   },
+  notFound: {
+    title: 'ページが見つかりません',
+    message: 'そのページは存在しません。移動されたか、リンクが間違っている可能性があります。',
+    homeLink: 'ホームページへ',
+  },
   project: {
     type: {
       app: 'アプリ',

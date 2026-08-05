@@ -52,6 +52,11 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
     text: '所有内容、代码及图片（标识图形除外）版权所有 ©2011–{year} Tim Morgan。保留所有权利。{link}',
     linkText: '在 GitHub 上查看本网站的源代码。',
   },
+  notFound: {
+    title: '页面未找到',
+    message: '该页面不存在。它可能已被移动，或者链接有误。',
+    homeLink: '前往首页',
+  },
   project: {
     type: {
       app: '应用',
