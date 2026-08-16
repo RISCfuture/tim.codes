@@ -61,6 +61,12 @@ export default defineConfig(({ command, mode }) => {
         manifest: false,
         injectRegister: 'script',
         workbox: {
+          // Bundle the Workbox runtime into `sw.js`. Loading it as a separate
+          // chunk makes the worker reach for `importScripts` and `script.src`,
+          // both Trusted Types sinks, which violates the
+          // `require-trusted-types-for 'script'` directive the site reports on.
+          // Sentry TIM-DOT-CODES-A.
+          inlineWorkboxRuntime: true,
           globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff,woff2}'],
           navigateFallback: 'index.html',
           navigateFallbackDenylist: [/^\/api/, /\.map$/],

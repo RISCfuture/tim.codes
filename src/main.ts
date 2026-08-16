@@ -60,6 +60,11 @@ Sentry.init({
     // calls `window.webkit.messageHandlers`; it throws when that handler is
     // absent. Not our code and unfixable here. Sentry TIM-DOT-CODES-8.
     /messageHandlers/u,
+    // Microsoft's Outlook SafeLinks crawler rejects a promise from its own
+    // injected instrumentation while previewing a link. It arrives without a
+    // stacktrace from an Azure address, never from a visitor. Sentry
+    // TIM-DOT-CODES-C.
+    /Object Not Found Matching Id/u,
   ],
 })
 
