@@ -1,8 +1,6 @@
 {
   "extends":         "./tsconfig.app.json",
   "include":         [
-    "./cypress/support/**/*.ts",
-    "./cypress/fixtures/**/*.ts",
     "./src/**/*",
     "env.d.ts"
   ],

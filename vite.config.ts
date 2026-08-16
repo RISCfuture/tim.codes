@@ -39,14 +39,14 @@ function emitRouteShells(outDir = 'dist'): Plugin {
 
 // Base config shared with vitest
 export const baseConfig: UserConfig = {
-  plugins: [vue(), vueDevTools({ launchEditor: 'rubymine' })],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   build: {
-    sourcemap: true,
+    sourcemap: 'hidden',
   },
 }
 
@@ -59,7 +59,7 @@ export default defineConfig(({ command, mode }) => {
       VitePWA({
         registerType: 'autoUpdate',
         manifest: false,
-        injectRegister: 'script',
+        injectRegister: false,
         workbox: {
           // Bundle the Workbox runtime into `sw.js`. Loading it as a separate
           // chunk makes the worker reach for `importScripts` and `script.src`,
@@ -81,6 +81,10 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     ...baseConfig,
-    plugins: [...(baseConfig.plugins || []), ...buildPlugins],
+    plugins: [
+      ...(baseConfig.plugins || []),
+      command === 'serve' && vueDevTools({ launchEditor: process.env.VITE_LAUNCH_EDITOR }),
+      ...buildPlugins,
+    ].filter(Boolean),
   }
 })
