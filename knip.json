@@ -1,49 +1,18 @@
 {
-  "entry": ["vitest.setup.ts", "src/**/__tests__/**/*.spec.ts"],
+  "entry": ["src/**/__tests__/**/*.spec.ts"],
   "project": ["src/**/*.{ts,vue}"],
-  "ignore": [
-    "src/i18n/strings/*/private.deploy.ts",
-    "src/i18n/strings/types.ts"
-  ],
+  "ignore": ["src/i18n/strings/*/private.deploy.ts", "src/i18n/strings/types.ts"],
   "ignoreDependencies": [
+    "@types/setimmediate",
     "@vue/compiler-dom",
     "@vue/server-renderer",
     "@vue/test-utils",
-    "stylelint-config-recommended-scss",
-    "@types/setimmediate",
     "setimmediate",
-    "eslint",
-    "jiti",
-    "npm-run-all2",
-    "oxlint",
-    "postcss",
-    "postcss-html",
-    "prettier",
-    "sass",
-    "stylelint",
-    "stylelint-order",
-    "terser",
-    "typedoc",
-    "vue-eslint-parser",
-    "vue-tsc"
-  ],
-  "ignoreBinaries": [
-    "vite",
-    "run-p",
-    "run-s",
-    "vitest",
-    "playwright",
-    "vue-tsc",
-    "oxlint",
-    "eslint",
-    "stylelint",
-    "knip",
-    "prettier",
-    "typedoc"
+    "stylelint-config-recommended-scss"
   ],
   "ignoreExportsUsedInFile": true,
   "rules": {
-    "exports": "warn",
+    "exports": "error",
     "enumMembers": "off",
     "unresolved": "off"
   }
