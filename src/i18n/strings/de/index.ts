@@ -54,7 +54,8 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   notFound: {
     title: 'Seite nicht gefunden',
-    message: 'Diese Seite existiert nicht. Möglicherweise wurde sie verschoben, oder der Link ist falsch.',
+    message:
+      'Diese Seite existiert nicht. Möglicherweise wurde sie verschoben, oder der Link ist falsch.',
     homeLink: 'Zur Startseite',
   },
   project: {

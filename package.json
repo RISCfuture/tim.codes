@@ -24,6 +24,7 @@
     "lint": "run-s lint:oxlint 'lint:eslint' 'lint:stylelint' 'lint:knip'",
     "lint:fix": "run-s lint:oxlint 'lint:eslint:fix' 'lint:stylelint:fix' 'lint:knip'",
     "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
     "doc": "npx typedoc --out docs src"
   },
   "dependencies": {
