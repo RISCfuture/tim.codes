@@ -9,8 +9,13 @@
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "paths":           {
+    "paths": {
       "@/*": [
         "./src/*"
       ]

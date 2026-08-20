@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
 
-import { prerenderPaths } from './src/router/prerenderPaths'
+import { prerenderPaths } from './src/router/prerenderPaths.ts'
 
 /**
  * Copies the built shell to `404.html` and to each client-side route, so the

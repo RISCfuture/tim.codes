@@ -32,6 +32,7 @@
     "no-negated-condition": "off",
     "no-use-before-define": "off",
     "no-shadow": "off",
+    "one-var": "off",
     "no-warning-comments": "off",
     "func-names": "off",
     "unicorn/no-null": "off",
