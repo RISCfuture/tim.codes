@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import type { Job } from '@/types/resume'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { I18nT, useI18n } from 'vue-i18n'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
 const { t, d } = useI18n()

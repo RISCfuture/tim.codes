@@ -1,7 +1,7 @@
 @font-face {
   font-family: Titilium;
   font-weight: normal;
-  src: url('../fonts/TitilliumWeb-Regular.ttf');
+  src: url('../fonts/TitilliumWeb-Regular.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -9,7 +9,7 @@
   font-family: Titilium;
   font-style: italic;
   font-weight: normal;
-  src: url('../fonts/TitilliumWeb-Italic.ttf');
+  src: url('../fonts/TitilliumWeb-Italic.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -17,34 +17,34 @@
   font-family: Titilium;
   font-style: italic;
   font-weight: 500;
-  src: url('../fonts/TitilliumWeb-SemiBoldItalic.ttf');
+  src: url('../fonts/TitilliumWeb-SemiBoldItalic.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: Titilium;
   font-weight: 500;
-  src: url('../fonts/TitilliumWeb-SemiBold.ttf');
+  src: url('../fonts/TitilliumWeb-SemiBold.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: Titilium;
   font-weight: 700;
-  src: url('../fonts/TitilliumWeb-Bold.ttf');
+  src: url('../fonts/TitilliumWeb-Bold.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: Inter;
   font-weight: 300;
-  src: url('../fonts/Inter-Light-slnt=0.ttf');
+  src: url('../fonts/Inter-Light-slnt=0.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: Inter;
   font-weight: bold;
-  src: url('../fonts/Inter-Bold-slnt=0.ttf');
+  src: url('../fonts/Inter-Bold-slnt=0.woff2') format('woff2');
   font-display: swap;
 }

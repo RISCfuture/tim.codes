@@ -170,7 +170,7 @@ header {
 
 h1 {
   font-family: Inter, sans-serif;
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   opacity: var(--neon-intensity);
 
