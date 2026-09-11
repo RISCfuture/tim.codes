@@ -1,10 +1,10 @@
-import '@/assets/fonts/TitilliumWeb-Regular.ttf'
-import '@/assets/fonts/TitilliumWeb-Italic.ttf'
-import '@/assets/fonts/TitilliumWeb-SemiBold.ttf'
-import '@/assets/fonts/TitilliumWeb-SemiBoldItalic.ttf'
-import '@/assets/fonts/TitilliumWeb-Bold.ttf'
-import '@/assets/fonts/Inter-Bold-slnt=0.ttf'
-import '@/assets/fonts/Inter-Light-slnt=0.ttf'
+import '@/assets/fonts/TitilliumWeb-Regular.woff2'
+import '@/assets/fonts/TitilliumWeb-Italic.woff2'
+import '@/assets/fonts/TitilliumWeb-SemiBold.woff2'
+import '@/assets/fonts/TitilliumWeb-SemiBoldItalic.woff2'
+import '@/assets/fonts/TitilliumWeb-Bold.woff2'
+import '@/assets/fonts/Inter-Bold-slnt=0.woff2'
+import '@/assets/fonts/Inter-Light-slnt=0.woff2'
 
 import 'normalize.css/normalize.css'
 import '@/assets/styles/fonts.scss'
@@ -42,7 +42,6 @@ Sentry.init({
       },
     }),
     Sentry.browserTracingIntegration({ router }),
-    Sentry.replayIntegration({ maskAllText: true, blockAllMedia: true }),
   ],
   tracesSampleRate: 1.0,
   enableLogs: true,
@@ -110,3 +109,7 @@ function registerServiceWorker(): void {
 
 // Only a production build emits `sw.js`.
 if (import.meta.env.PROD) registerServiceWorker()
+
+// Loaded last, and as its own chunk, so the recorder never delays the first paint.
+const { addSessionReplay } = await import('@/utils/sessionReplay')
+addSessionReplay()

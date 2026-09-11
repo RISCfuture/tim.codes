@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import type { Education } from '@/types/resume'
-import { useI18n } from 'vue-i18n'
+import { I18nT, useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import { list } from '@/i18n/functions'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
