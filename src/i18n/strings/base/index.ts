@@ -61,6 +61,9 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     CTAHelper: { name: 'CTA Helper' },
     SubTrack: { name: 'SubTrack' },
     zili: { name: 'Zili' },
+    zephyr: { name: 'Zephyr' },
+    measurementKit: { name: 'MeasurementKit' },
+    xcuiTestKit: { name: 'XCUITestKit' },
   },
   resume: {
     timeRange: '{start}–{end}',

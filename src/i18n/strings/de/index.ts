@@ -294,6 +294,33 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Schreib- und Hörquiz greifen auf HSK-Sätze zurück; ein antippbares Wörterbuch ist überall verfügbar',
       ],
     },
+    zephyr: {
+      description:
+        'Ein quelloffener Dropbox-Client für macOS, der Ihre Dateien in die Finder-Seitenleiste bringt, ohne sie auf die Festplatte zu spiegeln',
+      achievements: [
+        'Baut auf dem replizierten File Provider von macOS auf – ein Terabyte-Konto belegt keinen lokalen Speicher, bis eine Datei geöffnet wird',
+        'Der Finder zeigt echte Miniaturbilder für Dateien, die dieser Mac nie heruntergeladen hat, und Änderungen von außen erscheinen binnen Sekunden',
+        'Jede Übertragung wird gegen den Content-Hash von Dropbox geprüft, und Uploads in Teilstücken laufen nach einem Absturz weiter',
+      ],
+    },
+    measurementKit: {
+      description:
+        'Rechenoperationen, Einheiten und Dimensionen, die der Measurement-Typ von Foundation auslässt',
+      achievements: [
+        'Sechzig dimensionsübergreifende Operatoren liefern die Einheit, die man selbst geschrieben hätte: 120 Knoten über zwei Stunden ergeben 240 Seemeilen',
+        'Ergänzt die von Foundation ausgelassenen Dimensionen – Kraft, Steigung, Dichte, Winkelgeschwindigkeit sowie Volumen- und Massenstrom',
+        'Zwei Temperaturen zu dividieren oder eine missweisende mit einer rechtweisenden Peilung zu mischen, ist ein Compile-Fehler statt eines stillen Irrtums',
+      ],
+    },
+    xcuiTestKit: {
+      description:
+        'Gemeinsame XCUITest-Helfer, die UI-Tests für iOS, macOS, watchOS und visionOS auf langsamer CI stabil halten',
+      achievements: [
+        'Erholt sich von Ausfällen des Accessibility-Servers, die die meisten Fehlschläge auf langsamer CI verursachen, indem die App neu gestartet und der Schritt wiederholt wird',
+        'Tippen bei stabilem Frame und Prüfungen auf Tastaturfokus beseitigen die häufigsten Ursachen unzuverlässiger Interaktionen',
+        'Zeitlimits skalieren über eine Umgebungsvariable, sodass dieselbe Suite lokal schnell und unter CI geduldig läuft',
+      ],
+    },
   },
   resume: {
     present: 'Heute',

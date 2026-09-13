@@ -264,6 +264,32 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
         '书写与听力测验取材于 HSK 例句，并可在应用任意位置轻点查词',
       ],
     },
+    zephyr: {
+      description:
+        '一款面向 macOS 的开源 Dropbox 客户端，把文件放进 Finder 边栏，而不在磁盘上镜像一份',
+      achievements: [
+        '基于 macOS 的 replicated File Provider 模型，因此在打开文件之前，1 TB 的账户不占用任何本地空间',
+        'Finder 能为这台 Mac 从未下载过的图片显示真实缩略图，外部改动也会在数秒内出现',
+        '每次传输都会比对 Dropbox 的内容哈希，分块上传在进程崩溃后仍可续传',
+      ],
+    },
+    measurementKit: {
+      description: '补齐 Foundation 的 Measurement 类型所缺少的运算、单位与量纲',
+      achievements: [
+        '六十个跨量纲运算符会给出你本来会写的单位：120 节飞行两小时正是 240 海里',
+        '补上 Foundation 未提供的量纲：力、坡度、密度、角速度，以及体积流量与质量流量',
+        '两个温度相除、或把磁方位与真方位混用都会编译报错，而不是变成一处无声的错误',
+      ],
+    },
+    xcuiTestKit: {
+      description:
+        '一套共用的 XCUITest 辅助工具，让 iOS、macOS、watchOS 与 visionOS 的界面测试在缓慢的 CI 上不再抖动',
+      achievements: [
+        '通过重启应用并重试，从辅助功能服务器故障中恢复——这正是缓慢 CI 上多数测试抖动的根源',
+        '等画面稳定后再点击，并断言键盘已获得焦点，消除交互不稳定的最常见成因',
+        '超时时间由环境变量按倍数缩放，同一套测试在本地跑得快，在 CI 上则更有耐心',
+      ],
+    },
   },
   resume: {
     present: '至今',

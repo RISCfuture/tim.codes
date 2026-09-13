@@ -296,6 +296,33 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Los cuestionarios de escritura y escucha usan frases del HSK, con un diccionario táctil en toda la app',
       ],
     },
+    zephyr: {
+      description:
+        'Un cliente de Dropbox de código abierto para macOS que pone tus archivos en la barra lateral del Finder sin replicarlos en el disco',
+      achievements: [
+        'Construido sobre el modelo de File Provider replicado de macOS, así que una cuenta de un terabyte no ocupa espacio local hasta que abres un archivo',
+        'El Finder muestra miniaturas reales de imágenes que este Mac nunca ha descargado, y los cambios externos llegan en segundos',
+        'Cada transferencia se verifica contra el hash de contenido de Dropbox, y las subidas por fragmentos se reanudan si el proceso muere',
+      ],
+    },
+    measurementKit: {
+      description:
+        'Aritmética, unidades y dimensiones que el tipo Measurement de Foundation deja fuera',
+      achievements: [
+        'Sesenta operadores entre dimensiones responden en la unidad que habrías escrito: 120 nudos durante dos horas son 240 millas náuticas',
+        'Añade las dimensiones que Foundation omite: fuerza, pendiente, densidad, velocidad angular y caudal volumétrico y másico',
+        'Dividir dos temperaturas, o mezclar un rumbo magnético con uno verdadero, es un error de compilación en vez de un fallo silencioso',
+      ],
+    },
+    xcuiTestKit: {
+      description:
+        'Utilidades compartidas de XCUITest que evitan que las pruebas de interfaz de iOS, macOS, watchOS y visionOS fallen de forma intermitente en una CI lenta',
+      achievements: [
+        'Se recupera de los fallos del servidor de accesibilidad que causan la mayoría de las intermitencias en una CI lenta, reiniciando la app y reintentando',
+        'La pulsación con marco estable y las comprobaciones de foco del teclado eliminan las causas más habituales de interacciones inestables',
+        'Los tiempos de espera se escalan mediante una variable de entorno, de modo que la misma suite corre rápido en local y con paciencia en CI',
+      ],
+    },
   },
   resume: {
     present: 'Actualidad',
