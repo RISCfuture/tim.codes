@@ -50,7 +50,7 @@ and `pnpm format:check` verifies it without writing. `pnpm type-check` runs
 
 ## Deployment
 
-This website is deployed to Cloudflare Workers. Once CI passes on `master`, the
+This website is deployed to Cloudflare Workers. Once CI passes on `main`, the
 `deploy.yml` GitHub Action builds the `dist/` directory, uploads the source maps
 to Sentry, deletes them from the build output, and then runs `wrangler deploy`.
 Wrangler serves `dist/` as static assets on the `tim.codes` custom domain, as
