@@ -61,7 +61,6 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
   project: {
     type: {
       app: 'App',
-      gem: 'Gem',
       library: 'Bibliothek',
       tool: 'Werkzeug',
       website: 'Website',
@@ -74,21 +73,14 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
       source: 'Quellcode',
     },
     language: {
-      C: 'C',
       CSS: 'CSS',
-      ES5: 'ES5',
-      ES2015: 'ES2015',
       HTML: 'HTML',
-      objectiveC: 'Objective-C',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
     },
     library: {
-      bootstrap: 'Bootstrap',
-      jQuery: 'jQuery',
       rails: 'Ruby on Rails',
-      stimulus: 'Stimulus + Turbo + Hotwire',
       swiftUI: 'SwiftUI',
       vueJS: 'Vue.js',
     },

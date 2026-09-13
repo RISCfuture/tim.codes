@@ -6,9 +6,6 @@ export enum ProjectType {
   /** A site hosted on the web. */
   WEBSITE = 'website',
 
-  /** A Ruby gem. */
-  GEM = 'gem',
-
   /** A library for some other programming language. */
   LIBRARY = 'library',
 
@@ -45,14 +42,10 @@ export enum WebsiteType {
 
 export enum Language {
   RUBY = 'ruby' /** < Ruby */,
-  ES5 = 'ES5' /** < Traditional JavaScript */,
-  ES2015 = 'ES2015' /** < ECMAScript (5, 6, 2014, Next, ...) */,
   TYPESCRIPT = 'typeScript' /** < TypeScript */,
   HTML = 'HTML' /** < HTML */,
   CSS = 'CSS' /** < CSS, Sass, SCSS */,
   SWIFT = 'swift' /** < Swift */,
-  OBJECTIVE_C = 'objectiveC' /** < Objective-C */,
-  C = 'c' /** < C */,
 }
 
 /**
@@ -60,10 +53,7 @@ export enum Language {
  */
 
 export enum Library {
-  BOOTSTRAP = 'bootstrap' /** < Bootstrap (JavaScript) */,
-  JQUERY = 'jQuery' /** < jQuery (JavaScript) */,
   RAILS = 'rails' /** < Ruby on Rails (Ruby) */,
-  STIMULUS = 'stimulus' /** < Stimulus (JavaScript) */,
   SWIFTUI = 'swiftUI' /** < SwiftUI (Swift) */,
   VUEJS = 'vueJS' /** < Vue.js (JavaScript) */,
 }

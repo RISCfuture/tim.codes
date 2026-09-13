@@ -60,7 +60,6 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
   project: {
     type: {
       app: 'aplicación',
-      gem: 'gem',
       library: 'biblioteca',
       tool: 'herramienta',
       website: 'sitio web',
@@ -73,21 +72,14 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
       source: 'código fuente',
     },
     language: {
-      C: 'C',
       CSS: 'CSS',
-      ES5: 'ES5',
-      ES2015: 'ES2015',
       HTML: 'HTML',
-      objectiveC: 'Objective-C',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
     },
     library: {
-      bootstrap: 'Bootstrap',
-      jQuery: 'jQuery',
       rails: 'Ruby on Rails',
-      stimulus: 'Stimulus + Turbo + Hotwire',
       swiftUI: 'SwiftUI',
       vueJS: 'Vue.js',
     },

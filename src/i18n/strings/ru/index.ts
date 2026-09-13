@@ -60,7 +60,6 @@ const ru: LocaleMessages<DefaultLocaleMessageSchema> = {
   project: {
     type: {
       app: 'приложение',
-      gem: 'gem',
       library: 'библиотека',
       tool: 'инструмент',
       website: 'веб-сайт',
@@ -73,21 +72,14 @@ const ru: LocaleMessages<DefaultLocaleMessageSchema> = {
       source: 'исходный код',
     },
     language: {
-      C: 'C',
       CSS: 'CSS',
-      ES5: 'ES5',
-      ES2015: 'ES2015',
       HTML: 'HTML',
-      objectiveC: 'Objective-C',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
     },
     library: {
-      bootstrap: 'Bootstrap',
-      jQuery: 'jQuery',
       rails: 'Ruby on Rails',
-      stimulus: 'Stimulus + Turbo + Hotwire',
       swiftUI: 'SwiftUI',
       vueJS: 'Vue.js',
     },
