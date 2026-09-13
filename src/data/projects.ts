@@ -371,4 +371,44 @@ export const projects: Project[] = [
     featured: false,
     vibeCoded: true,
   },
+  {
+    type: ProjectType.APP,
+    identifier: 'zephyr',
+    websites: [
+      { url: 'https://github.com/RISCfuture/Zephyr', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/Zephyr/', type: WebsiteType.MARKETING },
+      {
+        url: 'https://apps.apple.com/us/app/zephyr-dropbox-client/id6804861752',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.SWIFTUI],
+    featured: true,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.LIBRARY,
+    identifier: 'measurementKit',
+    websites: [
+      { url: 'https://github.com/RISCfuture/MeasurementKit', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/MeasurementKit/', type: WebsiteType.DOCS },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [],
+    featured: false,
+    vibeCoded: false,
+  },
+  {
+    type: ProjectType.LIBRARY,
+    identifier: 'xcuiTestKit',
+    websites: [
+      { url: 'https://github.com/RISCfuture/XCUITestKit', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/XCUITestKit/', type: WebsiteType.DOCS },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
 ]

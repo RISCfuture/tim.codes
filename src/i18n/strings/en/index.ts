@@ -288,6 +288,33 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Writing and listening quizzes draw on HSK sentences, with a tappable dictionary anywhere in the app',
       ],
     },
+    zephyr: {
+      description:
+        'An open-source Dropbox client for macOS that puts your files in the Finder sidebar without mirroring them to disk',
+      achievements: [
+        'Built on the macOS replicated File Provider model, so a terabyte account costs no local space until a file is opened',
+        'Finder shows real image thumbnails for files this Mac has never downloaded, and outside changes arrive within seconds',
+        'Every transfer is verified against Dropbox’s content hash, and chunked uploads resume after the process dies',
+      ],
+    },
+    measurementKit: {
+      description:
+        'Arithmetic, units, and dimensions that Foundation’s Measurement type leaves out',
+      achievements: [
+        'Sixty cross-dimensional operators answer in the unit you would have written: 120 knots for two hours is 240 nautical miles',
+        'Adds the dimensions Foundation omits — force, slope, density, angular velocity, and volumetric and mass flow rate',
+        'Dividing two temperatures, or mixing a magnetic bearing with a true one, is a compile error rather than a silent mistake',
+      ],
+    },
+    xcuiTestKit: {
+      description:
+        'Shared XCUITest helpers that keep iOS, macOS, watchOS, and visionOS UI tests from flaking on slow CI',
+      achievements: [
+        'Recovers from the accessibility-server failures that cause most slow-CI flakes by relaunching the app and retrying',
+        'Frame-stability tapping and keyboard-focus assertions remove the most common sources of flaky interaction',
+        'Timeouts scale from an environment variable, so one suite runs fast locally and patiently under CI',
+      ],
+    },
   },
   resume: {
     present: 'Present',

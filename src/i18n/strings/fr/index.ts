@@ -297,6 +297,33 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
         "Les quiz d'écriture et d'écoute s'appuient sur des phrases HSK, avec un dictionnaire tactile partout dans l'app",
       ],
     },
+    zephyr: {
+      description:
+        'Un client Dropbox open source pour macOS qui place vos fichiers dans la barre latérale du Finder sans les recopier sur le disque',
+      achievements: [
+        "Fondé sur le modèle File Provider répliqué de macOS : un compte d'un téraoctet ne coûte aucun espace local tant qu'aucun fichier n'est ouvert",
+        "Le Finder affiche de vraies vignettes pour des images que ce Mac n'a jamais téléchargées, et les modifications externes arrivent en quelques secondes",
+        "Chaque transfert est vérifié par rapport au hachage de contenu de Dropbox, et les envois fragmentés reprennent après l'arrêt du processus",
+      ],
+    },
+    measurementKit: {
+      description:
+        'Arithmétique, unités et dimensions que le type Measurement de Foundation laisse de côté',
+      achievements: [
+        'Soixante opérateurs interdimensionnels répondent dans l’unité que vous auriez écrite : 120 nœuds pendant deux heures font 240 milles marins',
+        'Ajoute les dimensions que Foundation omet : force, pente, masse volumique, vitesse angulaire et débits volumique et massique',
+        "Diviser deux températures, ou mêler un relèvement magnétique et un relèvement vrai, est une erreur de compilation plutôt qu'une erreur silencieuse",
+      ],
+    },
+    xcuiTestKit: {
+      description:
+        'Des utilitaires XCUITest partagés qui évitent aux tests d’interface iOS, macOS, watchOS et visionOS de flancher sur une CI lente',
+      achievements: [
+        "Se remet des défaillances du serveur d'accessibilité, à l'origine de la plupart des tests instables sur CI lente, en relançant l'application et en réessayant",
+        'Les appuis à cadre stabilisé et les vérifications du focus clavier suppriment les causes les plus courantes d’interactions instables',
+        'Les délais d’attente se règlent par une variable d’environnement, si bien que la même suite est rapide en local et patiente sur CI',
+      ],
+    },
   },
   resume: {
     present: 'Présent',
