@@ -29,20 +29,29 @@ private information locally.)
 
 ## Running in development
 
-`pnpm dev` will compile the source with Webpack, and run a local development
+`pnpm dev` will compile the source with Vite, and run a local development
 server at <http://localhost:5173>. The development web server supports
 hot-reloading.
 
 ## Running tests
 
-This website has both unit tests (written using Mocha/Chai and run using
-Jasmine) and end-to-end tests (run using Cypress). To run unit tests, run
-`pnpm test:unit`. Run `pnpm test:e2e` to launch the Cypress test runner and run
-end-to-end tests.
+This website has both unit tests (written using Vitest and Vue Testing Library)
+and end-to-end tests (run using Playwright against Chromium, Firefox, and
+WebKit). To run unit tests, run `pnpm test:unit`. Run `pnpm test:e2e` to build
+the site and run the end-to-end tests against a preview server, or
+`pnpm test:e2e:dev` to drive them from Playwright's UI mode.
+
+## Linting and type-checking
+
+`pnpm lint` runs oxlint, ESLint, Stylelint, and knip; `pnpm lint:fix` applies
+what those can fix automatically. `pnpm format` formats `src/` with Prettier,
+and `pnpm format:check` verifies it without writing. `pnpm type-check` runs
+`vue-tsc`. CI runs all three, and any failure fails the build.
 
 ## Deployment
 
-This website is hosted using GitHub pages. The `deploy.yml` GitHub Action creates
-the `dist/` directory, makes it point to the `gh-pages` branch of this
-repository, deploys into that directory, commits the changes, and then pushes
-those changes upstream. GitHub should automatically handle the rest.
+This website is deployed to Cloudflare Workers. Once CI passes on `master`, the
+`deploy.yml` GitHub Action builds the `dist/` directory, uploads the source maps
+to Sentry, deletes them from the build output, and then runs `wrangler deploy`.
+Wrangler serves `dist/` as static assets on the `tim.codes` custom domain, as
+configured in `wrangler.jsonc`.
