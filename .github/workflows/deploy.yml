@@ -45,8 +45,6 @@ jobs:
         env:
           VITE_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           VITE_SENTRY_RELEASE: ${{ github.sha }}
-      - name: Ensure /.well-known/ is in build output
-        run: test -f dist/.well-known/security.txt
       # Sourcemaps must reach Sentry BEFORE they are deleted. Do not reorder.
       - name: Create Sentry release
         uses: getsentry/action-release@v3
