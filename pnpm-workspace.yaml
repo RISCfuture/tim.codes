@@ -7,6 +7,8 @@ allowBuilds:
   # node-gyp source build that fails, so keep it unbuilt.
   sharp: false
   workerd: true
+minimumReleaseAgeExclude:
+  - knip@6.44.1
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js

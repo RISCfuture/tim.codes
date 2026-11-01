@@ -24,13 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
       - name: Set up pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.1.0
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7.1.0
         with:
           cache: pnpm
           node-version-file: .nvmrc
@@ -47,7 +47,7 @@ jobs:
           VITE_SENTRY_RELEASE: ${{ github.sha }}
       # Sourcemaps must reach Sentry BEFORE they are deleted. Do not reorder.
       - name: Create Sentry release
-        uses: getsentry/action-release@v3
+        uses: getsentry/action-release@v3.7.2
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: timcodes

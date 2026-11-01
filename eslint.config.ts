@@ -13,7 +13,14 @@ export default tseslint.config(
 
   {
     name: 'app/files-to-ignore',
-    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+    ignores: [
+      'docs/**',
+      'test-results/**',
+      'playwright-report/**',
+      '**/dist/**',
+      '**/dist-ssr/**',
+      '**/coverage/**',
+    ],
   },
 
   eslint.configs.recommended,

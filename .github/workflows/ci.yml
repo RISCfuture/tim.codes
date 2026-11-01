@@ -18,15 +18,15 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7.0.1
       - name: Copy private files
         run: |
           cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
           cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
       - name: Set up pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.1.0
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7.1.0
         with:
           cache: pnpm
           node-version-file: .nvmrc
@@ -39,22 +39,22 @@ jobs:
     name: E2E Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7.0.1
       - name: Copy private files
         run: |
           cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
           cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
       - name: Set up pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.1.0
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7.1.0
         with:
           cache: pnpm
           node-version-file: .nvmrc
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Cache Playwright browsers
-        uses: actions/cache@v6
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
@@ -73,15 +73,15 @@ jobs:
     name: Linters
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7.0.1
       - name: Copy private files
         run: |
           cp src/i18n/strings/base/private.deploy.ts src/i18n/strings/base/private.ts
           cp src/i18n/strings/en/private.deploy.ts src/i18n/strings/en/private.ts
       - name: Set up pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.1.0
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7.1.0
         with:
           cache: pnpm
           node-version-file: .nvmrc

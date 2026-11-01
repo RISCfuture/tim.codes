@@ -34,7 +34,7 @@ Sentry.init({
   dsn: sentryDSN,
   release: import.meta.env.VITE_SENTRY_RELEASE || undefined,
   environment: import.meta.env.PROD ? 'production' : 'development',
-  sendDefaultPii: true,
+
   integrations: [
     Sentry.vueIntegration({
       tracingOptions: {
@@ -44,7 +44,7 @@ Sentry.init({
     Sentry.browserTracingIntegration({ router }),
   ],
   tracesSampleRate: 1.0,
-  enableLogs: true,
+
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
   ignoreErrors: [
