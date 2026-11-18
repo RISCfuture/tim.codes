@@ -2,17 +2,9 @@
   <div class="projects">
     <section class="project-section vibe-coded">
       <h2 class="section-header">{{ t('projects.sections.vibeCoded') }}</h2>
-      <div class="featured">
-        <featured-project
-          v-for="project in vibeCodedFeatured"
-          :key="project.identifier"
-          :project="project"
-        />
-      </div>
-
-      <div class="minor">
-        <minor-project
-          v-for="project in vibeCodedMinor"
+      <div class="masonry">
+        <project-card
+          v-for="project in projectsStore.vibeCoded"
           :key="project.identifier"
           :project="project"
         />
@@ -21,17 +13,9 @@
 
     <section class="project-section trad-coded">
       <h2 class="section-header">{{ t('projects.sections.tradCoded') }}</h2>
-      <div class="featured">
-        <featured-project
-          v-for="project in tradCodedFeatured"
-          :key="project.identifier"
-          :project="project"
-        />
-      </div>
-
-      <div class="minor">
-        <minor-project
-          v-for="project in tradCodedMinor"
+      <div class="masonry">
+        <project-card
+          v-for="project in projectsStore.tradCoded"
           :key="project.identifier"
           :project="project"
         />
@@ -42,17 +26,11 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import FeaturedProject from '@/components/sections/projects/FeaturedProject.vue'
-import MinorProject from '@/components/sections/projects/MinorProject.vue'
+import ProjectCard from '@/components/sections/projects/ProjectCard.vue'
 import { useProjectsStore } from '@/stores/projects'
 
 const { t } = useI18n()
 const projectsStore = useProjectsStore()
-
-const tradCodedFeatured = projectsStore.tradCodedFeatured
-const tradCodedMinor = projectsStore.tradCodedMinor
-const vibeCodedFeatured = projectsStore.vibeCodedFeatured
-const vibeCodedMinor = projectsStore.vibeCodedMinor
 </script>
 
 <style scoped lang="scss">
@@ -91,6 +69,16 @@ const vibeCodedMinor = projectsStore.vibeCodedMinor
   }
 }
 
+.vibe-coded {
+  --section-accent-rgb: 156 39 176;
+  --section-gradient: var(--projects-vibe-gradient);
+}
+
+.trad-coded {
+  --section-accent-rgb: 255 75 43;
+  --section-gradient: var(--projects-trad-gradient);
+}
+
 .trad-coded .section-header {
   background-image: var(--projects-trad-gradient);
   filter: drop-shadow(0 0 15px rgb(255 75 43 / 30%)) drop-shadow(0 0 30px rgb(255 75 43 / 15%));
@@ -123,33 +111,30 @@ const vibeCodedMinor = projectsStore.vibeCodedMinor
   }
 }
 
-.featured,
-.minor {
-  display: grid;
-  grid-auto-rows: auto;
-  gap: 30px;
-  margin-bottom: 30px;
+.masonry {
+  --masonry-gap: 20px;
 
-  @include mq(iphone) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 4px;
+  grid-auto-flow: row dense;
+  column-gap: var(--masonry-gap);
+  align-items: start;
 
   @include mq(ipad) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    --masonry-gap: 24px;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include mq(large) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
 
-.minor {
-  @include mq(large) {
-    grid-template-columns: repeat(3, 1fr);
+  @supports (display: grid-lanes) {
+    display: grid-lanes;
+    grid-auto-rows: auto;
+    gap: var(--masonry-gap);
   }
 }
 </style>
