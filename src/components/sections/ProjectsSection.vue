@@ -1,24 +1,5 @@
 <template>
   <div class="projects">
-    <section class="project-section trad-coded">
-      <h2 class="section-header">{{ t('projects.sections.tradCoded') }}</h2>
-      <div class="featured">
-        <featured-project
-          v-for="project in tradCodedFeatured"
-          :key="project.identifier"
-          :project="project"
-        />
-      </div>
-
-      <div class="minor">
-        <minor-project
-          v-for="project in tradCodedMinor"
-          :key="project.identifier"
-          :project="project"
-        />
-      </div>
-    </section>
-
     <section class="project-section vibe-coded">
       <h2 class="section-header">{{ t('projects.sections.vibeCoded') }}</h2>
       <div class="featured">
@@ -32,6 +13,25 @@
       <div class="minor">
         <minor-project
           v-for="project in vibeCodedMinor"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
+    </section>
+
+    <section class="project-section trad-coded">
+      <h2 class="section-header">{{ t('projects.sections.tradCoded') }}</h2>
+      <div class="featured">
+        <featured-project
+          v-for="project in tradCodedFeatured"
+          :key="project.identifier"
+          :project="project"
+        />
+      </div>
+
+      <div class="minor">
+        <minor-project
+          v-for="project in tradCodedMinor"
           :key="project.identifier"
           :project="project"
         />

@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.RUBY, Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.RAILS, Library.VUEJS],
-    featured: true,
+    featured: false,
     vibeCoded: false,
   },
   {
@@ -224,7 +224,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.TYPESCRIPT, Language.HTML, Language.CSS],
     libraries: [Library.VUEJS],
-    featured: true,
+    featured: false,
     vibeCoded: true,
   },
   {
@@ -236,7 +236,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: true,
+    featured: false,
     vibeCoded: true,
   },
   {
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.SWIFT],
     libraries: [],
-    featured: true,
+    featured: false,
     vibeCoded: true,
   },
   {
@@ -368,7 +368,7 @@ export const projects: Project[] = [
     ],
     languages: [Language.SWIFT],
     libraries: [Library.SWIFTUI],
-    featured: false,
+    featured: true,
     vibeCoded: true,
   },
   {
