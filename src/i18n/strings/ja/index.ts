@@ -89,9 +89,12 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: '手書きコード',
-      vibeCoded: 'バイブコーディング',
+      aviationApps: '航空アプリ・ツール',
+      apps: 'アプリ・ゲーム',
+      aviationLibraries: '航空ライブラリ',
+      developerTools: '開発者向けライブラリ・ツール',
     },
+    tradCodedRibbon: '手書き',
     badBehavior: {
       description: 'デジタル飛行記録を解析し、連邦航空規則（FAR）の違反の可能性をチェックします',
       achievements: [

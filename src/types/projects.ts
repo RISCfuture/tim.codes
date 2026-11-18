@@ -20,6 +20,23 @@ export enum ProjectType {
 }
 
 /**
+ * The topic a {@link Project} is grouped under on the Projects page, in display order.
+ */
+export enum ProjectCategory {
+  /** Apps, websites, and tools for pilots. */
+  AVIATION_APPS = 'aviationApps',
+
+  /** General-audience apps and games. */
+  APPS = 'apps',
+
+  /** Libraries that parse or compute aviation and geospatial data. */
+  AVIATION_LIBRARIES = 'aviationLibraries',
+
+  /** Libraries and tools for other developers. */
+  DEVELOPER_TOOLS = 'developerTools',
+}
+
+/**
  * The types of websites associated with a {@link Project}.
  */
 export enum WebsiteType {
@@ -84,6 +101,9 @@ export interface Project {
   /** The project type. */
   type: ProjectType
 
+  /** The section the project is listed under. */
+  category: ProjectCategory
+
   /**
    * An internal unique identifier for this project, used as a key and to form
    * an i18n key.
@@ -102,6 +122,6 @@ export interface Project {
   /** If true, the project is shown prominently and at the head of the list. */
   featured: boolean
 
-  /** If true, the project was majority vibe-coded with AI assistance. */
+  /** If true, the project was majority vibe-coded with AI assistance; otherwise it is marked trad-coded. */
   vibeCoded: boolean
 }

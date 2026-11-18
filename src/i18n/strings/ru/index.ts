@@ -89,9 +89,12 @@ const ru: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: 'Trad-Coded',
-      vibeCoded: 'Vibe-Coded',
+      aviationApps: 'Авиационные приложения и инструменты',
+      apps: 'Приложения и игры',
+      aviationLibraries: 'Авиационные библиотеки',
+      developerTools: 'Библиотеки и инструменты для разработчиков',
     },
+    tradCodedRibbon: 'Trad-Coded',
     badBehavior: {
       description:
         'Проверяет ваш электронный лётный журнал на потенциальные нарушения федеральных авиационных правил',

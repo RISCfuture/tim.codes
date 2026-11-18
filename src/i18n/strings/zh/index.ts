@@ -89,9 +89,12 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: '手工编写',
-      vibeCoded: 'AI 氛围编程',
+      aviationApps: '航空应用与工具',
+      apps: '应用与游戏',
+      aviationLibraries: '航空库',
+      developerTools: '开发者库与工具',
     },
+    tradCodedRibbon: '手写',
     badBehavior: {
       description: '扫描你的电子飞行日志，查找可能违反联邦航空条例的情况',
       achievements: [

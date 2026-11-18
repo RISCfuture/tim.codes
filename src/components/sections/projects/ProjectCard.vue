@@ -2,9 +2,10 @@
   <div
     ref="elementRef"
     class="project-card"
-    :class="{ featured: project.featured, visible: isVisible }"
+    :class="{ featured: project.featured, 'trad-coded': !project.vibeCoded, visible: isVisible }"
     :style="rowSpanStyle"
   >
+    <span v-if="!project.vibeCoded" class="trad-ribbon">{{ t('projects.tradCodedRibbon') }}</span>
     <h1>
       <a
         v-if="project.websites[0]?.url"
@@ -45,6 +46,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import useProject from '@/components/sections/projects/useProject'
 import type { Project, WebsiteType } from '@/types/projects'
 import { useMasonrySpan } from '@/composables/useMasonrySpan'
@@ -52,6 +54,8 @@ import { useScrollAnimation } from '@/composables/useScrollAnimation'
 import { useProjectMetrics } from '@/composables/useProjectMetrics'
 
 const props = defineProps<{ project: Project }>()
+
+const { t } = useI18n()
 
 const { trackProjectClick } = useProjectMetrics()
 
@@ -78,6 +82,7 @@ const rowSpanStyle = computed(() =>
   box-sizing: border-box;
   padding: 18px 20px;
   margin: 0 0 var(--masonry-gap);
+  overflow: hidden;
   background: rgb(var(--section-accent-rgb) / 3%);
   border: 1px solid rgb(var(--section-accent-rgb) / 12%);
   border-radius: 10px;
@@ -135,6 +140,29 @@ h1 {
   }
 }
 
+.trad-ribbon {
+  position: absolute;
+  top: 22px;
+  right: -30px;
+  width: 130px;
+  padding: 3px 0;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  background: var(--projects-trad-ribbon-gradient);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+  transform: rotate(45deg);
+}
+
+.trad-coded h1 {
+  padding-right: 48px;
+}
+
 p {
   margin: 0 0 10px;
   font-size: 14px;
@@ -173,7 +201,7 @@ p {
 
   &::before {
     position: absolute;
-    top: -1px;
+    top: 0;
     right: 16px;
     left: 16px;
     height: 3px;

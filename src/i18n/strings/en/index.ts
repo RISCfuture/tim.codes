@@ -90,9 +90,12 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: 'Trad-Coded',
-      vibeCoded: 'Vibe-Coded',
+      aviationApps: 'Aviation Apps & Tools',
+      apps: 'Apps & Games',
+      aviationLibraries: 'Aviation Libraries',
+      developerTools: 'Developer Libraries & Tools',
     },
+    tradCodedRibbon: 'Trad-Coded',
     badBehavior: {
       description:
         'Scans your digital pilot logbook for potential violations of federal aviation regulations',

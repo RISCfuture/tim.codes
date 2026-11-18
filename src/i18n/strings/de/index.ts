@@ -90,9 +90,12 @@ const de: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: 'Trad-Coded',
-      vibeCoded: 'Vibe-Coded',
+      aviationApps: 'Luftfahrt-Apps & Tools',
+      apps: 'Apps & Spiele',
+      aviationLibraries: 'Luftfahrt-Bibliotheken',
+      developerTools: 'Entwickler-Bibliotheken & Tools',
     },
+    tradCodedRibbon: 'Trad-Coded',
     badBehavior: {
       description:
         'Durchsucht Ihr digitales Flugbuch nach möglichen Verstößen gegen die Luftfahrtvorschriften',

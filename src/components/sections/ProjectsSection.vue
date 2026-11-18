@@ -1,21 +1,15 @@
 <template>
   <div class="projects">
-    <section class="project-section vibe-coded">
-      <h2 class="section-header">{{ t('projects.sections.vibeCoded') }}</h2>
+    <section
+      v-for="section in projectsStore.sections"
+      :key="section.category"
+      class="project-section"
+      :class="kebabCase(section.category)"
+    >
+      <h2 class="section-header">{{ t(`projects.sections.${section.category}`) }}</h2>
       <div class="masonry">
         <project-card
-          v-for="project in projectsStore.vibeCoded"
-          :key="project.identifier"
-          :project="project"
-        />
-      </div>
-    </section>
-
-    <section class="project-section trad-coded">
-      <h2 class="section-header">{{ t('projects.sections.tradCoded') }}</h2>
-      <div class="masonry">
-        <project-card
-          v-for="project in projectsStore.tradCoded"
+          v-for="project in section.projects"
           :key="project.identifier"
           :project="project"
         />
@@ -25,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import { kebabCase } from 'lodash-es'
 import { useI18n } from 'vue-i18n'
 import ProjectCard from '@/components/sections/projects/ProjectCard.vue'
 import { useProjectsStore } from '@/stores/projects'
@@ -69,37 +64,36 @@ const projectsStore = useProjectsStore()
   }
 }
 
-.vibe-coded {
+.aviation-apps {
+  --section-accent-rgb: 0 161 228;
+  --section-gradient: var(--projects-aviation-apps-gradient);
+}
+
+.apps {
   --section-accent-rgb: 156 39 176;
-  --section-gradient: var(--projects-vibe-gradient);
+  --section-gradient: var(--projects-apps-gradient);
 }
 
-.trad-coded {
-  --section-accent-rgb: 255 75 43;
-  --section-gradient: var(--projects-trad-gradient);
+.aviation-libraries {
+  --section-accent-rgb: 0 137 123;
+  --section-gradient: var(--projects-aviation-libraries-gradient);
 }
 
-.trad-coded .section-header {
-  background-image: var(--projects-trad-gradient);
-  filter: drop-shadow(0 0 15px rgb(255 75 43 / 30%)) drop-shadow(0 0 30px rgb(255 75 43 / 15%));
+.developer-tools {
+  --section-accent-rgb: 220 0 115;
+  --section-gradient: var(--projects-developer-tools-gradient);
+}
+
+.section-header {
+  background-image: var(--section-gradient);
+  filter: drop-shadow(0 0 15px rgb(var(--section-accent-rgb) / 30%))
+    drop-shadow(0 0 30px rgb(var(--section-accent-rgb) / 15%));
 
   &::after {
-    background: var(--projects-trad-gradient);
+    background: var(--section-gradient);
     box-shadow:
-      0 0 15px rgb(255 75 43 / 40%),
-      0 0 30px rgb(255 75 43 / 20%);
-  }
-}
-
-.vibe-coded .section-header {
-  background-image: var(--projects-vibe-gradient);
-  filter: drop-shadow(0 0 15px rgb(156 39 176 / 30%)) drop-shadow(0 0 30px rgb(156 39 176 / 15%));
-
-  &::after {
-    background: var(--projects-vibe-gradient);
-    box-shadow:
-      0 0 15px rgb(156 39 176 / 40%),
-      0 0 30px rgb(156 39 176 / 20%);
+      0 0 15px rgb(var(--section-accent-rgb) / 40%),
+      0 0 30px rgb(var(--section-accent-rgb) / 20%);
   }
 }
 

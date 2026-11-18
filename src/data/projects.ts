@@ -1,9 +1,17 @@
-import { Language, Library, type Project, ProjectType, WebsiteType } from '@/types/projects'
+import {
+  Language,
+  Library,
+  type Project,
+  ProjectCategory,
+  ProjectType,
+  WebsiteType,
+} from '@/types/projects'
 
 export const projects: Project[] = [
   {
     type: ProjectType.TOOL,
     identifier: 'badBehavior',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       {
         url: 'https://github.com/RISCfuture/BadBehavior',
@@ -19,6 +27,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'FART',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       {
         url: 'https://github.com/RISCfuture/FART',
@@ -41,6 +50,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'flyweight',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       {
         url: 'https://github.com/FlyWeight-org/Backend',
@@ -63,6 +73,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'closestNDB',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       {
         url: 'https://github.com/RISCfuture/closest-ndb',
@@ -81,6 +92,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'ICrashedMyPlane',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://icrashedmyplane.com', type: WebsiteType.LIVE },
       { url: 'https://github.com/RISCfuture/icrashedmyplane.com', type: WebsiteType.SOURCE },
@@ -93,6 +105,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'learnMorseCode',
+    category: ProjectCategory.APPS,
     websites: [
       { url: 'https://learnmorse.codes', type: WebsiteType.LIVE },
       { url: 'https://github.com/RISCfuture/learnmorse.codes', type: WebsiteType.SOURCE },
@@ -105,6 +118,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'SF50Told',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       {
         url: 'https://github.com/SF50-TOLD/iOS',
@@ -127,6 +141,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftMETAR',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftMETAR', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftMETAR/', type: WebsiteType.DOCS },
@@ -139,6 +154,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftNASR',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftNASR', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftNASR/', type: WebsiteType.DOCS },
@@ -151,6 +167,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'fourtiles',
+    category: ProjectCategory.APPS,
     websites: [
       { url: 'https://github.com/Fourtiles/fourtiles.github.io', type: WebsiteType.SOURCE },
       { url: 'https://fourtiles.github.io', type: WebsiteType.LIVE },
@@ -163,6 +180,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'IPInbound',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/IP-Inbound', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/IP-Inbound/', type: WebsiteType.MARKETING },
@@ -179,6 +197,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftAirmen',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftAirmen', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftAirmen/', type: WebsiteType.DOCS },
@@ -191,6 +210,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftNMEA',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftNMEA', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftNMEA/', type: WebsiteType.DOCS },
@@ -203,6 +223,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'garminACE',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/GarminACE', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/GarminACE/', type: WebsiteType.DOCS },
@@ -215,6 +236,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'approachVisualizer',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/approach-visualizer', type: WebsiteType.SOURCE },
       {
@@ -230,6 +252,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'streamingCSV',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/StreamingCSV', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/StreamingCSV/', type: WebsiteType.DOCS },
@@ -242,6 +265,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'streamingLZMA',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/StreamingLZMA', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/StreamingLZMA/', type: WebsiteType.DOCS },
@@ -254,6 +278,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftCIFP',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftCIFP', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftCIFP/', type: WebsiteType.DOCS },
@@ -266,6 +291,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftGeographic',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftGeographic', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftGeographic/', type: WebsiteType.DOCS },
@@ -278,6 +304,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftDOF',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftDOF', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftDOF/', type: WebsiteType.DOCS },
@@ -290,6 +317,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftR2',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftR2', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftR2/', type: WebsiteType.DOCS },
@@ -302,6 +330,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftACD',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftACD', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftACD/', type: WebsiteType.DOCS },
@@ -314,6 +343,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'gitHubUpdateChecker',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/GitHubUpdateChecker', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/GitHubUpdateChecker/', type: WebsiteType.DOCS },
@@ -326,6 +356,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'CTAHelper',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/CTA-Helper/iOS', type: WebsiteType.SOURCE },
       { url: 'https://cta-helper.github.io/iOS/', type: WebsiteType.MARKETING },
@@ -342,6 +373,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'SubTrack',
+    category: ProjectCategory.APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/SubTrack', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SubTrack/', type: WebsiteType.MARKETING },
@@ -358,6 +390,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'zili',
+    category: ProjectCategory.APPS,
     websites: [
       { url: 'https://github.com/HSK-Hanzi/iOS', type: WebsiteType.SOURCE },
       { url: 'https://hsk-hanzi.github.io/iOS/', type: WebsiteType.MARKETING },
@@ -374,6 +407,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'zephyr',
+    category: ProjectCategory.APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/Zephyr', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/Zephyr/', type: WebsiteType.MARKETING },
@@ -390,6 +424,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'measurementKit',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/MeasurementKit', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/MeasurementKit/', type: WebsiteType.DOCS },
@@ -402,6 +437,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'xcuiTestKit',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/XCUITestKit', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/XCUITestKit/', type: WebsiteType.DOCS },
@@ -414,6 +450,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftGeomagnetism',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftGeomagnetism', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftGeomagnetism/', type: WebsiteType.DOCS },
@@ -426,6 +463,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'swiftAIXM',
+    category: ProjectCategory.AVIATION_LIBRARIES,
     websites: [
       { url: 'https://github.com/RISCfuture/SwiftAIXM', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/SwiftAIXM/', type: WebsiteType.DOCS },
@@ -438,6 +476,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.LIBRARY,
     identifier: 'xcuiPromoKit',
+    category: ProjectCategory.DEVELOPER_TOOLS,
     websites: [
       { url: 'https://github.com/RISCfuture/XCUIPromoKit', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/XCUIPromoKit/', type: WebsiteType.DOCS },
@@ -450,6 +489,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.APP,
     identifier: 'logTenAssistant',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/LogTen-Assistant', type: WebsiteType.SOURCE },
       { url: 'https://riscfuture.github.io/LogTen-Assistant/', type: WebsiteType.MARKETING },
@@ -466,6 +506,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.WEBSITE,
     identifier: 'aviationMCP',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/Aviation-MCP', type: WebsiteType.SOURCE },
       { url: 'https://aviation-mcp.org', type: WebsiteType.LIVE },
@@ -478,6 +519,7 @@ export const projects: Project[] = [
   {
     type: ProjectType.PLUGIN,
     identifier: 'c525N1Computer',
+    category: ProjectCategory.AVIATION_APPS,
     websites: [
       { url: 'https://github.com/RISCfuture/c525-n1-computer', type: WebsiteType.SOURCE },
       {

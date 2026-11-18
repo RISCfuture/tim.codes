@@ -89,9 +89,12 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: 'Trad-Coded',
-      vibeCoded: 'Vibe-Coded',
+      aviationApps: 'Apps et outils aéronautiques',
+      apps: 'Apps et jeux',
+      aviationLibraries: 'Bibliothèques aéronautiques',
+      developerTools: 'Bibliothèques et outils pour développeurs',
     },
+    tradCodedRibbon: 'Trad-Coded',
     badBehavior: {
       description:
         "Analyse votre carnet de vol numérique à la recherche d'éventuelles infractions à la réglementation aérienne fédérale",

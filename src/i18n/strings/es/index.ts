@@ -89,9 +89,12 @@ const es: LocaleMessages<DefaultLocaleMessageSchema> = {
   },
   projects: {
     sections: {
-      tradCoded: 'Programación tradicional',
-      vibeCoded: 'Programación con IA',
+      aviationApps: 'Apps y herramientas de aviación',
+      apps: 'Apps y juegos',
+      aviationLibraries: 'Bibliotecas de aviación',
+      developerTools: 'Bibliotecas y herramientas para desarrolladores',
     },
+    tradCodedRibbon: 'Tradicional',
     badBehavior: {
       description:
         'Examina tu cuaderno de vuelo digital en busca de posibles infracciones de la normativa federal de aviación',
