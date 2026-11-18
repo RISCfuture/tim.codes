@@ -64,6 +64,12 @@ const base: LocaleMessages<DefaultLocaleMessageSchema> = {
     zephyr: { name: 'Zephyr' },
     measurementKit: { name: 'MeasurementKit' },
     xcuiTestKit: { name: 'XCUITestKit' },
+    swiftGeomagnetism: { name: 'SwiftGeomagnetism' },
+    swiftAIXM: { name: 'SwiftAIXM' },
+    xcuiPromoKit: { name: 'XCUIPromoKit' },
+    logTenAssistant: { name: 'LogTen Assistant' },
+    aviationMCP: { name: 'Aviation MCP' },
+    c525N1Computer: { name: 'Safe Flight N1 Computer' },
   },
   resume: {
     timeRange: '{start}–{end}',

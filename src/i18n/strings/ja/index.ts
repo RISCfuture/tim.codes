@@ -61,6 +61,7 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
     type: {
       app: 'アプリ',
       library: 'ライブラリ',
+      plugin: 'プラグイン',
       tool: 'ツール',
       website: 'ウェブサイト',
     },
@@ -74,6 +75,7 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
     language: {
       CSS: 'CSS',
       HTML: 'HTML',
+      cpp: 'C++',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
@@ -81,6 +83,7 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
     library: {
       rails: 'Ruby on Rails',
       swiftUI: 'SwiftUI',
+      vapor: 'Vapor',
       vueJS: 'Vue.js',
     },
   },
@@ -307,6 +310,59 @@ const ja: LocaleMessages<DefaultLocaleMessageSchema> = {
         '遅い CI での不安定さの主因であるアクセシビリティサーバーの障害から、アプリを再起動して再試行することで復帰します',
         'フレームが安定してからのタップとキーボードフォーカスの検証により、操作の不安定さの主な原因を取り除きます',
         'タイムアウトは環境変数で倍率を変えられるため、同じテストがローカルでは速く、CI では辛抱強く動きます',
+      ],
+    },
+    swiftGeomagnetism: {
+      description:
+        'World Magnetic Model に基づく、Swift 向けの磁気偏角・伏角・磁場強度の計算ライブラリ',
+      achievements: [
+        'WMM2025 を同梱し、NOAA 形式の係数ファイルも読み込めるため、将来のモデルもライブラリの更新なしで使えます',
+        'オプションのライブラリで高解像度の WMMHR2025 を追加でき、使わないアプリのサイズは増えません',
+        'NOAA が公開するテスト値で検証済みで、Apple シリコン上では 1 回の計算が約 0.6 µs です',
+      ],
+    },
+    swiftAIXM: {
+      description:
+        'AIXM 5.1 と open flightmaps の OFMX データセットから飛行場・滑走路・障害物を読み込む Swift ライブラリ',
+      achievements: [
+        '英国 AIP のような数百 MB のデータセットも、メモリに保持せずストリーミングで読み込みます',
+        'AIXM 5.1 と AIXM 4.5 の方言である OFMX を、Measurement と enum で構成された共通の Codable モデルに読み込みます',
+        '任意の発効日について AIXM の time slice を解決し、AIXM コードリストにないコードは受け入れずに報告します',
+      ],
+    },
+    xcuiPromoKit: {
+      description:
+        'アプリ自身の UI テストから App Store 用のプレビューとスクリーンショットを作り、Apple の規定に照らして検査するツール',
+      achievements: [
+        'スクリプト化した XCUITest 実行のうち残す区間を指定し、タッチを記録して静止画を取得します',
+        'JSON のストーリーボードから Remotion でアプリプレビューとキャプション付きスクリーンショットを生成し、アプリ自身の CSS で装飾します',
+        'アップロード前に、文言・ストーリーボード・生成したメディアを Apple の要件と照合します',
+      ],
+    },
+    logTenAssistant: {
+      description:
+        'LogTen の航空日誌を、記録された飛行データおよび 14 CFR part 61 の資格維持要件と照合する Mac アプリ',
+      achievements: [
+        '日誌の記録同士、スマートグループ、FlySto と ADS-B の航跡を相互に照合します',
+        '修正案は確認・バックアップのうえ LogTen 自身のインポート機能で適用され、その後検証されます',
+        'part 61 の 11 項目の資格維持要件に違反するフライトを一覧にし、日誌はスナップショットのコピーだけを読み取ります',
+      ],
+    },
+    aviationMCP: {
+      description: 'AI アシスタントに FAA の航空データと性能計画を提供する公開 MCP サーバー',
+      achievements: [
+        '21 のツールで空港、航法、方式、空域、障害物、気象、NOTAM、地形を扱います',
+        'Cirrus SF50 と SR22 の離陸・着陸・上昇性能を計算します',
+        'データソースの一部しか解析できない場合も有効なレコードは保持し、カバー範囲が部分的であることを示します',
+      ],
+    },
+    c525N1Computer: {
+      description:
+        'TorqueSim CitationJet 525 向けに Safe Flight N1 Computer を再現した X-Plane 12 プラグイン',
+      achievements: [
+        'ラム空気温度と気圧高度を読み取り、飛行規程の推力スケジュールを参照します',
+        'FAA が承認した Cessna 525 飛行規程補足に記載された動作を再現します',
+        'macOS・Windows・Linux で動作し、SkunkCrafts Updater で自動的に最新の状態に保たれます',
       ],
     },
   },

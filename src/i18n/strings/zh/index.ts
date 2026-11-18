@@ -61,6 +61,7 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
     type: {
       app: '应用',
       library: '库',
+      plugin: '插件',
       tool: '工具',
       website: '网站',
     },
@@ -74,6 +75,7 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
     language: {
       CSS: 'CSS',
       HTML: 'HTML',
+      cpp: 'C++',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
@@ -81,6 +83,7 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
     library: {
       rails: 'Ruby on Rails',
       swiftUI: 'SwiftUI',
+      vapor: 'Vapor',
       vueJS: 'Vue.js',
     },
   },
@@ -288,6 +291,55 @@ const zh: LocaleMessages<DefaultLocaleMessageSchema> = {
         '通过重启应用并重试，从辅助功能服务器故障中恢复——这正是缓慢 CI 上多数测试抖动的根源',
         '等画面稳定后再点击，并断言键盘已获得焦点，消除交互不稳定的最常见成因',
         '超时时间由环境变量按倍数缩放，同一套测试在本地跑得快，在 CI 上则更有耐心',
+      ],
+    },
+    swiftGeomagnetism: {
+      description: '基于 World Magnetic Model 的 Swift 磁偏角、磁倾角与磁场强度库',
+      achievements: [
+        '内置 WMM2025，并可加载任意 NOAA 系数文件，未来的模型无需更新库即可使用',
+        '可选库提供高分辨率的 WMMHR2025，不使用它的应用不会因此变大',
+        '已用 NOAA 公布的测试值验证，在 Apple 芯片上每次计算约 0.6 µs',
+      ],
+    },
+    swiftAIXM: {
+      description: '从 AIXM 5.1 和 open flightmaps OFMX 数据集读取机场、跑道和障碍物的 Swift 库',
+      achievements: [
+        '以流式方式读取数百 MB 的数据集（如英国 AIP），无需将其全部载入内存',
+        '将 AIXM 5.1 和 AIXM 4.5 的 OFMX 方言读入同一个由 Measurement 和 enum 构成的 Codable 模型',
+        '按任意生效日期解析 AIXM time slice，遇到 AIXM 代码表之外的代码会报告而非接受',
+      ],
+    },
+    xcuiPromoKit: {
+      description: '用应用自身的 UI 测试制作 App Store 预览和截图，并按 Apple 的规则进行检查',
+      achievements: [
+        '标记脚本化 XCUITest 运行中需要保留的片段，记录触摸并截取静态图',
+        '用 Remotion 根据 JSON 故事板渲染应用预览和带说明文字的截图，样式取自应用自己的 CSS',
+        '在上传之前，按 Apple 的要求检查文案、故事板和渲染出的媒体',
+      ],
+    },
+    logTenAssistant: {
+      description:
+        '一款 Mac 应用，将 LogTen 飞行日志与记录的飞行数据及 14 CFR part 61 近期经历要求进行比对',
+      achievements: [
+        '将日志记录相互比对，并与日志的智能分组以及 FlySto 和 ADS-B 航迹比对',
+        '建议的修正经审阅、备份后通过 LogTen 自带的导入功能应用，随后再加以核验',
+        '列出违反 part 61 十一项近期经历要求中任意一项的航班，且只读取日志的快照副本',
+      ],
+    },
+    aviationMCP: {
+      description: '为 AI 助手提供 FAA 航空数据和性能规划的公共 MCP 服务器',
+      achievements: [
+        '21 个工具涵盖机场、导航、程序、空域、障碍物、天气、NOTAM 和地形',
+        '为 Cirrus SF50 和 SR22 计算起飞、着陆和爬升性能',
+        '数据源只能部分解析时保留有效记录，并标明其覆盖范围不完整',
+      ],
+    },
+    c525N1Computer: {
+      description: '为 TorqueSim CitationJet 525 在 X-Plane 12 中重现的 Safe Flight N1 Computer',
+      achievements: [
+        '读取冲压空气温度和气压高度，并查阅飞行手册中的推力表',
+        '重现经 FAA 批准的 Cessna 525 飞行手册补充资料中描述的行为',
+        '支持 macOS、Windows 和 Linux，并通过 SkunkCrafts Updater 自动保持最新',
       ],
     },
   },

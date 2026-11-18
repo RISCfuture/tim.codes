@@ -61,6 +61,7 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
     type: {
       app: 'application',
       library: 'bibliothèque',
+      plugin: 'plugin',
       tool: 'outil',
       website: 'site web',
     },
@@ -74,6 +75,7 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
     language: {
       CSS: 'CSS',
       HTML: 'HTML',
+      cpp: 'C++',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
@@ -81,6 +83,7 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
     library: {
       rails: 'Ruby on Rails',
       swiftUI: 'SwiftUI',
+      vapor: 'Vapor',
       vueJS: 'Vue.js',
     },
   },
@@ -322,6 +325,60 @@ const fr: LocaleMessages<DefaultLocaleMessageSchema> = {
         "Se remet des défaillances du serveur d'accessibilité, à l'origine de la plupart des tests instables sur CI lente, en relançant l'application et en réessayant",
         'Les appuis à cadre stabilisé et les vérifications du focus clavier suppriment les causes les plus courantes d’interactions instables',
         'Les délais d’attente se règlent par une variable d’environnement, si bien que la même suite est rapide en local et patiente sur CI',
+      ],
+    },
+    swiftGeomagnetism: {
+      description:
+        'Déclinaison, inclinaison et intensité magnétiques pour Swift, issues du World Magnetic Model',
+      achievements: [
+        'Intègre WMM2025 et charge n’importe quel fichier de coefficients de la NOAA : un futur modèle fonctionne sans mise à jour de la bibliothèque',
+        'Une bibliothèque facultative ajoute le WMMHR2025 haute résolution sans alourdir les apps qui s’en passent',
+        'Validée sur les valeurs de test publiées par la NOAA, à environ 0,6 µs par évaluation sur Apple silicon',
+      ],
+    },
+    swiftAIXM: {
+      description:
+        'Lit les aérodromes, pistes et obstacles des jeux de données AIXM 5.1 et OFMX d’open flightmaps',
+      achievements: [
+        'Lit en streaming des jeux de données de plusieurs centaines de mégaoctets, comme l’AIP britannique, sans les garder en mémoire',
+        'Lit AIXM 5.1 et le dialecte OFMX d’AIXM 4.5 dans un même modèle Codable fait de Measurements et d’enums',
+        'Résout les time slices AIXM pour n’importe quelle date d’entrée en vigueur et signale les codes absents des listes AIXM au lieu de les accepter',
+      ],
+    },
+    xcuiPromoKit: {
+      description:
+        'Produit les aperçus et captures d’écran App Store à partir des tests d’interface de l’app, et les vérifie selon les règles d’Apple',
+      achievements: [
+        'Repère les passages à conserver d’une exécution XCUITest scriptée, en journalisant les touchers et en capturant des images fixes',
+        'Génère aperçus et captures légendées avec Remotion à partir d’un storyboard JSON, mis en forme par le CSS de l’app',
+        'Vérifie les textes, le storyboard et les médias générés au regard des exigences d’Apple avant tout envoi',
+      ],
+    },
+    logTenAssistant: {
+      description:
+        'Une app Mac qui confronte un carnet de vol LogTen aux données de vol enregistrées et aux règles d’expérience récente de 14 CFR part 61',
+      achievements: [
+        'Compare les entrées du carnet entre elles, avec ses groupes intelligents et avec les traces FlySto et ADS-B',
+        'Les corrections proposées sont relues, sauvegardées, appliquées via l’import de LogTen, puis vérifiées',
+        'Liste les vols qui enfreignent l’une des onze règles d’expérience récente de part 61, en ne lisant que des copies instantanées du carnet',
+      ],
+    },
+    aviationMCP: {
+      description:
+        'Un serveur MCP public qui fournit aux assistants d’IA les données aéronautiques de la FAA et la planification des performances',
+      achievements: [
+        '21 outils couvrent aérodromes, navigation, procédures, espace aérien, obstacles, météo, NOTAM et relief',
+        'Calcule les performances au décollage, à l’atterrissage et en montée du Cirrus SF50 et du SR22',
+        'Conserve les enregistrements valides lorsqu’une source n’est que partiellement lue, et signale sa couverture comme partielle',
+      ],
+    },
+    c525N1Computer: {
+      description:
+        'Une recréation pour X-Plane 12 du Safe Flight N1 Computer du TorqueSim CitationJet 525',
+      achievements: [
+        'Lit la température d’air dynamique et l’altitude-pression, puis consulte la table de poussée du manuel de vol',
+        'Reproduit le comportement décrit dans le supplément au manuel de vol du Cessna 525 approuvé par la FAA',
+        'Fonctionne sous macOS, Windows et Linux, et se met à jour via SkunkCrafts Updater',
       ],
     },
   },

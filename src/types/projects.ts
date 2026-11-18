@@ -14,6 +14,9 @@ export enum ProjectType {
 
   /** A command-line tool. */
   TOOL = 'tool',
+
+  /** An extension loaded by a host application. */
+  PLUGIN = 'plugin',
 }
 
 /**
@@ -46,6 +49,7 @@ export enum Language {
   HTML = 'HTML' /** < HTML */,
   CSS = 'CSS' /** < CSS, Sass, SCSS */,
   SWIFT = 'swift' /** < Swift */,
+  CPP = 'cpp' /** < C++ */,
 }
 
 /**
@@ -56,6 +60,7 @@ export enum Library {
   RAILS = 'rails' /** < Ruby on Rails (Ruby) */,
   SWIFTUI = 'swiftUI' /** < SwiftUI (Swift) */,
   VUEJS = 'vueJS' /** < Vue.js (JavaScript) */,
+  VAPOR = 'vapor' /** < Vapor (Swift) */,
 }
 
 /**

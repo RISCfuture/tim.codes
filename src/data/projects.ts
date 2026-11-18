@@ -411,4 +411,83 @@ export const projects: Project[] = [
     featured: false,
     vibeCoded: true,
   },
+  {
+    type: ProjectType.LIBRARY,
+    identifier: 'swiftGeomagnetism',
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftGeomagnetism', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftGeomagnetism/', type: WebsiteType.DOCS },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.LIBRARY,
+    identifier: 'swiftAIXM',
+    websites: [
+      { url: 'https://github.com/RISCfuture/SwiftAIXM', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/SwiftAIXM/', type: WebsiteType.DOCS },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.LIBRARY,
+    identifier: 'xcuiPromoKit',
+    websites: [
+      { url: 'https://github.com/RISCfuture/XCUIPromoKit', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/XCUIPromoKit/', type: WebsiteType.DOCS },
+    ],
+    languages: [Language.SWIFT, Language.TYPESCRIPT],
+    libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.APP,
+    identifier: 'logTenAssistant',
+    websites: [
+      { url: 'https://github.com/RISCfuture/LogTen-Assistant', type: WebsiteType.SOURCE },
+      { url: 'https://riscfuture.github.io/LogTen-Assistant/', type: WebsiteType.MARKETING },
+      {
+        url: 'https://github.com/RISCfuture/LogTen-Assistant/releases/latest',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.SWIFTUI],
+    featured: false,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.WEBSITE,
+    identifier: 'aviationMCP',
+    websites: [
+      { url: 'https://github.com/RISCfuture/Aviation-MCP', type: WebsiteType.SOURCE },
+      { url: 'https://aviation-mcp.org', type: WebsiteType.LIVE },
+    ],
+    languages: [Language.SWIFT],
+    libraries: [Library.VAPOR],
+    featured: true,
+    vibeCoded: true,
+  },
+  {
+    type: ProjectType.PLUGIN,
+    identifier: 'c525N1Computer',
+    websites: [
+      { url: 'https://github.com/RISCfuture/c525-n1-computer', type: WebsiteType.SOURCE },
+      {
+        url: 'https://github.com/RISCfuture/c525-n1-computer/releases/latest',
+        type: WebsiteType.DOWNLOAD,
+      },
+    ],
+    languages: [Language.CPP],
+    libraries: [],
+    featured: false,
+    vibeCoded: true,
+  },
 ]

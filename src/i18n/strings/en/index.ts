@@ -62,6 +62,7 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     type: {
       app: 'app',
       library: 'library',
+      plugin: 'plugin',
       tool: 'tool',
       website: 'website',
     },
@@ -75,6 +76,7 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     language: {
       CSS: 'CSS',
       HTML: 'HTML',
+      cpp: 'C++',
       ruby: 'Ruby',
       swift: 'Swift',
       typeScript: 'TypeScript',
@@ -82,6 +84,7 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
     library: {
       rails: 'Ruby on Rails',
       swiftUI: 'SwiftUI',
+      vapor: 'Vapor',
       vueJS: 'Vue.js',
     },
   },
@@ -313,6 +316,60 @@ const en: LocaleMessages<DefaultLocaleMessageSchema> = {
         'Recovers from the accessibility-server failures that cause most slow-CI flakes by relaunching the app and retrying',
         'Frame-stability tapping and keyboard-focus assertions remove the most common sources of flaky interaction',
         'Timeouts scale from an environment variable, so one suite runs fast locally and patiently under CI',
+      ],
+    },
+    swiftGeomagnetism: {
+      description:
+        'Magnetic declination, inclination, and field intensity for Swift, from the World Magnetic Model',
+      achievements: [
+        'Bundles WMM2025 and loads any NOAA coefficient file, so a future model works without a library update',
+        'An optional library adds the high-resolution WMMHR2025 without enlarging apps that skip it',
+        'Validated against NOAA’s published test values, at about 0.6 µs per evaluation on Apple silicon',
+      ],
+    },
+    swiftAIXM: {
+      description:
+        'Reads aerodromes, runways, and obstacles from AIXM 5.1 and open flightmaps OFMX data sets',
+      achievements: [
+        'Streams data sets of several hundred megabytes, such as the UK AIP, without holding them in memory',
+        'Reads AIXM 5.1 and the OFMX dialect of AIXM 4.5 into one Codable model built from Measurements and enums',
+        'Resolves AIXM time slices for any effective date, and reports codes outside the AIXM code lists instead of accepting them',
+      ],
+    },
+    xcuiPromoKit: {
+      description:
+        'Makes App Store previews and screenshots from an app’s own UI tests, and checks them against Apple’s rules',
+      achievements: [
+        'Marks the stretches of a scripted XCUITest run worth keeping, logging touches and capturing stills',
+        'Renders app previews and captioned screenshots with Remotion from a JSON storyboard, styled by the app’s own CSS',
+        'Checks the copy, the storyboard, and the rendered media against Apple’s requirements before anything is uploaded',
+      ],
+    },
+    logTenAssistant: {
+      description:
+        'A Mac app that audits a LogTen logbook against recorded flight data and the 14 CFR part 61 currency rules',
+      achievements: [
+        'Compares logbook entries with each other, with the logbook’s smart groups, and with FlySto and ADS-B tracks',
+        'Proposed fixes are reviewed, backed up, applied through LogTen’s own import, and then verified',
+        'Lists flights that break any of eleven part 61 pilot-currency rules, reading only snapshot copies of the logbook',
+      ],
+    },
+    aviationMCP: {
+      description:
+        'A public MCP server that gives AI assistants FAA aviation data and aircraft performance planning',
+      achievements: [
+        '21 tools cover airports, navigation, procedures, airspace, obstacles, weather, NOTAMs, and terrain',
+        'Plans takeoff, landing, and climb performance for the Cirrus SF50 and SR22',
+        'Keeps the valid records when a source only partly parses, and flags its coverage as partial',
+      ],
+    },
+    c525N1Computer: {
+      description:
+        'An X-Plane 12 recreation of the Safe Flight N1 Computer for the TorqueSim CitationJet 525',
+      achievements: [
+        'Reads ram air temperature and pressure altitude and looks up the flight manual’s thrust schedule',
+        'Models the behavior described in the FAA-approved Cessna 525 flight manual supplement',
+        'Runs on macOS, Windows, and Linux, and keeps itself up to date through SkunkCrafts Updater',
       ],
     },
   },
